@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: #F5F0E8;
+    color: #1A3C34;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-jakarta), var(--font-sora), sans-serif;
+  }
+}
+
+.font-display {
+  font-family: var(--font-jakarta), sans-serif;
+}
+
+.font-sora {
+  font-family: var(--font-sora), sans-serif;
+}
+
+/* Float animation for hero UI cards */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes float-delayed {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float-slow 4s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 5s ease-in-out 1.5s infinite;
+}
+
+/* Custom hide scrollbar for carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Soft warm shadow */
+.shadow-warm {
+  box-shadow: 0 10px 30px -5px rgba(26, 60, 52, 0.08), 0 4px 12px -2px rgba(200, 155, 42, 0.05);
+}
+
+.shadow-warm-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.shadow-warm-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -6px rgba(26, 60, 52, 0.12), 0 8px 16px -4px rgba(200, 155, 42, 0.08);
+}

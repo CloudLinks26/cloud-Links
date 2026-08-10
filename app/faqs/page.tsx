@@ -1,0 +1,11 @@
+import type { Metadata } from 'next';
+import FAQsContent from './_components/FAQsContent';
+
+export const metadata: Metadata = {
+  title: 'FAQs | LinkX',
+  description: 'Frequently Asked Questions about LinkX platform, payments, and tracking.',
+};
+
+export default function Page() {
+  return <FAQsContent />;
+}
