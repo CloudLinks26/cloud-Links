@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 
 const BASE_URL = 'https://cloudlinks.in';
 
-const CAMPAIGN_SLUGS = ['haldiram', 'ghar-soaps', 'swiss-beauty', 'asaya'];
+const CAMPAIGN_SLUGS = ['haldiram', 'ghar-soaps', 'swiss-beauty-affiliate-program', 'asaya'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

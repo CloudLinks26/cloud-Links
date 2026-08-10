@@ -74,7 +74,7 @@ export default function CampaignsContent() {
       logo: 'https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/4_dy9x7w.png',
     },
     {
-      id: 'swiss-beauty',
+      id: 'swiss-beauty-affiliate-program',
       name: 'Swiss Beauty',
       commission: '15%',
       label: 'Up to',
@@ -112,7 +112,7 @@ export default function CampaignsContent() {
       logo: 'https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/4_dy9x7w.png',
     },
     {
-      id: 'swiss-beauty',
+      id: 'swiss-beauty-affiliate-program',
       name: 'Swiss Beauty',
       category: 'Cosmetics',
       type: 'CPS',

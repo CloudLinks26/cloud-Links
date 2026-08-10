@@ -86,19 +86,19 @@ export default function HomePageContent() {
       number: '1',
       icon: Search,
       title: 'Choose a Brand',
-      description: 'Browse 500+ brand campaigns and pick the ones that match your audience and content style.',
+      description: 'Find brands you want to promote.',
     },
     {
       number: '2',
       icon: LinkIcon,
-      title: 'Get Your Link',
-      description: 'Generate your unique, monetized affiliate link in one click using our instant converter.',
+      title: 'Get Your Affiliate Link',
+      description: 'Create a unique link in seconds.',
     },
     {
       number: '3',
       icon: Share2,
       title: 'Promote & Earn',
-      description: 'Share anywhere — Instagram stories, WhatsApp groups, YouTube, Blog — and earn on every sale.',
+      description: 'Drive conversions and earn commissions.',
     },
   ];
 
@@ -175,12 +175,13 @@ export default function HomePageContent() {
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-display leading-[1.1] tracking-tight">
-                <span className="text-[#1A3C34] block">Share Links.</span>
-                <span className="text-[#C89B2A] block mt-1">Make Money.</span>
+                <span className="text-[#1A3C34] block">A Smarter Way to </span>
+                <span className="text-[#C89B2A] block mt-1">Connect, Promote & Earn </span>
               </h1>
 
               <p className="text-base sm:text-lg text-[#6B6355] max-w-xl font-normal leading-relaxed">
-                Join thousands of creators and earn high commissions by promoting brands you love — Myntra, boAt, MakeMyTrip, Amazon, and 500+ top Indian stores.
+                One of the Best Affiliate Marketing Platforms for Influencers, Bloggers, Creators & Publishers 
+
               </p>
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
@@ -188,7 +189,7 @@ export default function HomePageContent() {
                   onClick={() => onOpenAuth('signup', 'creator')}
                   className="px-7 py-4 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-base transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group"
                 >
-                  <span>Start Earning Now</span>
+                  <span>Start Your Affiliate Journey in 3 Simple Steps</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
 
@@ -206,7 +207,8 @@ export default function HomePageContent() {
               <div className="p-3.5 bg-[#FDFAF4] rounded-xl border border-[#E8E2D6] shadow-sm flex items-center justify-between gap-3 max-w-lg">
                 <div className="flex items-center gap-2.5 text-xs text-[#1A3C34] font-medium">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-                  <span>Got a Myntra or boAt link? Convert it into an affiliate link now.</span>
+                  <span>Find the right brands, create trackable affiliate links, and turn your audience into measurable results.
+</span>
                 </div>
                 <button
                   onClick={() => onOpenLinkGen()}
@@ -957,91 +959,88 @@ export default function HomePageContent() {
       </section>
 
       {/* 7. LINKX TOOLS & FEATURES (SECTION C) */}
-      <section id="tools-features" className="py-20 bg-[#1A3C34] text-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-white">
-              Why Choose <span className="text-[#C89B2A]">LinkX?</span>
-            </h2>
-            <div className="w-16 h-1 bg-[#C89B2A] rounded-full mx-auto" />
-            <p className="text-sm sm:text-base text-[#E8E2D6]/80 font-medium pt-1">
-              Powerful tools to grow your earnings — all completely free
-            </p>
-          </div>
+      {/* 7. LINKX TOOLS & FEATURES (SECTION C) */}
+<section id="tools-features" className="py-20 bg-[#1A3C34] text-white relative overflow-hidden">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
+    <div className="text-center max-w-2xl mx-auto space-y-3">
+      <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-white">
+        Why Choose <span className="text-[#C89B2A]">CloudsLink?</span>
+      </h2>
+      <div className="w-16 h-1 bg-[#C89B2A] rounded-full mx-auto" />
+      <p className="text-sm sm:text-base text-[#E8E2D6]/80 font-medium pt-1">
+        Everything you need to discover better campaigns, drive conversions, and grow your affiliate revenue.
+      </p>
+    </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-[#234D42] rounded-2xl p-6 sm:p-8 space-y-4 text-center border border-white/10 hover:border-t-4 hover:border-t-[#C89B2A] hover:-translate-y-2 transition-all duration-300 shadow-xl group">
-              <div className="w-14 h-14 rounded-2xl bg-[#1A3C34] text-[#C89B2A] border border-[#C89B2A]/30 flex items-center justify-center mx-auto shadow-md group-hover:scale-110 transition-transform">
-                <Link2 className="w-7 h-7" />
-              </div>
-              <h3 className="font-display font-extrabold text-xl text-white">Smart Links</h3>
-              <p className="text-xs sm:text-sm text-[#E8E2D6]/80 leading-relaxed">
-                Generate branded short links for any campaign instantly with custom tracking parameters.
-              </p>
-            </div>
-
-            <div className="bg-[#234D42] rounded-2xl p-6 sm:p-8 space-y-4 text-center border border-white/10 hover:border-t-4 hover:border-t-[#C89B2A] hover:-translate-y-2 transition-all duration-300 shadow-xl group">
-              <div className="w-14 h-14 rounded-2xl bg-[#1A3C34] text-[#C89B2A] border border-[#C89B2A]/30 flex items-center justify-center mx-auto shadow-md group-hover:scale-110 transition-transform">
-                <Smartphone className="w-7 h-7" />
-              </div>
-              <h3 className="font-display font-extrabold text-xl text-white">Mobile App</h3>
-              <p className="text-xs sm:text-sm text-[#E8E2D6]/80 leading-relaxed">
-                Manage everything from your phone — create links, monitor sales, and withdraw payouts anywhere, anytime.
-              </p>
-            </div>
-
-            <div className="bg-[#234D42] rounded-2xl p-6 sm:p-8 space-y-4 text-center border border-white/10 hover:border-t-4 hover:border-t-[#C89B2A] hover:-translate-y-2 transition-all duration-300 shadow-xl group">
-              <div className="w-14 h-14 rounded-2xl bg-[#1A3C34] text-[#C89B2A] border border-[#C89B2A]/30 flex items-center justify-center mx-auto shadow-md group-hover:scale-110 transition-transform">
-                <Globe className="w-7 h-7" />
-              </div>
-              <h3 className="font-display font-extrabold text-xl text-white">Chrome Extension</h3>
-              <p className="text-xs sm:text-sm text-[#E8E2D6]/80 leading-relaxed">
-                Generate affiliate links from any product page on Amazon, Flipkart, or Myntra in a single click.
-              </p>
-            </div>
-
-            <div className="bg-[#234D42] rounded-2xl p-6 sm:p-8 space-y-4 text-center border border-white/10 hover:border-t-4 hover:border-t-[#C89B2A] hover:-translate-y-2 transition-all duration-300 shadow-xl group">
-              <div className="w-14 h-14 rounded-2xl bg-[#1A3C34] text-[#C89B2A] border border-[#C89B2A]/30 flex items-center justify-center mx-auto shadow-md group-hover:scale-110 transition-transform">
-                <Send className="w-7 h-7" />
-              </div>
-              <h3 className="font-display font-extrabold text-xl text-white">Telegram Bot</h3>
-              <p className="text-xs sm:text-sm text-[#E8E2D6]/80 leading-relaxed">
-                Get high-converting deal alerts and convert product links automatically directly inside Telegram.
-              </p>
-            </div>
-
-            <div className="bg-[#234D42] rounded-2xl p-6 sm:p-8 space-y-4 text-center border border-white/10 hover:border-t-4 hover:border-t-[#C89B2A] hover:-translate-y-2 transition-all duration-300 shadow-xl group">
-              <div className="w-14 h-14 rounded-2xl bg-[#1A3C34] text-[#C89B2A] border border-[#C89B2A]/30 flex items-center justify-center mx-auto shadow-md group-hover:scale-110 transition-transform">
-                <Code2 className="w-7 h-7" />
-              </div>
-              <h3 className="font-display font-extrabold text-xl text-white">WordPress Plugin</h3>
-              <p className="text-xs sm:text-sm text-[#E8E2D6]/80 leading-relaxed">
-                Auto-convert all standard product links on your blog or website to high-paying affiliate links seamlessly.
-              </p>
-            </div>
-
-            <div className="bg-[#234D42] rounded-2xl p-6 sm:p-8 space-y-4 text-center border border-white/10 hover:border-t-4 hover:border-t-[#C89B2A] hover:-translate-y-2 transition-all duration-300 shadow-xl group">
-              <div className="w-14 h-14 rounded-2xl bg-[#1A3C34] text-[#C89B2A] border border-[#C89B2A]/30 flex items-center justify-center mx-auto shadow-md group-hover:scale-110 transition-transform">
-                <Package className="w-7 h-7" />
-              </div>
-              <h3 className="font-display font-extrabold text-xl text-white">Link Kit</h3>
-              <p className="text-xs sm:text-sm text-[#E8E2D6]/80 leading-relaxed">
-                A complete promotional toolkit featuring pre-made promotional banners, story templates, and deep links.
-              </p>
-            </div>
-          </div>
-
-          <div className="text-center pt-6">
-            <button
-              onClick={() => onOpenAuth('signup', 'creator')}
-              className="border-2 border-[#C89B2A] text-[#C89B2A] hover:bg-[#C89B2A] hover:text-[#1A3C34] font-extrabold text-sm py-3.5 px-8 rounded-xl transition-all inline-flex items-center gap-2 cursor-pointer shadow-md"
-            >
-              <span>Explore All Tools</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* 1. Competitive Commissions */}
+      <div className="bg-[#234D42] rounded-2xl p-6 sm:p-8 space-y-4 text-center border border-white/10 hover:border-t-4 hover:border-t-[#C89B2A] hover:-translate-y-2 transition-all duration-300 shadow-xl group">
+        <div className="w-14 h-14 rounded-2xl bg-[#1A3C34] text-[#C89B2A] border border-[#C89B2A]/30 flex items-center justify-center mx-auto shadow-md group-hover:scale-110 transition-transform">
+          <Link2 className="w-7 h-7" />
         </div>
-      </section>
+        <h3 className="font-display font-extrabold text-xl text-white">Competitive Commissions</h3>
+        <p className="text-xs sm:text-sm text-[#E8E2D6]/80 leading-relaxed">
+          Access affiliate programs with commission structures designed to reward the sales, leads and conversions you generate.
+        </p>
+      </div>
+
+      {/* 2. Reliable Payouts */}
+      <div className="bg-[#234D42] rounded-2xl p-6 sm:p-8 space-y-4 text-center border border-white/10 hover:border-t-4 hover:border-t-[#C89B2A] hover:-translate-y-2 transition-all duration-300 shadow-xl group">
+        <div className="w-14 h-14 rounded-2xl bg-[#1A3C34] text-[#C89B2A] border border-[#C89B2A]/30 flex items-center justify-center mx-auto shadow-md group-hover:scale-110 transition-transform">
+          <Smartphone className="w-7 h-7" />
+        </div>
+        <h3 className="font-display font-extrabold text-xl text-white">Reliable Payouts</h3>
+        <p className="text-xs sm:text-sm text-[#E8E2D6]/80 leading-relaxed">
+          Track your approved commissions and manage your payouts through a simple, transparent system.
+        </p>
+      </div>
+
+      {/* 3. Growing Brand Network */}
+      <div className="bg-[#234D42] rounded-2xl p-6 sm:p-8 space-y-4 text-center border border-white/10 hover:border-t-4 hover:border-t-[#C89B2A] hover:-translate-y-2 transition-all duration-300 shadow-xl group">
+        <div className="w-14 h-14 rounded-2xl bg-[#1A3C34] text-[#C89B2A] border border-[#C89B2A]/30 flex items-center justify-center mx-auto shadow-md group-hover:scale-110 transition-transform">
+          <Globe className="w-7 h-7" />
+        </div>
+        <h3 className="font-display font-extrabold text-xl text-white">Growing Brand Network</h3>
+        <p className="text-xs sm:text-sm text-[#E8E2D6]/80 leading-relaxed">
+          Discover affiliate opportunities across e-commerce, fashion, beauty, travel, electronics, lifestyle and more.
+        </p>
+      </div>
+
+      {/* 4. Real-Time Performance Tracking */}
+      <div className="bg-[#234D42] rounded-2xl p-6 sm:p-8 space-y-4 text-center border border-white/10 hover:border-t-4 hover:border-t-[#C89B2A] hover:-translate-y-2 transition-all duration-300 shadow-xl group">
+        <div className="w-14 h-14 rounded-2xl bg-[#1A3C34] text-[#C89B2A] border border-[#C89B2A]/30 flex items-center justify-center mx-auto shadow-md group-hover:scale-110 transition-transform">
+          <Send className="w-7 h-7" />
+        </div>
+        <h3 className="font-display font-extrabold text-xl text-white">Real-Time Performance Tracking</h3>
+        <p className="text-xs sm:text-sm text-[#E8E2D6]/80 leading-relaxed">
+          Monitor clicks, conversions and commissions from your affiliate campaigns and understand how your traffic performs.
+        </p>
+      </div>
+
+      {/* 5. Promote Across Channels */}
+      <div className="bg-[#234D42] rounded-2xl p-6 sm:p-8 space-y-4 text-center border border-white/10 hover:border-t-4 hover:border-t-[#C89B2A] hover:-translate-y-2 transition-all duration-300 shadow-xl group">
+        <div className="w-14 h-14 rounded-2xl bg-[#1A3C34] text-[#C89B2A] border border-[#C89B2A]/30 flex items-center justify-center mx-auto shadow-md group-hover:scale-110 transition-transform">
+          <Code2 className="w-7 h-7" />
+        </div>
+        <h3 className="font-display font-extrabold text-xl text-white">Promote Across Channels</h3>
+        <p className="text-xs sm:text-sm text-[#E8E2D6]/80 leading-relaxed">
+          Share your affiliate links through your website, blog, social media and other approved promotional channels.
+        </p>
+      </div>
+
+      {/* 6. Dedicated Affiliate Support */}
+      <div className="bg-[#234D42] rounded-2xl p-6 sm:p-8 space-y-4 text-center border border-white/10 hover:border-t-4 hover:border-t-[#C89B2A] hover:-translate-y-2 transition-all duration-300 shadow-xl group">
+        <div className="w-14 h-14 rounded-2xl bg-[#1A3C34] text-[#C89B2A] border border-[#C89B2A]/30 flex items-center justify-center mx-auto shadow-md group-hover:scale-110 transition-transform">
+          <Package className="w-7 h-7" />
+        </div>
+        <h3 className="font-display font-extrabold text-xl text-white">Dedicated Affiliate Support</h3>
+        <p className="text-xs sm:text-sm text-[#E8E2D6]/80 leading-relaxed">
+          Get the guidance you need to navigate campaigns, optimize your promotions and make the most of affiliate marketing.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
    
 
