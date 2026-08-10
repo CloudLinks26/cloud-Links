@@ -92,7 +92,7 @@ export const Navbar: React.FC = () => {
               Payouts
             </Link>
             <Link
-              href="/resources"
+              href="/blog"
               className={`text-base font-semibold transition-colors ${pathname === '/resources' ? 'text-[#C89B2A]' : 'text-[#1A3C34] hover:text-[#C89B2A]'
                 }`}
             >
@@ -193,14 +193,14 @@ export const Navbar: React.FC = () => {
               Payouts
             </Link>
             <Link
-              href="/resources"
+              href="/blog"
               onClick={() => setMobileMenuOpen(false)}
               className="p-3.5 text-left bg-white rounded-xl border border-[#E8E2D6] hover:border-[#C89B2A]"
             >
               Resources
             </Link>
             <Link
-              href="/about"
+              href="/about-us"
               onClick={() => setMobileMenuOpen(false)}
               className="p-3.5 text-left bg-white rounded-xl border border-[#E8E2D6] hover:border-[#C89B2A] col-span-2"
             >

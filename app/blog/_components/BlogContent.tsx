@@ -5,7 +5,7 @@ import { BookOpen, Clock, ArrowRight, X, Sparkles, HelpCircle } from 'lucide-rea
 import { BLOG_POSTS } from '@/data/mockData';
 import { BlogPost } from '@/types';
 
-export const ResourcesContent: React.FC = () => {
+export const BlogContent: React.FC = () => {
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
 
   const faqs = [
@@ -170,4 +170,4 @@ export const ResourcesContent: React.FC = () => {
   );
 };
 
-export default ResourcesContent;
+export default BlogContent;

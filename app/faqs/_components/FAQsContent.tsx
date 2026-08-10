@@ -840,7 +840,7 @@ export default function FAQsContent() {
                     <p className="text-[10px] text-[#6B6355] font-semibold">Step-by-step tutorials</p>
                   </div>
                   <Link
-                    href="/resources"
+                    href="/blog"
                     className="w-full py-2 rounded-xl border border-[#C89B2A] text-[#1A3C34] font-black text-xs hover:bg-[#C89B2A] transition-colors text-center block"
                   >
                     Visit Guides →

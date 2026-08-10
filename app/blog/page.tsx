@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import ResourcesContent from './_components/ResourcesContent';
+import BlogContent from './_components/BlogContent';
 
 export const metadata: Metadata = {
   title: 'Resources & Guides | LinkX',
@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <ResourcesContent />;
+  return <BlogContent />;
 }

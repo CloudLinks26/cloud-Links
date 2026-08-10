@@ -271,7 +271,7 @@ export const RefundPolicyContent: React.FC = () => {
 
           <div className="pt-2">
             <Link
-              href="/about"
+              href="/about-us"
               className="px-8 py-3.5 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-black text-xs transition-all shadow-md inline-flex items-center gap-2 group cursor-pointer"
             >
               <span>Contact Support</span>

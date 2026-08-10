@@ -714,7 +714,7 @@ export default function ContactContent() {
                       <span className="font-bold text-[#1A3C34] block">In the meantime:</span>
                       <div className="flex flex-col sm:flex-row gap-2">
                         <Link
-                          href="/about"
+                          href="/about-us"
                           className="flex-1 px-4 py-2.5 rounded-xl border border-[#C89B2A] text-[#1A3C34] font-bold text-center hover:bg-[#C89B2A]/10 transition-colors"
                         >
                           View Platform Stats →

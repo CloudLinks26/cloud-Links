@@ -1,0 +1,27 @@
+# LinkX
+
+> LinkX is India's affiliate marketing and creator monetization platform, connecting creators, influencers, and publishers with 500+ top brands to earn commissions by sharing product links.
+
+LinkX lets creators generate trackable affiliate links for popular Indian brands (Myntra, boAt, MakeMyTrip, Amazon.in, and more), track clicks and conversions from a dashboard, and withdraw commissions directly to a UPI ID or bank account. The platform is free to join with no minimum follower requirement.
+
+## Main Pages
+
+- [Home](https://cloudlinks.in/): Overview of the LinkX creator monetization platform and how to start earning.
+- [Campaigns](https://cloudlinks.in/campaigns): Browse all active brand affiliate campaigns and their commission rates.
+- [How It Works](https://cloudlinks.in/how-it-works): Step-by-step explanation of the LinkX affiliate link and payout process.
+- [Influencer Program](https://cloudlinks.in/influencer): Details on the influencer partnership program and creator tiers.
+- [Payouts](https://cloudlinks.in/payouts): Payout methods, minimum thresholds, and withdrawal process.
+- [Top Brands](https://cloudlinks.in/top-brands): Directory of the highest-earning partner brands on LinkX.
+- [Categories](https://cloudlinks.in/categories): Browse affiliate campaigns by product category.
+- [Earning Tips](https://cloudlinks.in/earning-tips): Strategies and tips for creators to maximize their affiliate earnings.
+- [Blog](https://cloudlinks.in/blog): Articles and guides on affiliate marketing for Indian creators.
+- [About Us](https://cloudlinks.in/about-us): LinkX's mission, story, and team.
+- [Contact](https://cloudlinks.in/contact): Support and contact information.
+- [FAQs](https://cloudlinks.in/faqs): Frequently asked questions about the platform.
+
+## Legal
+
+- [Privacy Policy](https://cloudlinks.in/privacy-policy)
+- [Terms & Conditions](https://cloudlinks.in/terms-conditions)
+- [Cookies Policy](https://cloudlinks.in/cookies-policy)
+- [Refund & Reversal Policy](https://cloudlinks.in/refund-policy)

@@ -1,608 +1,210 @@
 'use client';
+
 import React, { useState } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { useGlobalContext } from '@/components/GlobalProvider';
 import {
-  Lightbulb,
-  Search,
   Sparkles,
-  Send,
-  Link2,
-  Calendar,
-  ArrowRight,
-  ChevronRight,
-  Star,
-  CheckCircle2,
-  Bookmark,
-  Share2,
-  SendHorizontal,
-  Crown,
-  Target,
-  TrendingUp,
-  Repeat,
-  Layers,
   Zap,
-  Copy,
+  TrendingUp,
+  IndianRupee,
+  Link2,
   Video,
-  List,
-  Film,
-  Camera,
-  PlayCircle,
-  Globe,
-  Users,
+  Smartphone,
+  Target,
   BarChart2,
-  Award,
-  Gift,
-  Mail,
+  CheckCircle2,
+  ArrowRight,
+  Star,
+  Sprout,
+  Rocket,
+  Crown,
+  Heart,
+  Send,
+  Bookmark,
+  Calendar,
+  Layers,
+  Globe,
   Check,
-  ShieldCheck,
-  RotateCcw,
-  Flame,
   Clock,
-  HelpCircle,
-  X,
-  ExternalLink,
-  ChevronDown,
-  ChevronUp
+  Flame,
+  Mail,
+  Instagram,
+  Youtube,
+  Twitter,
+  Linkedin,
+  Share2,
+  ShieldCheck,
+  ChevronRight,
+  Filter,
+  Hammer
 } from 'lucide-react';
 
-interface EarningTipsProps {
-  onOpenAuth?: (mode: 'signin' | 'signup') => void;
-  onOpenLinkGen?: (brandName?: string) => void;
-}
-
-interface TipItem {
-  id: number;
-  category: string;
-  level: 'Beginner' | 'Intermediate' | 'Pro';
-  icon: React.ElementType;
-  title: string;
-  desc: string;
-  fullContent?: string;
-  readTime: string;
-  tags: string[];
-}
-
-export default function EarningTipsContent() {
+export const EarningTipsContent: React.FC = () => {
   const { onOpenAuth, onOpenLinkGen } = useGlobalContext();
-  const router = useRouter();
+  // State for Level filter tabs
+  const [activeLevel, setActiveLevel] = useState<'All' | 'Beginner' | 'Intermediate' | 'Pro'>('All');
 
-  // State management
-  const [searchQuery, setSearchQuery] = useState('');
-  const [activeCategory, setActiveCategory] = useState('All');
-  const [activeTag, setActiveTag] = useState<string | null>(null);
-  const [visibleCount, setVisibleCount] = useState(9);
-  const [savedTips, setSavedTips] = useState<number[]>([]);
-  const [toastMessage, setToastMessage] = useState<string | null>(null);
-  const [selectedTip, setSelectedTip] = useState<TipItem | null>(null);
+  // State for Newsletter Subscription
+  const [email, setEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
 
-  // Tip of the Day Index
-  const [todayTipIndex, setTodayTipIndex] = useState(0);
-  const [isSavedTipOfDay, setIsSavedTipOfDay] = useState(false);
+  // Modal / Detail state for featured tip
+  const [showFeaturedModal, setShowFeaturedModal] = useState(false);
 
-  // Goal cards expand states
-  const [expandedGoal, setExpandedGoal] = useState<number | null>(2); // Default expand ₹25,000
-
-  // Newsletter Email
-  const [newsletterEmail, setNewsletterEmail] = useState('');
-  const [subscribedNewsletter, setSubscribedNewsletter] = useState(false);
-
-  const showToast = (msg: string) => {
-    setToastMessage(msg);
-    setTimeout(() => {
-      setToastMessage(null);
-    }, 3000);
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email.trim()) {
+      setSubscribed(true);
+      setEmail('');
+      setTimeout(() => setSubscribed(false), 4000);
+    }
   };
 
-  const categories = [
-    'All',
-    'Link Strategy',
-    'Content Tips',
-    'Platform Hacks',
-    'Niche Selection',
-    'Festival Season',
-    'Passive Income',
-    'Beginner Basics'
-  ];
+  const handleAuthClick = (mode: 'signup' | 'login' = 'signup') => {
+    if (onOpenAuth) {
+      onOpenAuth(mode, 'creator');
+    }
+  };
 
-  const popularTags = [
-    'Instagram',
-    'YouTube',
-    'Beginners',
-    'High Commission',
-    'Telegram',
-    'Festival Season',
-    'Passive Income',
-    'Link Strategy'
-  ];
-
-  // 24 Detailed Tip Cards Data
-  const tipsData: TipItem[] = [
-    // Link Strategy (6 cards)
+  // Top 10 Tips Data
+  const top10Tips = [
     {
       id: 1,
-      category: 'Link Strategy',
+      num: '01',
+      title: 'Put Your Link Everywhere',
       level: 'Beginner',
+      levelColor: 'bg-[#2D7A4F] text-white',
+      borderColor: 'border-l-[#2D7A4F]',
+      desc: 'Add your affiliate link to Instagram bio, YouTube description, WhatsApp status, Telegram profile, and email signature. Every touchpoint is a chance to earn.',
+      insight: 'Creators with links in 5+ places earn 3x more monthly revenue on average.',
       icon: Link2,
-      title: 'Add Links to Every Platform Profile',
-      desc: 'Your Instagram bio, YouTube about page, Telegram channel profile, and WhatsApp status are all free digital real estate. Fill them all with your LinkX custom affiliate links to capture every click.',
-      fullContent: 'Start by updating your primary bio links across all social channels. Every time a new follower visits your profile, your bio link is their first point of contact. Ensure you use clear call-to-action text like "Shop My Daily Recommendations Below 👇".',
-      readTime: '3 min',
-      tags: ['Instagram', 'YouTube', 'Beginners', 'Link Strategy']
+      iconBg: 'bg-[#C89B2A] text-[#1A3C34]',
     },
     {
       id: 2,
-      category: 'Link Strategy',
-      level: 'Intermediate',
-      icon: Layers,
-      title: 'Stack Multiple Links in One Bio',
-      desc: 'Use a single link-in-bio hub page to showcase 5–10 different brand affiliate links under one master URL. More options directly correlate to higher conversion rates across diverse audiences.',
-      fullContent: 'When promoting multiple fashion or tech items, forcing your audience to choose only one link lowers engagement. By creating a unified landing page with LinkX shortlinks categorized into "Outfit of the Day", "Tech Setup", and "Skincare Favs", you give users the exact link they are looking for.',
-      readTime: '5 min',
-      tags: ['Instagram', 'Link Strategy', 'Passive Income']
+      num: '02',
+      title: 'Start With Brands You Already Use',
+      level: 'Beginner',
+      levelColor: 'bg-[#2D7A4F] text-white',
+      borderColor: 'border-l-[#2D7A4F]',
+      desc: 'Authentic promotion equals higher trust which leads to more conversions. Your audience can instantly tell when you genuinely love a product.',
+      insight: 'Promoting products you personally own increases link click-through rate by 240%.',
+      icon: Heart,
+      iconBg: 'bg-[#1A3C34] text-[#C89B2A]',
     },
     {
       id: 3,
-      category: 'Link Strategy',
-      level: 'Pro',
-      icon: TrendingUp,
-      title: 'A/B Test Your Link Placements',
-      desc: 'Test the same affiliate link in 3 different positions in your content (top caption, pinned comment, or story sticker). Track which exact placement drives the highest click-through rate.',
-      fullContent: 'Data proves that link position matters immensely. On YouTube, pinned comments beat description links by 300%. On Instagram, Story link stickers placed on the bottom right thumb zone outperform top-left stickers.',
-      readTime: '7 min',
-      tags: ['Link Strategy', 'High Commission', 'YouTube']
+      num: '03',
+      title: 'Post Reviews, Not Just Links',
+      level: 'Intermediate',
+      levelColor: 'bg-[#C89B2A] text-[#1A3C34]',
+      borderColor: 'border-l-[#C89B2A]',
+      desc: 'A 60-second honest video review on Instagram Reels or YouTube Shorts drives 10x more clicks than a bare link pasted in stories.',
+      insight: 'Video reviews generate 85% of total affiliate commissions on LinkX.',
+      icon: Star,
+      iconBg: 'bg-[#C89B2A] text-[#1A3C34]',
     },
     {
       id: 4,
-      category: 'Link Strategy',
-      level: 'Beginner',
-      icon: Share2,
-      title: 'Share in WhatsApp Groups Daily',
-      desc: 'Join 10–15 active niche WhatsApp groups. Share relevant curated deals daily during peak engagement windows (8:00 AM, 1:00 PM, and 9:00 PM) for immediate high-intent conversion spikes.',
-      fullContent: 'WhatsApp has an incredible 98% open rate in India. Create a broadcast list or dedicated deals group. Instead of dropping raw links, share a quick 2-line personal review along with the discount percentage.',
-      readTime: '3 min',
-      tags: ['Beginners', 'Link Strategy', 'High Commission']
+      num: '04',
+      title: 'Use Telegram for Passive Income',
+      level: 'Intermediate',
+      levelColor: 'bg-[#C89B2A] text-[#1A3C34]',
+      borderColor: 'border-l-[#C89B2A]',
+      desc: 'A Telegram channel with 5,000 members sharing daily handpicked deals can earn ₹15,000–₹40,000/month with just 15 minutes of daily effort.',
+      insight: 'Telegram broadcasts enjoy an unmatched 65% open rate compared to social algorithms.',
+      icon: Send,
+      iconBg: 'bg-[#1A3C34] text-[#C89B2A]',
     },
     {
       id: 5,
-      category: 'Link Strategy',
+      num: '05',
+      title: 'Track What Works — Cut What Doesn’t',
       level: 'Intermediate',
-      icon: Copy,
-      title: 'Create Evergreen Link Posts',
-      desc: 'Publish one well-written, comprehensive review post per brand. It continues driving search traffic and automated commissions for months with zero extra daily maintenance.',
-      fullContent: 'Evergreen content like "Top 5 Laptops for College Students Under ₹40,000" continues to gain organic search hits month after month. Keep the links updated on LinkX so you never lose out on expired brand promotions.',
-      readTime: '6 min',
-      tags: ['Link Strategy', 'Passive Income', 'High Commission']
+      levelColor: 'bg-[#C89B2A] text-[#1A3C34]',
+      borderColor: 'border-l-[#C89B2A]',
+      desc: 'Check your LinkX dashboard analytics weekly. Kill low-performing campaigns and double down on brands that convert highest with your specific demographic.',
+      insight: 'Top 5% creators review campaign conversion metrics at least twice a week.',
+      icon: BarChart2,
+      iconBg: 'bg-[#C89B2A] text-[#1A3C34]',
     },
     {
       id: 6,
-      category: 'Link Strategy',
+      num: '06',
+      title: 'Build a Niche Audience, Not a Mass One',
       level: 'Pro',
-      icon: Zap,
-      title: 'Use Custom Tags for Deep Tracking',
-      desc: 'Organize your generated shortlinks with custom campaign tags. Track precisely which social post, story highlight, or platform source is generating your commission payouts.',
-      fullContent: 'By labeling links with campaign tags (e.g., `insta_reel_may` vs `telegram_blast_9am`), you can analyze your LinkX dashboard performance report and double down exclusively on your highest-yielding channels.',
-      readTime: '8 min',
-      tags: ['Link Strategy', 'High Commission', 'Pro']
+      levelColor: 'bg-[#1A3C34] text-[#C89B2A]',
+      borderColor: 'border-l-[#1A3C34]',
+      desc: 'A 10K highly engaged niche audience (e.g. clean skincare, budget tech, mechanical keyboards) will out-earn a 100K generic meme page every time.',
+      insight: 'Niche micro-creators average a 7.2% conversion rate versus 0.8% for general pages.',
+      icon: Target,
+      iconBg: 'bg-[#1A3C34] text-[#C89B2A]',
     },
-
-    // Content Tips (4 cards)
     {
       id: 7,
-      category: 'Content Tips',
-      level: 'Beginner',
-      icon: Video,
-      title: 'Record a 60-Second Honest Review',
-      desc: 'Short, authentic 60-second video reviews on Instagram Reels or YouTube Shorts outperform polished studio advertisements by 4x for direct affiliate purchases.',
-      fullContent: 'Unboxing videos showing real product usage with genuine pros and cons build immediate buyer confidence. Keep the tone conversational and highlight "Where to Buy" in the caption.',
-      readTime: '4 min',
-      tags: ['Instagram', 'YouTube', 'Beginners', 'Content Tips']
+      num: '07',
+      title: "Create a 'Deals & Offers' Highlight on Instagram",
+      level: 'Pro',
+      levelColor: 'bg-[#1A3C34] text-[#C89B2A]',
+      borderColor: 'border-l-[#1A3C34]',
+      desc: 'A permanent Instagram Story Highlight labelled "Best Deals" or "My Gear" allows profile visitors to revisit and shop your recommended links anytime.',
+      insight: 'Story Highlights account for 28% of passive monthly conversions for top Instagram creators.',
+      icon: Bookmark,
+      iconBg: 'bg-[#C89B2A] text-[#1A3C34]',
     },
     {
       id: 8,
-      category: 'Content Tips',
-      level: 'Intermediate',
-      icon: Star,
-      title: 'Create a "My Favorite Products" Post',
-      desc: 'Curated personal lists feel authentic and non-salesy. Highlighting items you actually use daily consistently drives high-quality, high-trust buyer clicks.',
-      fullContent: 'Instead of pushing random brand deals, group 3–5 items into a theme like "My Daily Work From Home Setup". Buyers are 3x more likely to buy multiple items in one order.',
-      readTime: '5 min',
-      tags: ['Content Tips', 'Instagram', 'Link Strategy']
+      num: '08',
+      title: 'Go Festival-First — Plan 60 Days Ahead',
+      level: 'Pro',
+      levelColor: 'bg-[#1A3C34] text-[#C89B2A]',
+      borderColor: 'border-l-[#1A3C34]',
+      desc: 'Diwali sales, Big Billion Days, Great Indian Festival, and New Year sales generate 40% of annual Indian e-commerce. Prepare your campaigns 60 days early.',
+      insight: 'Creators who schedule festival content beforehand earn 4.5x more during October–November.',
+      icon: Calendar,
+      iconBg: 'bg-[#1A3C34] text-[#C89B2A]',
     },
     {
       id: 9,
-      category: 'Content Tips',
-      level: 'Intermediate',
-      icon: List,
-      title: 'Top 5 Lists Convert Like Crazy',
-      desc: '"Top 5 Skincare Products Under ₹500" — numbered list posts are highly shareable, easy to consume, and drive massive traffic to your affiliate links.',
-      fullContent: 'Listicles satisfy buyer curiosity quickly. Structure your post with clear price points, key benefits, and direct LinkX shortlinks for each of the 5 recommendations.',
-      readTime: '5 min',
-      tags: ['Content Tips', 'High Commission', 'Beginners']
+      num: '09',
+      title: 'Stack Multiple Campaigns at Once',
+      level: 'Pro',
+      levelColor: 'bg-[#1A3C34] text-[#C89B2A]',
+      borderColor: 'border-l-[#1A3C34]',
+      desc: 'Promote 5–8 relevant brand campaigns simultaneously. If one campaign faces stock shortages, others compensate so your revenue stream never dips.',
+      insight: 'Multi-campaign creators experience 60% less monthly revenue volatility.',
+      icon: Layers,
+      iconBg: 'bg-[#C89B2A] text-[#1A3C34]',
     },
     {
       id: 10,
-      category: 'Content Tips',
+      num: '10',
+      title: 'Reinvest in Your Content Setup',
       level: 'Pro',
-      icon: Film,
-      title: 'Before & After Content Formula',
-      desc: 'Show visually striking before-and-after results (e.g. room makeover, skincare progress). This format delivers maximum emotional resonance and highest conversion rates.',
-      fullContent: 'Visual transformation content triggers impulse purchase decisions. Pair the dramatic visual transition with a clear overlay text: "Products Used Linked in Bio & Comments".',
-      readTime: '6 min',
-      tags: ['Content Tips', 'High Commission', 'Instagram']
-    },
-
-    // Platform Hacks (4 cards)
-    {
-      id: 11,
-      category: 'Platform Hacks',
-      level: 'Beginner',
-      icon: Camera,
-      title: 'Use Instagram Story Link Stickers',
-      desc: 'Interactive link stickers placed directly on Instagram Stories are the single highest-converting placement on the entire platform for instant affiliate sales.',
-      fullContent: 'Combine the Link Sticker with a polling sticker (e.g. "Want the 40% Off Code? Yes / Show Me") to boost story reach by 80% before driving traffic to the link.',
-      readTime: '3 min',
-      tags: ['Instagram', 'Platform Hacks', 'Beginners']
-    },
-    {
-      id: 12,
-      category: 'Platform Hacks',
-      level: 'Intermediate',
-      icon: PlayCircle,
-      title: 'Pin Your Link in YouTube Comments',
-      desc: 'A pinned comment featuring your LinkX affiliate shortlink appears at the top of the comment section on every video. One setup = lifetime passive clicks.',
-      fullContent: 'Over 60% of YouTube mobile viewers check comments before or while watching. Pinning your affiliate link with a coupon code discount message maximizes immediate conversions.',
-      readTime: '4 min',
-      tags: ['YouTube', 'Platform Hacks', 'Passive Income']
-    },
-    {
-      id: 13,
-      category: 'Platform Hacks',
-      level: 'Intermediate',
-      icon: Send,
-      title: 'Telegram Scheduled Posts = Passive Income',
-      desc: 'Schedule 30 days of curated daily deal posts in advance using Telegram auto-posting tools. Your channel generates affiliate commissions while you sleep.',
-      fullContent: 'Telegram allows rich media posts with inline instant buy buttons. Pre-schedule morning deal roundups on sale days to catch buyers right as they wake up.',
-      readTime: '6 min',
-      tags: ['Telegram', 'Platform Hacks', 'Passive Income']
-    },
-    {
-      id: 14,
-      category: 'Platform Hacks',
-      level: 'Pro',
-      icon: Globe,
-      title: 'Write SEO Blog Reviews for Organic Traffic',
-      desc: 'A well-optimized product review blog post ranks on Google search for years — bringing in steady stream of buyer intent traffic and passive monthly commissions.',
-      fullContent: 'Target long-tail keywords like "Is [Brand] Worth It India Review 2026". Organic search visitors have 5x higher purchase intent compared to casual social media scrollers.',
-      readTime: '10 min',
-      tags: ['Platform Hacks', 'Passive Income', 'High Commission']
-    },
-
-    // Niche Selection (4 cards)
-    {
-      id: 15,
-      category: 'Niche Selection',
-      level: 'Beginner',
-      icon: Target,
-      title: 'Start With Brands You Already Love',
-      desc: 'Authentic promotion of products you genuinely buy and use converts 5x better than pushing random high-commission campaigns without personal experience.',
-      fullContent: 'Audiences pick up on insincerity instantly. Audit your recent online orders on Myntra, Flipkart, or Amazon, find those campaigns on LinkX, and share genuine user insights.',
-      readTime: '3 min',
-      tags: ['Beginners', 'Niche Selection', 'Link Strategy']
-    },
-    {
-      id: 16,
-      category: 'Niche Selection',
-      level: 'Intermediate',
-      icon: Users,
-      title: 'Match Your Niche to Audience Needs',
-      desc: 'A tech-focused audience converts best for electronics and gadgets, while beauty followers convert for skincare. Alignment between content and offer is everything.',
-      fullContent: 'Run Instagram story polls or Telegram surveys asking your audience "What products are you shopping for this month?". Use the poll results to choose your LinkX brand partnerships.',
-      readTime: '5 min',
-      tags: ['Niche Selection', 'Instagram', 'YouTube']
-    },
-    {
-      id: 17,
-      category: 'Niche Selection',
-      level: 'Intermediate',
-      icon: BarChart2,
-      title: 'High Commission vs High Volume Niches',
-      desc: 'Finance and BFSI campaigns pay ₹500+ per lead but have lower conversion volume. Fashion pays 10-15% but converts rapidly. Balance both in your strategy.',
-      fullContent: 'Mix 80% high-volume daily deals (fashion, beauty, groceries) to maintain steady payouts with 20% high-ticket commission offers (appliances, financial products) for big earnings spikes.',
-      readTime: '6 min',
-      tags: ['Niche Selection', 'High Commission', 'Link Strategy']
-    },
-    {
-      id: 18,
-      category: 'Niche Selection',
-      level: 'Pro',
-      icon: Award,
-      title: 'Own a Micro-Niche Completely',
-      desc: 'Being the go-to authority for "budget college skincare under ₹300" beats being a generic lifestyle creator every single time in overall conversion rates.',
-      fullContent: 'Micro-niche creators build deep trust. Brands actively seek micro-niche creators because their audience engagement and purchase conversion percentages far exceed broad accounts.',
-      readTime: '7 min',
-      tags: ['Niche Selection', 'High Commission', 'Pro']
-    },
-
-    // Festival Season (3 cards)
-    {
-      id: 19,
-      category: 'Festival Season',
-      level: 'Intermediate',
-      icon: Calendar,
-      title: 'Plan Your Festival Calendar 60 Days Ahead',
-      desc: 'Map out Diwali, Great Indian Festival, Big Billion Days, and End of Season Sales 60 days in advance. Pre-create content templates for instant deployment.',
-      fullContent: 'During major shopping festivals, consumer spending spikes by 400%. Creators who prepare curated product lists and deals pre-loaded on LinkX earn 8x their standard monthly income.',
-      readTime: '5 min',
-      tags: ['Festival Season', 'High Commission', 'Link Strategy']
-    },
-    {
-      id: 20,
-      category: 'Festival Season',
-      level: 'Pro',
+      levelColor: 'bg-[#1A3C34] text-[#C89B2A]',
+      borderColor: 'border-l-[#1A3C34]',
+      desc: 'Reinvest 10–20% of monthly earnings into crisp lighting, a wireless lavalier mic, or thumbnail editing. Higher quality content builds higher trust.',
+      insight: 'Improved audio/video clarity increases viewer watch time and link clicks by up to 55%.',
       icon: TrendingUp,
-      title: 'Stack Campaigns During Big Sale Days',
-      desc: 'Promote Myntra, Flipkart, Nykaa, and Amazon simultaneously during major sales. Give your followers comparative choices to capture every shopping dollar.',
-      fullContent: 'Create a single comparison post ("Where to get the lowest price on smartphones this Diwali"). Provide shortlinks for all 3 major platforms so no matter where they buy, you earn.',
-      readTime: '8 min',
-      tags: ['Festival Season', 'High Commission', 'Pro']
+      iconBg: 'bg-[#1A3C34] text-[#C89B2A]',
     },
-    {
-      id: 21,
-      category: 'Festival Season',
-      level: 'Pro',
-      icon: Gift,
-      title: 'Gift Guide Content = Festival Goldmine',
-      desc: '"Best Diwali Gifts Under ₹2,000 for Family" guides generate massive search traffic right when purchase intent and budget allocation are at peak levels.',
-      fullContent: 'Gift guides solve a stressful problem for shoppers. Categorize gifts by relationship ("Gifts for Parents", "Gifts for Coworkers") and include direct checkout shortlinks.',
-      readTime: '7 min',
-      tags: ['Festival Season', 'Content Tips', 'High Commission']
-    },
-
-    // Passive Income (3 cards)
-    {
-      id: 22,
-      category: 'Passive Income',
-      level: 'Intermediate',
-      icon: Repeat,
-      title: 'Build a Dedicated Deals Telegram Channel',
-      desc: 'A Telegram deals group with 10,000+ members sharing daily price drops generates fully passive income. Set up once, automate posts, and collect monthly payouts.',
-      fullContent: 'Telegram allows direct instant notifications without algorithm suppression. Top deal channels earn ₹30,000 to ₹1,00,000/month by curating 5 high-discount offers daily.',
-      readTime: '6 min',
-      tags: ['Telegram', 'Passive Income', 'High Commission']
-    },
-    {
-      id: 23,
-      category: 'Passive Income',
-      level: 'Pro',
-      icon: Bookmark,
-      title: 'Create an Instagram "Best Deals" Highlight',
-      desc: 'A permanent Instagram Story Highlight named "🔥 Top Deals" drives commissions 24/7 from every new profile visitor long after original stories expire.',
-      fullContent: 'Organize your Story Highlights into clear categories: "Skincare Deals", "Tech Codes", "Fashion Must-Haves". Update the link stickers regularly via your LinkX dashboard.',
-      readTime: '4 min',
-      tags: ['Instagram', 'Passive Income', 'Link Strategy']
-    },
-    {
-      id: 24,
-      category: 'Passive Income',
-      level: 'Pro',
-      icon: Layers,
-      title: 'Build an Email List of Deal Seekers',
-      desc: 'An email newsletter list of 5,000 engaged deal shoppers is worth more than 100,000 casual social followers because you own the direct communication line.',
-      fullContent: 'Send a weekly Friday newsletter titled "Top 10 Weekend Discounts You Can\'t Miss". Include direct affiliate shortlinks to featured products for consistent weekly revenue.',
-      readTime: '9 min',
-      tags: ['Passive Income', 'High Commission', 'Pro']
-    }
   ];
 
-  // Tip of the Day Items
-  const tipOfDayList = [
-    {
-      date: 'Today\'s Tip — August 7, 2026',
-      level: '🚀 Intermediate',
-      title: 'Post at 9:00 AM & 8:00 PM for Maximum Reach',
-      body: 'Data from over 10,000 Indian creators shows social media traffic peaks twice daily: 9–11 AM (commute & morning coffee) and 8–10 PM (post-dinner relaxing). Publishing affiliate deal content during these exact windows doubles click-through rates.',
-      impact: 3
-    },
-    {
-      date: 'Yesterday\'s Tip — August 6, 2026',
-      level: '🌱 Beginner',
-      title: 'Include Price & Discount Percentage in Link Text',
-      body: 'Posts that specify "Flat 50% Off | Only ₹499" get 3.5x more clicks than generic "Check Out This Product" links. Specific monetary savings trigger instant curiosity.',
-      impact: 3
-    },
-    {
-      date: 'Upcoming Tip — August 8, 2026',
-      level: '⭐ Pro',
-      title: 'Pin Your Best Converting Reel to the Top of Your Grid',
-      body: 'Pinning your highest-earning product review video as one of the 3 top posts on your Instagram profile converts 15% of all new profile visitors into link clickers.',
-      impact: 3
-    }
-  ];
-
-  // Quick 60-Second Mini Tips (12 items)
-  const quickMiniTips = [
-    { icon: Link2, title: 'Custom Link Names', desc: 'Use your name or brand in the shortlink URL to build instant audience trust.', time: '1 min' },
-    { icon: Calendar, title: 'Sunday Evening Peak', desc: 'Post online shopping deals on Sunday evenings — peak weekly buying hours.', time: '1 min' },
-    { icon: ShieldCheck, title: 'Affiliate Disclosure', desc: 'Always mention "#affiliate" or "ad" — builds audience trust and complies with ASCI rules.', time: '1 min' },
-    { icon: BarChart2, title: 'Monday Morning Audits', desc: 'Check your LinkX earnings analytics every Monday to optimize low-performing links.', time: '1 min' },
-    { icon: HelpCircle, title: 'Reply to Comments', desc: 'Answer every product question in comments with your affiliate link attached.', time: '1 min' },
-    { icon: Flame, title: 'Campaign Notifications', desc: 'Enable instant campaign alert notifications on LinkX to catch high-commission drops.', time: '1 min' },
-    { icon: Video, title: 'Vertical Reel Format', desc: 'Vertical 9:16 short video product reviews get 3x more organic reach than static images.', time: '1 min' },
-    { icon: Target, title: 'Focus on 3 Platforms', desc: 'Master Instagram, YouTube, and Telegram before spreading yourself too thin.', time: '1 min' },
-    { icon: Sparkles, title: 'Use "Honest" in Titles', desc: 'Including the word "Honest Review" in your title increases click-throughs by 45%.', time: '1 min' },
-    { icon: Zap, title: 'Weekly Payout Transfers', desc: 'Withdraw commission earnings weekly via UPI to stay motivated and track growth.', time: '1 min' },
-    { icon: Clock, title: 'Weekday Morning B2B', desc: 'Promote software and finance campaigns on Tuesday/Wednesday mornings.', time: '1 min' },
-    { icon: Bookmark, title: 'Keep Campaign Notes', desc: 'Maintain a quick phone note of campaigns that yielded high conversion rates.', time: '1 min' }
-  ];
-
-  // Filtering Logic
-  const filteredTips = tipsData.filter((tip) => {
-    // Search query filter
-    const matchesSearch =
-      searchQuery.trim() === '' ||
-      tip.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      tip.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      tip.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      tip.tags.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase()));
-
-    // Category filter
-    const matchesCategory =
-      activeCategory === 'All' ||
-      (activeCategory === 'Beginner Basics'
-        ? tip.level === 'Beginner'
-        : tip.category.toLowerCase() === activeCategory.toLowerCase());
-
-    // Tag filter
-    const matchesTag =
-      !activeTag || tip.tags.some((t) => t.toLowerCase() === activeTag.toLowerCase());
-
-    return matchesSearch && matchesCategory && matchesTag;
-  });
-
-  const toggleSaveTip = (id: number) => {
-    if (savedTips.includes(id)) {
-      setSavedTips(savedTips.filter((t) => t !== id));
-      showToast('Tip removed from saved bookmarks');
-    } else {
-      setSavedTips([...savedTips, id]);
-      showToast('Tip saved to your bookmarks! 🔖');
-    }
-  };
-
-  const handleShareTip = (title: string) => {
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(`Check out this earning tip on LinkX: "${title}" - https://linkx.in/earning-tips`);
-      showToast('Tip link copied to clipboard! 📋');
-    } else {
-      showToast('Tip shared!');
-    }
-  };
+  // Filter tips based on selected Level
+  const filteredTips = activeLevel === 'All'
+    ? top10Tips
+    : top10Tips.filter(t => t.level === activeLevel);
 
   return (
-    <div className="bg-[#F5F0E8] min-h-screen text-[#1A3C34] font-sans selection:bg-[#C89B2A]/20 pb-20">
-
-      {/* TOAST NOTIFICATION */}
-      {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 bg-[#1A3C34] text-white px-5 py-3 rounded-2xl shadow-xl border border-[#C89B2A]/40 flex items-center gap-3 animate-bounce">
-          <Sparkles className="w-5 h-5 text-[#C89B2A]" />
-          <span className="text-xs font-bold">{toastMessage}</span>
-        </div>
-      )}
-
-      {/* TIP DETAILS MODAL */}
-      {selectedTip && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-fade-in">
-          <div className="bg-[#FDFAF4] border border-[#E8E2D6] rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
-            <button
-              onClick={() => setSelectedTip(null)}
-              className="absolute top-5 right-5 p-2 rounded-full bg-[#F5F0E8] text-[#6B6355] hover:text-[#1A3C34] hover:bg-[#E8E2D6] transition-colors cursor-pointer"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="flex items-center gap-2">
-              <span className={`px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider ${
-                selectedTip.level === 'Beginner' ? 'bg-[#2D7A4F]/15 text-[#2D7A4F]' :
-                selectedTip.level === 'Intermediate' ? 'bg-[#C89B2A]/15 text-[#C89B2A]' :
-                'bg-[#1A3C34]/15 text-[#1A3C34]'
-              }`}>
-                {selectedTip.level}
-              </span>
-              <span className="px-3 py-1 rounded-full bg-[#1A3C34]/5 text-[#6B6355] text-[11px] font-bold">
-                {selectedTip.category}
-              </span>
-              <span className="text-xs text-[#6B6355] font-semibold ml-auto flex items-center gap-1">
-                <Clock className="w-3.5 h-3.5 text-[#C89B2A]" />
-                {selectedTip.readTime} read
-              </span>
-            </div>
-
-            <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-[#C89B2A]/15 text-[#C89B2A] flex items-center justify-center flex-shrink-0">
-                  <selectedTip.icon className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-black text-[#1A3C34] font-display">
-                  {selectedTip.title}
-                </h3>
-              </div>
-              <p className="text-sm text-[#6B6355] font-medium leading-relaxed">
-                {selectedTip.desc}
-              </p>
-            </div>
-
-            {selectedTip.fullContent && (
-              <div className="p-4 rounded-2xl bg-[#F5F0E8] border border-[#E8E2D6] space-y-2">
-                <h4 className="text-xs font-black uppercase text-[#1A3C34] tracking-wider flex items-center gap-1.5">
-                  <Lightbulb className="w-4 h-4 text-[#C89B2A]" />
-                  Deep-Dive Execution Strategy
-                </h4>
-                <p className="text-xs sm:text-sm text-[#1A3C34] leading-relaxed">
-                  {selectedTip.fullContent}
-                </p>
-              </div>
-            )}
-
-            <div className="flex flex-wrap gap-2 pt-2 border-t border-[#E8E2D6]">
-              <span className="text-xs font-bold text-[#6B6355] self-center mr-1">Tags:</span>
-              {selectedTip.tags.map((tag) => (
-                <span key={tag} className="px-2.5 py-1 rounded-lg bg-[#F5F0E8] text-[#6B6355] text-[11px] font-semibold">
-                  #{tag}
-                </span>
-              ))}
-            </div>
-
-            <div className="flex items-center justify-between pt-2">
-              <button
-                onClick={() => toggleSaveTip(selectedTip.id)}
-                className={`px-4 py-2.5 rounded-xl border text-xs font-bold flex items-center gap-2 transition-all cursor-pointer ${
-                  savedTips.includes(selectedTip.id)
-                    ? 'bg-[#C89B2A] border-[#C89B2A] text-[#1A3C34]'
-                    : 'border-[#E8E2D6] text-[#1A3C34] hover:bg-[#F5F0E8]'
-                }`}
-              >
-                <Bookmark className="w-4 h-4" />
-                {savedTips.includes(selectedTip.id) ? 'Saved' : 'Save Tip'}
-              </button>
-
-              <button
-                onClick={() => {
-                  setSelectedTip(null);
-                  if (onOpenAuth) onOpenAuth('signup');
-                  else router.push('/campaigns');
-                }}
-                className="px-6 py-2.5 rounded-xl bg-[#1A3C34] text-white hover:bg-[#122b25] text-xs font-black transition-all shadow-md flex items-center gap-2 cursor-pointer"
-              >
-                <span>Apply This Tip on LinkX</span>
-                <ArrowRight className="w-4 h-4 text-[#C89B2A]" />
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-
-      {/* ========================================== */}
-      {/* SECTION 1 — HERO HEADER                    */}
-      {/* ========================================== */}
-      <section className="bg-[#F5F0E8] pt-28 pb-16 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
-        {/* Background Decorative Faint Elements */}
-        <div className="absolute top-10 left-1/2 -translate-x-1/2 text-[#C89B2A]/5 pointer-events-none">
-          <Lightbulb className="w-96 h-96" />
-        </div>
-        <div className="absolute top-12 left-8 text-[#C89B2A]/15 text-2xl font-black pointer-events-none hidden sm:block rotate-12">
-          ₹
-        </div>
-        <div className="absolute bottom-12 right-12 text-[#C89B2A]/15 text-3xl font-black pointer-events-none hidden sm:block -rotate-12">
-          ₹
-        </div>
-        <div className="absolute top-20 right-16 text-[#1A3C34]/10 pointer-events-none hidden md:block">
-          <TrendingUp className="w-16 h-16" />
-        </div>
-
-        {/* Top Dot Grid Pattern */}
+    <div className="pt-24 pb-20 bg-[#F5F0E8] min-h-screen text-[#1A3C34] font-sans selection:bg-[#C89B2A]/20">
+      
+      {/* =================================================================== */}
+      {/* SECTION 1 — STUNNING HERO HEADER                                    */}
+      {/* =================================================================== */}
+      <section className="relative pt-10 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center overflow-hidden">
+        
+        {/* Background Decorative Elements */}
+        {/* Dotted Grid */}
         <div
           className="absolute inset-0 opacity-15 pointer-events-none"
           style={{
@@ -611,1177 +213,1297 @@ export default function EarningTipsContent() {
           }}
         />
 
-        <div className="relative z-10 max-w-4xl mx-auto space-y-6">
-          {/* Gold Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#C89B2A]/15 border border-[#C89B2A]/40 text-[#C89B2A] text-xs font-extrabold uppercase tracking-wider">
-            <Lightbulb className="w-3.5 h-3.5" />
-            <span>Handpicked by Top Indian Creators</span>
+        {/* Scattered Rupee Coins & Arrow Icons */}
+        <div className="absolute top-8 left-10 text-[#C89B2A] opacity-20 font-black text-4xl pointer-events-none animate-pulse">
+          ₹
+        </div>
+        <div className="absolute bottom-12 left-1/4 text-[#1A3C34] opacity-25 pointer-events-none">
+          <TrendingUp className="w-10 h-10" />
+        </div>
+        <div className="absolute top-12 right-12 text-[#C89B2A] opacity-25 font-black text-3xl pointer-events-none">
+          ₹
+        </div>
+        <div className="absolute bottom-16 right-1/4 text-[#1A3C34] opacity-20 pointer-events-none">
+          <Zap className="w-8 h-8 text-[#C89B2A]" />
+        </div>
+
+        {/* Curved Gold Dashed Line SVG */}
+        <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M 50 150 Q 300 20 600 180 T 1200 100"
+            fill="none"
+            stroke="#C89B2A"
+            strokeWidth="2"
+            strokeDasharray="6 6"
+          />
+        </svg>
+
+        <div className="relative z-10 max-w-3xl mx-auto space-y-6">
+          
+          {/* Small Gold Pill Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#C89B2A]/15 border border-[#C89B2A]/30 text-[#1A3C34] text-xs font-extrabold uppercase tracking-wider shadow-2xs">
+            <Sparkles className="w-4 h-4 text-[#C89B2A]" />
+            <span>Proven Strategies from Top Creators</span>
           </div>
 
-          {/* Headline */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-display tracking-tight leading-tight">
-            <span className="text-[#1A3C34] block">Smarter Tips.</span>
-            <span className="text-[#C89B2A] block">Bigger Earnings.</span>
-          </h1>
+          {/* Giant Bold Headline */}
+          <div className="space-y-1">
+            <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-[#1A3C34] leading-none">
+              Earn More.
+            </h1>
+            <h1 className="text-5xl sm:text-7xl font-display font-black tracking-tight text-[#C89B2A] leading-tight">
+              Every Single Day.
+            </h1>
+          </div>
 
           {/* Gold Underline Accent */}
-          <div className="w-20 h-1.5 bg-[#C89B2A] mx-auto rounded-full my-2" />
+          <div className="w-24 h-1.5 bg-[#C89B2A] mx-auto rounded-full" />
 
           {/* Subtext */}
-          <p className="text-sm sm:text-base lg:text-lg text-[#6B6355] font-medium max-w-2xl mx-auto leading-relaxed">
-            A curated collection of the most powerful earning strategies, hacks, and insider tips — organized by topic, level, and platform so you find exactly what you need.
+          <p className="text-base sm:text-lg text-[#6B6355] font-medium leading-relaxed max-w-2xl mx-auto">
+            Discover battle-tested tips, strategies, and insider secrets used by India's top affiliate creators to maximize their earnings on LinkX.
           </p>
 
-          {/* Search Bar */}
-          <div className="max-w-2xl mx-auto pt-4">
-            <div className="relative flex items-center bg-[#FDFAF4] rounded-2xl border-2 border-[#E8E2D6] shadow-md focus-within:border-[#C89B2A] transition-all overflow-hidden p-1.5">
-              <Search className="w-5 h-5 text-[#6B6355] ml-3 flex-shrink-0" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search tips by topic, platform, or keyword..."
-                className="w-full px-3 py-2 text-sm text-[#1A3C34] placeholder-[#6B6355]/70 bg-transparent focus:outline-none font-medium"
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery('')}
-                  className="p-1 text-[#6B6355] hover:text-[#1A3C34] mr-1"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              )}
+          {/* 3 Level Pill Tabs */}
+          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <div className="bg-[#FDFAF4] p-1.5 rounded-2xl border border-[#E8E2D6] shadow-xs flex flex-wrap items-center justify-center gap-1.5 text-xs font-extrabold">
               <button
-                onClick={() => {
-                  const el = document.getElementById('tips-grid-section');
-                  if (el) el.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="px-6 py-3 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-black text-xs transition-all flex items-center gap-2 flex-shrink-0 shadow-sm cursor-pointer"
-              >
-                <span>Search</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-
-          {/* Popular Tag Pills */}
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-2 max-w-3xl mx-auto">
-            <span className="text-xs font-bold text-[#6B6355] mr-1">Popular:</span>
-            {popularTags.map((tag) => {
-              const isActive = activeTag === tag;
-              return (
-                <button
-                  key={tag}
-                  onClick={() => {
-                    if (isActive) {
-                      setActiveTag(null);
-                    } else {
-                      setActiveTag(tag);
-                      setSearchQuery('');
-                      const el = document.getElementById('tips-grid-section');
-                      if (el) el.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }}
-                  className={`px-3 py-1 rounded-full text-xs font-bold transition-all cursor-pointer border ${
-                    isActive
-                      ? 'bg-[#C89B2A] border-[#C89B2A] text-white shadow-xs'
-                      : 'border-[#1A3C34]/20 text-[#1A3C34] hover:border-[#C89B2A] hover:text-[#C89B2A] bg-white/50'
-                  }`}
-                >
-                  #{tag}
-                </button>
-              );
-            })}
-            {activeTag && (
-              <button
-                onClick={() => setActiveTag(null)}
-                className="text-xs font-bold text-[#C89B2A] underline ml-2 cursor-pointer"
-              >
-                Clear Tag Filter
-              </button>
-            )}
-          </div>
-        </div>
-      </section>
-
-
-      {/* ========================================== */}
-      {/* SECTION 2 — LIVE STATS TICKER              */}
-      {/* ========================================== */}
-      <section className="bg-[#1A3C34] text-white py-4 overflow-hidden border-y border-[#C89B2A]/30">
-        <div className="flex whitespace-nowrap animate-marquee">
-          <div className="flex items-center gap-8 text-xs sm:text-sm font-bold tracking-wide text-[#F5F0E8]">
-            <span className="flex items-center gap-2">
-              <Lightbulb className="w-4 h-4 text-[#C89B2A]" />
-              Creators using these tips earn 3x more on average
-            </span>
-            <span className="text-[#C89B2A]">•</span>
-            <span className="flex items-center gap-2">
-              <Zap className="w-4 h-4 text-[#C89B2A]" />
-              Tip #4 alone helped 500+ creators cross ₹10,000/month
-            </span>
-            <span className="text-[#C89B2A]">•</span>
-            <span className="flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-[#C89B2A]" />
-              Festival season tips drive 8x normal earnings
-            </span>
-            <span className="text-[#C89B2A]">•</span>
-            <span className="flex items-center gap-2">
-              <Link2 className="w-4 h-4 text-[#C89B2A]" />
-              Bio link strategy = most used tip by top earners
-            </span>
-            <span className="text-[#C89B2A]">•</span>
-            <span className="flex items-center gap-2">
-              <Send className="w-4 h-4 text-[#C89B2A]" />
-              Telegram tips have generated ₹2Cr+ in commissions on LinkX
-            </span>
-            <span className="text-[#C89B2A]">•</span>
-          </div>
-
-          <div className="flex items-center gap-8 text-xs sm:text-sm font-bold tracking-wide text-[#F5F0E8] ml-8" aria-hidden="true">
-            <span className="flex items-center gap-2">
-              <Lightbulb className="w-4 h-4 text-[#C89B2A]" />
-              Creators using these tips earn 3x more on average
-            </span>
-            <span className="text-[#C89B2A]">•</span>
-            <span className="flex items-center gap-2">
-              <Zap className="w-4 h-4 text-[#C89B2A]" />
-              Tip #4 alone helped 500+ creators cross ₹10,000/month
-            </span>
-            <span className="text-[#C89B2A]">•</span>
-            <span className="flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-[#C89B2A]" />
-              Festival season tips drive 8x normal earnings
-            </span>
-            <span className="text-[#C89B2A]">•</span>
-            <span className="flex items-center gap-2">
-              <Link2 className="w-4 h-4 text-[#C89B2A]" />
-              Bio link strategy = most used tip by top earners
-            </span>
-            <span className="text-[#C89B2A]">•</span>
-            <span className="flex items-center gap-2">
-              <Send className="w-4 h-4 text-[#C89B2A]" />
-              Telegram tips have generated ₹2Cr+ in commissions on LinkX
-            </span>
-            <span className="text-[#C89B2A]">•</span>
-          </div>
-        </div>
-      </section>
-
-
-      {/* ========================================== */}
-      {/* SECTION 3 — FEATURED TIP CARDS (TOP 3)    */}
-      {/* ========================================== */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-black font-display text-[#1A3C34] flex items-center gap-2">
-              <span>🔥 Trending This Week</span>
-            </h2>
-            <p className="text-xs sm:text-sm text-[#6B6355] font-medium mt-1">
-              The 3 highest-converting strategies implemented by creators this past week
-            </p>
-          </div>
-
-          <button
-            onClick={() => {
-              setActiveCategory('All');
-              setActiveTag(null);
-              setSearchQuery('');
-              const el = document.getElementById('tips-grid-section');
-              if (el) el.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className="text-xs font-black text-[#C89B2A] hover:underline flex items-center gap-1 cursor-pointer"
-          >
-            <span>View all tips</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-        </div>
-
-        {/* 3 Large Featured Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-          {/* Featured Card 1 */}
-          <div className="rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-[#1A3C34] to-[#2D7A4F] text-white relative overflow-hidden shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group border border-[#C89B2A]/30">
-            <div className="absolute top-4 right-4 bg-[#C89B2A] text-[#1A3C34] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
-              🔥 #1 This Week
-            </div>
-            <Send className="absolute -bottom-6 -right-6 w-36 h-36 text-white/5 pointer-events-none group-hover:scale-110 transition-transform" />
-
-            <div className="space-y-4 relative z-10">
-              <div className="inline-block px-3 py-1 rounded-full bg-[#C89B2A]/20 text-[#C89B2A] text-xs font-extrabold border border-[#C89B2A]/40">
-                🚀 Intermediate
-              </div>
-
-              <h3 className="text-xl sm:text-2xl font-black font-display leading-snug">
-                The Telegram Goldmine Strategy
-              </h3>
-
-              <p className="text-xs sm:text-sm text-white/80 font-medium leading-relaxed">
-                How one creator built a 20K member Telegram channel and now earns ₹40,000/month on complete autopilot.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-2 pt-2">
-                <span className="px-2.5 py-1 rounded-lg bg-white/10 text-white text-[11px] font-bold">
-                  👥 20K Members
-                </span>
-                <span className="px-2.5 py-1 rounded-lg bg-white/10 text-white text-[11px] font-bold">
-                  💰 ₹40K/Month
-                </span>
-                <span className="px-2.5 py-1 rounded-lg bg-white/10 text-white text-[11px] font-bold">
-                  ⏱ 8 min read
-                </span>
-              </div>
-            </div>
-
-            <div className="pt-6 relative z-10">
-              <button
-                onClick={() => setSelectedTip(tipsData[21])}
-                className="w-full py-3 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-black text-xs transition-all flex items-center justify-center gap-2 shadow-md cursor-pointer"
-              >
-                <span>Read Full Tip</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-
-          {/* Featured Card 2 */}
-          <div className="rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-[#C89B2A] to-[#8C6718] text-white relative overflow-hidden shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group border border-white/20">
-            <div className="absolute top-4 right-4 bg-[#1A3C34] text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
-              ⭐ #2 This Week
-            </div>
-            <Link2 className="absolute -bottom-6 -right-6 w-36 h-36 text-white/10 pointer-events-none group-hover:scale-110 transition-transform" />
-
-            <div className="space-y-4 relative z-10">
-              <div className="inline-block px-3 py-1 rounded-full bg-[#2D7A4F] text-white text-xs font-extrabold border border-white/30">
-                🌱 Beginner
-              </div>
-
-              <h3 className="text-xl sm:text-2xl font-black font-display leading-snug">
-                The Instagram Bio Link Hack
-              </h3>
-
-              <p className="text-xs sm:text-sm text-white/90 font-medium leading-relaxed">
-                Turn your single Instagram bio link into a multi-brand earning machine using a free link-in-bio tool.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-2 pt-2">
-                <span className="px-2.5 py-1 rounded-lg bg-black/15 text-white text-[11px] font-bold">
-                  📈 980 Conversions
-                </span>
-                <span className="px-2.5 py-1 rounded-lg bg-black/15 text-white text-[11px] font-bold">
-                  💰 ₹45K/Month
-                </span>
-                <span className="px-2.5 py-1 rounded-lg bg-black/15 text-white text-[11px] font-bold">
-                  ⏱ 5 min read
-                </span>
-              </div>
-            </div>
-
-            <div className="pt-6 relative z-10">
-              <button
-                onClick={() => setSelectedTip(tipsData[1])}
-                className="w-full py-3 rounded-xl bg-[#1A3C34] hover:bg-[#122b25] text-white font-black text-xs transition-all flex items-center justify-center gap-2 shadow-md cursor-pointer"
-              >
-                <span>Read Full Tip</span>
-                <ArrowRight className="w-4 h-4 text-[#C89B2A]" />
-              </button>
-            </div>
-          </div>
-
-          {/* Featured Card 3 */}
-          <div className="rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-[#1A3C34] to-[#0F2621] text-white relative overflow-hidden shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group border border-[#C89B2A]/30">
-            <div className="absolute top-4 right-4 bg-[#C89B2A] text-[#1A3C34] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
-              🎯 #3 This Week
-            </div>
-            <Calendar className="absolute -bottom-6 -right-6 w-36 h-36 text-white/5 pointer-events-none group-hover:scale-110 transition-transform" />
-
-            <div className="space-y-4 relative z-10">
-              <div className="inline-block px-3 py-1 rounded-full bg-[#1A3C34] text-[#C89B2A] text-xs font-extrabold border border-[#C89B2A]/40">
-                ⭐ Pro
-              </div>
-
-              <h3 className="text-xl sm:text-2xl font-black font-display leading-snug">
-                The Festival Season Formula
-              </h3>
-
-              <p className="text-xs sm:text-sm text-white/80 font-medium leading-relaxed">
-                Plan 60 days ahead of Diwali, Holi, and Big Billion Days — and earn 8x your normal monthly income.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-2 pt-2">
-                <span className="px-2.5 py-1 rounded-lg bg-white/10 text-white text-[11px] font-bold">
-                  📅 60 Days Ahead
-                </span>
-                <span className="px-2.5 py-1 rounded-lg bg-white/10 text-white text-[11px] font-bold">
-                  💰 8x Earnings
-                </span>
-                <span className="px-2.5 py-1 rounded-lg bg-white/10 text-white text-[11px] font-bold">
-                  ⏱ 10 min read
-                </span>
-              </div>
-            </div>
-
-            <div className="pt-6 relative z-10">
-              <button
-                onClick={() => setSelectedTip(tipsData[18])}
-                className="w-full py-3 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-black text-xs transition-all flex items-center justify-center gap-2 shadow-md cursor-pointer"
-              >
-                <span>Read Full Tip</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-
-      {/* ========================================== */}
-      {/* SECTION 4 — TIP CATEGORIES FILTER + GRID  */}
-      {/* ========================================== */}
-      <section id="tips-grid-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center space-y-3 mb-10">
-          <h2 className="text-3xl sm:text-4xl font-black font-display">
-            <span className="text-[#1A3C34]">All Earning Tips </span>
-            <span className="text-[#C89B2A]">by Topic</span>
-          </h2>
-          <p className="text-xs sm:text-sm text-[#6B6355] font-medium max-w-xl mx-auto">
-            Filter strategies by your focus area, experience level, or platform to find actionable step-by-step guides.
-          </p>
-        </div>
-
-        {/* Horizontal Category Filter Tabs */}
-        <div className="sticky top-16 z-20 bg-[#F5F0E8]/95 backdrop-blur-md py-3 -mx-4 px-4 sm:mx-0 sm:px-0 mb-6">
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none justify-start sm:justify-center">
-            {categories.map((cat) => {
-              const isActive = activeCategory === cat;
-              return (
-                <button
-                  key={cat}
-                  onClick={() => {
-                    setActiveCategory(cat);
-                    setVisibleCount(9);
-                  }}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
-                    isActive
-                      ? 'bg-[#C89B2A] text-[#1A3C34] shadow-md scale-105'
-                      : 'bg-[#FDFAF4] border border-[#E8E2D6] text-[#6B6355] hover:text-[#1A3C34] hover:border-[#C89B2A]'
-                  }`}
-                >
-                  {cat}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Active Filters Display & Count Bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#FDFAF4] p-4 rounded-2xl border border-[#E8E2D6] mb-8 text-xs font-semibold text-[#6B6355]">
-          <div>
-            Showing <span className="font-black text-[#1A3C34] text-sm">{filteredTips.length}</span> tips
-            {activeCategory !== 'All' && <span> in <span className="text-[#C89B2A] font-bold">{activeCategory}</span></span>}
-            {activeTag && <span> tagged <span className="text-[#C89B2A] font-bold">#{activeTag}</span></span>}
-            {searchQuery && <span> matching "<span className="text-[#1A3C34] font-bold">{searchQuery}</span>"</span>}
-          </div>
-
-          {(activeCategory !== 'All' || activeTag || searchQuery) && (
-            <button
-              onClick={() => {
-                setActiveCategory('All');
-                setActiveTag(null);
-                setSearchQuery('');
-              }}
-              className="text-[#C89B2A] font-bold hover:underline flex items-center gap-1 cursor-pointer"
-            >
-              <RotateCcw className="w-3.5 h-3.5" />
-              Reset Filters
-            </button>
-          )}
-        </div>
-
-        {/* 3-Column Masonry-style Grid */}
-        {filteredTips.length === 0 ? (
-          <div className="bg-[#FDFAF4] rounded-3xl p-12 border border-[#E8E2D6] text-center space-y-4 max-w-md mx-auto">
-            <Lightbulb className="w-12 h-12 text-[#6B6355] mx-auto opacity-40" />
-            <h3 className="text-lg font-black text-[#1A3C34]">No tips match your search</h3>
-            <p className="text-xs text-[#6B6355]">Try resetting your search filters or searching with a broader keyword.</p>
-            <button
-              onClick={() => {
-                setActiveCategory('All');
-                setActiveTag(null);
-                setSearchQuery('');
-              }}
-              className="px-6 py-2.5 rounded-xl bg-[#C89B2A] text-[#1A3C34] font-black text-xs cursor-pointer"
-            >
-              View All Tips
-            </button>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredTips.slice(0, visibleCount).map((tip) => {
-              const IconComp = tip.icon;
-              const isSaved = savedTips.includes(tip.id);
-
-              return (
-                <div
-                  key={tip.id}
-                  className="bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 space-y-4 hover:border-[#C89B2A] hover:-translate-y-1 transition-all duration-200 shadow-2xs hover:shadow-md flex flex-col justify-between group relative overflow-hidden"
-                >
-                  {/* Top Header Row */}
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="px-2.5 py-0.5 rounded-md bg-[#1A3C34]/5 text-[#6B6355] text-[10px] font-extrabold uppercase tracking-wider">
-                        {tip.category}
-                      </span>
-
-                      <span
-                        className={`px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider ${
-                          tip.level === 'Beginner'
-                            ? 'bg-[#2D7A4F]/15 text-[#2D7A4F]'
-                            : tip.level === 'Intermediate'
-                            ? 'bg-[#C89B2A]/20 text-[#1A3C34]'
-                            : 'bg-[#1A3C34] text-[#C89B2A]'
-                        }`}
-                      >
-                        {tip.level}
-                      </span>
-                    </div>
-
-                    {/* Icon & Title */}
-                    <div className="flex items-start gap-3 pt-1">
-                      <div className="w-10 h-10 rounded-xl bg-[#C89B2A]/15 text-[#C89B2A] flex items-center justify-center flex-shrink-0 group-hover:bg-[#C89B2A] group-hover:text-[#1A3C34] transition-colors">
-                        <IconComp className="w-5 h-5" />
-                      </div>
-
-                      <h3 className="text-base font-black text-[#1A3C34] font-display line-clamp-2 group-hover:text-[#C89B2A] transition-colors">
-                        {tip.title}
-                      </h3>
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-xs text-[#6B6355] font-medium leading-relaxed line-clamp-3">
-                      {tip.desc}
-                    </p>
-                  </div>
-
-                  {/* Card Footer Row */}
-                  <div className="pt-4 border-t border-[#E8E2D6]/60 flex items-center justify-between text-xs font-bold text-[#6B6355]">
-                    <span className="flex items-center gap-1 text-[11px]">
-                      <Clock className="w-3.5 h-3.5 text-[#C89B2A]" />
-                      {tip.readTime} read
-                    </span>
-
-                    <div className="flex items-center gap-3">
-                      <button
-                        onClick={() => toggleSaveTip(tip.id)}
-                        className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
-                          isSaved ? 'text-[#C89B2A] bg-[#C89B2A]/15' : 'text-[#6B6355] hover:text-[#1A3C34]'
-                        }`}
-                        title={isSaved ? 'Saved' : 'Save tip'}
-                      >
-                        <Bookmark className="w-4 h-4 fill-current" />
-                      </button>
-
-                      <button
-                        onClick={() => setSelectedTip(tip)}
-                        className="text-[#C89B2A] font-black hover:underline flex items-center gap-1 cursor-pointer"
-                      >
-                        <span>Read More</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        )}
-
-        {/* Load More Button */}
-        {visibleCount < filteredTips.length && (
-          <div className="text-center pt-12">
-            <button
-              onClick={() => setVisibleCount((prev) => prev + 9)}
-              className="px-8 py-3.5 rounded-2xl bg-[#FDFAF4] border-2 border-[#C89B2A] text-[#1A3C34] hover:bg-[#C89B2A] font-black text-xs transition-all shadow-sm cursor-pointer inline-flex items-center gap-2"
-            >
-              <span>Load More Tips ({filteredTips.length - visibleCount} remaining)</span>
-              <ChevronDown className="w-4 h-4" />
-            </button>
-          </div>
-        )}
-      </section>
-
-
-      {/* ========================================== */}
-      {/* SECTION 5 — CREATOR SPOTLIGHT             */}
-      {/* ========================================== */}
-      <section className="bg-[#1A3C34] text-white py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        {/* Subtle Background Pattern */}
-        <div
-          className="absolute inset-0 opacity-10 pointer-events-none"
-          style={{
-            backgroundImage: `radial-gradient(#C89B2A 1px, transparent 1px)`,
-            backgroundSize: '28px 28px',
-          }}
-        />
-
-        <div className="relative z-10 max-w-7xl mx-auto space-y-12">
-          <div className="text-center space-y-3">
-            <h2 className="text-3xl sm:text-5xl font-black font-display tracking-tight text-white">
-              Tips From Real LinkX Creators
-            </h2>
-            <div className="w-16 h-1 bg-[#C89B2A] mx-auto rounded-full" />
-            <p className="text-xs sm:text-sm text-[#F5F0E8]/80 font-medium max-w-xl mx-auto">
-              These strategies come from creators already earning ₹20,000–₹1,00,000/month on LinkX
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-            {/* Spotlight 1 */}
-            <div className="bg-[#FDFAF4] text-[#1A3C34] rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl border border-[#E8E2D6] relative flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-[#C89B2A]/20 border-2 border-[#C89B2A] flex items-center justify-center font-black text-[#1A3C34] text-base">
-                      PS
-                    </div>
-                    <div>
-                      <h3 className="font-black text-base">Priya Sharma</h3>
-                      <p className="text-xs text-[#6B6355] font-semibold">@priyasharma • Mumbai</p>
-                    </div>
-                  </div>
-                  <span className="px-3 py-1 rounded-full bg-[#C89B2A] text-[#1A3C34] text-[11px] font-black shadow-xs">
-                    ₹45,000/mo
-                  </span>
-                </div>
-
-                <div className="text-xs font-semibold text-[#6B6355]">
-                  Platform: <span className="text-[#1A3C34] font-bold">Instagram (45K followers)</span>
-                </div>
-
-                <blockquote className="text-xs sm:text-sm text-[#1A3C34] italic font-medium leading-relaxed pt-2 border-t border-[#E8E2D6]">
-                  "I add my LinkX bio link to every single Instagram story I post — even ones not related to products. Just having it visible drove 300+ extra clicks per month."
-                </blockquote>
-              </div>
-
-              <div className="pt-4 flex items-center justify-between text-xs border-t border-[#E8E2D6]/50">
-                <span className="text-[10px] font-extrabold uppercase text-[#6B6355]">Top Strategy</span>
-                <span className="px-2.5 py-0.5 rounded-full border border-[#C89B2A] text-[#C89B2A] text-[10px] font-extrabold">
-                  Link Strategy
-                </span>
-              </div>
-            </div>
-
-            {/* Spotlight 2 */}
-            <div className="bg-[#FDFAF4] text-[#1A3C34] rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl border border-[#E8E2D6] relative flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-[#1A3C34]/10 border-2 border-[#1A3C34] flex items-center justify-center font-black text-[#1A3C34] text-base">
-                      RV
-                    </div>
-                    <div>
-                      <h3 className="font-black text-base">Rahul Verma</h3>
-                      <p className="text-xs text-[#6B6355] font-semibold">@rahultech • Delhi</p>
-                    </div>
-                  </div>
-                  <span className="px-3 py-1 rounded-full bg-[#C89B2A] text-[#1A3C34] text-[11px] font-black shadow-xs">
-                    ₹82,000/mo
-                  </span>
-                </div>
-
-                <div className="text-xs font-semibold text-[#6B6355]">
-                  Platform: <span className="text-[#1A3C34] font-bold">YouTube (1.2L subscribers)</span>
-                </div>
-
-                <blockquote className="text-xs sm:text-sm text-[#1A3C34] italic font-medium leading-relaxed pt-2 border-t border-[#E8E2D6]">
-                  "I pin my affiliate link in the first comment of every video and timestamp it in the description. These two steps alone doubled my commissions overnight."
-                </blockquote>
-              </div>
-
-              <div className="pt-4 flex items-center justify-between text-xs border-t border-[#E8E2D6]/50">
-                <span className="text-[10px] font-extrabold uppercase text-[#6B6355]">Top Strategy</span>
-                <span className="px-2.5 py-0.5 rounded-full border border-[#C89B2A] text-[#C89B2A] text-[10px] font-extrabold">
-                  Platform Hacks
-                </span>
-              </div>
-            </div>
-
-            {/* Spotlight 3 */}
-            <div className="bg-[#FDFAF4] text-[#1A3C34] rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl border border-[#E8E2D6] relative flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-[#2D7A4F]/20 border-2 border-[#2D7A4F] flex items-center justify-center font-black text-[#2D7A4F] text-base">
-                      SK
-                    </div>
-                    <div>
-                      <h3 className="font-black text-base">Sneha Kapoor</h3>
-                      <p className="text-xs text-[#6B6355] font-semibold">@snehabeauty • Bangalore</p>
-                    </div>
-                  </div>
-                  <span className="px-3 py-1 rounded-full bg-[#C89B2A] text-[#1A3C34] text-[11px] font-black shadow-xs">
-                    ₹38,000/mo
-                  </span>
-                </div>
-
-                <div className="text-xs font-semibold text-[#6B6355]">
-                  Platform: <span className="text-[#1A3C34] font-bold">Blog + Telegram (50K reach)</span>
-                </div>
-
-                <blockquote className="text-xs sm:text-sm text-[#1A3C34] italic font-medium leading-relaxed pt-2 border-t border-[#E8E2D6]">
-                  "I created a Telegram deals channel for beauty products. I now schedule posts a week in advance and the channel runs itself. Best passive income decision I ever made."
-                </blockquote>
-              </div>
-
-              <div className="pt-4 flex items-center justify-between text-xs border-t border-[#E8E2D6]/50">
-                <span className="text-[10px] font-extrabold uppercase text-[#6B6355]">Top Strategy</span>
-                <span className="px-2.5 py-0.5 rounded-full border border-[#C89B2A] text-[#C89B2A] text-[10px] font-extrabold">
-                  Passive Income
-                </span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-
-      {/* ========================================== */}
-      {/* SECTION 6 — TIP OF THE DAY (WIDGET)       */}
-      {/* ========================================== */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 py-16">
-        <div className="text-center space-y-2 mb-8">
-          <h2 className="text-3xl sm:text-4xl font-black font-display text-[#1A3C34]">
-            Tip of the Day
-          </h2>
-          <p className="text-xs sm:text-sm text-[#6B6355] font-medium">
-            Refresh every day for a new actionable earning insight
-          </p>
-        </div>
-
-        {/* Prominent Tip Card */}
-        <div className="bg-[#FDFAF4] rounded-3xl p-6 sm:p-10 border-2 border-[#C89B2A] shadow-xl relative overflow-hidden space-y-6">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-            <div className="px-3.5 py-1 rounded-full bg-[#C89B2A]/15 text-[#C89B2A] text-xs font-black uppercase tracking-wider flex items-center gap-1.5">
-              <Calendar className="w-3.5 h-3.5" />
-              <span>{tipOfDayList[todayTipIndex].date}</span>
-            </div>
-
-            <div className="px-3 py-1 rounded-full bg-[#1A3C34] text-[#C89B2A] text-xs font-bold">
-              {tipOfDayList[todayTipIndex].level}
-            </div>
-          </div>
-
-          <div className="flex items-start gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-[#C89B2A] text-[#1A3C34] flex items-center justify-center flex-shrink-0 shadow-md animate-pulse">
-              <Lightbulb className="w-7 h-7" />
-            </div>
-
-            <div className="space-y-2">
-              <h3 className="text-xl sm:text-2xl font-black text-[#1A3C34] font-display">
-                {tipOfDayList[todayTipIndex].title}
-              </h3>
-              <p className="text-xs sm:text-sm text-[#6B6355] font-medium leading-relaxed">
-                {tipOfDayList[todayTipIndex].body}
-              </p>
-            </div>
-          </div>
-
-          {/* Impact Meter */}
-          <div className="p-4 rounded-2xl bg-[#F5F0E8] border border-[#E8E2D6] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs font-bold text-[#1A3C34]">
-            <span className="flex items-center gap-1.5 font-black text-[#C89B2A]">
-              💥 Impact Level: High
-            </span>
-            <div className="flex items-center gap-1.5">
-              <div className="w-8 h-2.5 rounded-full bg-[#C89B2A]" />
-              <div className="w-8 h-2.5 rounded-full bg-[#C89B2A]" />
-              <div className="w-8 h-2.5 rounded-full bg-[#C89B2A]" />
-              <span className="text-[11px] text-[#6B6355] font-semibold ml-1">(3/3 Max Impact)</span>
-            </div>
-          </div>
-
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2 border-t border-[#E8E2D6]">
-            <div className="flex items-center gap-3 w-full sm:w-auto">
-              <button
-                onClick={() => {
-                  setIsSavedTipOfDay(!isSavedTipOfDay);
-                  showToast(isSavedTipOfDay ? 'Tip unsaved' : 'Tip saved to bookmarks! 🔖');
-                }}
-                className={`px-5 py-2.5 rounded-xl border text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer w-full sm:w-auto ${
-                  isSavedTipOfDay
-                    ? 'bg-[#C89B2A] border-[#C89B2A] text-[#1A3C34]'
-                    : 'border-[#C89B2A] text-[#1A3C34] hover:bg-[#C89B2A]/10'
+                onClick={() => setActiveLevel('All')}
+                className={`px-4 py-2 rounded-xl transition-all cursor-pointer ${
+                  activeLevel === 'All'
+                    ? 'bg-[#1A3C34] text-[#C89B2A] shadow-xs'
+                    : 'text-[#6B6355] hover:text-[#1A3C34]'
                 }`}
               >
-                <Bookmark className="w-4 h-4" />
-                <span>{isSavedTipOfDay ? 'Saved' : 'Save This Tip'}</span>
+                ⚡ All Levels
               </button>
 
               <button
-                onClick={() => handleShareTip(tipOfDayList[todayTipIndex].title)}
-                className="px-5 py-2.5 rounded-xl border border-[#1A3C34] text-[#1A3C34] hover:bg-[#1A3C34] hover:text-white text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer w-full sm:w-auto"
+                onClick={() => setActiveLevel('Beginner')}
+                className={`px-4 py-2 rounded-xl transition-all flex items-center gap-1.5 cursor-pointer ${
+                  activeLevel === 'Beginner'
+                    ? 'bg-[#2D7A4F] text-white shadow-xs'
+                    : 'text-[#6B6355] hover:text-[#2D7A4F]'
+                }`}
               >
-                <Share2 className="w-4 h-4" />
-                <span>Share This Tip</span>
+                <Sprout className="w-3.5 h-3.5" />
+                <span>Beginner</span>
               </button>
-            </div>
 
-            {/* Navigation */}
-            <div className="flex items-center gap-4 text-xs font-bold text-[#C89B2A]">
               <button
-                disabled={todayTipIndex === 0}
-                onClick={() => setTodayTipIndex(todayTipIndex - 1)}
-                className={`hover:underline cursor-pointer ${todayTipIndex === 0 ? 'opacity-40 cursor-not-allowed' : ''}`}
+                onClick={() => setActiveLevel('Intermediate')}
+                className={`px-4 py-2 rounded-xl transition-all flex items-center gap-1.5 cursor-pointer ${
+                  activeLevel === 'Intermediate'
+                    ? 'bg-[#C89B2A] text-[#1A3C34] shadow-xs'
+                    : 'text-[#6B6355] hover:text-[#C89B2A]'
+                }`}
               >
-                ← Prev Tip
+                <Rocket className="w-3.5 h-3.5" />
+                <span>Intermediate</span>
               </button>
-              <span className="text-[#6B6355]">|</span>
+
               <button
-                disabled={todayTipIndex === tipOfDayList.length - 1}
-                onClick={() => setTodayTipIndex(todayTipIndex + 1)}
-                className={`hover:underline cursor-pointer ${todayTipIndex === tipOfDayList.length - 1 ? 'opacity-40 cursor-not-allowed' : ''}`}
+                onClick={() => setActiveLevel('Pro')}
+                className={`px-4 py-2 rounded-xl transition-all flex items-center gap-1.5 cursor-pointer ${
+                  activeLevel === 'Pro'
+                    ? 'bg-[#1A3C34] text-[#C89B2A] shadow-xs'
+                    : 'text-[#6B6355] hover:text-[#1A3C34]'
+                }`}
               >
-                Next Tip →
+                <Crown className="w-3.5 h-3.5" />
+                <span>Pro</span>
               </button>
             </div>
           </div>
-        </div>
-      </section>
 
-
-      {/* ========================================== */}
-      {/* SECTION 7 — EARNING TIPS BY INCOME GOAL    */}
-      {/* ========================================== */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center space-y-3 mb-12">
-          <h2 className="text-3xl sm:text-4xl font-black font-display text-[#1A3C34]">
-            Tips Based on Your Goal
-          </h2>
-          <p className="text-xs sm:text-sm text-[#6B6355] font-medium max-w-xl mx-auto">
-            Choose your monthly income target and unlock the exact step-by-step roadmap to achieve it.
+          <p className="text-xs font-bold text-[#6B6355] pt-1">
+            42 tips across all levels • Filtered: {filteredTips.length} top strategies showing
           </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-          {/* Goal 1: ₹5,000 */}
-          <div className="bg-[#FDFAF4] rounded-3xl p-6 sm:p-8 border border-[#E8E2D6] space-y-6 shadow-sm hover:shadow-md transition-all">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-[#2D7A4F]/15 text-[#2D7A4F] flex items-center justify-center font-black">
-                <Target className="w-6 h-6" />
-              </div>
-              <div>
-                <span className="text-[10px] font-black uppercase tracking-wider text-[#2D7A4F]">🌱 First Goal</span>
-                <h3 className="text-2xl font-black text-[#1A3C34] font-display">₹5,000/Month</h3>
-              </div>
-            </div>
-
-            <p className="text-xs text-[#6B6355] font-medium">
-              Perfect starting roadmap for beginners launching their first affiliate links.
-            </p>
-
-            <button
-              onClick={() => setExpandedGoal(expandedGoal === 1 ? null : 1)}
-              className="w-full py-2.5 px-4 rounded-xl bg-[#F5F0E8] hover:bg-[#E8E2D6] text-[#1A3C34] font-black text-xs transition-colors flex items-center justify-between cursor-pointer"
-            >
-              <span>{expandedGoal === 1 ? 'Hide Step Action Plan' : 'Show 5 Step Action Plan'}</span>
-              {expandedGoal === 1 ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-            </button>
-
-            {expandedGoal === 1 && (
-              <div className="space-y-3 pt-2 text-xs font-semibold text-[#1A3C34] border-t border-[#E8E2D6] animate-fade-in">
-                <div className="flex items-start gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[#2D7A4F] text-white flex items-center justify-center text-[10px] font-black flex-shrink-0 mt-0.5">1</span>
-                  <span>Add your LinkX bio link to all social media profiles today</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[#2D7A4F] text-white flex items-center justify-center text-[10px] font-black flex-shrink-0 mt-0.5">2</span>
-                  <span>Pick 3 brands you personally use and generate shortlinks</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[#2D7A4F] text-white flex items-center justify-center text-[10px] font-black flex-shrink-0 mt-0.5">3</span>
-                  <span>Share deals in 5 active WhatsApp groups daily at 9 AM</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[#2D7A4F] text-white flex items-center justify-center text-[10px] font-black flex-shrink-0 mt-0.5">4</span>
-                  <span>Post one honest 60-sec video review per week on Instagram</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[#2D7A4F] text-white flex items-center justify-center text-[10px] font-black flex-shrink-0 mt-0.5">5</span>
-                  <span>Check dashboard analytics every 3 days to refine placements</span>
-                </div>
-              </div>
-            )}
-
-            <button
-              onClick={() => {
-                if (onOpenAuth) onOpenAuth('signup');
-                else router.push('/campaigns');
-              }}
-              className="w-full py-3 rounded-xl border-2 border-[#2D7A4F] text-[#2D7A4F] hover:bg-[#2D7A4F] hover:text-white font-black text-xs transition-all cursor-pointer"
-            >
-              Start With These Tips →
-            </button>
-          </div>
-
-          {/* Goal 2: ₹25,000 (HIGHLIGHTED) */}
-          <div className="bg-[#FDFAF4] rounded-3xl p-6 sm:p-8 border-2 border-[#C89B2A] space-y-6 shadow-xl relative transform md:-translate-y-2">
-            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#C89B2A] text-[#1A3C34] text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-wider shadow-sm">
-              🚀 Most Popular Goal
-            </div>
-
-            <div className="flex items-center gap-3 pt-2">
-              <div className="w-12 h-12 rounded-2xl bg-[#C89B2A] text-[#1A3C34] flex items-center justify-center font-black">
-                <TrendingUp className="w-6 h-6" />
-              </div>
-              <div>
-                <span className="text-[10px] font-black uppercase tracking-wider text-[#C89B2A]">Scaling Goal</span>
-                <h3 className="text-2xl font-black text-[#1A3C34] font-display">₹25,000/Month</h3>
-              </div>
-            </div>
-
-            <p className="text-xs text-[#6B6355] font-medium">
-              For creators ready to scale from casual sharing to a consistent revenue stream.
-            </p>
-
-            <button
-              onClick={() => setExpandedGoal(expandedGoal === 2 ? null : 2)}
-              className="w-full py-2.5 px-4 rounded-xl bg-[#C89B2A]/15 text-[#1A3C34] font-black text-xs transition-colors flex items-center justify-between cursor-pointer"
-            >
-              <span>{expandedGoal === 2 ? 'Hide Step Action Plan' : 'Show 5 Step Action Plan'}</span>
-              {expandedGoal === 2 ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-            </button>
-
-            {expandedGoal === 2 && (
-              <div className="space-y-3 pt-2 text-xs font-semibold text-[#1A3C34] border-t border-[#E8E2D6] animate-fade-in">
-                <div className="flex items-start gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[#C89B2A] text-[#1A3C34] flex items-center justify-center text-[10px] font-black flex-shrink-0 mt-0.5">1</span>
-                  <span>Build a niche Telegram deals channel (target 5K+ members)</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[#C89B2A] text-[#1A3C34] flex items-center justify-center text-[10px] font-black flex-shrink-0 mt-0.5">2</span>
-                  <span>Create weekly video reviews for top 5 commission campaigns</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[#C89B2A] text-[#1A3C34] flex items-center justify-center text-[10px] font-black flex-shrink-0 mt-0.5">3</span>
-                  <span>Audit LinkX analytics to drop low-performing offer links</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[#C89B2A] text-[#1A3C34] flex items-center justify-center text-[10px] font-black flex-shrink-0 mt-0.5">4</span>
-                  <span>Plan content 30 days ahead of upcoming brand sale events</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[#C89B2A] text-[#1A3C34] flex items-center justify-center text-[10px] font-black flex-shrink-0 mt-0.5">5</span>
-                  <span>Stack 6–8 campaigns simultaneously for income diversification</span>
-                </div>
-              </div>
-            )}
-
-            <button
-              onClick={() => {
-                if (onOpenAuth) onOpenAuth('signup');
-                else router.push('/campaigns');
-              }}
-              className="w-full py-3 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-black text-xs transition-all shadow-md cursor-pointer"
-            >
-              Level Up With These →
-            </button>
-          </div>
-
-          {/* Goal 3: ₹1,00,000 */}
-          <div className="bg-[#FDFAF4] rounded-3xl p-6 sm:p-8 border border-[#E8E2D6] space-y-6 shadow-sm hover:shadow-md transition-all">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-[#1A3C34] text-[#C89B2A] flex items-center justify-center font-black">
-                <Crown className="w-6 h-6" />
-              </div>
-              <div>
-                <span className="text-[10px] font-black uppercase tracking-wider text-[#1A3C34]">⭐ Pro Tier</span>
-                <h3 className="text-2xl font-black text-[#1A3C34] font-display">₹1 Lakh Club</h3>
-              </div>
-            </div>
-
-            <p className="text-xs text-[#6B6355] font-medium">
-              Advanced strategies for full-time creators building passive digital businesses.
-            </p>
-
-            <button
-              onClick={() => setExpandedGoal(expandedGoal === 3 ? null : 3)}
-              className="w-full py-2.5 px-4 rounded-xl bg-[#F5F0E8] hover:bg-[#E8E2D6] text-[#1A3C34] font-black text-xs transition-colors flex items-center justify-between cursor-pointer"
-            >
-              <span>{expandedGoal === 3 ? 'Hide Step Action Plan' : 'Show 5 Step Action Plan'}</span>
-              {expandedGoal === 3 ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-            </button>
-
-            {expandedGoal === 3 && (
-              <div className="space-y-3 pt-2 text-xs font-semibold text-[#1A3C34] border-t border-[#E8E2D6] animate-fade-in">
-                <div className="flex items-start gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[#1A3C34] text-[#C89B2A] flex items-center justify-center text-[10px] font-black flex-shrink-0 mt-0.5">1</span>
-                  <span>Own a micro-niche completely — become THE trusted expert</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[#1A3C34] text-[#C89B2A] flex items-center justify-center text-[10px] font-black flex-shrink-0 mt-0.5">2</span>
-                  <span>Build SEO blog review content for organic Google traffic</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[#1A3C34] text-[#C89B2A] flex items-center justify-center text-[10px] font-black flex-shrink-0 mt-0.5">3</span>
-                  <span>Run dedicated festival campaigns starting 60 days in advance</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[#1A3C34] text-[#C89B2A] flex items-center justify-center text-[10px] font-black flex-shrink-0 mt-0.5">4</span>
-                  <span>Build an email subscriber list of 5,000 active deal shoppers</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="w-5 h-5 rounded-full bg-[#1A3C34] text-[#C89B2A] flex items-center justify-center text-[10px] font-black flex-shrink-0 mt-0.5">5</span>
-                  <span>Reinvest 10% of monthly earnings into content production quality</span>
-                </div>
-              </div>
-            )}
-
-            <button
-              onClick={() => {
-                if (onOpenAuth) onOpenAuth('signup');
-                else router.push('/campaigns');
-              }}
-              className="w-full py-3 rounded-xl border-2 border-[#1A3C34] text-[#1A3C34] hover:bg-[#1A3C34] hover:text-white font-black text-xs transition-all cursor-pointer"
-            >
-              Go Pro With These →
-            </button>
-          </div>
 
         </div>
       </section>
 
 
-      {/* ========================================== */}
-      {/* SECTION 8 — QUICK TIPS TICKER (60-SEC)    */}
-      {/* ========================================== */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center space-y-2 mb-10">
-          <h2 className="text-3xl sm:text-4xl font-black font-display text-[#1A3C34]">
-            60-Second Quick Wins
-          </h2>
-          <p className="text-xs sm:text-sm text-[#6B6355] font-medium">
-            Fast, high-impact changes you can implement in under 1 minute right now
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {quickMiniTips.map((tip, idx) => {
-            const IconComp = tip.icon;
-            return (
-              <div
-                key={idx}
-                className="bg-[#FDFAF4] rounded-2xl p-4 border border-[#E8E2D6] hover:border-[#C89B2A] hover:-translate-y-0.5 transition-all shadow-2xs flex items-start gap-3 group"
-              >
-                <div className={`p-2.5 rounded-xl flex-shrink-0 ${idx % 2 === 0 ? 'bg-[#C89B2A]/15 text-[#C89B2A]' : 'bg-[#1A3C34]/10 text-[#1A3C34]'}`}>
-                  <IconComp className="w-4 h-4" />
-                </div>
-
-                <div className="space-y-1 flex-1 min-w-0">
-                  <div className="flex items-center justify-between gap-2">
-                    <h3 className="text-xs font-black text-[#1A3C34] truncate group-hover:text-[#C89B2A] transition-colors">
-                      {tip.title}
-                    </h3>
-                    <span className="px-1.5 py-0.5 rounded-md bg-[#1A3C34]/5 text-[#6B6355] text-[9px] font-bold flex-shrink-0">
-                      {tip.time}
-                    </span>
-                  </div>
-                  <p className="text-[11px] text-[#6B6355] font-medium leading-normal line-clamp-2">
-                    {tip.desc}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-
-      {/* ========================================== */}
-      {/* SECTION 9 — NEWSLETTER CTA                */}
-      {/* ========================================== */}
-      <section className="bg-[#EDE8DC] py-20 px-4 sm:px-6 lg:px-8 my-10 border-y border-[#E8E2D6]">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-          {/* Left Visual Illustration */}
-          <div className="bg-[#1A3C34] rounded-3xl p-8 sm:p-12 text-white relative overflow-hidden space-y-6 shadow-xl">
-            <div className="w-16 h-16 rounded-2xl bg-[#C89B2A] text-[#1A3C34] flex items-center justify-center font-black shadow-md">
-              <Lightbulb className="w-8 h-8" />
-            </div>
-
-            <div className="space-y-2">
-              <h3 className="text-2xl sm:text-3xl font-black font-display leading-tight text-white">
-                Weekly Creator Digest
-              </h3>
-              <p className="text-xs sm:text-sm text-white/80 font-medium">
-                Get handpicked strategies sent directly to your inbox every Thursday morning.
-              </p>
-            </div>
-
-            {/* Floating Tip Pills */}
-            <div className="space-y-2.5 pt-2">
-              <div className="p-3 rounded-xl bg-white/10 backdrop-blur-xs text-xs font-bold flex items-center justify-between border border-white/10">
-                <span className="flex items-center gap-2">
-                  <Lightbulb className="w-4 h-4 text-[#C89B2A]" />
-                  Tip #12: Story Sticker Hack
-                </span>
-                <span className="text-[10px] text-[#C89B2A] font-black">HIGH IMPACT</span>
-              </div>
-
-              <div className="p-3 rounded-xl bg-white/10 backdrop-blur-xs text-xs font-bold flex items-center justify-between border border-white/10">
-                <span className="flex items-center gap-2">
-                  <Zap className="w-4 h-4 text-[#C89B2A]" />
-                  High Commission Alert: Myntra 15%
-                </span>
-                <span className="text-[10px] text-white/70 font-semibold">NEW</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Form Content */}
-          <div className="space-y-6">
-            <div className="space-y-3">
-              <span className="px-3 py-1 rounded-full bg-[#C89B2A]/20 border border-[#C89B2A]/40 text-[#1A3C34] text-xs font-black uppercase tracking-wider">
-                📩 Free Weekly Newsletter
-              </span>
-
-              <h2 className="text-3xl sm:text-4xl font-black font-display text-[#1A3C34]">
-                Never Miss an Earning Tip
-              </h2>
-
-              <p className="text-xs sm:text-sm text-[#6B6355] font-medium leading-relaxed">
-                Join 10,000+ creators receiving our weekly digest of high-commission campaign drops, algorithm hacks, and festival strategies.
-              </p>
-            </div>
-
-            {/* Benefit Checkmarks */}
-            <ul className="space-y-2.5 text-xs font-bold text-[#1A3C34]">
-              <li className="flex items-center gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#2D7A4F] flex-shrink-0" />
-                <span>Weekly curated earning tips by top Indian creators</span>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#2D7A4F] flex-shrink-0" />
-                <span>Instant notifications on brand commission percentage spikes</span>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#2D7A4F] flex-shrink-0" />
-                <span>Diwali & festival season pre-planning cheat sheets</span>
-              </li>
-            </ul>
-
-            {/* Subscribe Form */}
-            {subscribedNewsletter ? (
-              <div className="p-4 rounded-2xl bg-[#2D7A4F]/15 border border-[#2D7A4F]/40 text-[#2D7A4F] text-xs font-bold flex items-center gap-3">
-                <Check className="w-5 h-5 flex-shrink-0" />
-                <span>Awesome! You are subscribed. Check your inbox for this week's tips.</span>
-              </div>
-            ) : (
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  if (newsletterEmail) {
-                    setSubscribedNewsletter(true);
-                    showToast('Successfully subscribed to weekly tips! 📩');
-                  }
-                }}
-                className="flex flex-col sm:flex-row gap-2 max-w-md"
-              >
-                <input
-                  type="email"
-                  required
-                  value={newsletterEmail}
-                  onChange={(e) => setNewsletterEmail(e.target.value)}
-                  placeholder="Enter your email address..."
-                  className="px-4 py-3 rounded-xl bg-[#FDFAF4] border-2 border-[#E8E2D6] focus:border-[#C89B2A] text-xs text-[#1A3C34] focus:outline-none flex-1 font-medium shadow-2xs"
-                />
-                <button
-                  type="submit"
-                  className="px-6 py-3 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-black text-xs transition-all shadow-md flex items-center justify-center gap-2 flex-shrink-0 cursor-pointer"
-                >
-                  <span>Get Weekly Tips</span>
-                  <SendHorizontal className="w-4 h-4" />
-                </button>
-              </form>
-            )}
-
-            <p className="text-[11px] text-[#6B6355] font-medium">
-              Join 10,000+ creators. Zero spam. Unsubscribe anytime with one click.
-            </p>
-          </div>
-
-        </div>
-      </section>
-
-
-      {/* ========================================== */}
-      {/* SECTION 10 — BOTTOM CTA BANNER             */}
-      {/* ========================================== */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
-        <div className="bg-[#1A3C34] rounded-3xl p-8 sm:p-14 text-white text-center relative overflow-hidden space-y-8 shadow-2xl border border-[#C89B2A]/40">
-          {/* Decorative Pattern */}
+      {/* =================================================================== */}
+      {/* SECTION 2 — FEATURED TIP OF THE WEEK                                */}
+      {/* =================================================================== */}
+      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto my-12">
+        <div className="bg-[#1A3C34] text-white rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden border border-[#C89B2A]/30">
+          
+          {/* Gold Dotted Pattern in Background */}
           <div
             className="absolute inset-0 opacity-10 pointer-events-none"
             style={{
               backgroundImage: `radial-gradient(#C89B2A 1px, transparent 1px)`,
-              backgroundSize: '24px 24px',
+              backgroundSize: '20px 20px',
             }}
           />
 
-          <div className="relative z-10 max-w-3xl mx-auto space-y-4">
-            <h2 className="text-3xl sm:text-5xl font-black font-display tracking-tight text-white leading-tight">
-              Tips Are Only Useful<br />When You Act on Them.
-            </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+            
+            {/* Left Content */}
+            <div className="lg:col-span-8 space-y-5 text-left">
+              
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C89B2A] text-[#1A3C34] text-xs font-black uppercase tracking-wider shadow-xs">
+                  <Star className="w-3.5 h-3.5 fill-current" />
+                  <span>Featured Tip of the Week</span>
+                </span>
 
-            <p className="text-xs sm:text-base text-white/80 font-medium max-w-xl mx-auto leading-relaxed">
-              Start applying these strategies today on LinkX — 500+ top brand campaigns, instant automated UPI payouts, and real earnings waiting for you.
-            </p>
-          </div>
+                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 text-[#C89B2A] text-xs font-extrabold border border-[#C89B2A]/40">
+                  <Rocket className="w-3 h-3" />
+                  <span>Intermediate</span>
+                </span>
+              </div>
 
-          <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-            <button
-              onClick={() => {
-                if (onOpenAuth) onOpenAuth('signup');
-                else router.push('/campaigns');
-              }}
-              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-black text-sm transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer group"
-            >
-              <span>Start Earning Now</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
+                The Bio Link Strategy That Made ₹45,000 in One Month
+              </h2>
 
-            <button
-              onClick={() => router.push('/campaigns')}
-              className="w-full sm:w-auto px-8 py-4 rounded-xl border-2 border-white/30 text-white hover:bg-white/10 font-black text-sm transition-all cursor-pointer"
-            >
-              Browse All Campaigns
-            </button>
-          </div>
+              <p className="text-sm sm:text-base text-[#F5F0E8]/80 font-medium leading-relaxed max-w-2xl">
+                Instagram creator Priya Sharma shares exactly how she structured her bio link landing page to drive 980 conversions in 30 days — and how you can copy it step-by-step.
+              </p>
 
-          {/* 3 Trust Badges */}
-          <div className="relative z-10 pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-6 text-xs font-bold text-white/80">
-            <span className="flex items-center gap-2">
-              <Lightbulb className="w-4 h-4 text-[#C89B2A]" />
-              500+ Campaigns to Apply Tips To
-            </span>
-            <span className="text-white/30">•</span>
-            <span className="flex items-center gap-2">
-              <Zap className="w-4 h-4 text-[#C89B2A]" />
-              Instant UPI Payouts
-            </span>
-            <span className="text-white/30">•</span>
-            <span className="flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-[#C89B2A]" />
-              100% Free Forever
-            </span>
+              {/* Stat Pills */}
+              <div className="flex flex-wrap items-center gap-3 pt-1">
+                <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white/10 border border-[#C89B2A]/50 text-xs font-bold text-white">
+                  <TrendingUp className="w-4 h-4 text-[#C89B2A]" />
+                  <span>980 Conversions</span>
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white/10 border border-[#C89B2A]/50 text-xs font-bold text-[#C89B2A]">
+                  <IndianRupee className="w-4 h-4 text-[#C89B2A]" />
+                  <span>₹45,000 Earned</span>
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white/10 border border-[#C89B2A]/50 text-xs font-bold text-white">
+                  <Clock className="w-4 h-4 text-[#C89B2A]" />
+                  <span>5 min read</span>
+                </span>
+              </div>
+
+              {/* CTA Button */}
+              <div className="pt-2">
+                <button
+                  onClick={() => setShowFeaturedModal(true)}
+                  className="px-8 py-3.5 rounded-2xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-all shadow-lg inline-flex items-center gap-2 group cursor-pointer"
+                >
+                  <span>Read Full Strategy</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+
+            </div>
+
+            {/* Right Abstract Visual Illustration */}
+            <div className="lg:col-span-4 flex justify-center">
+              <div className="relative w-full max-w-xs bg-white/10 backdrop-blur-md rounded-2xl border border-[#C89B2A]/40 p-5 shadow-xl space-y-4">
+                
+                {/* Phone Top Header */}
+                <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                  <div className="flex items-center gap-2">
+                    <div className="w-7 h-7 rounded-full bg-[#C89B2A] text-[#1A3C34] font-bold text-[10px] flex items-center justify-center">PS</div>
+                    <div>
+                      <span className="text-xs font-extrabold text-white block">@priyastyle</span>
+                      <span className="text-[10px] text-[#F5F0E8]/70 block">Bio Link Dashboard</span>
+                    </div>
+                  </div>
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                </div>
+
+                {/* Simulated Link Buttons */}
+                <div className="space-y-2">
+                  <div className="p-2.5 rounded-xl bg-[#C89B2A] text-[#1A3C34] text-xs font-extrabold flex justify-between items-center shadow-xs">
+                    <span>👗 Myntra Ethnic Sale Top Picks</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-white/20 text-white text-xs font-bold flex justify-between items-center">
+                    <span>💄 Nykaa Beauty Must-Haves</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#C89B2A]" />
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-white/20 text-white text-xs font-bold flex justify-between items-center">
+                    <span>🎧 boAt Earbuds 60% Off Link</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#C89B2A]" />
+                  </div>
+                </div>
+
+                {/* Earnings Metric */}
+                <div className="p-3 bg-[#1A3C34] rounded-xl border border-[#C89B2A]/50 flex justify-between items-center">
+                  <span className="text-[10px] text-[#F5F0E8]/80 font-medium">30-Day Revenue</span>
+                  <span className="text-sm font-black text-[#C89B2A]">₹45,210.00</span>
+                </div>
+
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
+
+      {/* =================================================================== */}
+      {/* SECTION 3 — TIPS BY CATEGORY (VISUAL GRID)                          */}
+      {/* =================================================================== */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
+        
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1A3C34]">
+            Browse Tips <span className="text-[#C89B2A]">by Category</span>
+          </h2>
+          <p className="text-sm text-[#6B6355] font-medium">
+            Pick your area and start earning smarter today
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          {/* Card 1 — Link Sharing */}
+          <div className="rounded-2xl p-7 text-white bg-gradient-to-br from-[#1A3C34] to-[#122A24] shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all flex flex-col justify-between space-y-6 group cursor-pointer border border-[#1A3C34]">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start">
+                <div className="p-3 rounded-2xl bg-white/10 text-white border border-white/15">
+                  <Link2 className="w-7 h-7" />
+                </div>
+                <span className="px-3 py-1 rounded-full bg-[#C89B2A] text-[#1A3C34] text-xs font-black">
+                  8 tips
+                </span>
+              </div>
+
+              <h3 className="text-xl font-extrabold text-white">Link Sharing</h3>
+              <p className="text-xs text-[#F5F0E8]/80 leading-relaxed font-medium">
+                Share links in your bio, stories, Telegram groups, and WhatsApp broadcasts simultaneously.
+              </p>
+            </div>
+
+            <div className="flex items-center justify-between text-xs font-extrabold text-[#C89B2A] pt-2">
+              <span>Explore Link Tactics</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+
+          {/* Card 2 — Content Creation */}
+          <div className="rounded-2xl p-7 text-white bg-gradient-to-br from-[#C89B2A] to-[#a8801d] shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all flex flex-col justify-between space-y-6 group cursor-pointer border border-[#C89B2A]">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start">
+                <div className="p-3 rounded-2xl bg-white/20 text-white border border-white/25">
+                  <Video className="w-7 h-7" />
+                </div>
+                <span className="px-3 py-1 rounded-full bg-[#1A3C34] text-white text-xs font-black">
+                  6 tips
+                </span>
+              </div>
+
+              <h3 className="text-xl font-extrabold text-[#1A3C34]">Content Creation</h3>
+              <p className="text-xs text-[#1A3C34]/85 leading-relaxed font-semibold">
+                Reviews and video tutorials convert 3x better than generic promotional posts.
+              </p>
+            </div>
+
+            <div className="flex items-center justify-between text-xs font-extrabold text-[#1A3C34] pt-2">
+              <span>Explore Content Tactics</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+
+          {/* Card 3 — Platform Strategy */}
+          <div className="rounded-2xl p-7 text-white bg-gradient-to-br from-[#2D7A4F] to-[#1e5436] shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all flex flex-col justify-between space-y-6 group cursor-pointer border border-[#2D7A4F]">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start">
+                <div className="p-3 rounded-2xl bg-white/10 text-white border border-white/15">
+                  <Smartphone className="w-7 h-7" />
+                </div>
+                <span className="px-3 py-1 rounded-full bg-[#C89B2A] text-[#1A3C34] text-xs font-black">
+                  7 tips
+                </span>
+              </div>
+
+              <h3 className="text-xl font-extrabold text-white">Platform Strategy</h3>
+              <p className="text-xs text-[#F5F0E8]/80 leading-relaxed font-medium">
+                Each platform has a different audience mindset — tailor your pitch accordingly.
+              </p>
+            </div>
+
+            <div className="flex items-center justify-between text-xs font-extrabold text-[#C89B2A] pt-2">
+              <span>Explore Platform Playbook</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+
+          {/* Card 4 — Niche Selection */}
+          <div className="rounded-2xl p-7 text-white bg-gradient-to-br from-[#6B6355] to-[#4a4439] shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all flex flex-col justify-between space-y-6 group cursor-pointer border border-[#6B6355]">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start">
+                <div className="p-3 rounded-2xl bg-white/10 text-white border border-white/15">
+                  <Target className="w-7 h-7" />
+                </div>
+                <span className="px-3 py-1 rounded-full bg-[#C89B2A] text-[#1A3C34] text-xs font-black">
+                  5 tips
+                </span>
+              </div>
+
+              <h3 className="text-xl font-extrabold text-white">Niche Selection</h3>
+              <p className="text-xs text-[#F5F0E8]/80 leading-relaxed font-medium">
+                Promoting brands your audience already trusts equals 5x higher conversion rates.
+              </p>
+            </div>
+
+            <div className="flex items-center justify-between text-xs font-extrabold text-[#C89B2A] pt-2">
+              <span>Explore Niche Guides</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+
+          {/* Card 5 — Analytics & Tracking */}
+          <div className="rounded-2xl p-7 text-white bg-gradient-to-br from-[#1A3C34] to-[#10241f] shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all flex flex-col justify-between space-y-6 group cursor-pointer border border-[#1A3C34]">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start">
+                <div className="p-3 rounded-2xl bg-white/10 text-white border border-white/15">
+                  <BarChart2 className="w-7 h-7" />
+                </div>
+                <span className="px-3 py-1 rounded-full bg-[#C89B2A] text-[#1A3C34] text-xs font-black">
+                  6 tips
+                </span>
+              </div>
+
+              <h3 className="text-xl font-extrabold text-white">Analytics & Tracking</h3>
+              <p className="text-xs text-[#F5F0E8]/80 leading-relaxed font-medium">
+                Creators who check analytics weekly earn 40% more than those who don't.
+              </p>
+            </div>
+
+            <div className="flex items-center justify-between text-xs font-extrabold text-[#C89B2A] pt-2">
+              <span>Explore Data Secrets</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+
+          {/* Card 6 — Payout Optimization */}
+          <div className="rounded-2xl p-7 text-white bg-gradient-to-br from-[#122A24] to-[#2D7A4F] shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all flex flex-col justify-between space-y-6 group cursor-pointer border border-[#2D7A4F]">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start">
+                <div className="p-3 rounded-2xl bg-white/10 text-white border border-white/15">
+                  <IndianRupee className="w-7 h-7" />
+                </div>
+                <span className="px-3 py-1 rounded-full bg-[#C89B2A] text-[#1A3C34] text-xs font-black">
+                  5 tips
+                </span>
+              </div>
+
+              <h3 className="text-xl font-extrabold text-white">Payout Optimization</h3>
+              <p className="text-xs text-[#F5F0E8]/80 leading-relaxed font-medium">
+                Reinvest 10% of earnings into better content tools to compound your growth.
+              </p>
+            </div>
+
+            <div className="flex items-center justify-between text-xs font-extrabold text-[#C89B2A] pt-2">
+              <span>Explore Revenue Tips</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* =================================================================== */}
+      {/* SECTION 4 — TOP 10 TIPS (VISUAL NUMBERED LIST - ZIGZAG)            */}
+      {/* =================================================================== */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-16">
+        
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1A3C34]">
+            Top 10 Tips <span className="text-[#C89B2A]">to Maximize Earnings</span>
+          </h2>
+          <p className="text-sm text-[#6B6355] font-medium">
+            Used by LinkX's highest-earning creators every single day
+          </p>
+        </div>
+
+        <div className="space-y-12">
+          {filteredTips.map((tip, index) => {
+            const IconComp = tip.icon;
+            const isEven = index % 2 === 1;
+
+            return (
+              <div
+                key={tip.id}
+                className={`grid grid-cols-1 lg:grid-cols-12 gap-8 items-center ${
+                  isEven ? 'lg:flex-row-reverse' : ''
+                }`}
+              >
+                {/* Left Side (Number & Title Header on Desktop) */}
+                <div
+                  className={`lg:col-span-5 space-y-3 ${
+                    isEven ? 'lg:order-2 lg:text-right' : 'lg:order-1 lg:text-left'
+                  }`}
+                >
+                  <div className={`flex items-center gap-3 ${isEven ? 'lg:justify-end' : 'lg:justify-start'}`}>
+                    <span className="text-5xl sm:text-6xl font-black font-display text-[#C89B2A]">
+                      {tip.num}
+                    </span>
+                    <span className={`px-3 py-1 rounded-full text-xs font-extrabold ${tip.levelColor}`}>
+                      {tip.level}
+                    </span>
+                  </div>
+
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-[#1A3C34]">
+                    {tip.title}
+                  </h3>
+                </div>
+
+                {/* Right Side (Description Card + Insight Box) */}
+                <div
+                  className={`lg:col-span-7 ${
+                    isEven ? 'lg:order-1' : 'lg:order-2'
+                  }`}
+                >
+                  <div className={`bg-[#FDFAF4] rounded-2xl p-6 sm:p-8 border-l-8 ${tip.borderColor} border-t border-r border-b border-[#E8E2D6] shadow-sm hover:shadow-md transition-shadow space-y-4`}>
+                    
+                    <div className="flex items-start gap-4">
+                      <div className={`p-3 rounded-2xl ${tip.iconBg} flex-shrink-0`}>
+                        <IconComp className="w-6 h-6" />
+                      </div>
+                      <p className="text-sm text-[#1A3C34] font-medium leading-relaxed">
+                        {tip.desc}
+                      </p>
+                    </div>
+
+                    {/* Pro Insight Callout */}
+                    <div className="p-3.5 bg-[#F5F0E8] rounded-xl border border-[#E8E2D6] flex items-center gap-2.5 text-xs text-[#1A3C34] font-bold">
+                      <Sparkles className="w-4 h-4 text-[#C89B2A] flex-shrink-0" />
+                      <span><strong>Pro Insight:</strong> {tip.insight}</span>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            );
+          })}
+        </div>
+
+      </section>
+
+
+      {/* =================================================================== */}
+      {/* SECTION 5 — PLATFORM-SPECIFIC TIPS                                  */}
+      {/* =================================================================== */}
+      <section className="my-16 bg-[#1A3C34] text-white py-16 px-4 sm:px-6 lg:px-8 shadow-2xl">
+        <div className="max-w-7xl mx-auto space-y-12 text-center">
+          
+          <div className="space-y-3 max-w-xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+              Tips by Platform
+            </h2>
+            <div className="w-16 h-1 bg-[#C89B2A] mx-auto rounded-full" />
+            <p className="text-xs sm:text-sm text-[#F5F0E8]/80 font-medium">
+              Every platform has its own distinct earning playbook
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+            
+            {/* Instagram */}
+            <div className="bg-[#FDFAF4] text-[#1A3C34] rounded-2xl p-6 border border-[#E8E2D6] shadow-md hover:-translate-y-1 transition-all space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center">
+                  <Instagram className="w-5 h-5" />
+                </div>
+                <h3 className="font-extrabold text-lg text-[#1A3C34]">Instagram Tips</h3>
+              </div>
+              <ul className="space-y-2.5 text-xs text-[#6B6355] font-medium">
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-[#C89B2A] flex-shrink-0 mt-0.5" />
+                  <span>Use Stories with link stickers for direct high-intent traffic</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-[#C89B2A] flex-shrink-0 mt-0.5" />
+                  <span>Create a 'Best Deals' highlight that stays on your profile forever</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-[#C89B2A] flex-shrink-0 mt-0.5" />
+                  <span>Reels reviewing products outperform all static post formats</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* YouTube */}
+            <div className="bg-[#FDFAF4] text-[#1A3C34] rounded-2xl p-6 border border-[#E8E2D6] shadow-md hover:-translate-y-1 transition-all space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-red-100 text-red-600 flex items-center justify-center">
+                  <Youtube className="w-5 h-5" />
+                </div>
+                <h3 className="font-extrabold text-lg text-[#1A3C34]">YouTube Tips</h3>
+              </div>
+              <ul className="space-y-2.5 text-xs text-[#6B6355] font-medium">
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-[#C89B2A] flex-shrink-0 mt-0.5" />
+                  <span>Pin your top affiliate link in the comment section of every video</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-[#C89B2A] flex-shrink-0 mt-0.5" />
+                  <span>Add links in video description with clear timestamps and titles</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-[#C89B2A] flex-shrink-0 mt-0.5" />
+                  <span>Unboxing + honest review videos have the highest purchase conversion</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Telegram */}
+            <div className="bg-[#FDFAF4] text-[#1A3C34] rounded-2xl p-6 border border-[#E8E2D6] shadow-md hover:-translate-y-1 transition-all space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center">
+                  <Send className="w-5 h-5" />
+                </div>
+                <h3 className="font-extrabold text-lg text-[#1A3C34]">Telegram Tips</h3>
+              </div>
+              <ul className="space-y-2.5 text-xs text-[#6B6355] font-medium">
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-[#C89B2A] flex-shrink-0 mt-0.5" />
+                  <span>Post daily curated deals at 9 AM — peak subscriber engagement time</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-[#C89B2A] flex-shrink-0 mt-0.5" />
+                  <span>Use polls to ask subscribers what products they want reviewed next</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-[#C89B2A] flex-shrink-0 mt-0.5" />
+                  <span>Pinned message with your top earning link drives continuous passive sales</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Twitter/X */}
+            <div className="bg-[#FDFAF4] text-[#1A3C34] rounded-2xl p-6 border border-[#E8E2D6] shadow-md hover:-translate-y-1 transition-all space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-sky-100 text-sky-500 flex items-center justify-center">
+                  <Twitter className="w-5 h-5" />
+                </div>
+                <h3 className="font-extrabold text-lg text-[#1A3C34]">Twitter/X Tips</h3>
+              </div>
+              <ul className="space-y-2.5 text-xs text-[#6B6355] font-medium">
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-[#C89B2A] flex-shrink-0 mt-0.5" />
+                  <span>Threads reviewing tech products get 10x more organic viral reach</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-[#C89B2A] flex-shrink-0 mt-0.5" />
+                  <span>Quote tweet major brand announcements accompanied by your custom link</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-[#C89B2A] flex-shrink-0 mt-0.5" />
+                  <span>Pin your highest-converting review tweet at the top of your profile</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* LinkedIn */}
+            <div className="bg-[#FDFAF4] text-[#1A3C34] rounded-2xl p-6 border border-[#E8E2D6] shadow-md hover:-translate-y-1 transition-all space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center">
+                  <Linkedin className="w-5 h-5" />
+                </div>
+                <h3 className="font-extrabold text-lg text-[#1A3C34]">LinkedIn Tips</h3>
+              </div>
+              <ul className="space-y-2.5 text-xs text-[#6B6355] font-medium">
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-[#C89B2A] flex-shrink-0 mt-0.5" />
+                  <span>Best for B2B products: Groww, Cred, SaaS tools, and online courses</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-[#C89B2A] flex-shrink-0 mt-0.5" />
+                  <span>Case study posts drive high-quality, high-order-value affiliate conversions</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-[#C89B2A] flex-shrink-0 mt-0.5" />
+                  <span>LinkedIn Newsletter feature gives direct inbox notification to followers</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Blog / Website */}
+            <div className="bg-[#FDFAF4] text-[#1A3C34] rounded-2xl p-6 border border-[#E8E2D6] shadow-md hover:-translate-y-1 transition-all space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[#1A3C34]/10 text-[#C89B2A] flex items-center justify-center">
+                  <Globe className="w-5 h-5" />
+                </div>
+                <h3 className="font-extrabold text-lg text-[#1A3C34]">Blog Tips</h3>
+              </div>
+              <ul className="space-y-2.5 text-xs text-[#6B6355] font-medium">
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-[#C89B2A] flex-shrink-0 mt-0.5" />
+                  <span>SEO-optimized product reviews provide years of passive search traffic</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-[#C89B2A] flex-shrink-0 mt-0.5" />
+                  <span>Comparison articles ("Product X vs Product Y") rank fast and convert well</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-[#C89B2A] flex-shrink-0 mt-0.5" />
+                  <span>Add a dedicated "Best Deals" page updated every month for return visitors</span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* =================================================================== */}
+      {/* SECTION 6 — CREATOR LEVEL ROADMAP                                   */}
+      {/* =================================================================== */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-12">
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1A3C34]">
+            Your Earning Journey
+          </h2>
+          <p className="text-sm text-[#6B6355] font-medium">
+            Follow this roadmap — from ₹0 to ₹1,00,000+/month
+          </p>
+        </div>
+
+        <div className="relative border-l-2 border-[#C89B2A] ml-4 sm:ml-32 space-y-12 pl-6 sm:pl-10">
+          
+          {/* Stage 1 */}
+          <div className="relative">
+            {/* Timeline Dot */}
+            <div className="absolute -left-[31px] sm:-left-[47px] top-1.5 w-10 h-10 rounded-full bg-[#2D7A4F] text-white flex items-center justify-center shadow-md">
+              <Sprout className="w-5 h-5" />
+            </div>
+
+            <div className="bg-[#FDFAF4] rounded-2xl border-l-4 border-l-[#2D7A4F] border-r border-t border-b border-[#E8E2D6] p-6 shadow-xs space-y-3">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <span className="text-xs font-black text-[#2D7A4F] uppercase tracking-wider">
+                  Stage 1 • Month 1–2
+                </span>
+                <span className="text-xs font-black bg-[#2D7A4F]/15 text-[#2D7A4F] px-3 py-1 rounded-full">
+                  Target: ₹500 – ₹5,000 / mo
+                </span>
+              </div>
+
+              <h3 className="font-extrabold text-xl text-[#1A3C34]">The Starter</h3>
+
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#6B6355] font-medium pt-1">
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#2D7A4F]" /> Join LinkX completely free</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#2D7A4F]" /> Pick 3 brands you personally use</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#2D7A4F]" /> Share links across all your profiles</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#2D7A4F]" /> Make & withdraw your first ₹500</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Stage 2 */}
+          <div className="relative">
+            {/* Timeline Dot */}
+            <div className="absolute -left-[31px] sm:-left-[47px] top-1.5 w-10 h-10 rounded-full bg-[#C89B2A] text-[#1A3C34] flex items-center justify-center shadow-md">
+              <Hammer className="w-5 h-5" />
+            </div>
+
+            <div className="bg-[#FDFAF4] rounded-2xl border-l-4 border-l-[#C89B2A] border-r border-t border-b border-[#E8E2D6] p-6 shadow-xs space-y-3">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <span className="text-xs font-black text-[#C89B2A] uppercase tracking-wider">
+                  Stage 2 • Month 3–6
+                </span>
+                <span className="text-xs font-black bg-[#C89B2A]/20 text-[#1A3C34] px-3 py-1 rounded-full">
+                  Target: ₹5,000 – ₹25,000 / mo
+                </span>
+              </div>
+
+              <h3 className="font-extrabold text-xl text-[#1A3C34]">The Builder</h3>
+
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#6B6355] font-medium pt-1">
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#C89B2A]" /> Create video reviews for top brands</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#C89B2A]" /> Launch a Telegram deals channel</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#C89B2A]" /> Track weekly dashboard analytics</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#C89B2A]" /> Withdraw your first ₹10,000</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Stage 3 */}
+          <div className="relative">
+            {/* Timeline Dot */}
+            <div className="absolute -left-[31px] sm:-left-[47px] top-1.5 w-10 h-10 rounded-full bg-[#1A3C34] text-[#C89B2A] flex items-center justify-center shadow-md">
+              <TrendingUp className="w-5 h-5" />
+            </div>
+
+            <div className="bg-[#FDFAF4] rounded-2xl border-l-4 border-l-[#1A3C34] border-r border-t border-b border-[#E8E2D6] p-6 shadow-xs space-y-3">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <span className="text-xs font-black text-[#1A3C34] uppercase tracking-wider">
+                  Stage 3 • Month 6–12
+                </span>
+                <span className="text-xs font-black bg-[#1A3C34] text-white px-3 py-1 rounded-full">
+                  Target: ₹25,000 – ₹75,000 / mo
+                </span>
+              </div>
+
+              <h3 className="font-extrabold text-xl text-[#1A3C34]">The Earner</h3>
+
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#6B6355] font-medium pt-1">
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#1A3C34]" /> Run 8–10 campaigns simultaneously</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#1A3C34]" /> Plan content around sale seasons</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#1A3C34]" /> Build audience trust with honest reviews</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#1A3C34]" /> Consistent passive monthly revenue</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Stage 4 */}
+          <div className="relative">
+            {/* Timeline Dot */}
+            <div className="absolute -left-[31px] sm:-left-[47px] top-1.5 w-10 h-10 rounded-full bg-[#C89B2A] text-[#1A3C34] flex items-center justify-center shadow-md">
+              <Crown className="w-5 h-5" />
+            </div>
+
+            <div className="bg-[#FDFAF4] rounded-2xl border-l-4 border-l-[#C89B2A] border-r border-t border-b border-[#E8E2D6] p-6 shadow-xs space-y-3">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <span className="text-xs font-black text-[#C89B2A] uppercase tracking-wider">
+                  Stage 4 • Month 12+
+                </span>
+                <span className="text-xs font-black bg-[#C89B2A] text-[#1A3C34] px-3 py-1 rounded-full">
+                  Target: ₹75,000 – ₹2,00,000+ / mo
+                </span>
+              </div>
+
+              <h3 className="font-extrabold text-xl text-[#1A3C34]">The Pro Creator</h3>
+
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#6B6355] font-medium pt-1">
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#C89B2A]" /> Niche down for maximum conversion</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#C89B2A]" /> Create evergreen SEO search content</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#C89B2A]" /> Stack festival season promotions</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#C89B2A]" /> Build a full personal brand business</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* =================================================================== */}
+      {/* SECTION 7 — QUICK WINS CARDS                                        */}
+      {/* =================================================================== */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8">
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1A3C34]">
+            5-Minute Quick Wins
+          </h2>
+          <p className="text-sm text-[#6B6355] font-medium">
+            Do these right now and start earning faster
+          </p>
+        </div>
+
+        <div className="flex items-stretch gap-6 overflow-x-auto pb-6 pt-2 scrollbar-none snap-x">
+          
+          {/* Card 1 */}
+          <div className="snap-start min-w-[280px] sm:min-w-[320px] bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 shadow-xs hover:border-[#C89B2A] hover:-translate-y-1 transition-all flex flex-col justify-between space-y-4">
+            <div className="space-y-3">
+              <div className="flex justify-between items-center">
+                <div className="w-10 h-10 rounded-xl bg-[#C89B2A]/20 text-[#1A3C34] flex items-center justify-center">
+                  <Link2 className="w-5 h-5 text-[#C89B2A]" />
+                </div>
+                <span className="text-[10px] font-black text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full">
+                  🔥 High impact
+                </span>
+              </div>
+
+              <h3 className="font-extrabold text-base text-[#1A3C34]">
+                Add link to Instagram bio
+              </h3>
+              <p className="text-xs text-[#6B6355] font-medium">
+                Put your LinkX hub link directly in your Instagram bio for instant profile traffic.
+              </p>
+            </div>
+
+            <div className="space-y-3 pt-2">
+              <span className="text-[11px] text-[#6B6355] font-semibold flex items-center gap-1">
+                <Clock className="w-3.5 h-3.5 text-[#C89B2A]" /> ⏱ 2 minutes
+              </span>
+              <button
+                onClick={() => handleAuthClick('signup')}
+                className="w-full py-2.5 rounded-xl border border-[#C89B2A] text-[#1A3C34] hover:bg-[#C89B2A] font-extrabold text-xs transition-colors cursor-pointer"
+              >
+                Do This Now →
+              </button>
+            </div>
+          </div>
+
+          {/* Card 2 */}
+          <div className="snap-start min-w-[280px] sm:min-w-[320px] bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 shadow-xs hover:border-[#C89B2A] hover:-translate-y-1 transition-all flex flex-col justify-between space-y-4">
+            <div className="space-y-3">
+              <div className="flex justify-between items-center">
+                <div className="w-10 h-10 rounded-xl bg-[#1A3C34]/10 text-[#1A3C34] flex items-center justify-center">
+                  <Send className="w-5 h-5 text-[#1A3C34]" />
+                </div>
+                <span className="text-[10px] font-black text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full">
+                  🔥 High impact
+                </span>
+              </div>
+
+              <h3 className="font-extrabold text-base text-[#1A3C34]">
+                Create a Telegram deals channel
+              </h3>
+              <p className="text-xs text-[#6B6355] font-medium">
+                Set up a free Telegram channel to broadcast daily deals directly to subscribers.
+              </p>
+            </div>
+
+            <div className="space-y-3 pt-2">
+              <span className="text-[11px] text-[#6B6355] font-semibold flex items-center gap-1">
+                <Clock className="w-3.5 h-3.5 text-[#C89B2A]" /> ⏱ 5 minutes
+              </span>
+              <button
+                onClick={() => handleAuthClick('signup')}
+                className="w-full py-2.5 rounded-xl border border-[#C89B2A] text-[#1A3C34] hover:bg-[#C89B2A] font-extrabold text-xs transition-colors cursor-pointer"
+              >
+                Do This Now →
+              </button>
+            </div>
+          </div>
+
+          {/* Card 3 */}
+          <div className="snap-start min-w-[280px] sm:min-w-[320px] bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 shadow-xs hover:border-[#C89B2A] hover:-translate-y-1 transition-all flex flex-col justify-between space-y-4">
+            <div className="space-y-3">
+              <div className="flex justify-between items-center">
+                <div className="w-10 h-10 rounded-xl bg-[#C89B2A]/20 text-[#1A3C34] flex items-center justify-center">
+                  <Star className="w-5 h-5 text-[#C89B2A]" />
+                </div>
+                <span className="text-[10px] font-black text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full">
+                  🔥 High impact
+                </span>
+              </div>
+
+              <h3 className="font-extrabold text-base text-[#1A3C34]">
+                Pick your first campaign on LinkX
+              </h3>
+              <p className="text-xs text-[#6B6355] font-medium">
+                Browse 500+ active brand campaigns and generate your first tracking link.
+              </p>
+            </div>
+
+            <div className="space-y-3 pt-2">
+              <span className="text-[11px] text-[#6B6355] font-semibold flex items-center gap-1">
+                <Clock className="w-3.5 h-3.5 text-[#C89B2A]" /> ⏱ 3 minutes
+              </span>
+              <button
+                onClick={() => handleAuthClick('signup')}
+                className="w-full py-2.5 rounded-xl border border-[#C89B2A] text-[#1A3C34] hover:bg-[#C89B2A] font-extrabold text-xs transition-colors cursor-pointer"
+              >
+                Do This Now →
+              </button>
+            </div>
+          </div>
+
+          {/* Card 4 */}
+          <div className="snap-start min-w-[280px] sm:min-w-[320px] bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 shadow-xs hover:border-[#C89B2A] hover:-translate-y-1 transition-all flex flex-col justify-between space-y-4">
+            <div className="space-y-3">
+              <div className="flex justify-between items-center">
+                <div className="w-10 h-10 rounded-xl bg-[#1A3C34]/10 text-[#1A3C34] flex items-center justify-center">
+                  <Share2 className="w-5 h-5 text-[#1A3C34]" />
+                </div>
+                <span className="text-[10px] font-black text-amber-700 bg-amber-100 px-2.5 py-0.5 rounded-full">
+                  ⚡ Instant results
+                </span>
+              </div>
+
+              <h3 className="font-extrabold text-base text-[#1A3C34]">
+                Share link in 3 WhatsApp groups
+              </h3>
+              <p className="text-xs text-[#6B6355] font-medium">
+                Recommend an ongoing brand deal to friends or family shopping groups.
+              </p>
+            </div>
+
+            <div className="space-y-3 pt-2">
+              <span className="text-[11px] text-[#6B6355] font-semibold flex items-center gap-1">
+                <Clock className="w-3.5 h-3.5 text-[#C89B2A]" /> ⏱ 1 minute
+              </span>
+              <button
+                onClick={() => handleAuthClick('signup')}
+                className="w-full py-2.5 rounded-xl border border-[#C89B2A] text-[#1A3C34] hover:bg-[#C89B2A] font-extrabold text-xs transition-colors cursor-pointer"
+              >
+                Do This Now →
+              </button>
+            </div>
+          </div>
+
+          {/* Card 5 */}
+          <div className="snap-start min-w-[280px] sm:min-w-[320px] bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 shadow-xs hover:border-[#C89B2A] hover:-translate-y-1 transition-all flex flex-col justify-between space-y-4">
+            <div className="space-y-3">
+              <div className="flex justify-between items-center">
+                <div className="w-10 h-10 rounded-xl bg-[#C89B2A]/20 text-[#1A3C34] flex items-center justify-center">
+                  <Bookmark className="w-5 h-5 text-[#C89B2A]" />
+                </div>
+                <span className="text-[10px] font-black text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full">
+                  📈 Evergreen traffic
+                </span>
+              </div>
+
+              <h3 className="font-extrabold text-base text-[#1A3C34]">
+                Create an Instagram 'Deals' highlight
+              </h3>
+              <p className="text-xs text-[#6B6355] font-medium">
+                Save your top story recommendations into a permanent Instagram profile highlight.
+              </p>
+            </div>
+
+            <div className="space-y-3 pt-2">
+              <span className="text-[11px] text-[#6B6355] font-semibold flex items-center gap-1">
+                <Clock className="w-3.5 h-3.5 text-[#C89B2A]" /> ⏱ 5 minutes
+              </span>
+              <button
+                onClick={() => handleAuthClick('signup')}
+                className="w-full py-2.5 rounded-xl border border-[#C89B2A] text-[#1A3C34] hover:bg-[#C89B2A] font-extrabold text-xs transition-colors cursor-pointer"
+              >
+                Do This Now →
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* =================================================================== */}
+      {/* SECTION 8 — EARNINGS BY NICHE TABLE                                 */}
+      {/* =================================================================== */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8">
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1A3C34]">
+            Which Niche Pays the Most?
+          </h2>
+          <p className="text-sm text-[#6B6355] font-medium">
+            Real commission data from LinkX campaign analytics
+          </p>
+        </div>
+
+        <div className="overflow-x-auto rounded-2xl border border-[#E8E2D6] shadow-md bg-[#FDFAF4]">
+          <table className="w-full text-left text-xs text-[#1A3C34]">
+            
+            <thead className="bg-[#1A3C34] text-white uppercase text-[11px] tracking-wider font-extrabold">
+              <tr>
+                <th className="p-4 sm:p-5">Niche</th>
+                <th className="p-4 sm:p-5">Top Brands</th>
+                <th className="p-4 sm:p-5">Avg Commission</th>
+                <th className="p-4 sm:p-5">Best Platform</th>
+                <th className="p-4 sm:p-5">Difficulty</th>
+              </tr>
+            </thead>
+
+            <tbody className="divide-y divide-[#E8E2D6] font-semibold">
+              <tr className="hover:bg-[#F5F0E8] transition-colors hover:border-l-4 hover:border-l-[#C89B2A]">
+                <td className="p-4 sm:p-5 font-extrabold text-sm flex items-center gap-2">
+                  <span>👗</span> Fashion
+                </td>
+                <td className="p-4 sm:p-5">Myntra, AJIO, Meesho</td>
+                <td className="p-4 sm:p-5 text-[#C89B2A] font-black text-sm">Up to 15%</td>
+                <td className="p-4 sm:p-5">Instagram, Blog</td>
+                <td className="p-4 sm:p-5">
+                  <span className="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-black">
+                    🟢 Easy
+                  </span>
+                </td>
+              </tr>
+
+              <tr className="hover:bg-[#F5F0E8] transition-colors hover:border-l-4 hover:border-l-[#C89B2A]">
+                <td className="p-4 sm:p-5 font-extrabold text-sm flex items-center gap-2">
+                  <span>💄</span> Beauty
+                </td>
+                <td className="p-4 sm:p-5">Nykaa, Mamaearth</td>
+                <td className="p-4 sm:p-5 text-[#C89B2A] font-black text-sm">Up to 20%</td>
+                <td className="p-4 sm:p-5">Instagram, YouTube</td>
+                <td className="p-4 sm:p-5">
+                  <span className="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-black">
+                    🟢 Easy
+                  </span>
+                </td>
+              </tr>
+
+              <tr className="hover:bg-[#F5F0E8] transition-colors hover:border-l-4 hover:border-l-[#C89B2A]">
+                <td className="p-4 sm:p-5 font-extrabold text-sm flex items-center gap-2">
+                  <span>📱</span> Electronics
+                </td>
+                <td className="p-4 sm:p-5">boAt, Samsung, Noise</td>
+                <td className="p-4 sm:p-5 text-[#C89B2A] font-black text-sm">Up to 10%</td>
+                <td className="p-4 sm:p-5">YouTube, Blog</td>
+                <td className="p-4 sm:p-5">
+                  <span className="px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 text-[10px] font-black">
+                    🟡 Medium
+                  </span>
+                </td>
+              </tr>
+
+              <tr className="hover:bg-[#F5F0E8] transition-colors hover:border-l-4 hover:border-l-[#C89B2A]">
+                <td className="p-4 sm:p-5 font-extrabold text-sm flex items-center gap-2">
+                  <span>✈️</span> Travel
+                </td>
+                <td className="p-4 sm:p-5">MakeMyTrip, Goibibo</td>
+                <td className="p-4 sm:p-5 text-[#C89B2A] font-black text-sm">Up to 8%</td>
+                <td className="p-4 sm:p-5">Instagram, Blog</td>
+                <td className="p-4 sm:p-5">
+                  <span className="px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 text-[10px] font-black">
+                    🟡 Medium
+                  </span>
+                </td>
+              </tr>
+
+              <tr className="hover:bg-[#F5F0E8] transition-colors hover:border-l-4 hover:border-l-[#C89B2A]">
+                <td className="p-4 sm:p-5 font-extrabold text-sm flex items-center gap-2">
+                  <span>💰</span> Finance
+                </td>
+                <td className="p-4 sm:p-5">Groww, Cred, Razorpay</td>
+                <td className="p-4 sm:p-5 text-[#C89B2A] font-black text-sm">₹500 / lead</td>
+                <td className="p-4 sm:p-5">LinkedIn, Blog</td>
+                <td className="p-4 sm:p-5">
+                  <span className="px-2.5 py-1 rounded-full bg-red-100 text-red-800 text-[10px] font-black">
+                    🔴 Hard
+                  </span>
+                </td>
+              </tr>
+
+              <tr className="hover:bg-[#F5F0E8] transition-colors hover:border-l-4 hover:border-l-[#C89B2A]">
+                <td className="p-4 sm:p-5 font-extrabold text-sm flex items-center gap-2">
+                  <span>🏥</span> Health
+                </td>
+                <td className="p-4 sm:p-5">PharmEasy, 1mg</td>
+                <td className="p-4 sm:p-5 text-[#C89B2A] font-black text-sm">Up to 14%</td>
+                <td className="p-4 sm:p-5">Telegram, Blog</td>
+                <td className="p-4 sm:p-5">
+                  <span className="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-black">
+                    🟢 Easy
+                  </span>
+                </td>
+              </tr>
+
+              <tr className="hover:bg-[#F5F0E8] transition-colors hover:border-l-4 hover:border-l-[#C89B2A]">
+                <td className="p-4 sm:p-5 font-extrabold text-sm flex items-center gap-2">
+                  <span>🍔</span> Food
+                </td>
+                <td className="p-4 sm:p-5">Zomato, Swiggy</td>
+                <td className="p-4 sm:p-5 text-[#C89B2A] font-black text-sm">Up to 7%</td>
+                <td className="p-4 sm:p-5">Instagram, WhatsApp</td>
+                <td className="p-4 sm:p-5">
+                  <span className="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-black">
+                    🟢 Easy
+                  </span>
+                </td>
+              </tr>
+
+              <tr className="hover:bg-[#F5F0E8] transition-colors hover:border-l-4 hover:border-l-[#C89B2A]">
+                <td className="p-4 sm:p-5 font-extrabold text-sm flex items-center gap-2">
+                  <span>🛍️</span> Shopping
+                </td>
+                <td className="p-4 sm:p-5">Flipkart, Amazon</td>
+                <td className="p-4 sm:p-5 text-[#C89B2A] font-black text-sm">Up to 12%</td>
+                <td className="p-4 sm:p-5">All platforms</td>
+                <td className="p-4 sm:p-5">
+                  <span className="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-black">
+                    🟢 Easy
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+
+          </table>
+        </div>
+      </section>
+
+
+      {/* =================================================================== */}
+      {/* SECTION 9 — NEWSLETTER / TIPS SUBSCRIPTION                          */}
+      {/* =================================================================== */}
+      <section className="my-16 bg-[#EDE8DC] border-y border-[#E8E2D6] py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            {/* Left Graphic */}
+            <div className="lg:col-span-5 flex flex-col items-center justify-center text-center space-y-4">
+              <div className="relative">
+                <div className="w-24 h-24 rounded-3xl bg-[#1A3C34] text-[#C89B2A] flex items-center justify-center shadow-xl">
+                  <Mail className="w-12 h-12" />
+                </div>
+                <div className="absolute -top-2 -right-2 bg-[#C89B2A] text-[#1A3C34] text-[10px] font-black px-2 py-0.5 rounded-full shadow-xs">
+                  NEW
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <span className="px-3 py-1 rounded-full bg-[#FDFAF4] border border-[#E8E2D6] text-[11px] font-extrabold text-[#1A3C34]">
+                  💡 Tip #1: Bio Link Optimization
+                </span>
+                <span className="px-3 py-1 rounded-full bg-[#FDFAF4] border border-[#E8E2D6] text-[11px] font-extrabold text-[#1A3C34]">
+                  💡 Tip #2: Festive Sale Prep
+                </span>
+              </div>
+            </div>
+
+            {/* Right Form */}
+            <div className="lg:col-span-7 space-y-4 text-left">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1A3C34]">
+                Get Weekly Earning Tips
+              </h2>
+              <p className="text-xs sm:text-sm text-[#6B6355] font-medium leading-relaxed">
+                Join 10,000+ creators getting exclusive tips, high-commission campaign alerts, and earning strategies delivered directly to their inbox every week.
+              </p>
+
+              <ul className="space-y-1.5 text-xs text-[#1A3C34] font-semibold">
+                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#2D7A4F]" /> New high-commission campaign alerts</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#2D7A4F]" /> Weekly earning tips from top creators</li>
+                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#2D7A4F]" /> Festival season deal strategies & templates</li>
+              </ul>
+
+              <form onSubmit={handleSubscribe} className="pt-2 flex flex-col sm:flex-row gap-2">
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email address"
+                  className="flex-1 p-3.5 rounded-xl bg-[#FDFAF4] border border-[#E8E2D6] text-xs font-bold text-[#1A3C34] focus:outline-none focus:ring-2 focus:ring-[#C89B2A]"
+                />
+                <button
+                  type="submit"
+                  className="px-6 py-3.5 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-colors shadow-xs flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <span>Subscribe</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </form>
+
+              {subscribed && (
+                <div className="p-3 bg-emerald-100 text-emerald-800 rounded-xl text-xs font-extrabold flex items-center gap-2">
+                  <Check className="w-4 h-4" />
+                  <span>You're subscribed! Check your inbox for this week's top earning tips.</span>
+                </div>
+              )}
+
+              <p className="text-[11px] text-[#6B6355] font-semibold flex items-center gap-1">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#2D7A4F]" /> No spam. Unsubscribe anytime. 🔒
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      {/* =================================================================== */}
+      {/* SECTION 10 — BOTTOM CTA BANNER                                      */}
+      {/* =================================================================== */}
+      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto my-12">
+        <div className="bg-[#1A3C34] text-white rounded-3xl p-8 sm:p-14 text-center space-y-6 relative overflow-hidden shadow-2xl border border-[#C89B2A]/30">
+          
+          {/* Background Decorative Coins */}
+          <div className="absolute top-6 left-10 text-[#C89B2A] opacity-20 font-black text-4xl pointer-events-none">
+            ₹
+          </div>
+          <div className="absolute bottom-6 right-10 text-[#C89B2A] opacity-20 font-black text-4xl pointer-events-none">
+            ₹
+          </div>
+
+          <div className="max-w-2xl mx-auto space-y-4 relative z-10">
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+              Ready to Put These <br />
+              <span className="text-[#C89B2A]">Tips Into Action?</span>
+            </h2>
+
+            <p className="text-xs sm:text-sm text-[#F5F0E8]/80 font-medium leading-relaxed">
+              Everything you learned here works best when combined with the right platform. LinkX gives you the tools, 500+ top brands, and instant UPI payouts to make it happen.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+              <button
+                onClick={() => handleAuthClick('signup')}
+                className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-sm transition-all shadow-lg flex items-center justify-center gap-2 group cursor-pointer"
+              >
+                <span>Start Earning Free</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+
+              <button
+                onClick={() => onOpenLinkGen ? onOpenLinkGen() : handleAuthClick('signup')}
+                className="w-full sm:w-auto px-8 py-4 rounded-2xl border-2 border-white text-white hover:bg-white hover:text-[#1A3C34] font-extrabold text-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>Browse Campaigns</span>
+              </button>
+            </div>
+
+            <div className="pt-6 flex flex-wrap items-center justify-center gap-6 text-xs text-[#F5F0E8]/70 font-semibold border-t border-white/10">
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-[#C89B2A]" /> 500+ Active Campaigns
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Zap className="w-4 h-4 text-[#C89B2A]" /> Instant UPI Payouts
+              </span>
+              <span className="flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-[#C89B2A]" /> Free Forever
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* =================================================================== */}
+      {/* FEATURED TIP MODAL                                                  */}
+      {/* =================================================================== */}
+      {showFeaturedModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-fade-in">
+          <div className="bg-[#FDFAF4] rounded-3xl border border-[#E8E2D6] p-6 sm:p-8 max-w-xl w-full shadow-2xl space-y-5 text-left relative max-h-[90vh] overflow-y-auto">
+            
+            <button
+              onClick={() => setShowFeaturedModal(false)}
+              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-[#1A3C34]/10 text-[#1A3C34] font-bold text-sm flex items-center justify-center hover:bg-[#1A3C34] hover:text-white transition-colors cursor-pointer"
+            >
+              ✕
+            </button>
+
+            <div className="space-y-2">
+              <span className="inline-block px-3 py-1 rounded-full bg-[#C89B2A] text-[#1A3C34] text-[10px] font-black uppercase">
+                Featured Strategy
+              </span>
+              <h3 className="text-xl font-extrabold text-[#1A3C34]">
+                Priya Sharma's Bio Link Strategy
+              </h3>
+            </div>
+
+            <div className="space-y-3 text-xs text-[#6B6355] font-medium leading-relaxed divide-y divide-[#E8E2D6]">
+              <div className="pt-2">
+                <strong className="text-[#1A3C34] block mb-1">Step 1: Segment by Interest</strong>
+                <p>Instead of posting random product links, Priya groups links into 3 main categories: Fashion, Beauty, and Daily Gear. This reduces decision fatigue for followers.</p>
+              </div>
+
+              <div className="pt-2">
+                <strong className="text-[#1A3C34] block mb-1">Step 2: Add Clear Discount Callouts</strong>
+                <p>Every link button features the exact deal angle — e.g. "Myntra 60% Off Kurti Picks" instead of just "Myntra Link".</p>
+              </div>
+
+              <div className="pt-2">
+                <strong className="text-[#1A3C34] block mb-1">Step 3: Update Daily in Stories</strong>
+                <p>Priya posts a story showing a product she's wearing or using, and directs followers to the top button in her bio link hub.</p>
+              </div>
+            </div>
+
+            <button
+              onClick={() => {
+                setShowFeaturedModal(false);
+                handleAuthClick('signup');
+              }}
+              className="w-full py-3 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-colors cursor-pointer"
+            >
+              Start Implementing on LinkX →
+            </button>
+
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };
+
+export default EarningTipsContent;
