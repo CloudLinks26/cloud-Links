@@ -67,7 +67,7 @@ export default function CampaignsContent() {
       logo: 'https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/3_lnmzlc.png',
     },
     {
-      id: 'ghar-soaps',
+      id: 'ghar-soaps-affiliate-program',
       name: 'Ghar Soaps',
       commission: '10%',
       label: 'Up to',
@@ -102,7 +102,7 @@ export default function CampaignsContent() {
       logo: 'https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/3_lnmzlc.png',
     },
     {
-      id: 'ghar-soaps',
+      id: 'ghar-soaps-affiliate-program',
       name: 'Ghar Soaps',
       category: 'Beauty & Care',
       type: 'CPS',

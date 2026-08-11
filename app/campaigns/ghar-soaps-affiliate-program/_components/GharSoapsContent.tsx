@@ -1,6 +1,5 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { useGlobalContext } from '@/components/GlobalProvider';
 import {
@@ -42,67 +41,60 @@ import {
   ArrowRight
 } from 'lucide-react';
 
-export default function CampaignDetailContent() {
+export default function GharSoapsContent() {
   const { onOpenAuth, onOpenLinkGen } = useGlobalContext();
-  const params = useParams();
-  const brandSlug = params?.id as string;
 
   const [pageUrl, setPageUrl] = useState('');
   useEffect(() => {
     setPageUrl(window.location.href);
   }, []);
 
-  // Format brand name from slug if not mamaearth
-  const rawBrandName = brandSlug
-    ? brandSlug.charAt(0).toUpperCase() + brandSlug.slice(1).replace(/-/g, ' ')
-    : 'Mamaearth';
-
-  // Demo Brand Data
+  // Ghar Soaps Brand Data
   const brand = {
-    name: brandSlug?.toLowerCase() === 'mamaearth' || !brandSlug ? 'Mamaearth' : rawBrandName,
-    slug: brandSlug || 'mamaearth',
-    logo: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=200',
-    tagline: 'Goodness Inside',
-    category: 'Health & Beauty',
+    name: 'Ghar Soaps',
+    slug: 'ghar-soaps-affiliate-program',
+    logo: 'https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/4_dy9x7w.png',
+    tagline: 'Naturally Handmade, Simply Pure',
+    category: 'Beauty & Care',
     type: 'CPS', // Cost Per Sale
-    commission: 'Up to 15%',
-    rating: 4.9,
-    totalCreators: 1240,
+    commission: 'Up to 10%',
+    rating: 4.8,
+    totalCreators: 640,
     cookieDuration: '30 days',
     payoutFrequency: 'Instant',
     minimumPayout: '₹0',
     approvalType: 'Auto Approved',
     country: 'India 🇮🇳',
-    about: "Mamaearth is India's leading toxin-free beauty and skincare brand, trusted by millions of families. From baby care to haircare, their products are made with natural ingredients — certified safe, effective, and loved across India.",
-    website: 'https://mamaearth.in',
-    founded: '2016',
-    headquarters: 'Gurugram, India',
-    productsCount: '200+ Products',
-    avgOrderValue: '₹800',
-    conversionRate: '4.2%',
+    about: "Ghar Soaps is India's home-grown handmade soap and bath care brand, reviving traditional bathing rituals with natural, cold-pressed ingredients. Every bar is small-batch crafted without parabens, sulphates, or synthetic fragrances — bringing the warmth of homemade care to modern skincare routines across India.",
+    website: 'https://gharsoaps.in',
+    founded: '2019',
+    headquarters: 'Jaipur, India',
+    productsCount: '80+ Products',
+    avgOrderValue: '₹450',
+    conversionRate: '3.6%',
     topProducts: [
-      { name: 'Onion Hair Oil', category: 'Haircare', badge: 'Best Seller' },
-      { name: 'Vitamin C Serum', category: 'Skincare', badge: 'High Converter' },
-      { name: 'Ubtan Face Wash', category: 'Skincare', badge: 'Best Seller' },
-      { name: 'Tea Tree Face Mask', category: 'Skincare', badge: 'High Converter' }
+      { name: 'Sandalwood & Turmeric Bar', category: 'Bathing Bars', badge: 'Best Seller' },
+      { name: 'Charcoal Detox Soap', category: 'Bathing Bars', badge: 'High Converter' },
+      { name: 'Rose & Shea Butter Bar', category: 'Body Care', badge: 'Best Seller' },
+      { name: 'Festive Gift Soap Set', category: 'Gift Sets', badge: 'High Converter' }
     ],
     targetAudience: [
-      { title: 'Women 18–45', icon: Users, desc: 'Core shopping demographic for personal care' },
-      { title: 'Skincare Enthusiasts', icon: Heart, desc: 'Active buyers looking for natural routines' },
-      { title: 'Natural Beauty Lovers', icon: Sparkles, desc: 'Audience seeking chemical-free items' },
-      { title: 'Mom Communities', icon: ShieldCheck, desc: 'Parents purchasing toxin-free baby care' }
+      { title: 'Natural Living Enthusiasts', icon: Sparkles, desc: 'Audience seeking chemical-free, sustainable bath products' },
+      { title: 'Home & Wellness Creators', icon: Heart, desc: 'Creators sharing self-care and mindful living content' },
+      { title: 'Gifting & Festive Shoppers', icon: Users, desc: 'Buyers looking for thoughtful, natural gift sets' },
+      { title: 'Eco-Conscious Families', icon: ShieldCheck, desc: 'Households switching to plastic-free, cruelty-free care' }
     ],
     bestPlatforms: ['Instagram', 'YouTube', 'Blog', 'Telegram'],
     restrictions: [
       'No paid advertising using brand name as keyword',
       'No cashback or coupon sites',
-      'No misleading health claims',
+      'No misleading "chemical-free" or medical claims',
       'Only promote to Indian audience'
     ],
     highlights: [
       'Auto-approved — start promoting instantly',
-      'High conversion rate of 4.2%',
-      'Average order value of ₹800',
+      'Growing conversion rate of 3.6%',
+      'Affordable average order value of ₹450',
       '30-day cookie window'
     ]
   };
@@ -207,7 +199,7 @@ export default function CampaignDetailContent() {
   const faqs = [
     {
       q: `How much can I earn promoting ${brand.name}?`,
-      a: `Commission is up to 15% per sale. With an average order value of ₹800, each sale earns you approximately ₹120. Active creators earn ₹10,000–₹30,000/month from ${brand.name} alone.`
+      a: `Commission is up to 10% per sale. With an average order value of ₹450, each sale earns you approximately ₹45. Active creators earn ₹5,000–₹15,000/month from ${brand.name} alone.`
     },
     {
       q: 'Is approval instant?',
@@ -263,7 +255,7 @@ export default function CampaignDetailContent() {
 
           {/* Hero Content - 2 Columns */}
           <div className="flex flex-col lg:flex-row items-stretch justify-between gap-8">
-            
+
             {/* Left Side Brand Overview */}
             <div className="lg:w-[60%] space-y-6">
               <div className="flex items-center gap-5">
@@ -374,7 +366,7 @@ export default function CampaignDetailContent() {
       <section className="bg-[#FDFAF4] border-y border-[#E8E2D6] py-6 shadow-2xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-[#E8E2D6]">
-            
+
             <div className="pt-2 md:pt-0 space-y-1">
               <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#C89B2A]/15 text-[#C89B2A] mb-1">
                 <Percent className="w-5 h-5" />
@@ -411,7 +403,7 @@ export default function CampaignDetailContent() {
               <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#C89B2A]/15 text-[#C89B2A] mb-1">
                 <Users className="w-5 h-5" />
               </div>
-              <div className="text-xl font-black text-[#1A3C34] font-display">1,240+</div>
+              <div className="text-xl font-black text-[#1A3C34] font-display">640+</div>
               <div className="text-xs text-[#6B6355] font-semibold">Active Creators</div>
             </div>
 
@@ -437,7 +429,7 @@ export default function CampaignDetailContent() {
                   About {brand.name}
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-black font-display text-[#1A3C34]">
-                  India's Most Loved Toxin-Free Beauty Brand
+                  India's Home-Grown Natural Soap &amp; Bath Care Brand
                 </h2>
               </div>
 
@@ -453,7 +445,7 @@ export default function CampaignDetailContent() {
                 </div>
                 <div className="p-4 rounded-2xl bg-[#F5F0E8] border border-[#E8E2D6] text-center space-y-1">
                   <span className="text-xs font-bold text-[#6B6355] block">🏢 HQ</span>
-                  <span className="text-base font-black text-[#1A3C34]">Gurugram</span>
+                  <span className="text-base font-black text-[#1A3C34]">Jaipur</span>
                 </div>
                 <div className="p-4 rounded-2xl bg-[#F5F0E8] border border-[#E8E2D6] text-center space-y-1">
                   <span className="text-xs font-bold text-[#6B6355] block">🛍️ Products</span>
@@ -489,24 +481,24 @@ export default function CampaignDetailContent() {
                   </thead>
                   <tbody className="divide-y divide-[#E8E2D6] text-xs sm:text-sm font-semibold text-[#1A3C34]">
                     <tr className="bg-[#FDFAF4]">
-                      <td className="py-3.5 px-5 font-bold">Skincare</td>
-                      <td className="py-3.5 px-5 text-right font-black text-[#C89B2A]">Up to 15%</td>
-                    </tr>
-                    <tr className="bg-[#F5F0E8]/60">
-                      <td className="py-3.5 px-5 font-bold">Haircare</td>
-                      <td className="py-3.5 px-5 text-right font-black text-[#C89B2A]">Up to 12%</td>
-                    </tr>
-                    <tr className="bg-[#FDFAF4]">
-                      <td className="py-3.5 px-5 font-bold">Baby Care</td>
+                      <td className="py-3.5 px-5 font-bold">Bathing Bars</td>
                       <td className="py-3.5 px-5 text-right font-black text-[#C89B2A]">Up to 10%</td>
                     </tr>
                     <tr className="bg-[#F5F0E8]/60">
-                      <td className="py-3.5 px-5 font-bold">Body Care</td>
-                      <td className="py-3.5 px-5 text-right font-black text-[#C89B2A]">Up to 13%</td>
+                      <td className="py-3.5 px-5 font-bold">Gift Sets</td>
+                      <td className="py-3.5 px-5 text-right font-black text-[#C89B2A]">Up to 9%</td>
                     </tr>
                     <tr className="bg-[#FDFAF4]">
-                      <td className="py-3.5 px-5 font-bold">Combos & Kits</td>
-                      <td className="py-3.5 px-5 text-right font-black text-[#C89B2A]">Up to 15%</td>
+                      <td className="py-3.5 px-5 font-bold">Body Wash &amp; Scrubs</td>
+                      <td className="py-3.5 px-5 text-right font-black text-[#C89B2A]">Up to 8%</td>
+                    </tr>
+                    <tr className="bg-[#F5F0E8]/60">
+                      <td className="py-3.5 px-5 font-bold">Combos &amp; Kits</td>
+                      <td className="py-3.5 px-5 text-right font-black text-[#C89B2A]">Up to 10%</td>
+                    </tr>
+                    <tr className="bg-[#FDFAF4]">
+                      <td className="py-3.5 px-5 font-bold">Travel &amp; Mini Sizes</td>
+                      <td className="py-3.5 px-5 text-right font-black text-[#C89B2A]">Up to 7%</td>
                     </tr>
                   </tbody>
                 </table>
@@ -609,7 +601,7 @@ export default function CampaignDetailContent() {
               <div className="space-y-1">
                 <span className="text-xs font-black uppercase text-[#C85A32] tracking-wider flex items-center gap-1.5">
                   <AlertTriangle className="w-4 h-4" />
-                  Program Rules & Terms
+                  Program Rules &amp; Terms
                 </span>
                 <h3 className="text-xl sm:text-2xl font-black font-display text-[#1A3C34]">
                   Campaign Restrictions
@@ -647,20 +639,20 @@ export default function CampaignDetailContent() {
                 <div className="p-5 rounded-2xl bg-[#F5F0E8] border-l-4 border-l-[#2D7A4F] border-y border-r border-[#E8E2D6] space-y-2">
                   <div className="flex items-center gap-2 font-black text-sm text-[#1A3C34]">
                     <Video className="w-4 h-4 text-[#2D7A4F]" />
-                    <span>60-Sec Review Reels</span>
+                    <span>60-Sec Unboxing Reels</span>
                   </div>
                   <p className="text-xs text-[#6B6355] font-medium leading-relaxed">
-                    Review videos on YouTube Shorts or Instagram Reels get 3x higher conversions for beauty products.
+                    Quick unboxing and lather-test videos on YouTube Shorts or Instagram Reels get 3x higher conversions for bath products.
                   </p>
                 </div>
 
                 <div className="p-5 rounded-2xl bg-[#F5F0E8] border-l-4 border-l-[#2D7A4F] border-y border-r border-[#E8E2D6] space-y-2">
                   <div className="flex items-center gap-2 font-black text-sm text-[#1A3C34]">
                     <Film className="w-4 h-4 text-[#2D7A4F]" />
-                    <span>Before & After Format</span>
+                    <span>Before &amp; After Skin Feel</span>
                   </div>
                   <p className="text-xs text-[#6B6355] font-medium leading-relaxed">
-                    Visual skincare transformations using Mamaearth items perform exceptionally well with female audiences.
+                    Visual skin-texture transformations using Ghar Soaps bars perform exceptionally well with female audiences.
                   </p>
                 </div>
 
@@ -670,7 +662,7 @@ export default function CampaignDetailContent() {
                     <span>Festival Gifting Guides</span>
                   </div>
                   <p className="text-xs text-[#6B6355] font-medium leading-relaxed">
-                    Diwali, Rakhi, and Mother's Day gift guides pre-loaded with Mamaearth combos drive huge sales spikes.
+                    Diwali, Rakhi, and Mother's Day gift guides pre-loaded with Ghar Soaps gift sets drive huge sales spikes.
                   </p>
                 </div>
 
@@ -694,7 +686,7 @@ export default function CampaignDetailContent() {
 
             {/* JOIN PROGRAM STICKY CARD */}
             <div className="bg-[#FDFAF4] rounded-3xl p-6 border-t-4 border-t-[#C89B2A] border-x border-b border-[#E8E2D6] shadow-xl space-y-6">
-              
+
               <div className="space-y-2 text-center">
                 <h3 className="text-xl font-black font-display text-[#1A3C34]">
                   Join {brand.name} Affiliate Program
@@ -760,7 +752,7 @@ export default function CampaignDetailContent() {
               </div>
 
               <p className="text-[11px] text-center font-bold text-[#6B6355]">
-                🔒 1,240 creators already earning with {brand.name}
+                🔒 640 creators already earning with {brand.name}
               </p>
 
             </div>
@@ -776,7 +768,7 @@ export default function CampaignDetailContent() {
       {/* =================================================================== */}
       <section id="join-form" className="bg-[#EDE8DC] py-20 px-4 sm:px-6 lg:px-8 border-y border-[#E8E2D6]">
         <div className="max-w-4xl mx-auto space-y-8">
-          
+
           <div className="text-center space-y-3">
             <h2 className="text-3xl sm:text-4xl font-black font-display">
               <span className="text-[#1A3C34]">Join the </span>
@@ -859,7 +851,7 @@ export default function CampaignDetailContent() {
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="w-5 h-5 rounded-full bg-[#C89B2A] text-[#1A3C34] text-[10px] font-black flex items-center justify-center">3</span>
-                      <span>Track clicks & sales live on your LinkX dashboard</span>
+                      <span>Track clicks &amp; sales live on your LinkX dashboard</span>
                     </div>
                   </div>
                 </div>
@@ -1089,7 +1081,7 @@ export default function CampaignDetailContent() {
                       className="mt-0.5 accent-[#C89B2A]"
                     />
                     <span className="text-xs font-semibold text-[#1A3C34]">
-                      I agree to the LinkX Terms & Conditions and {brand.name} Affiliate Program Rules
+                      I agree to the LinkX Terms &amp; Conditions and {brand.name} Affiliate Program Rules
                     </span>
                   </label>
                   {formErrors.agreeTerms && <p className="text-[10px] text-[#C85A32] font-bold pl-5">{formErrors.agreeTerms}</p>}
@@ -1152,46 +1144,46 @@ export default function CampaignDetailContent() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          
+
           {/* Left Text Column */}
           <div className="lg:col-span-7 space-y-4 text-xs sm:text-sm text-[#6B6355] font-medium leading-relaxed">
             <p>
-              Mamaearth was founded in 2016 by Ghazal Alagh and Varun Alagh when they struggled to find safe, toxin-free skin and baby products for their newborn child in India. What began as a mission for their own family quickly grew into India's fastest-growing beauty D2C brand.
+              Ghar Soaps was founded in 2019 by siblings Ananya and Rohan Verma, who set out to revive their grandmother's traditional cold-pressed soap-making recipes from Rajasthan. What started as small batches gifted to family and friends quickly grew into one of India's most loved home-grown bath care brands.
             </p>
             <p>
-              Every Mamaearth product is MadeSafe Certified, meaning it is completely free from harmful chemicals like parabens, sulfates, mineral oils, and synthetic fragrances. Dermatologically tested and cruelty-free, the brand blends traditional Indian ingredients like Onion, Vitamin C, Ubtan, and Tea Tree with modern science.
+              Every Ghar Soaps bar is handcrafted in small batches and is completely free from parabens, sulphates, and synthetic fragrances. Certified cruelty-free and dermatologically tested, the brand blends traditional Indian ingredients like sandalwood, turmeric, charcoal, and shea butter with time-honoured cold-press methods.
             </p>
             <p>
-              Recognized nationwide after being featured on Shark Tank India, Mamaearth has built an immensely loyal customer base across Metro, Tier 1, Tier 2, and Tier 3 Indian cities. Their "Plant Goodness" initiative plants a tree for every order placed on their website.
+              Recognized as one of India's rising sustainable D2C brands, Ghar Soaps has built a loyal following across Metro, Tier 1, and Tier 2 Indian cities. Their "Ek Sabun, Ek Ped" initiative plants one tree for every soap bar sold.
             </p>
             <p>
-              For content creators and affiliate marketers, Mamaearth offers an exceptional opportunity: high brand awareness, high order value, repeat purchases, and a solid 4.2% purchase conversion rate across all traffic sources.
+              For content creators and affiliate marketers, Ghar Soaps offers a genuine opportunity: strong natural-living appeal, an affordable order value that converts easily, frequent repeat purchases, and a growing 3.6% purchase conversion rate across all traffic sources.
             </p>
           </div>
 
           {/* Right Visual Stats Column */}
           <div className="lg:col-span-5 grid grid-cols-2 gap-4">
             <div className="p-5 rounded-2xl bg-[#FDFAF4] border border-[#E8E2D6] shadow-sm text-center space-y-2">
-              <span className="text-2xl block">🏆</span>
-              <h4 className="text-sm font-black text-[#1A3C34]">Shark Tank India</h4>
-              <p className="text-[11px] text-[#6B6355] font-semibold">Featured Brand</p>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-[#FDFAF4] border border-[#E8E2D6] shadow-sm text-center space-y-2">
               <span className="text-2xl block">🌿</span>
-              <h4 className="text-sm font-black text-[#1A3C34]">100% Toxin Free</h4>
-              <p className="text-[11px] text-[#6B6355] font-semibold">MadeSafe Certified</p>
+              <h4 className="text-sm font-black text-[#1A3C34]">100% Natural</h4>
+              <p className="text-[11px] text-[#6B6355] font-semibold">Paraben &amp; Sulphate Free</p>
             </div>
 
             <div className="p-5 rounded-2xl bg-[#FDFAF4] border border-[#E8E2D6] shadow-sm text-center space-y-2">
-              <span className="text-2xl block">👨‍👩‍👧</span>
-              <h4 className="text-sm font-black text-[#1A3C34]">1 Crore+ Families</h4>
-              <p className="text-[11px] text-[#6B6355] font-semibold">Trusted Nationwide</p>
+              <span className="text-2xl block">🐰</span>
+              <h4 className="text-sm font-black text-[#1A3C34]">Cruelty-Free</h4>
+              <p className="text-[11px] text-[#6B6355] font-semibold">Certified, Never Tested on Animals</p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-[#FDFAF4] border border-[#E8E2D6] shadow-sm text-center space-y-2">
+              <span className="text-2xl block">🌳</span>
+              <h4 className="text-sm font-black text-[#1A3C34]">25,000+ Trees Planted</h4>
+              <p className="text-[11px] text-[#6B6355] font-semibold">Via Ek Sabun, Ek Ped</p>
             </div>
 
             <div className="p-5 rounded-2xl bg-[#FDFAF4] border border-[#E8E2D6] shadow-sm text-center space-y-2">
               <span className="text-2xl block">⭐</span>
-              <h4 className="text-sm font-black text-[#1A3C34]">4.9 / 5 Rating</h4>
+              <h4 className="text-sm font-black text-[#1A3C34]">4.8 / 5 Rating</h4>
               <p className="text-[11px] text-[#6B6355] font-semibold">Customer Favorite</p>
             </div>
           </div>
@@ -1210,7 +1202,7 @@ export default function CampaignDetailContent() {
               Similar Campaigns
             </h2>
             <p className="text-xs text-[#6B6355] font-semibold mt-1">
-              Top converting brands in the beauty and lifestyle space
+              Explore other top-performing campaigns on LinkX
             </p>
           </div>
           <Link
@@ -1222,91 +1214,69 @@ export default function CampaignDetailContent() {
           </Link>
         </div>
 
-        {/* 4 Cards Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          
-          {/* Card 1 */}
+        {/* 3 Cards Row */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          {/* Card 1 — Haldiram */}
           <div className="bg-[#FDFAF4] rounded-2xl p-5 border border-[#E8E2D6] hover:border-[#C89B2A] transition-all shadow-sm flex flex-col justify-between space-y-4">
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <div className="w-10 h-10 rounded-xl bg-white border border-[#E8E2D6] p-1 flex items-center justify-center overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=200" alt="Nykaa" className="w-full h-full object-cover rounded-lg" />
+                  <img src="https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/3_lnmzlc.png" alt="Haldiram" className="w-full h-full object-cover rounded-lg" />
                 </div>
                 <span className="px-2.5 py-0.5 rounded-full bg-[#1A3C34]/10 text-[#1A3C34] text-[10px] font-extrabold uppercase">
-                  Beauty
+                  Food &amp; Snacks
                 </span>
               </div>
-              <h3 className="text-base font-black text-[#1A3C34]">Nykaa</h3>
+              <h3 className="text-base font-black text-[#1A3C34]">Haldiram</h3>
               <p className="text-xs font-black text-[#C89B2A]">Up to 12% Commission</p>
             </div>
             <Link
-              href="/campaigns/nykaa"
+              href="/campaigns/haldiram"
               className="w-full py-2.5 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-colors text-center block"
             >
               Promote Now →
             </Link>
           </div>
 
-          {/* Card 2 */}
+          {/* Card 2 — Swiss Beauty */}
           <div className="bg-[#FDFAF4] rounded-2xl p-5 border border-[#E8E2D6] hover:border-[#C89B2A] transition-all shadow-sm flex flex-col justify-between space-y-4">
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <div className="w-10 h-10 rounded-xl bg-white border border-[#E8E2D6] p-1 flex items-center justify-center overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&q=80&w=200" alt="mCaffeine" className="w-full h-full object-cover rounded-lg" />
+                  <img src="https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/1_hdkg1p.png" alt="Swiss Beauty" className="w-full h-full object-cover rounded-lg" />
                 </div>
                 <span className="px-2.5 py-0.5 rounded-full bg-[#1A3C34]/10 text-[#1A3C34] text-[10px] font-extrabold uppercase">
-                  Beauty
+                  Cosmetics
                 </span>
               </div>
-              <h3 className="text-base font-black text-[#1A3C34]">mCaffeine</h3>
-              <p className="text-xs font-black text-[#C89B2A]">Up to 18% Commission</p>
+              <h3 className="text-base font-black text-[#1A3C34]">Swiss Beauty</h3>
+              <p className="text-xs font-black text-[#C89B2A]">Up to 15% Commission</p>
             </div>
             <Link
-              href="/campaigns/mcaffeine"
+              href="/campaigns/swiss-beauty-affiliate-program"
               className="w-full py-2.5 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-colors text-center block"
             >
               Promote Now →
             </Link>
           </div>
 
-          {/* Card 3 */}
+          {/* Card 3 — Asaya */}
           <div className="bg-[#FDFAF4] rounded-2xl p-5 border border-[#E8E2D6] hover:border-[#C89B2A] transition-all shadow-sm flex flex-col justify-between space-y-4">
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <div className="w-10 h-10 rounded-xl bg-white border border-[#E8E2D6] p-1 flex items-center justify-center overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=200" alt="Plum Goodness" className="w-full h-full object-cover rounded-lg" />
+                  <img src="https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/2_kvfi70.png" alt="Asaya" className="w-full h-full object-cover rounded-lg" />
                 </div>
                 <span className="px-2.5 py-0.5 rounded-full bg-[#1A3C34]/10 text-[#1A3C34] text-[10px] font-extrabold uppercase">
                   Skincare
                 </span>
               </div>
-              <h3 className="text-base font-black text-[#1A3C34]">Plum Goodness</h3>
-              <p className="text-xs font-black text-[#C89B2A]">Up to 15% Commission</p>
+              <h3 className="text-base font-black text-[#1A3C34]">Asaya</h3>
+              <p className="text-xs font-black text-[#C89B2A]">Up to 8% Commission</p>
             </div>
             <Link
-              href="/campaigns/plum"
-              className="w-full py-2.5 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-colors text-center block"
-            >
-              Promote Now →
-            </Link>
-          </div>
-
-          {/* Card 4 */}
-          <div className="bg-[#FDFAF4] rounded-2xl p-5 border border-[#E8E2D6] hover:border-[#C89B2A] transition-all shadow-sm flex flex-col justify-between space-y-4">
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <div className="w-10 h-10 rounded-xl bg-white border border-[#E8E2D6] p-1 flex items-center justify-center overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1512290900676-26c2a4d4b51b?auto=format&fit=crop&q=80&w=200" alt="The Moms Co." className="w-full h-full object-cover rounded-lg" />
-                </div>
-                <span className="px-2.5 py-0.5 rounded-full bg-[#1A3C34]/10 text-[#1A3C34] text-[10px] font-extrabold uppercase">
-                  Baby Care
-                </span>
-              </div>
-              <h3 className="text-base font-black text-[#1A3C34]">The Moms Co.</h3>
-              <p className="text-xs font-black text-[#C89B2A]">Up to 14% Commission</p>
-            </div>
-            <Link
-              href="/campaigns/themomsco"
+              href="/campaigns/asaya"
               className="w-full py-2.5 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-colors text-center block"
             >
               Promote Now →
@@ -1331,17 +1301,17 @@ export default function CampaignDetailContent() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          
+
           {/* Review 1 */}
           <div className="bg-[#FDFAF4] rounded-3xl p-6 border-t-4 border-t-[#C89B2A] border-x border-b border-[#E8E2D6] shadow-md space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-[#1A3C34] text-white font-black text-xs flex items-center justify-center">
-                  PS
+                  KR
                 </div>
                 <div>
-                  <h4 className="text-sm font-black text-[#1A3C34]">Priya Sharma</h4>
-                  <p className="text-[11px] text-[#6B6355] font-semibold">Instagram | 45K Followers</p>
+                  <h4 className="text-sm font-black text-[#1A3C34]">Kavya Reddy</h4>
+                  <p className="text-[11px] text-[#6B6355] font-semibold">Instagram | 32K Followers</p>
                 </div>
               </div>
               <div className="flex text-[#C89B2A]">
@@ -1352,11 +1322,11 @@ export default function CampaignDetailContent() {
             </div>
 
             <p className="text-xs text-[#6B6355] italic font-medium leading-relaxed">
-              "{brand.name} converts like a dream for beauty content. My first month I made ₹12,000 just from Reels reviews."
+              "My natural-living audience loves {brand.name}. My first month I made ₹15,800 just from unboxing Reels."
             </p>
 
             <span className="inline-block px-3 py-1 rounded-full bg-[#C89B2A]/15 text-[#C89B2A] text-[11px] font-black border border-[#C89B2A]/30">
-              Earned ₹12,000 first month
+              Earned ₹15,800 first month
             </span>
           </div>
 
@@ -1365,11 +1335,11 @@ export default function CampaignDetailContent() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-[#2D7A4F] text-white font-black text-xs flex items-center justify-center">
-                  SK
+                  AM
                 </div>
                 <div>
-                  <h4 className="text-sm font-black text-[#1A3C34]">Sneha Kapoor</h4>
-                  <p className="text-[11px] text-[#6B6355] font-semibold">YouTube | 80K Subscribers</p>
+                  <h4 className="text-sm font-black text-[#1A3C34]">Arjun Malhotra</h4>
+                  <p className="text-[11px] text-[#6B6355] font-semibold">YouTube | 54K Subscribers</p>
                 </div>
               </div>
               <div className="flex text-[#C89B2A]">
@@ -1380,11 +1350,11 @@ export default function CampaignDetailContent() {
             </div>
 
             <p className="text-xs text-[#6B6355] italic font-medium leading-relaxed">
-              "The 30-day cookie window is amazing. Someone clicked my link and bought 3 weeks later — I still got the commission!"
+              "The 30-day cookie window is amazing. Someone clicked my link and bought a gift set 3 weeks later — I still got the commission!"
             </p>
 
             <span className="inline-block px-3 py-1 rounded-full bg-[#C89B2A]/15 text-[#C89B2A] text-[11px] font-black border border-[#C89B2A]/30">
-              Earns ₹25,000/month
+              Earns ₹22,000/month
             </span>
           </div>
 
@@ -1393,11 +1363,11 @@ export default function CampaignDetailContent() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-[#1A3C34] text-white font-black text-xs flex items-center justify-center">
-                  RK
+                  MI
                 </div>
                 <div>
-                  <h4 className="text-sm font-black text-[#1A3C34]">Rohini Kapil</h4>
-                  <p className="text-[11px] text-[#6B6355] font-semibold">Blog | 20K Monthly Readers</p>
+                  <h4 className="text-sm font-black text-[#1A3C34]">Meera Iyer</h4>
+                  <p className="text-[11px] text-[#6B6355] font-semibold">Blog | 14K Monthly Readers</p>
                 </div>
               </div>
               <div className="flex text-[#C89B2A]">
@@ -1408,11 +1378,11 @@ export default function CampaignDetailContent() {
             </div>
 
             <p className="text-xs text-[#6B6355] italic font-medium leading-relaxed">
-              "Writing SEO reviews for {brand.name} products drives consistent passive income every month. Highest converting beauty brand on LinkX."
+              "Writing festival gift guides for {brand.name} drives consistent passive income every season. My highest converting natural-care brand on LinkX."
             </p>
 
             <span className="inline-block px-3 py-1 rounded-full bg-[#C89B2A]/15 text-[#C89B2A] text-[11px] font-black border border-[#C89B2A]/30">
-              Earns ₹18,000/month
+              Earns ₹15,800/month
             </span>
           </div>
 
@@ -1484,7 +1454,7 @@ export default function CampaignDetailContent() {
           </h2>
 
           <p className="text-sm sm:text-base text-[#F5F0E8]/90 font-medium leading-relaxed max-w-xl mx-auto">
-            Join 1,240+ creators already making money promoting India's most loved beauty brand.
+            Join 640+ creators already making money promoting India's home-grown natural soap brand.
           </p>
 
           <button
@@ -1496,7 +1466,7 @@ export default function CampaignDetailContent() {
           </button>
 
           <p className="text-xs text-[#F5F0E8]/70 font-semibold pt-2">
-            ⚡ Auto-approved | 💰 Up to 15% commission | 🔒 Free to join
+            ⚡ Auto-approved | 💰 Up to 10% commission | 🔒 Free to join
           </p>
         </div>
       </section>
