@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useGlobalContext } from '@/components/GlobalProvider';
 import {
@@ -33,8 +33,9 @@ import {
   Target,
   Video,
   Film,
-  Instagram,
-  Youtube,
+
+  ChevronLeft,  
+  Megaphone,
   SendHorizontal,
   FileText,
   AlertTriangle,
@@ -57,7 +58,7 @@ export default function GharSoapsContent() {
     tagline: 'Naturally Handmade, Simply Pure',
     category: 'Beauty & Care',
     type: 'CPS', // Cost Per Sale
-    commission: 'Up to 10%',
+    commission: '15%',
     rating: 4.8,
     totalCreators: 640,
     cookieDuration: '30 days',
@@ -148,6 +149,47 @@ export default function GharSoapsContent() {
     }
   };
 
+   const topPicks = [
+    {
+      id: 'haldiram',
+      name: 'Haldiram',
+      commission: '12%',
+      label: 'Up to',
+      logo: 'https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/3_lnmzlc.png',
+    },
+    {
+      id: 'ghar-soaps-affiliate-program',
+      name: 'Ghar Soaps',
+      commission: '10%',
+      label: 'Up to',
+      logo: 'https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/4_dy9x7w.png',
+    },
+    {
+      id: 'swiss-beauty-affiliate-program',
+      name: 'Swiss Beauty',
+      commission: '15%',
+      label: 'Up to',
+      logo: 'https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/1_hdkg1p.png',
+    },
+    {
+      id: 'asaya',
+      name: 'Asaya',
+      commission: '8%',
+      label: 'Up to',
+      logo: 'https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/2_kvfi70.png',
+    },
+  ];
+
+  // Top picks carousel ref
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  const scrollCarousel = (direction: 'left' | 'right') => {
+    if (carouselRef.current) {
+      const scrollAmount = direction === 'left' ? -320 : 320;
+      carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
+
   const validateForm = () => {
     const errors: Record<string, string> = {};
     if (!formData.fullName.trim()) errors.fullName = 'Full Name is required';
@@ -199,7 +241,7 @@ export default function GharSoapsContent() {
   const faqs = [
     {
       q: `How much can I earn promoting ${brand.name}?`,
-      a: `Commission is up to 10% per sale. With an average order value of ₹450, each sale earns you approximately ₹45. Active creators earn ₹5,000–₹15,000/month from ${brand.name} alone.`
+      a: `Commission is 15% per sale. With an average order value of ₹450, each sale earns you approximately ₹67.50. Active creators earn ₹5,000–₹15,000/month from ${brand.name} alone.`
     },
     {
       q: 'Is approval instant?',
@@ -283,10 +325,7 @@ export default function GharSoapsContent() {
                 <span className="px-3.5 py-1 rounded-full border border-[#F5F0E8]/30 bg-white/5 text-white text-xs font-bold flex items-center gap-1.5">
                   {brand.country}
                 </span>
-                <span className="px-3.5 py-1 rounded-full bg-[#2D7A4F] text-white text-xs font-extrabold flex items-center gap-1.5 shadow-xs">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
-                  {brand.approvalType}
-                </span>
+                
               </div>
 
               {/* Star Rating & Creator Count */}
@@ -300,10 +339,7 @@ export default function GharSoapsContent() {
                   <span className="font-extrabold text-white">{brand.rating}/5</span>
                   <span className="text-[#F5F0E8]/70">(Rating)</span>
                 </div>
-                <div className="flex items-center gap-2 text-[#F5F0E8]/90 font-semibold">
-                  <Users className="w-4 h-4 text-[#C89B2A]" />
-                  <span><strong>{brand.totalCreators.toLocaleString()}</strong> creators currently promoting</span>
-                </div>
+             
               </div>
             </div>
 
@@ -321,24 +357,7 @@ export default function GharSoapsContent() {
                 </p>
               </div>
 
-              {/* 3 Quick Stats Row */}
-              <div className="grid grid-cols-3 gap-2 py-4 border-y border-[#E8E2D6] text-center">
-                <div className="space-y-1">
-                  <span className="text-lg block">🍪</span>
-                  <span className="text-[11px] font-black text-[#1A3C34] block">{brand.cookieDuration}</span>
-                  <span className="text-[10px] text-[#6B6355] font-semibold">Cookie Window</span>
-                </div>
-                <div className="space-y-1">
-                  <span className="text-lg block">⚡</span>
-                  <span className="text-[11px] font-black text-[#1A3C34] block">{brand.payoutFrequency}</span>
-                  <span className="text-[10px] text-[#6B6355] font-semibold">Payout Rate</span>
-                </div>
-                <div className="space-y-1">
-                  <span className="text-lg block">✅</span>
-                  <span className="text-[11px] font-black text-[#1A3C34] block">{brand.approvalType}</span>
-                  <span className="text-[10px] text-[#6B6355] font-semibold">Approval</span>
-                </div>
-              </div>
+             
 
               {/* CTA Button */}
               <div className="space-y-2">
@@ -349,9 +368,7 @@ export default function GharSoapsContent() {
                   <span>Join This Program</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
-                <p className="text-[11px] text-center font-bold text-[#6B6355]">
-                  🔒 Free to join. No approval needed.
-                </p>
+                
               </div>
             </div>
 
@@ -360,56 +377,7 @@ export default function GharSoapsContent() {
       </section>
 
 
-      {/* =================================================================== */}
-      {/* SECTION 2 — KEY STATS BAR                                          */}
-      {/* =================================================================== */}
-      <section className="bg-[#FDFAF4] border-y border-[#E8E2D6] py-6 shadow-2xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-[#E8E2D6]">
-
-            <div className="pt-2 md:pt-0 space-y-1">
-              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#C89B2A]/15 text-[#C89B2A] mb-1">
-                <Percent className="w-5 h-5" />
-              </div>
-              <div className="text-xl font-black text-[#1A3C34] font-display">{brand.commission}</div>
-              <div className="text-xs text-[#6B6355] font-semibold">Commission Rate</div>
-            </div>
-
-            <div className="pt-2 md:pt-0 space-y-1">
-              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#C89B2A]/15 text-[#C89B2A] mb-1">
-                <Clock className="w-5 h-5" />
-              </div>
-              <div className="text-xl font-black text-[#1A3C34] font-display">{brand.cookieDuration}</div>
-              <div className="text-xs text-[#6B6355] font-semibold">Cookie Duration</div>
-            </div>
-
-            <div className="pt-2 md:pt-0 space-y-1">
-              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#C89B2A]/15 text-[#C89B2A] mb-1">
-                <IndianRupee className="w-5 h-5" />
-              </div>
-              <div className="text-xl font-black text-[#1A3C34] font-display">{brand.avgOrderValue}</div>
-              <div className="text-xs text-[#6B6355] font-semibold">Avg Order Value</div>
-            </div>
-
-            <div className="pt-2 md:pt-0 space-y-1">
-              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#C89B2A]/15 text-[#C89B2A] mb-1">
-                <TrendingUp className="w-5 h-5" />
-              </div>
-              <div className="text-xl font-black text-[#1A3C34] font-display">{brand.conversionRate}</div>
-              <div className="text-xs text-[#6B6355] font-semibold">Conversion Rate</div>
-            </div>
-
-            <div className="pt-2 md:pt-0 col-span-2 md:col-span-1 space-y-1">
-              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#C89B2A]/15 text-[#C89B2A] mb-1">
-                <Users className="w-5 h-5" />
-              </div>
-              <div className="text-xl font-black text-[#1A3C34] font-display">640+</div>
-              <div className="text-xs text-[#6B6355] font-semibold">Active Creators</div>
-            </div>
-
-          </div>
-        </div>
-      </section>
+  
 
 
       {/* =================================================================== */}
@@ -437,248 +405,101 @@ export default function GharSoapsContent() {
                 {brand.about}
               </p>
 
-              {/* Quick Facts 2x2 Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
-                <div className="p-4 rounded-2xl bg-[#F5F0E8] border border-[#E8E2D6] text-center space-y-1">
-                  <span className="text-xs font-bold text-[#6B6355] block">🗓️ Founded</span>
-                  <span className="text-base font-black text-[#1A3C34]">{brand.founded}</span>
-                </div>
-                <div className="p-4 rounded-2xl bg-[#F5F0E8] border border-[#E8E2D6] text-center space-y-1">
-                  <span className="text-xs font-bold text-[#6B6355] block">🏢 HQ</span>
-                  <span className="text-base font-black text-[#1A3C34]">Jaipur</span>
-                </div>
-                <div className="p-4 rounded-2xl bg-[#F5F0E8] border border-[#E8E2D6] text-center space-y-1">
-                  <span className="text-xs font-bold text-[#6B6355] block">🛍️ Products</span>
-                  <span className="text-base font-black text-[#1A3C34]">{brand.productsCount}</span>
-                </div>
-                <div className="p-4 rounded-2xl bg-[#F5F0E8] border border-[#E8E2D6] text-center space-y-1">
-                  <span className="text-xs font-bold text-[#6B6355] block">⭐ Rating</span>
-                  <span className="text-base font-black text-[#1A3C34]">{brand.rating} / 5</span>
-                </div>
-              </div>
             </div>
 
+  {/* A) Media Allowed / Disallowed */}
+  <div className="bg-[#FDFAF4] rounded-3xl p-6 sm:p-8 border border-[#E8E2D6] shadow-sm space-y-6">
+    <div className="flex items-center gap-2 border-l-4 border-[#C89B2A] pl-3">
+      <h3 className="text-xl font-black font-display text-[#1A3C34]">Media Allowed/Disallowed</h3>
+    </div>
 
-            {/* B) Commission Structure */}
-            <div className="bg-[#FDFAF4] rounded-3xl p-6 sm:p-8 border border-[#E8E2D6] shadow-sm space-y-6">
-              <div className="space-y-1">
-                <span className="text-xs font-black uppercase text-[#C89B2A] tracking-wider flex items-center gap-1.5">
-                  <Percent className="w-4 h-4" />
-                  Commission Details
-                </span>
-                <h3 className="text-xl sm:text-2xl font-black font-display text-[#1A3C34]">
-                  Category-Wise Earnings Breakdown
-                </h3>
-              </div>
+    {/* Allowed Media */}
+    <div className="space-y-3">
+      <h4 className="text-xs font-bold uppercase tracking-wider text-[#6B6355]">Allowed Media</h4>
+      <div className="flex flex-wrap gap-2">
+        {[
+          'Text Link', 'Banner', 'Deals', 'Coupons',
+          'Cashback, Reward Points, Incentives, Charity',
+          'Email (Text)', 'Custom Email (Text)',
+          'Email (HTML)', 'Custom Email (HTML)',
+          'Native Ads', 'Social Media'
+        ].map((item, idx) => (
+          <span
+            key={idx}
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#1A3C34]/10 text-[#1A3C34] text-xs font-semibold border border-[#1A3C34]/20"
+          >
+            {item}
+            <CheckCircle2 className="w-3.5 h-3.5 text-[#1A3C34]" />
+          </span>
+        ))}
+      </div>
+    </div>
 
-              <div className="overflow-x-auto rounded-2xl border border-[#E8E2D6]">
-                <table className="w-full text-left border-collapse">
-                  <thead>
-                    <tr className="bg-[#1A3C34] text-white text-xs font-extrabold uppercase tracking-wider">
-                      <th className="py-3.5 px-5">Product Category</th>
-                      <th className="py-3.5 px-5 text-right">Commission Rate</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-[#E8E2D6] text-xs sm:text-sm font-semibold text-[#1A3C34]">
-                    <tr className="bg-[#FDFAF4]">
-                      <td className="py-3.5 px-5 font-bold">Bathing Bars</td>
-                      <td className="py-3.5 px-5 text-right font-black text-[#C89B2A]">Up to 10%</td>
-                    </tr>
-                    <tr className="bg-[#F5F0E8]/60">
-                      <td className="py-3.5 px-5 font-bold">Gift Sets</td>
-                      <td className="py-3.5 px-5 text-right font-black text-[#C89B2A]">Up to 9%</td>
-                    </tr>
-                    <tr className="bg-[#FDFAF4]">
-                      <td className="py-3.5 px-5 font-bold">Body Wash &amp; Scrubs</td>
-                      <td className="py-3.5 px-5 text-right font-black text-[#C89B2A]">Up to 8%</td>
-                    </tr>
-                    <tr className="bg-[#F5F0E8]/60">
-                      <td className="py-3.5 px-5 font-bold">Combos &amp; Kits</td>
-                      <td className="py-3.5 px-5 text-right font-black text-[#C89B2A]">Up to 10%</td>
-                    </tr>
-                    <tr className="bg-[#FDFAF4]">
-                      <td className="py-3.5 px-5 font-bold">Travel &amp; Mini Sizes</td>
-                      <td className="py-3.5 px-5 text-right font-black text-[#C89B2A]">Up to 7%</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+    {/* Disallowed Media */}
+    <div className="space-y-3 pt-2">
+      <h4 className="text-xs font-bold uppercase tracking-wider text-[#6B6355]">Disallowed Media</h4>
+      <div className="flex flex-wrap gap-2">
+        {[
+          'POP Traffic', 'Facebook Ads', 'SEM - Brand Keyword(s)',
+          'SEM - Generic Keyword(s)', 'SEM - Brand + Generic Keyword(s)'
+        ].map((item, idx) => (
+          <span
+            key={idx}
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#E8E2D6]/60 text-[#6B6355] text-xs font-semibold border border-[#E8E2D6]"
+          >
+            {item}
+            <XCircle className="w-3.5 h-3.5 text-[#6B6355]" />
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
 
-              <div className="p-4 rounded-2xl bg-[#C89B2A]/10 border border-[#C89B2A]/30 text-xs text-[#1A3C34] font-semibold flex items-center gap-2">
-                <Lightbulb className="w-4 h-4 text-[#C89B2A] flex-shrink-0" />
-                <span>Commission is calculated on the final cart value after discounts and taxes.</span>
-              </div>
-            </div>
+  {/* B) Countries Allowed */}
+  <div className="bg-[#FDFAF4] rounded-3xl p-6 sm:p-8 border border-[#E8E2D6] shadow-sm space-y-4">
+    <div className="flex items-center gap-2 border-l-4 border-[#C89B2A] pl-3">
+      <h3 className="text-xl font-black font-display text-[#1A3C34]">Countries Allowed</h3>
+    </div>
+    <div>
+      <button className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#E8E2D6] bg-white text-sm font-semibold text-[#1A3C34] shadow-xs">
+        <span className="text-base">🇮🇳</span> India
+        <ChevronRight className="w-4 h-4 text-[#6B6355]" />
+      </button>
+    </div>
+  </div>
 
-
-            {/* C) Top Products to Promote */}
-            <div className="bg-[#FDFAF4] rounded-3xl p-6 sm:p-8 border border-[#E8E2D6] shadow-sm space-y-6">
-              <div className="space-y-1">
-                <span className="text-xs font-black uppercase text-[#C89B2A] tracking-wider flex items-center gap-1.5">
-                  <Sparkles className="w-4 h-4" />
-                  Top Products
-                </span>
-                <h3 className="text-xl sm:text-2xl font-black font-display text-[#1A3C34]">
-                  Best Converting Items for Creators
-                </h3>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {brand.topProducts.map((prod, idx) => (
-                  <div
-                    key={idx}
-                    className="p-5 rounded-2xl bg-[#F5F0E8] border border-[#E8E2D6] hover:border-[#C89B2A] transition-all shadow-2xs space-y-3"
-                  >
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="px-2.5 py-0.5 rounded-full bg-[#1A3C34]/10 text-[#1A3C34] text-[10px] font-extrabold uppercase">
-                        {prod.category}
-                      </span>
-                      <span className="px-2.5 py-0.5 rounded-full bg-[#2D7A4F]/15 text-[#2D7A4F] text-[10px] font-extrabold uppercase flex items-center gap-1">
-                        <Zap className="w-3 h-3" />
-                        {prod.badge}
-                      </span>
-                    </div>
-
-                    <h4 className="text-base font-black text-[#1A3C34]">{prod.name}</h4>
-
-                    <p className="text-xs text-[#6B6355] font-medium">
-                      Consistently ranks in top 5 items for creator sales conversion.
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
+  {/* B) Countries Allowed */}
+  <div className="bg-[#FDFAF4] rounded-3xl p-6 sm:p-8 border border-[#E8E2D6] shadow-sm space-y-4">
+    <div className="flex items-center gap-2 border-l-4 border-[#C89B2A] pl-3">
+      <h3 className="text-xl font-black font-display text-[#1A3C34]">Campaigns ID</h3>
+    </div>
+    <div>
+      <button className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#E8E2D6] bg-white text-sm font-semibold text-[#1A3C34] shadow-xs">
+       4491
+       
+      </button>
+    </div>
+  </div>
 
 
-            {/* D) Who Should Promote This? */}
-            <div className="bg-[#FDFAF4] rounded-3xl p-6 sm:p-8 border border-[#E8E2D6] shadow-sm space-y-6">
-              <div className="space-y-1">
-                <span className="text-xs font-black uppercase text-[#C89B2A] tracking-wider flex items-center gap-1.5">
-                  <Target className="w-4 h-4" />
-                  Target Audience
-                </span>
-                <h3 className="text-xl sm:text-2xl font-black font-display text-[#1A3C34]">
-                  Best Suited For These Creators
-                </h3>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {brand.targetAudience.map((aud, idx) => (
-                  <div key={idx} className="p-4 rounded-2xl bg-[#F5F0E8] border border-[#E8E2D6] flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-[#C89B2A]/15 text-[#C89B2A] flex items-center justify-center flex-shrink-0">
-                      <aud.icon className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-black text-[#1A3C34]">{aud.title}</h4>
-                      <p className="text-xs text-[#6B6355] font-medium">{aud.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="pt-2 space-y-2">
-                <span className="text-xs font-bold text-[#6B6355] block">Best platforms to promote on:</span>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1.5 rounded-xl bg-[#1A3C34] text-white text-xs font-bold flex items-center gap-1.5">
-                    <Instagram className="w-3.5 h-3.5 text-[#C89B2A]" /> Instagram
-                  </span>
-                  <span className="px-3 py-1.5 rounded-xl bg-[#1A3C34] text-white text-xs font-bold flex items-center gap-1.5">
-                    <Youtube className="w-3.5 h-3.5 text-[#C89B2A]" /> YouTube
-                  </span>
-                  <span className="px-3 py-1.5 rounded-xl bg-[#1A3C34] text-white text-xs font-bold flex items-center gap-1.5">
-                    <Globe className="w-3.5 h-3.5 text-[#C89B2A]" /> Blog / Website
-                  </span>
-                  <span className="px-3 py-1.5 rounded-xl bg-[#1A3C34] text-white text-xs font-bold flex items-center gap-1.5">
-                    <Send className="w-3.5 h-3.5 text-[#C89B2A]" /> Telegram Deals
-                  </span>
-                </div>
-              </div>
-            </div>
 
 
-            {/* E) Program Restrictions */}
-            <div className="bg-[#FDFAF4] rounded-3xl p-6 sm:p-8 border-l-4 border-l-[#C85A32] border-y border-r border-[#E8E2D6] shadow-sm space-y-4">
-              <div className="space-y-1">
-                <span className="text-xs font-black uppercase text-[#C85A32] tracking-wider flex items-center gap-1.5">
-                  <AlertTriangle className="w-4 h-4" />
-                  Program Rules &amp; Terms
-                </span>
-                <h3 className="text-xl sm:text-2xl font-black font-display text-[#1A3C34]">
-                  Campaign Restrictions
-                </h3>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                {brand.restrictions.map((res, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 p-3 rounded-xl bg-[#F5F0E8]">
-                    <XCircle className="w-4 h-4 text-[#C85A32] flex-shrink-0 mt-0.5" />
-                    <span className="text-xs font-bold text-[#1A3C34]">{res}</span>
-                  </div>
-                ))}
-              </div>
-
-              <p className="text-[11px] text-[#6B6355] italic font-semibold pt-1">
-                ⚠️ Violating these brand promotion policies may lead to commission cancellation and account review.
-              </p>
-            </div>
 
 
-            {/* F) How to Succeed With This Campaign */}
-            <div className="bg-[#FDFAF4] rounded-3xl p-6 sm:p-8 border border-[#E8E2D6] shadow-sm space-y-6">
-              <div className="space-y-1">
-                <span className="text-xs font-black uppercase text-[#C89B2A] tracking-wider flex items-center gap-1.5">
-                  <Lightbulb className="w-4 h-4" />
-                  Pro Tips
-                </span>
-                <h3 className="text-xl sm:text-2xl font-black font-display text-[#1A3C34]">
-                  How to Succeed With This Campaign
-                </h3>
-              </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-5 rounded-2xl bg-[#F5F0E8] border-l-4 border-l-[#2D7A4F] border-y border-r border-[#E8E2D6] space-y-2">
-                  <div className="flex items-center gap-2 font-black text-sm text-[#1A3C34]">
-                    <Video className="w-4 h-4 text-[#2D7A4F]" />
-                    <span>60-Sec Unboxing Reels</span>
-                  </div>
-                  <p className="text-xs text-[#6B6355] font-medium leading-relaxed">
-                    Quick unboxing and lather-test videos on YouTube Shorts or Instagram Reels get 3x higher conversions for bath products.
-                  </p>
-                </div>
 
-                <div className="p-5 rounded-2xl bg-[#F5F0E8] border-l-4 border-l-[#2D7A4F] border-y border-r border-[#E8E2D6] space-y-2">
-                  <div className="flex items-center gap-2 font-black text-sm text-[#1A3C34]">
-                    <Film className="w-4 h-4 text-[#2D7A4F]" />
-                    <span>Before &amp; After Skin Feel</span>
-                  </div>
-                  <p className="text-xs text-[#6B6355] font-medium leading-relaxed">
-                    Visual skin-texture transformations using Ghar Soaps bars perform exceptionally well with female audiences.
-                  </p>
-                </div>
 
-                <div className="p-5 rounded-2xl bg-[#F5F0E8] border-l-4 border-l-[#2D7A4F] border-y border-r border-[#E8E2D6] space-y-2">
-                  <div className="flex items-center gap-2 font-black text-sm text-[#1A3C34]">
-                    <Calendar className="w-4 h-4 text-[#2D7A4F]" />
-                    <span>Festival Gifting Guides</span>
-                  </div>
-                  <p className="text-xs text-[#6B6355] font-medium leading-relaxed">
-                    Diwali, Rakhi, and Mother's Day gift guides pre-loaded with Ghar Soaps gift sets drive huge sales spikes.
-                  </p>
-                </div>
 
-                <div className="p-5 rounded-2xl bg-[#F5F0E8] border-l-4 border-l-[#2D7A4F] border-y border-r border-[#E8E2D6] space-y-2">
-                  <div className="flex items-center gap-2 font-black text-sm text-[#1A3C34]">
-                    <Send className="w-4 h-4 text-[#2D7A4F]" />
-                    <span>Telegram Deal Alerts</span>
-                  </div>
-                  <p className="text-xs text-[#6B6355] font-medium leading-relaxed">
-                    Posting Buy-1-Get-1 or special discount codes on Telegram deal groups yields instant high click volume.
-                  </p>
-                </div>
-              </div>
-            </div>
+
+
 
           </div>
+
+
+  
+
+
+
 
 
           {/* RIGHT SIDEBAR (35%) — Sticky */}
@@ -715,50 +536,87 @@ export default function GharSoapsContent() {
                 <ArrowRight className="w-4 h-4" />
               </button>
 
-              <div className="pt-4 border-t border-[#E8E2D6] space-y-3">
-                <span className="text-xs font-bold text-[#6B6355] block text-center">Share this campaign:</span>
-                <div className="grid grid-cols-3 gap-2">
-                  <button
-                    onClick={() => {
-                      if (navigator.clipboard) {
-                        navigator.clipboard.writeText(window.location.href);
-                        showToast('Campaign link copied! 📋');
-                      }
-                    }}
-                    className="py-2 px-3 rounded-xl bg-[#F5F0E8] hover:bg-[#E8E2D6] text-[#1A3C34] text-xs font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
-                  >
-                    <Copy className="w-3.5 h-3.5" />
-                    Copy
-                  </button>
-                  <a
-                    href={`https://wa.me/?text=${encodeURIComponent(`Check out ${brand.name} affiliate campaign on LinkX: ${pageUrl}`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="py-2 px-3 rounded-xl bg-[#25D366]/15 hover:bg-[#25D366]/25 text-[#128C7E] text-xs font-bold flex items-center justify-center gap-1.5 transition-colors"
-                  >
-                    <MessageCircle className="w-3.5 h-3.5" />
-                    WhatsApp
-                  </a>
-                  <a
-                    href={`https://t.me/share/url?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(`${brand.name} Affiliate Program`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="py-2 px-3 rounded-xl bg-[#0088cc]/15 hover:bg-[#0088cc]/25 text-[#0088cc] text-xs font-bold flex items-center justify-center gap-1.5 transition-colors"
-                  >
-                    <Send className="w-3.5 h-3.5" />
-                    Telegram
-                  </a>
-                </div>
-              </div>
-
-              <p className="text-[11px] text-center font-bold text-[#6B6355]">
-                🔒 640 creators already earning with {brand.name}
-              </p>
 
             </div>
 
           </div>
 
+        </div>
+      </section>
+
+          {/* =================================================================== */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="space-y-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-1.5 h-7 bg-[#C89B2A] rounded-full" />
+              <h2 className="text-xl sm:text-2xl font-extrabold text-[#1A3C34]">
+                Top Picks for You
+              </h2>
+            </div>
+
+            {/* Nav Arrows */}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => scrollCarousel('left')}
+                aria-label="Previous Top Picks"
+                className="w-9 h-9 rounded-full border border-[#1A3C34] text-[#1A3C34] hover:bg-[#1A3C34] hover:text-white flex items-center justify-center transition-colors shadow-2xs"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={() => scrollCarousel('right')}
+                aria-label="Next Top Picks"
+                className="w-9 h-9 rounded-full border border-[#1A3C34] text-[#1A3C34] hover:bg-[#1A3C34] hover:text-white flex items-center justify-center transition-colors shadow-2xs"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Cards Carousel Container */}
+          <div
+            ref={carouselRef}
+            className="flex items-center gap-6 overflow-x-auto no-scrollbar pb-4 pt-1 snap-x"
+          >
+            {topPicks.map((brand) => (
+              <div
+                key={brand.id}
+                className="min-w-[260px] sm:min-w-[280px] bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center space-y-4 snap-start group"
+              >
+                {/* Brand Logo */}
+                <div className="w-28 h-16 rounded-2xl bg-white border border-[#E8E2D6] p-2 flex items-center justify-center shadow-2xs overflow-hidden group-hover:scale-105 transition-transform">
+                  <img
+                    src={brand.logo}
+                    alt={brand.name}
+                    className="w-full h-full object-cover rounded-xl"
+                  />
+                </div>
+
+                {/* Brand Info */}
+                <div>
+                  <h3 className="font-extrabold text-lg text-[#1A3C34]">
+                    {brand.name}
+                  </h3>
+                  <div className="mt-1">
+                    <span className="text-xs text-[#6B6355] block font-medium">Commission</span>
+                    <span className="text-2xl font-black text-[#C89B2A] block leading-tight">
+                      Upto {brand.commission}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Promote CTA Button */}
+                <Link
+                  href={`/campaigns/${brand.id}`}
+                  className="w-full py-2.5 px-4 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-colors shadow-2xs flex items-center justify-center gap-1.5"
+                >
+                  <span>Promote Now</span>
+                  <ChevronRight className="w-4 h-4" />
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -1251,7 +1109,7 @@ export default function GharSoapsContent() {
                 </span>
               </div>
               <h3 className="text-base font-black text-[#1A3C34]">Swiss Beauty</h3>
-              <p className="text-xs font-black text-[#C89B2A]">Up to 15% Commission</p>
+              <p className="text-xs font-black text-[#C89B2A]">15% Commission</p>
             </div>
             <Link
               href="/campaigns/swiss-beauty-affiliate-program"
@@ -1287,108 +1145,7 @@ export default function GharSoapsContent() {
       </section>
 
 
-      {/* =================================================================== */}
-      {/* SECTION 7 — CREATOR REVIEWS FOR THIS CAMPAIGN                      */}
-      {/* =================================================================== */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8">
-        <div className="space-y-1">
-          <h2 className="text-2xl sm:text-3xl font-black font-display text-[#1A3C34]">
-            What Creators Say About This Campaign
-          </h2>
-          <p className="text-xs sm:text-sm text-[#6B6355] font-semibold">
-            Real feedback from LinkX creators actively promoting {brand.name}
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-          {/* Review 1 */}
-          <div className="bg-[#FDFAF4] rounded-3xl p-6 border-t-4 border-t-[#C89B2A] border-x border-b border-[#E8E2D6] shadow-md space-y-4">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#1A3C34] text-white font-black text-xs flex items-center justify-center">
-                  KR
-                </div>
-                <div>
-                  <h4 className="text-sm font-black text-[#1A3C34]">Kavya Reddy</h4>
-                  <p className="text-[11px] text-[#6B6355] font-semibold">Instagram | 32K Followers</p>
-                </div>
-              </div>
-              <div className="flex text-[#C89B2A]">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-[#C89B2A]" />
-                ))}
-              </div>
-            </div>
-
-            <p className="text-xs text-[#6B6355] italic font-medium leading-relaxed">
-              "My natural-living audience loves {brand.name}. My first month I made ₹15,800 just from unboxing Reels."
-            </p>
-
-            <span className="inline-block px-3 py-1 rounded-full bg-[#C89B2A]/15 text-[#C89B2A] text-[11px] font-black border border-[#C89B2A]/30">
-              Earned ₹15,800 first month
-            </span>
-          </div>
-
-          {/* Review 2 */}
-          <div className="bg-[#FDFAF4] rounded-3xl p-6 border-t-4 border-t-[#C89B2A] border-x border-b border-[#E8E2D6] shadow-md space-y-4">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#2D7A4F] text-white font-black text-xs flex items-center justify-center">
-                  AM
-                </div>
-                <div>
-                  <h4 className="text-sm font-black text-[#1A3C34]">Arjun Malhotra</h4>
-                  <p className="text-[11px] text-[#6B6355] font-semibold">YouTube | 54K Subscribers</p>
-                </div>
-              </div>
-              <div className="flex text-[#C89B2A]">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-[#C89B2A]" />
-                ))}
-              </div>
-            </div>
-
-            <p className="text-xs text-[#6B6355] italic font-medium leading-relaxed">
-              "The 30-day cookie window is amazing. Someone clicked my link and bought a gift set 3 weeks later — I still got the commission!"
-            </p>
-
-            <span className="inline-block px-3 py-1 rounded-full bg-[#C89B2A]/15 text-[#C89B2A] text-[11px] font-black border border-[#C89B2A]/30">
-              Earns ₹22,000/month
-            </span>
-          </div>
-
-          {/* Review 3 */}
-          <div className="bg-[#FDFAF4] rounded-3xl p-6 border-t-4 border-t-[#C89B2A] border-x border-b border-[#E8E2D6] shadow-md space-y-4">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#1A3C34] text-white font-black text-xs flex items-center justify-center">
-                  MI
-                </div>
-                <div>
-                  <h4 className="text-sm font-black text-[#1A3C34]">Meera Iyer</h4>
-                  <p className="text-[11px] text-[#6B6355] font-semibold">Blog | 14K Monthly Readers</p>
-                </div>
-              </div>
-              <div className="flex text-[#C89B2A]">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-[#C89B2A]" />
-                ))}
-              </div>
-            </div>
-
-            <p className="text-xs text-[#6B6355] italic font-medium leading-relaxed">
-              "Writing festival gift guides for {brand.name} drives consistent passive income every season. My highest converting natural-care brand on LinkX."
-            </p>
-
-            <span className="inline-block px-3 py-1 rounded-full bg-[#C89B2A]/15 text-[#C89B2A] text-[11px] font-black border border-[#C89B2A]/30">
-              Earns ₹15,800/month
-            </span>
-          </div>
-
-        </div>
-      </section>
-
+      
 
       {/* =================================================================== */}
       {/* SECTION 8 — FAQ FOR THIS CAMPAIGN                                  */}
@@ -1466,7 +1223,7 @@ export default function GharSoapsContent() {
           </button>
 
           <p className="text-xs text-[#F5F0E8]/70 font-semibold pt-2">
-            ⚡ Auto-approved | 💰 Up to 10% commission | 🔒 Free to join
+            ⚡ Auto-approved | 💰 15% commission | 🔒 Free to join
           </p>
         </div>
       </section>
