@@ -216,7 +216,7 @@ export default function GharSoapsContent() {
       setIsSubmitting(false);
       setIsSubmitted(true);
       const username = formData.fullName.toLowerCase().replace(/\s+/g, '') || 'creator';
-      const link = `linkx.in/${brand.slug}/@${username}`;
+      const link = `cloudlinks.in/${brand.slug}/@${username}`;
       setGeneratedLink(link);
       showToast('Congratulations! Your affiliate link was generated 🎉');
     }, 1500);
@@ -245,7 +245,7 @@ export default function GharSoapsContent() {
     },
     {
       q: 'Is approval instant?',
-      a: `Yes! ${brand.name} is auto-approved on LinkX. Submit the form and your unique link is generated immediately.`
+      a: `Yes! ${brand.name} is auto-approved on CloudLinks. Submit the form and your unique link is generated immediately.`
     },
     {
       q: 'How long does the cookie last?',
@@ -257,7 +257,7 @@ export default function GharSoapsContent() {
     },
     {
       q: 'When will I receive my commission?',
-      a: `Commissions are confirmed after ${brand.name}'s 30-day return window closes. Once confirmed, they're instantly available for withdrawal on LinkX via UPI.`
+      a: `Commissions are confirmed after ${brand.name}'s 30-day return window closes. Once confirmed, they're instantly available for withdrawal on CloudLinks via UPI.`
     }
   ];
 

@@ -100,7 +100,7 @@ export const EarningTipsContent: React.FC = () => {
       levelColor: 'bg-[#C89B2A] text-[#1A3C34]',
       borderColor: 'border-l-[#C89B2A]',
       desc: 'A 60-second honest video review on Instagram Reels or YouTube Shorts drives 10x more clicks than a bare link pasted in stories.',
-      insight: 'Video reviews generate 85% of total affiliate commissions on LinkX.',
+      insight: 'Video reviews generate 85% of total affiliate commissions on CloudLinks.',
       icon: Star,
       iconBg: 'bg-[#C89B2A] text-[#1A3C34]',
     },
@@ -123,7 +123,7 @@ export const EarningTipsContent: React.FC = () => {
       level: 'Intermediate',
       levelColor: 'bg-[#C89B2A] text-[#1A3C34]',
       borderColor: 'border-l-[#C89B2A]',
-      desc: 'Check your LinkX dashboard analytics weekly. Kill low-performing campaigns and double down on brands that convert highest with your specific demographic.',
+      desc: 'Check your CloudLinks dashboard analytics weekly. Kill low-performing campaigns and double down on brands that convert highest with your specific demographic.',
       insight: 'Top 5% creators review campaign conversion metrics at least twice a week.',
       icon: BarChart2,
       iconBg: 'bg-[#C89B2A] text-[#1A3C34]',
@@ -261,7 +261,7 @@ export const EarningTipsContent: React.FC = () => {
 
           {/* Subtext */}
           <p className="text-base sm:text-lg text-[#6B6355] font-medium leading-relaxed max-w-2xl mx-auto">
-            Discover battle-tested tips, strategies, and insider secrets used by India's top affiliate creators to maximize their earnings on LinkX.
+            Discover battle-tested tips, strategies, and insider secrets used by India's top affiliate creators to maximize their earnings on CloudLinks.
           </p>
 
           {/* 3 Level Pill Tabs */}
@@ -613,7 +613,7 @@ export const EarningTipsContent: React.FC = () => {
             Top 10 Tips <span className="text-[#C89B2A]">to Maximize Earnings</span>
           </h2>
           <p className="text-sm text-[#6B6355] font-medium">
-            Used by LinkX's highest-earning creators every single day
+            Used by CloudLinks' highest-earning creators every single day
           </p>
         </div>
 
@@ -886,7 +886,7 @@ export const EarningTipsContent: React.FC = () => {
               <h3 className="font-extrabold text-xl text-[#1A3C34]">The Starter</h3>
 
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#6B6355] font-medium pt-1">
-                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#2D7A4F]" /> Join LinkX completely free</li>
+                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#2D7A4F]" /> Join CloudLinks completely free</li>
                 <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#2D7A4F]" /> Pick 3 brands you personally use</li>
                 <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#2D7A4F]" /> Share links across all your profiles</li>
                 <li className="flex items-center gap-2"><Check className="w-4 h-4 text-[#2D7A4F]" /> Make & withdraw your first ₹500</li>
@@ -1013,7 +1013,7 @@ export const EarningTipsContent: React.FC = () => {
                 Add link to Instagram bio
               </h3>
               <p className="text-xs text-[#6B6355] font-medium">
-                Put your LinkX hub link directly in your Instagram bio for instant profile traffic.
+                Put your CloudLinks hub link directly in your Instagram bio for instant profile traffic.
               </p>
             </div>
 
@@ -1076,7 +1076,7 @@ export const EarningTipsContent: React.FC = () => {
               </div>
 
               <h3 className="font-extrabold text-base text-[#1A3C34]">
-                Pick your first campaign on LinkX
+                Pick your first campaign on CloudLinks
               </h3>
               <p className="text-xs text-[#6B6355] font-medium">
                 Browse 500+ active brand campaigns and generate your first tracking link.
@@ -1175,7 +1175,7 @@ export const EarningTipsContent: React.FC = () => {
             Which Niche Pays the Most?
           </h2>
           <p className="text-sm text-[#6B6355] font-medium">
-            Real commission data from LinkX campaign analytics
+            Real commission data from CloudLinks campaign analytics
           </p>
         </div>
 
@@ -1410,7 +1410,7 @@ export const EarningTipsContent: React.FC = () => {
             </h2>
 
             <p className="text-xs sm:text-sm text-[#F5F0E8]/80 font-medium leading-relaxed">
-              Everything you learned here works best when combined with the right platform. LinkX gives you the tools, 500+ top brands, and instant UPI payouts to make it happen.
+              Everything you learned here works best when combined with the right platform. CloudLinks gives you the tools, 500+ top brands, and instant UPI payouts to make it happen.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
@@ -1495,7 +1495,7 @@ export const EarningTipsContent: React.FC = () => {
               }}
               className="w-full py-3 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-colors cursor-pointer"
             >
-              Start Implementing on LinkX →
+              Start Implementing on CloudLinks →
             </button>
 
           </div>

@@ -33,7 +33,7 @@ export default function CookiesPolicyContent() {
         'Cookies are small text files placed on your computer, smartphone, or tablet by websites you visit',
         'They act as a memory bank for websites, remembering your preferences, active logins, and navigation paths',
         'Crucial for Affiliate Monitization: Cookies record referral identifiers so you receive full commission credit when someone purchases via your link',
-        'LinkX utilizes both temporary Session Cookies (erased upon browser closure) and Persistent Cookies (retained for specific duration window)'
+        'CloudLinks utilizes both temporary Session Cookies (erased upon browser closure) and Persistent Cookies (retained for specific duration window)'
       ]
     },
     {
@@ -43,7 +43,7 @@ export default function CookiesPolicyContent() {
       bullets: [
         'Essential Cookies: Necessary for basic platform operations, two-factor authentication, and secure login session maintenance. Cannot be disabled.',
         'Performance & Analytics Cookies: Anonymously collect data on page load speed, error reports, and feature usage to help us optimize server performance.',
-        'Affiliate Tracking Cookies: Crucial tracking tags attached when users click your LinkX shortlinks. They ensure sales are accurately attributed to your earnings dashboard.',
+        'Affiliate Tracking Cookies: Crucial tracking tags attached when users click your CloudLinks shortlinks. They ensure sales are accurately attributed to your earnings dashboard.',
         'Marketing & Customization Cookies: Help tailor recommended brand campaigns on your dashboard according to your content niche and audience preferences.'
       ]
     },
@@ -55,7 +55,7 @@ export default function CookiesPolicyContent() {
         'Brand Partners (e.g., Myntra, Flipkart, Nykaa): Store conversion attribution cookies on buyer devices after clicking your affiliate links',
         'Payment Gateways (Razorpay, UPI providers): Set secure session cookies required to verify and process automated creator payouts safely',
         'Analytics Providers (Google Analytics, Mixpanel): Use aggregated cookies to provide server speed and user journey diagnostics',
-        'LinkX does not control third-party cookie lifecycles — please consult respective brand partner privacy policies for details'
+        'CloudLinks does not control third-party cookie lifecycles — please consult respective brand partner privacy policies for details'
       ]
     },
     {
@@ -76,7 +76,7 @@ export default function CookiesPolicyContent() {
       bullets: [
         'Browser Controls: You can inspect, block, or delete cookies directly inside Google Chrome, Safari, Firefox, or Edge browser settings',
         'Impact of Disabling: Disabling Essential Cookies will prevent account login and dashboard access',
-        'Impact on Earnings: Disabling Affiliate Cookies on your device or browser will prevent referral sales from attributing to your LinkX earnings balance'
+        'Impact on Earnings: Disabling Affiliate Cookies on your device or browser will prevent referral sales from attributing to your CloudLinks earnings balance'
       ]
     },
     {
@@ -86,7 +86,7 @@ export default function CookiesPolicyContent() {
       bullets: [
         'We periodically update our Cookies Policy to adapt to technical tracking changes or legal regulations',
         'Significant updates will be highlighted via a banner alert on your creator dashboard',
-        'Continued usage of LinkX following updates indicates agreement with revised cookie practices'
+        'Continued usage of CloudLinks following updates indicates agreement with revised cookie practices'
       ]
     }
   ];
@@ -124,7 +124,7 @@ export default function CookiesPolicyContent() {
 
           {/* Subtext */}
           <p className="text-sm sm:text-base text-[#F5F0E8]/80 font-medium max-w-2xl mx-auto leading-relaxed">
-            LinkX uses cookies to make your experience better, track affiliate performance accurately, and improve our platform. Here's exactly what we use and why.
+            CloudLinks uses cookies to make your experience better, track affiliate performance accurately, and improve our platform. Here's exactly what we use and why.
           </p>
 
           {/* Breadcrumbs */}
@@ -162,7 +162,7 @@ export default function CookiesPolicyContent() {
       {/* ========================================== */}
       <section className="max-w-3xl mx-auto px-4 pt-10 pb-6 text-center text-sm sm:text-base text-[#1A3C34] font-medium leading-relaxed space-y-3">
         <p>
-          This Cookies Policy explains how <span className="text-[#C89B2A] font-bold">LinkX</span> uses browser cookies and tracking pixels to ensure seamless <span className="text-[#C89B2A] font-bold">affiliate attribution</span> and protect user account security.
+          This Cookies Policy explains how <span className="text-[#C89B2A] font-bold">CloudLinks</span> uses browser cookies and tracking pixels to ensure seamless <span className="text-[#C89B2A] font-bold">affiliate attribution</span> and protect user account security.
         </p>
         <p className="text-xs sm:text-sm text-[#6B6355]">
           Understanding how cookies work helps you ensure zero missed commissions when audience members shop via your custom links.
@@ -249,7 +249,7 @@ export default function CookiesPolicyContent() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto text-left pt-2">
             <div className="p-4 rounded-2xl bg-[#F5F0E8] border border-[#E8E2D6] space-y-1">
               <span className="text-[10px] font-extrabold uppercase text-[#6B6355]">Technical Support</span>
-              <p className="text-xs font-black text-[#1A3C34]">legal@linkx.in</p>
+              <p className="text-xs font-black text-[#1A3C34]">legal@cloudlinks.in</p>
             </div>
 
             <div className="p-4 rounded-2xl bg-[#F5F0E8] border border-[#E8E2D6] space-y-1">

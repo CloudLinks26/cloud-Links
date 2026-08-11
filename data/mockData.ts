@@ -66,7 +66,7 @@ export const TESTIMONIALS: Testimonial[] = [
     location: 'Mumbai, Maharashtra',
     role: 'Instagram Fashion Creator',
     followers: '85K Followers',
-    quote: 'LinkX transformed how I monetize my Instagram reels. The instant link generator lets me convert any product URL in seconds, and my UPI payouts are cleared within 24 hours!',
+    quote: 'CloudLinks transformed how I monetize my Instagram reels. The instant link generator lets me convert any product URL in seconds, and my UPI payouts are cleared within 24 hours!',
     rating: 5,
     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200',
     earnings: '₹68,400/mo'
@@ -88,7 +88,7 @@ export const TESTIMONIALS: Testimonial[] = [
     location: 'Bengaluru, Karnataka',
     role: 'Lifestyle & Beauty Blogger',
     followers: '50K Monthly Readers',
-    quote: 'Switching from legacy affiliate networks to LinkX was the best decision. Mamaearth & Myntra commissions are super high, and the account support manager is incredibly responsive.',
+    quote: 'Switching from legacy affiliate networks to CloudLinks was the best decision. Mamaearth & Myntra commissions are super high, and the account support manager is incredibly responsive.',
     rating: 5,
     avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=200',
     earnings: '₹42,800/mo'
@@ -107,7 +107,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     id: '2',
-    title: 'How Creators Are Making ₹1 Lakh/Month on LinkX',
+    title: 'How Creators Are Making ₹1 Lakh/Month on CloudLinks',
     category: 'Creator Success',
     readTime: '6 mins read',
     date: 'Jul 28, 2026',
@@ -136,7 +136,7 @@ export const STATS: StatItem[] = [
     icon: 'Users',
     value: '10,000+',
     label: 'Creators',
-    sublabel: 'earning with LinkX'
+    sublabel: 'earning with CloudLinks'
   },
   {
     icon: 'Wallet',

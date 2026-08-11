@@ -223,7 +223,7 @@ export default function CampaignsContent() {
   const faqs = [
     {
       question: 'How do I join a campaign?',
-      answer: 'Sign up for free on LinkX, navigate to the Campaigns directory, and click "Promote Now" next to any brand to generate your unique affiliate link immediately.',
+      answer: 'Sign up for free on CloudLinks, navigate to the Campaigns directory, and click "Promote Now" next to any brand to generate your unique affiliate link immediately.',
     },
     {
       question: 'When do I get paid?',
@@ -239,11 +239,11 @@ export default function CampaignsContent() {
     },
     {
       question: 'Can I promote on Instagram, YouTube, or WhatsApp?',
-      answer: 'Absolutely! You can paste your LinkX affiliate links in Instagram bios, YouTube descriptions, Telegram deal channels, WhatsApp status, or personal blogs.',
+      answer: 'Absolutely! You can paste your CloudLinks affiliate links in Instagram bios, YouTube descriptions, Telegram deal channels, WhatsApp status, or personal blogs.',
     },
     {
       question: 'Are there any joining fees?',
-      answer: 'No. LinkX is 100% free for all creators and influencers. There are no registration fees, monthly subscription charges, or hidden deductions.',
+      answer: 'No. CloudLinks is 100% free for all creators and influencers. There are no registration fees, monthly subscription charges, or hidden deductions.',
     },
   ];
 
@@ -701,7 +701,7 @@ export default function CampaignsContent() {
             {/* Left Content */}
             <div className="lg:col-span-6 space-y-6">
               <h2 className="text-2xl sm:text-4xl font-extrabold text-[#1A3C34]">
-                Why Promote with LinkX?
+                Why Promote with CloudLinks?
               </h2>
 
               <ul className="space-y-4">
@@ -784,7 +784,7 @@ export default function CampaignsContent() {
               Frequently Asked Questions
             </h2>
             <p className="text-sm text-[#6B6355] font-medium">
-              Everything you need to know about campaigns on LinkX
+              Everything you need to know about campaigns on CloudLinks
             </p>
           </div>
 
@@ -836,7 +836,7 @@ export default function CampaignsContent() {
             </h2>
 
             <p className="text-sm sm:text-base text-[#F5F0E8]/90 font-medium">
-              Join 10,000+ creators already making money with LinkX
+              Join 10,000+ creators already making money with CloudLinks
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">

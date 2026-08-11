@@ -30,11 +30,11 @@ export const RefundPolicyContent: React.FC = () => {
     {
       id: 1,
       icon: Gift,
-      title: '1. LinkX Is Free — No Creator Payments Required',
+      title: '1. CloudLinks Is Free — No Creator Payments Required',
       bullets: [
-        'LinkX does NOT charge creators, influencers, or publishers any subscription or joining fees',
+        'CloudLinks does NOT charge creators, influencers, or publishers any subscription or joining fees',
         'Creating an account, generating shortlinks, and requesting payouts is 100% FREE forever',
-        'Because creators make no direct monetary payments to LinkX, traditional service refund requests do not apply',
+        'Because creators make no direct monetary payments to CloudLinks, traditional service refund requests do not apply',
         'This policy strictly outlines how brand customer returns and order cancellations impact your affiliate commission earnings'
       ]
     },
@@ -77,7 +77,7 @@ export const RefundPolicyContent: React.FC = () => {
       bullets: [
         'Once a payout transfer is dispatched to your UPI or Bank account, the transaction is non-reversible',
         'In rare instances where a late return is confirmed post-payout, the balance deficit is adjusted against future earnings',
-        'LinkX will never pull funds directly from your external personal bank account or UPI ID'
+        'CloudLinks will never pull funds directly from your external personal bank account or UPI ID'
       ]
     },
     {
@@ -87,7 +87,7 @@ export const RefundPolicyContent: React.FC = () => {
       bullets: [
         'Commissions generated via self-purchases, proxy IP bots, click-stuffing, or fraudulent credit cards will be permanently cancelled',
         'Accounts identified engaging in systematic fraud will be banned instantly with complete forfeiture of pending balances',
-        'LinkX utilizes automated AI fraud detection alongside manual brand audit checks prior to releasing withdrawal funds'
+        'CloudLinks utilizes automated AI fraud detection alongside manual brand audit checks prior to releasing withdrawal funds'
       ]
     },
     {
@@ -95,7 +95,7 @@ export const RefundPolicyContent: React.FC = () => {
       icon: HelpCircle,
       title: '7. How to Contact Us Regarding Commission Audits',
       bullets: [
-        'For all commission reversal, audit, or payout reconciliation inquiries, email us at refunds@linkx.in',
+        'For all commission reversal, audit, or payout reconciliation inquiries, email us at refunds@cloudlinks.in',
         'In-app option: Dashboard → Help → Submit Ticket → Subject: Commission Audit Query',
         'Our dedicated support team responds to all financial queries within 2–3 business days'
       ]
@@ -135,7 +135,7 @@ export const RefundPolicyContent: React.FC = () => {
 
           {/* Subtext */}
           <p className="text-sm sm:text-base text-[#F5F0E8]/80 font-medium max-w-2xl mx-auto leading-relaxed">
-            LinkX is a free platform — there are no payments made to us by creators. This policy explains how product returns and cancellations affect your affiliate commissions.
+            CloudLinks is a free platform — there are no payments made to us by creators. This policy explains how product returns and cancellations affect your affiliate commissions.
           </p>
 
           {/* Breadcrumbs */}
@@ -173,7 +173,7 @@ export const RefundPolicyContent: React.FC = () => {
       {/* ========================================== */}
       <section className="max-w-3xl mx-auto px-4 pt-10 pb-6 text-center text-sm sm:text-base text-[#1A3C34] font-medium leading-relaxed space-y-3">
         <p>
-          <span className="text-[#C89B2A] font-bold">LinkX</span> is 100% free for all creators. This Refund & Reversal Policy outlines the terms governing how <span className="text-[#C89B2A] font-bold">brand product returns</span>, order cancellations, and audit adjustments affect your pending and paid commissions.
+          <span className="text-[#C89B2A] font-bold">CloudLinks</span> is 100% free for all creators. This Refund & Reversal Policy outlines the terms governing how <span className="text-[#C89B2A] font-bold">brand product returns</span>, order cancellations, and audit adjustments affect your pending and paid commissions.
         </p>
         <p className="text-xs sm:text-sm text-[#6B6355]">
           We ensure complete visibility so you always understand how every single transaction is credited to your balance.
@@ -260,7 +260,7 @@ export const RefundPolicyContent: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto text-left pt-2">
             <div className="p-4 rounded-2xl bg-[#F5F0E8] border border-[#E8E2D6] space-y-1">
               <span className="text-[10px] font-extrabold uppercase text-[#6B6355]">Refunds & Audits</span>
-              <p className="text-xs font-black text-[#1A3C34]">refunds@linkx.in</p>
+              <p className="text-xs font-black text-[#1A3C34]">refunds@cloudlinks.in</p>
             </div>
 
             <div className="p-4 rounded-2xl bg-[#F5F0E8] border border-[#E8E2D6] space-y-1">

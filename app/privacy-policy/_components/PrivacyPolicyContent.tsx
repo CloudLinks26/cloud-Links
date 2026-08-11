@@ -45,7 +45,7 @@ export default function PrivacyPolicyContent() {
       icon: Eye,
       title: '2. How We Use Your Information',
       bullets: [
-        'To create, authenticate, and maintain your secure LinkX creator account',
+        'To create, authenticate, and maintain your secure CloudLinks creator account',
         'To process affiliate commissions and execute seamless payout transfers',
         'To send real-time campaign updates, payout notifications, and platform alerts',
         'To optimize platform performance, user experience, and link generator speed',
@@ -82,7 +82,7 @@ export default function PrivacyPolicyContent() {
       icon: KeyRound,
       title: '5. Data Security & Storage',
       bullets: [
-        'All data transmitted between your browser and LinkX is encrypted using AES 256-bit SSL/TLS',
+        'All data transmitted between your browser and CloudLinks is encrypted using AES 256-bit SSL/TLS',
         'Sensitive banking credentials and UPI IDs are stored in isolated, bank-grade encrypted vaults',
         'We undergo scheduled vulnerability assessments, penetration testing, and security audits',
         'Access to user personal data is restricted strictly to vetted security personnel'
@@ -93,11 +93,11 @@ export default function PrivacyPolicyContent() {
       icon: UserCheck,
       title: '6. Your Legal Rights',
       bullets: [
-        'Right to Access: Request a full copy of all personal data held in your LinkX profile',
+        'Right to Access: Request a full copy of all personal data held in your CloudLinks profile',
         'Right to Rectification: Correct inaccurate or outdated personal details at any time',
         'Right to Deletion: Request complete removal of your account and associated personal records',
         'Right to Opt-Out: Unsubscribe from promotional updates via email or dashboard settings',
-        'To exercise any of these privacy rights, contact our Data Protection team at privacy@linkx.in'
+        'To exercise any of these privacy rights, contact our Data Protection team at privacy@cloudlinks.in'
       ]
     },
     {
@@ -105,7 +105,7 @@ export default function PrivacyPolicyContent() {
       icon: Clock,
       title: '7. Data Retention Policy',
       bullets: [
-        'Active Accounts: Personal data is retained for as long as your LinkX account remains active',
+        'Active Accounts: Personal data is retained for as long as your CloudLinks account remains active',
         'Account Deletion: Upon receiving a deletion request, personal profile data is purged within 30 days',
         'Financial Compliance: Transaction, commission, and payout records are retained for 7 years as required under Indian income tax law'
       ]
@@ -117,7 +117,7 @@ export default function PrivacyPolicyContent() {
       bullets: [
         'We reserve the right to update this Privacy Policy as platform features and regulations evolve',
         'Any material changes will be communicated via email and a prominent dashboard banner',
-        'Continued usage of LinkX following policy updates constitutes full acceptance of revised terms'
+        'Continued usage of CloudLinks following policy updates constitutes full acceptance of revised terms'
       ]
     }
   ];
@@ -155,7 +155,7 @@ export default function PrivacyPolicyContent() {
 
           {/* Subtext */}
           <p className="text-sm sm:text-base text-[#F5F0E8]/80 font-medium max-w-2xl mx-auto leading-relaxed">
-            At LinkX, we respect your privacy and are committed to protecting the information you share with us while using our affiliate marketing platform.
+            At CloudLinks, we respect your privacy and are committed to protecting the information you share with us while using our affiliate marketing platform.
           </p>
 
           {/* Breadcrumbs */}
@@ -193,7 +193,7 @@ export default function PrivacyPolicyContent() {
       {/* ========================================== */}
       <section className="max-w-3xl mx-auto px-4 pt-10 pb-6 text-center text-sm sm:text-base text-[#1A3C34] font-medium leading-relaxed space-y-3">
         <p>
-          This Privacy Policy describes how <span className="text-[#C89B2A] font-bold">LinkX</span> collects, uses, stores, and protects your <span className="text-[#C89B2A] font-bold">personal data</span> when you register, promote campaigns, and withdraw affiliate commissions on our platform.
+          This Privacy Policy describes how <span className="text-[#C89B2A] font-bold">CloudLinks</span> collects, uses, stores, and protects your <span className="text-[#C89B2A] font-bold">personal data</span> when you register, promote campaigns, and withdraw affiliate commissions on our platform.
         </p>
         <p className="text-xs sm:text-sm text-[#6B6355]">
           We prioritize <span className="text-[#C89B2A] font-bold">data transparency</span> and adhere strictly to Indian IT Act regulations and international data protection best practices.
@@ -280,7 +280,7 @@ export default function PrivacyPolicyContent() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto text-left pt-2">
             <div className="p-4 rounded-2xl bg-[#F5F0E8] border border-[#E8E2D6] space-y-1">
               <span className="text-[10px] font-extrabold uppercase text-[#6B6355]">Privacy Officer</span>
-              <p className="text-xs font-black text-[#1A3C34]">privacy@linkx.in</p>
+              <p className="text-xs font-black text-[#1A3C34]">privacy@cloudlinks.in</p>
             </div>
 
             <div className="p-4 rounded-2xl bg-[#F5F0E8] border border-[#E8E2D6] space-y-1">

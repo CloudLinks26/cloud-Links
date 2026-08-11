@@ -34,10 +34,10 @@ export const TermsConditionsContent: React.FC = () => {
       icon: CheckCircle2,
       title: '1. Acceptance of Terms',
       bullets: [
-        'By registering or accessing LinkX, you agree to be bound by these Terms & Conditions in full',
+        'By registering or accessing CloudLinks, you agree to be bound by these Terms & Conditions in full',
         'If you do not agree with any part of these terms, please discontinue platform usage immediately',
         'These terms apply universally to all registered creators, influencers, publishers, and brand partners',
-        'LinkX reserves the right to update or modify these Terms & Conditions at any time without prior individual notice'
+        'CloudLinks reserves the right to update or modify these Terms & Conditions at any time without prior individual notice'
       ]
     },
     {
@@ -45,7 +45,7 @@ export const TermsConditionsContent: React.FC = () => {
       icon: UserCheck,
       title: '2. User Eligibility',
       bullets: [
-        'You must be at least 18 years of age to register and receive financial payouts on LinkX',
+        'You must be at least 18 years of age to register and receive financial payouts on CloudLinks',
         'You must be a resident of India or an authorized operating territory with a valid PAN or UPI ID',
         'You agree to provide true, current, and accurate personal, banking, and contact details',
         'Strictly ONE account per individual or legal entity — duplicate or proxy accounts will be permanently suspended'
@@ -70,7 +70,7 @@ export const TermsConditionsContent: React.FC = () => {
         'Commissions are accrued exclusively on valid, completed, and verified brand sales or qualified actions',
         'Cancelled, returned, refunded, or fraudulent customer orders are automatically excluded from commission earnings',
         'Brand partners define baseline commission percentages, cookie windows, and payout validation rules',
-        'LinkX is not responsible for spontaneous commission percentage revisions or campaign pauses initiated by brands'
+        'CloudLinks is not responsible for spontaneous commission percentage revisions or campaign pauses initiated by brands'
       ]
     },
     {
@@ -81,7 +81,7 @@ export const TermsConditionsContent: React.FC = () => {
         'Withdrawal requests can be submitted on-demand via verified Bank Transfer (IMPS/NEFT) or UPI',
         'Validation Window: First-time creator earnings are subject to a 30-day brand validation cycle before release',
         'TDS Deduction: Applicable Tax Deducted at Source (TDS) will be remitted as mandated by the Income Tax Department of India',
-        'LinkX reserves the right to freeze pending withdrawals if account security or fraud alerts are triggered'
+        'CloudLinks reserves the right to freeze pending withdrawals if account security or fraud alerts are triggered'
       ]
     },
     {
@@ -92,7 +92,7 @@ export const TermsConditionsContent: React.FC = () => {
         'Employing automated bots, click farms, VPN networks, or spam scripts to artificially inflate link statistics',
         'Self-referrals or buying products through your own generated affiliate link to pocket cashbacks',
         'Misrepresenting yourself as an official brand representative, employee, or exclusive agent',
-        'Attempting to scrape, reverse-engineer, decompile, or breach the LinkX platform infrastructure'
+        'Attempting to scrape, reverse-engineer, decompile, or breach the CloudLinks platform infrastructure'
       ]
     },
     {
@@ -100,7 +100,7 @@ export const TermsConditionsContent: React.FC = () => {
       icon: UserX,
       title: '7. Account Suspension & Termination',
       bullets: [
-        'LinkX reserves the right to suspend or terminate accounts found in violation of these Terms without prior warning',
+        'CloudLinks reserves the right to suspend or terminate accounts found in violation of these Terms without prior warning',
         'Upon account termination due to fraud, all accumulated or pending commission balances shall be forfeited',
         'Creators may request voluntary account closure at any time through the platform settings panel',
         'Data deletion following voluntary account closure is executed within 30 business days'
@@ -111,9 +111,9 @@ export const TermsConditionsContent: React.FC = () => {
       icon: ShieldAlert,
       title: '8. Limitation of Liability',
       bullets: [
-        'LinkX shall not be held liable for loss of income resulting from brand inventory shortages or campaign cancellations',
-        'LinkX is not responsible for outages or technical downtime on third-party advertiser store websites',
-        'Maximum cumulative liability of LinkX to any creator is strictly capped at the total commissions paid over the preceding 3 months'
+        'CloudLinks shall not be held liable for loss of income resulting from brand inventory shortages or campaign cancellations',
+        'CloudLinks is not responsible for outages or technical downtime on third-party advertiser store websites',
+        'Maximum cumulative liability of CloudLinks to any creator is strictly capped at the total commissions paid over the preceding 3 months'
       ]
     },
     {
@@ -161,7 +161,7 @@ export const TermsConditionsContent: React.FC = () => {
 
           {/* Subtext */}
           <p className="text-sm sm:text-base text-[#F5F0E8]/80 font-medium max-w-2xl mx-auto leading-relaxed">
-            By using LinkX, you agree to these terms. These terms govern your use of our affiliate marketing platform, campaigns, and payout services.
+            By using CloudLinks, you agree to these terms. These terms govern your use of our affiliate marketing platform, campaigns, and payout services.
           </p>
 
           {/* Breadcrumbs */}
@@ -199,7 +199,7 @@ export const TermsConditionsContent: React.FC = () => {
       {/* ========================================== */}
       <section className="max-w-3xl mx-auto px-4 pt-10 pb-6 text-center text-sm sm:text-base text-[#1A3C34] font-medium leading-relaxed space-y-3">
         <p>
-          Welcome to <span className="text-[#C89B2A] font-bold">LinkX</span>. These Terms & Conditions constitute a legally binding agreement between you and LinkX regarding platform access, campaign usage, and commission payout terms.
+          Welcome to <span className="text-[#C89B2A] font-bold">CloudLinks</span>. These Terms & Conditions constitute a legally binding agreement between you and CloudLinks regarding platform access, campaign usage, and commission payout terms.
         </p>
         <p className="text-xs sm:text-sm text-[#6B6355]">
           Please read these rules thoroughly before creating affiliate links or promoting brand campaigns.
@@ -286,7 +286,7 @@ export const TermsConditionsContent: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto text-left pt-2">
             <div className="p-4 rounded-2xl bg-[#F5F0E8] border border-[#E8E2D6] space-y-1">
               <span className="text-[10px] font-extrabold uppercase text-[#6B6355]">Legal Department</span>
-              <p className="text-xs font-black text-[#1A3C34]">legal@linkx.in</p>
+              <p className="text-xs font-black text-[#1A3C34]">legal@cloudlinks.in</p>
             </div>
 
             <div className="p-4 rounded-2xl bg-[#F5F0E8] border border-[#E8E2D6] space-y-1">

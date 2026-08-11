@@ -102,7 +102,7 @@ export default function HomePageContent() {
     },
   ];
 
-  // WhyLinkX features
+  // WhyCloudLinks features
   const features = [
     {
       icon: Wallet,
@@ -147,7 +147,7 @@ export default function HomePageContent() {
     e.preventDefault();
     if (!email) return;
     setSubscribed(true);
-    onToast('Subscribed to LinkX Creator Weekly! Check your inbox soon.');
+    onToast('Subscribed to CloudLinks Creator Weekly! Check your inbox soon.');
     setEmail('');
     setTimeout(() => setSubscribed(false), 5000);
   };
@@ -189,7 +189,7 @@ export default function HomePageContent() {
                   onClick={() => onOpenAuth('signup', 'creator')}
                   className="px-7 py-4 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-base transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group"
                 >
-                  <span>Start Your Affiliate Journey in 3 Simple Steps</span>
+                  <span>Start Your Affiliate Journey</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
 
@@ -227,7 +227,7 @@ export default function HomePageContent() {
               <div className="relative z-10 max-w-sm sm:max-w-md mx-auto">
                 <img
                   src="https://res.cloudinary.com/dqjlffxja/image/upload/v1786186977/592_X_480_uknhez.png"
-                  alt="Indian Creator earning on LinkX"
+                  alt="Indian Creator earning on CloudLinks"
                   className="w-full h-auto object-cover rounded-3xl drop-shadow-2xl relative z-10 transform hover:scale-[1.01] transition-transform duration-500"
                 />
 
@@ -568,7 +568,7 @@ export default function HomePageContent() {
                 </div>
 
                 <h3 className="text-2xl sm:text-3xl font-extrabold font-display text-white">
-                  How Much Can You Earn with LinkX?
+                  How Much Can You Earn with CloudLinks?
                 </h3>
 
                 <p className="text-xs sm:text-sm text-[#E8E2D6]/80 leading-relaxed">
@@ -676,7 +676,7 @@ export default function HomePageContent() {
             </h2>
             <div className="w-20 h-1 bg-[#C89B2A] rounded-full mx-auto" />
             <p className="text-sm sm:text-base text-[#6B6355] font-medium pt-1">
-              LinkX works for everyone — whether you're a creator looking to earn or a brand looking to grow
+              CloudLinks works for everyone — whether you're a creator looking to earn or a brand looking to grow
             </p>
           </div>
 
@@ -701,7 +701,7 @@ export default function HomePageContent() {
                     <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex flex-col items-start gap-1.5">
                       <div className="flex items-center gap-2 bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-lg border border-[#E8E2D6] shadow-sm">
                         <Link2 className="w-3.5 h-3.5 text-[#C89B2A]" />
-                        <span className="text-[11px] font-bold text-[#1A3C34]">linkx.in/myntra-deal</span>
+                        <span className="text-[11px] font-bold text-[#1A3C34]">cloudlinks.in/myntra-deal</span>
                       </div>
                       <div className="flex items-center gap-2 bg-[#1A3C34] text-white px-2.5 py-1 rounded-lg shadow-sm">
                         <Zap className="w-3.5 h-3.5 text-[#C89B2A]" />
@@ -1054,7 +1054,7 @@ export default function HomePageContent() {
                 <span>Creator Knowledge Base</span>
               </div>
               <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-[#1A3C34]">
-                Latest from <span className="text-[#C89B2A]">LinkX Blog</span>
+                Latest from <span className="text-[#C89B2A]">CloudLinks Blog</span>
               </h2>
               <p className="text-sm sm:text-base text-[#6B6355] mt-1 font-medium">
                 Tips, strategies, and insights to help you earn more with affiliate marketing.
@@ -1137,7 +1137,7 @@ export default function HomePageContent() {
                     {selectedPost.title}
                   </h2>
                   <span className="text-xs text-[#6B6355] block">
-                    Published on {selectedPost.date} by LinkX Editorial Team
+                    Published on {selectedPost.date} by CloudLinks Editorial Team
                   </span>
                 </div>
 
@@ -1159,7 +1159,7 @@ export default function HomePageContent() {
                   <h4 className="font-bold text-lg text-[#1A3C34] pt-2">Key Takeaways for Creators:</h4>
                   <ul className="list-disc pl-5 space-y-2 text-xs sm:text-sm text-[#6B6355]">
                     <li>Focus on high-converting categories like Fashion (Myntra, AJIO) and Electronics (boAt).</li>
-                    <li>Use custom sub-IDs on LinkX to track which platform (Instagram Bio vs YouTube Description) yields the highest sales.</li>
+                    <li>Use custom sub-IDs on CloudLinks to track which platform (Instagram Bio vs YouTube Description) yields the highest sales.</li>
                     <li>Incorporate call-to-action stickers on Instagram stories with clear discounts.</li>
                     <li>Leverage festive sales season (Diwali, Great Indian Festival) for 3x higher commission spikes.</li>
                   </ul>
@@ -1191,7 +1191,7 @@ export default function HomePageContent() {
               What Creators Say
             </h2>
             <p className="text-base text-[#6B6355]">
-              See how Indian bloggers, influencers, and content creators scale their monthly income with LinkX.
+              See how Indian bloggers, influencers, and content creators scale their monthly income with CloudLinks.
             </p>
           </div>
 

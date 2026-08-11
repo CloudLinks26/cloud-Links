@@ -71,26 +71,26 @@ export default function FAQsContent() {
     {
       id: 'gs-1',
       category: 'getting-started',
-      question: 'Is LinkX really free to join?',
-      answer: 'Yes! LinkX is 100% free for creators. No joining fees, no subscription charges, no hidden costs — ever. Sign up and start earning immediately.'
+      question: 'Is CloudLinks really free to join?',
+      answer: 'Yes! CloudLinks is 100% free for creators. No joining fees, no subscription charges, no hidden costs — ever. Sign up and start earning immediately.'
     },
     {
       id: 'gs-2',
       category: 'getting-started',
       question: 'Do I need a minimum number of followers to join?',
-      answer: 'No minimum at all! Whether you have 500 followers or 5,00,000 — everyone is welcome on LinkX. We believe every creator deserves to earn from their content.'
+      answer: 'No minimum at all! Whether you have 500 followers or 5,00,000 — everyone is welcome on CloudLinks. We believe every creator deserves to earn from their content.'
     },
     {
       id: 'gs-3',
       category: 'getting-started',
-      question: 'How do I create my LinkX account?',
+      question: 'How do I create my CloudLinks account?',
       answer: 'Click "Sign Up" on the top right, enter your name, email, and phone number, verify your email, and your account is ready. The whole process takes under 2 minutes.'
     },
     {
       id: 'gs-4',
       category: 'getting-started',
       question: 'Do I need approval to start promoting campaigns?',
-      answer: 'Most campaigns on LinkX are auto-approved — you can start promoting immediately after joining. A small number of premium campaigns may require manual approval.'
+      answer: 'Most campaigns on CloudLinks are auto-approved — you can start promoting immediately after joining. A small number of premium campaigns may require manual approval.'
     },
     {
       id: 'gs-5',
@@ -101,16 +101,16 @@ export default function FAQsContent() {
     {
       id: 'gs-6',
       category: 'getting-started',
-      question: "Can I join LinkX if I'm a student or homemaker?",
-      answer: 'Absolutely! LinkX is perfect for students, homemakers, and anyone looking to earn from home. No professional experience required.'
+      question: "Can I join CloudLinks if I'm a student or homemaker?",
+      answer: 'Absolutely! CloudLinks is perfect for students, homemakers, and anyone looking to earn from home. No professional experience required.'
     },
 
     // 🏷️ Campaigns
     {
       id: 'c-1',
       category: 'campaigns',
-      question: 'How many campaigns are available on LinkX?',
-      answer: 'LinkX currently offers 500+ active campaigns across categories including fashion, beauty, electronics, travel, food, finance, and health. New campaigns are added daily.'
+      question: 'How many campaigns are available on CloudLinks?',
+      answer: 'CloudLinks currently offers 500+ active campaigns across categories including fashion, beauty, electronics, travel, food, finance, and health. New campaigns are added daily.'
     },
     {
       id: 'c-2',
@@ -178,13 +178,13 @@ export default function FAQsContent() {
       id: 'e-6',
       category: 'earnings',
       question: 'Is there a limit to how much I can earn?',
-      answer: 'Absolutely no limit! LinkX has no earning cap. The more you promote and the bigger your audience, the more you earn. Our top creators earn ₹1,00,000+ every month.'
+      answer: 'Absolutely no limit! CloudLinks has no earning cap. The more you promote and the bigger your audience, the more you earn. Our top creators earn ₹1,00,000+ every month.'
     },
     {
       id: 'e-7',
       category: 'earnings',
       question: 'Are my earnings taxable?',
-      answer: "Yes, affiliate income is taxable in India. TDS (Tax Deducted at Source) at 5% is applied on annual earnings above ₹15,000 as per Indian tax laws. You'll receive a TDS certificate from LinkX."
+      answer: "Yes, affiliate income is taxable in India. TDS (Tax Deducted at Source) at 5% is applied on annual earnings above ₹15,000 as per Indian tax laws. You'll receive a TDS certificate from CloudLinks."
     },
 
     // ⚡ Payouts
@@ -192,7 +192,7 @@ export default function FAQsContent() {
       id: 'p-1',
       category: 'payouts',
       question: 'What is the minimum amount needed to withdraw?',
-      answer: 'Zero! There is no minimum withdrawal amount on LinkX. You can withdraw even ₹1 if you want. Your money is yours — always.'
+      answer: 'Zero! There is no minimum withdrawal amount on CloudLinks. You can withdraw even ₹1 if you want. Your money is yours — always.'
     },
     {
       id: 'p-2',
@@ -203,8 +203,8 @@ export default function FAQsContent() {
     {
       id: 'p-3',
       category: 'payouts',
-      question: 'What payout methods does LinkX support?',
-      answer: 'LinkX supports UPI, Bank Transfer (IMPS/NEFT), Paytm Wallet, Razorpay, PayPal (for international creators), and Cheque. All methods are completely free.'
+      question: 'What payout methods does CloudLinks support?',
+      answer: 'CloudLinks supports UPI, Bank Transfer (IMPS/NEFT), Paytm Wallet, Razorpay, PayPal (for international creators), and Cheque. All methods are completely free.'
     },
     {
       id: 'p-4',
@@ -222,7 +222,7 @@ export default function FAQsContent() {
       id: 'p-6',
       category: 'payouts',
       question: 'Are there any fees deducted from my payout?',
-      answer: 'LinkX charges zero fees on withdrawals. What you earn is exactly what you receive — no platform cuts, no transaction fees, no hidden deductions.'
+      answer: 'CloudLinks charges zero fees on withdrawals. What you earn is exactly what you receive — no platform cuts, no transaction fees, no hidden deductions.'
     },
 
     // 👤 Account & Profile
@@ -235,8 +235,8 @@ export default function FAQsContent() {
     {
       id: 'a-2',
       category: 'account',
-      question: 'Can I have more than one LinkX account?',
-      answer: 'No. LinkX allows only one account per individual. Multiple accounts violate our terms and may result in permanent ban and commission forfeiture.'
+      question: 'Can I have more than one CloudLinks account?',
+      answer: 'No. CloudLinks allows only one account per individual. Multiple accounts violate our terms and may result in permanent ban and commission forfeiture.'
     },
     {
       id: 'a-3',
@@ -248,7 +248,7 @@ export default function FAQsContent() {
       id: 'a-4',
       category: 'account',
       question: 'How do I change my registered email address?',
-      answer: 'Email: support@linkx.in with your registered email and new email address. Our team will verify and update it within 24 hours.'
+      answer: 'Email: support@cloudlinks.in with your registered email and new email address. Our team will verify and update it within 24 hours.'
     },
     {
       id: 'a-5',
@@ -261,14 +261,14 @@ export default function FAQsContent() {
     {
       id: 'i-1',
       category: 'influencers',
-      question: 'What is the difference between a regular user and an influencer on LinkX?',
+      question: 'What is the difference between a regular user and an influencer on CloudLinks?',
       answer: 'Both earn the same commissions. The Influencer section is designed with tools and tips specifically for content creators — dedicated dashboard views, platform-specific strategies, and creator resources.'
     },
     {
       id: 'i-2',
       category: 'influencers',
       question: 'Which platforms can I use to promote as an influencer?',
-      answer: 'Any platform! Instagram, YouTube, Twitter/X, LinkedIn, Telegram, WhatsApp, Blog, Facebook — wherever your audience is, your LinkX link works there.'
+      answer: 'Any platform! Instagram, YouTube, Twitter/X, LinkedIn, Telegram, WhatsApp, Blog, Facebook — wherever your audience is, your CloudLinks link works there.'
     },
     {
       id: 'i-3',
@@ -286,7 +286,7 @@ export default function FAQsContent() {
       id: 'i-5',
       category: 'influencers',
       question: 'Is there a dedicated dashboard for influencers?',
-      answer: 'Your LinkX dashboard tracks all your earnings, clicks, conversions, and payout history in one place — optimized for creators of all sizes.'
+      answer: 'Your CloudLinks dashboard tracks all your earnings, clicks, conversions, and payout history in one place — optimized for creators of all sizes.'
     },
 
     // 🔧 Technical
@@ -305,8 +305,8 @@ export default function FAQsContent() {
     {
       id: 't-3',
       category: 'technical',
-      question: 'Does LinkX work on mobile?',
-      answer: 'Yes! LinkX is fully mobile-responsive. Manage campaigns, generate links, track earnings, and withdraw — all from your smartphone browser.'
+      question: 'Does CloudLinks work on mobile?',
+      answer: 'Yes! CloudLinks is fully mobile-responsive. Manage campaigns, generate links, track earnings, and withdraw — all from your smartphone browser.'
     },
     {
       id: 't-4',
@@ -318,15 +318,15 @@ export default function FAQsContent() {
       id: 't-5',
       category: 'technical',
       question: 'Why was my account suspended?',
-      answer: 'Accounts are suspended for violating terms: fake clicks, multiple accounts, banned promotional methods, or fraudulent conversions. Email appeals@linkx.in with your account details for review.'
+      answer: 'Accounts are suspended for violating terms: fake clicks, multiple accounts, banned promotional methods, or fraudulent conversions. Email appeals@cloudlinks.in with your account details for review.'
     },
 
     // 📞 Support
     {
       id: 's-1',
       category: 'support',
-      question: 'How do I contact LinkX support?',
-      answer: 'Email: support@linkx.in | Dashboard → Help → Contact Support. Response time: within 24 hours on weekdays, 48 hours on weekends.'
+      question: 'How do I contact CloudLinks support?',
+      answer: 'Email: support@cloudlinks.in | Dashboard → Help → Contact Support. Response time: within 24 hours on weekdays, 48 hours on weekends.'
     },
     {
       id: 's-2',
@@ -338,7 +338,7 @@ export default function FAQsContent() {
       id: 's-3',
       category: 'support',
       question: 'Is there a phone number I can call?',
-      answer: "Currently LinkX support is email and chat only. We're working on launching phone support. For urgent issues, mark your email as \"URGENT\" for priority handling."
+      answer: "Currently CloudLinks support is email and chat only. We're working on launching phone support. For urgent issues, mark your email as \"URGENT\" for priority handling."
     },
     {
       id: 's-4',
@@ -438,7 +438,7 @@ export default function FAQsContent() {
 
           {/* Subtext */}
           <p className="text-sm sm:text-base text-[#F5F0E8]/90 font-medium max-w-2xl mx-auto leading-relaxed">
-            Everything you need to know about LinkX — joining, earning, campaigns, and payouts. Can't find your answer? We're here to help.
+            Everything you need to know about CloudLinks — joining, earning, campaigns, and payouts. Can't find your answer? We're here to help.
           </p>
 
         </div>
@@ -539,7 +539,7 @@ export default function FAQsContent() {
                   Earnings
                 </span>
                 <h3 className="text-lg font-black font-display text-white leading-snug">
-                  How much can I realistically earn with LinkX?
+                  How much can I realistically earn with CloudLinks?
                 </h3>
                 <p className="text-xs text-[#F5F0E8]/90 font-medium leading-relaxed">
                   Creators earn anywhere from ₹500 to ₹2,00,000+ per month depending on their audience size, niche, and activity level.
@@ -593,7 +593,7 @@ export default function FAQsContent() {
                   Getting Started
                 </span>
                 <h3 className="text-lg font-black font-display text-white leading-snug">
-                  How do I join LinkX and start earning?
+                  How do I join CloudLinks and start earning?
                 </h3>
                 <p className="text-xs text-[#F5F0E8]/90 font-medium leading-relaxed">
                   Sign up free in 2 minutes, browse 500+ campaigns, generate your unique link, share it anywhere, and earn commission on every sale.
@@ -670,10 +670,10 @@ export default function FAQsContent() {
                 Our support team is active 24/7 on email & Telegram.
               </p>
               <a
-                href="mailto:support@linkx.in"
+                href="mailto:support@cloudlinks.in"
                 className="inline-block w-full py-2 rounded-xl bg-[#C89B2A] text-[#1A3C34] font-black text-xs hover:bg-[#b08823] transition-colors"
               >
-                support@linkx.in
+                support@cloudlinks.in
               </a>
             </div>
           </div>
@@ -818,11 +818,11 @@ export default function FAQsContent() {
                       <Mail className="w-5 h-5" />
                     </div>
                     <h3 className="font-black text-sm">Email Support</h3>
-                    <p className="text-xs font-bold text-[#1A3C34]">support@linkx.in</p>
+                    <p className="text-xs font-bold text-[#1A3C34]">support@cloudlinks.in</p>
                     <p className="text-[10px] text-[#6B6355] font-semibold">Replies within 24 hours</p>
                   </div>
                   <a
-                    href="mailto:support@linkx.in"
+                    href="mailto:support@cloudlinks.in"
                     className="w-full py-2 rounded-xl border border-[#C89B2A] text-[#1A3C34] font-black text-xs hover:bg-[#C89B2A] transition-colors text-center block"
                   >
                     Send Email →
@@ -915,7 +915,7 @@ export default function FAQsContent() {
               Ready to Start Earning?
             </h2>
             <p className="text-xs sm:text-sm text-[#6B6355] font-medium leading-relaxed">
-              You have all the answers — now take action. Join 10,000+ creators on LinkX today and monetize your influence with India's top brands.
+              You have all the answers — now take action. Join 10,000+ creators on CloudLinks today and monetize your influence with India's top brands.
             </p>
           </div>
 

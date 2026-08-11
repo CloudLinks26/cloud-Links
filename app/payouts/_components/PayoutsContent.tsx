@@ -129,7 +129,7 @@ export default function PayoutsContent() {
     },
     {
       q: 'Are there any hidden fees or deductions?',
-      a: 'Absolutely none. LinkX charges zero fees on withdrawals. You keep 100% of what you earn.',
+      a: 'Absolutely none. CloudLinks charges zero fees on withdrawals. You keep 100% of what you earn.',
     },
     {
       q: 'Can I have multiple payout methods saved?',
@@ -394,7 +394,7 @@ export default function PayoutsContent() {
                 Go to Dashboard
               </h3>
               <p className="text-xs text-[#6B6355] leading-relaxed">
-                Open your LinkX earnings dashboard to view your confirmed balance.
+                Open your CloudLinks earnings dashboard to view your confirmed balance.
               </p>
             </div>
 
@@ -512,7 +512,7 @@ export default function PayoutsContent() {
               </h2>
 
               <p className="text-xs sm:text-sm text-[#6B6355] leading-relaxed">
-                Your LinkX dashboard shows live earnings, pending payouts, conversion rates, and full transaction history — all in one place.
+                Your CloudLinks dashboard shows live earnings, pending payouts, conversion rates, and full transaction history — all in one place.
               </p>
 
               <ul className="space-y-3">
@@ -633,7 +633,7 @@ export default function PayoutsContent() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10">
         <div className="text-center max-w-2xl mx-auto space-y-2">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1A3C34]">
-            Why Creators Trust LinkX Payouts
+            Why Creators Trust CloudLinks Payouts
           </h2>
         </div>
 

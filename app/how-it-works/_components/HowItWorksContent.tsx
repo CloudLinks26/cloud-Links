@@ -43,11 +43,11 @@ export default function HowItWorksContent() {
   // FAQs List
   const faqs = [
     {
-      q: 'Is it really free to join LinkX?',
+      q: 'Is it really free to join CloudLinks?',
       a: "Yes! It's completely free to join. No hidden charges, no membership fees.",
     },
     {
-      q: 'How much can I earn with LinkX?',
+      q: 'How much can I earn with CloudLinks?',
       a: 'Earnings depend on the campaigns you promote and your audience size. Creators earn anywhere from ₹500 to ₹1,00,000+ per month.',
     },
     {
@@ -140,7 +140,7 @@ export default function HowItWorksContent() {
 
           {/* Heading */}
           <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-[#1A3C34] leading-tight">
-            How <span className="text-[#C89B2A] relative inline-block">LinkX</span> Works
+            How <span className="text-[#C89B2A] relative inline-block">CloudLinks</span> Works
           </h1>
 
           {/* Decorative Underline */}
@@ -339,10 +339,10 @@ export default function HowItWorksContent() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
         <div className="text-center space-y-2">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1A3C34]">
-            Who Can Join LinkX?
+            Who Can Join CloudLinks?
           </h2>
           <p className="text-sm text-[#6B6355] font-medium">
-            No matter your background, LinkX gives you the tools to earn online.
+            No matter your background, CloudLinks gives you the tools to earn online.
           </p>
         </div>
 
@@ -541,7 +541,7 @@ export default function HowItWorksContent() {
             Share on Any Platform
           </h2>
           <p className="text-sm text-[#6B6355] font-medium">
-            LinkX works wherever your audience is — no restrictions.
+            CloudLinks works wherever your audience is — no restrictions.
           </p>
         </div>
 
@@ -702,7 +702,7 @@ export default function HowItWorksContent() {
                 ))}
               </div>
               <p className="text-xs sm:text-sm text-[#6B6355] leading-relaxed italic">
-                "I started with zero followers and made ₹8,000 in my first month. LinkX is genuinely the easiest way to earn online."
+                "I started with zero followers and made ₹8,000 in my first month. CloudLinks is genuinely the easiest way to earn online."
               </p>
             </div>
 
@@ -760,7 +760,7 @@ export default function HowItWorksContent() {
                 ))}
               </div>
               <p className="text-xs sm:text-sm text-[#6B6355] leading-relaxed italic">
-                "My blog traffic converts really well with LinkX campaigns. Payments are always on time."
+                "My blog traffic converts really well with CloudLinks campaigns. Payments are always on time."
               </p>
             </div>
 

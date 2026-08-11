@@ -17,7 +17,7 @@ export const TopBrandsContent: React.FC = () => {
             500+ Partnered Stores
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold font-display text-[#1A3C34]">
-            Top Brands on LinkX
+            Top Brands on CloudLinks
           </h1>
           <p className="text-base text-[#6B6355]">
             Monetize recommendations from India's most loved e-commerce, travel, fashion, and lifestyle brands.
@@ -67,7 +67,7 @@ export const TopBrandsContent: React.FC = () => {
         {/* Complete Brand Directory Marquee */}
         <div className="bg-[#F5F0E8] rounded-3xl border border-[#E8E2D6] p-8 space-y-6 text-center">
           <h3 className="font-display font-extrabold text-xl text-[#1A3C34]">
-            And 500+ More Brands Available in LinkX Dashboard
+            And 500+ More Brands Available in CloudLinks Dashboard
           </h3>
           <div className="flex flex-wrap items-center justify-center gap-3">
             {BRANDS_MARQUEE.map((b) => (

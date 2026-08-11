@@ -24,8 +24,11 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  title: 'LinkX',
-  description: 'LinkX — Earn by Sharing. India\'s most trusted affiliate marketing and creator monetization platform.',
+  title: 'CloudLinks',
+  description: 'CloudLinks — Earn by Sharing. India\'s most trusted affiliate marketing and creator monetization platform.',
+  icons: {
+    icon: 'https://res.cloudinary.com/couponsbit/image/upload/v1786449391/cloud-link-favicon_hmrtar.png',
+  },
 };
 
 export default function RootLayout({

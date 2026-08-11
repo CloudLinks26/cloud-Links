@@ -10,8 +10,8 @@ export const BlogContent: React.FC = () => {
 
   const faqs = [
     {
-      question: 'Is LinkX completely free to join?',
-      answer: 'Yes! LinkX is 100% free for all creators, influencers, bloggers, and deals publishers. There are no registration or maintenance fees.',
+      question: 'Is CloudLinks completely free to join?',
+      answer: 'Yes! CloudLinks is 100% free for all creators, influencers, bloggers, and deals publishers. There are no registration or maintenance fees.',
     },
     {
       question: 'Do I need a minimum number of followers to earn?',
@@ -22,7 +22,7 @@ export const BlogContent: React.FC = () => {
       answer: 'Once your earnings reach ₹250, you can request a direct transfer to your UPI ID (GPay, PhonePe, Paytm) or Indian bank account.',
     },
     {
-      question: 'Which brands can I promote on LinkX?',
+      question: 'Which brands can I promote on CloudLinks?',
       answer: 'You can promote over 500 top brands including Myntra, boAt, MakeMyTrip, Amazon, AJIO, Mamaearth, Nykaa, Flipkart, and many more.',
     },
   ];
@@ -138,7 +138,7 @@ export const BlogContent: React.FC = () => {
                   {selectedPost.title}
                 </h2>
                 <span className="text-xs text-[#6B6355] block">
-                  Published on {selectedPost.date} by LinkX Team
+                  Published on {selectedPost.date} by CloudLinks Team
                 </span>
               </div>
 

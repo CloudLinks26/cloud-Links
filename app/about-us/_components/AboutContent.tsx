@@ -142,7 +142,7 @@ export default function AboutContent() {
 
           {/* Subtext */}
           <p className="text-base sm:text-xl text-[#E8E2D6]/90 max-w-2xl mx-auto leading-relaxed font-normal">
-            LinkX was built with one belief — that every Indian with an audience, big or small, deserves to earn from their content. We're making that a reality for 10,000+ creators across India.
+            CloudLinks was built with one belief — that every Indian with an audience, big or small, deserves to earn from their content. We're making that a reality for 10,000+ creators across India.
           </p>
 
           {/* CTA Buttons */}
@@ -151,7 +151,7 @@ export default function AboutContent() {
               onClick={() => onOpenAuth('signup', 'creator')}
               className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-black text-sm transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-2 cursor-pointer transform hover:-translate-y-0.5"
             >
-              <span>Join LinkX Free</span>
+              <span>Join CloudLinks Free</span>
               <ArrowRight className="w-4 h-4" />
             </button>
             <button
@@ -252,11 +252,11 @@ export default function AboutContent() {
                 <div className="relative rounded-2xl overflow-hidden h-96">
                   <img
                     src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800"
-                    alt="LinkX Founders Working"
+                    alt="CloudLinks Founders Working"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1A3C34]/90 via-[#1A3C34]/30 to-transparent flex flex-col justify-end p-6 text-white">
-                    <span className="font-display font-black text-xl text-[#C89B2A]">LinkX HQ • New Delhi</span>
+                    <span className="font-display font-black text-xl text-[#C89B2A]">CloudLinks HQ • New Delhi</span>
                     <span className="text-xs text-[#E8E2D6]">Building Bharat's Creator Economy Engine</span>
                   </div>
                 </div>
@@ -268,9 +268,9 @@ export default function AboutContent() {
                     <span className="text-xs font-bold uppercase tracking-wider">Founders' Note</span>
                   </div>
                   <p className="text-xs sm:text-sm italic font-medium leading-relaxed text-[#E8E2D6]">
-                    "We asked ourselves — why is it so hard for Indian creators to earn from their content? So we built LinkX to fix that."
+                    "We asked ourselves — why is it so hard for Indian creators to earn from their content? So we built CloudLinks to fix that."
                   </p>
-                  <div className="text-[11px] font-bold text-[#C89B2A] pt-1">— LinkX Founders</div>
+                  <div className="text-[11px] font-bold text-[#C89B2A] pt-1">— CloudLinks Founders</div>
                 </div>
               </div>
             </div>
@@ -293,10 +293,10 @@ export default function AboutContent() {
                   In 2024, two Indian creators were frustrated. They had audiences, they had influence — but earning from it was complicated, unreliable, and full of friction. Payments were delayed, platforms were foreign, and Indian brands were hard to find in one place.
                 </p>
                 <p>
-                  So they built LinkX. A platform designed specifically for Indian creators — with Indian brands, instant UPI payouts, a Hindi-friendly interface, and zero barriers to entry. No minimum followers. No approval wait. Just sign up and start earning.
+                  So they built CloudLinks. A platform designed specifically for Indian creators — with Indian brands, instant UPI payouts, a Hindi-friendly interface, and zero barriers to entry. No minimum followers. No approval wait. Just sign up and start earning.
                 </p>
                 <p>
-                  Today, LinkX is home to 10,000+ creators across India — students, homemakers, influencers, bloggers, and YouTubers — all earning real income by sharing links to brands they love.
+                  Today, CloudLinks is home to 10,000+ creators across India — students, homemakers, influencers, bloggers, and YouTubers — all earning real income by sharing links to brands they love.
                 </p>
               </div>
 
@@ -374,7 +374,7 @@ export default function AboutContent() {
               </div>
 
               <p className="text-sm sm:text-base text-[#6B6355] leading-relaxed font-normal">
-                We envision a future where every Indian creator — from a student in Patna to an influencer in Mumbai — earns consistently and confidently from their content. LinkX will be the platform that makes it happen.
+                We envision a future where every Indian creator — from a student in Patna to an influencer in Mumbai — earns consistently and confidently from their content. CloudLinks will be the platform that makes it happen.
               </p>
 
               <div className="w-full border-b-2 border-dashed border-[#1A3C34]/40 pt-4" />
@@ -442,7 +442,7 @@ export default function AboutContent() {
               </div>
               <h3 className="font-display font-extrabold text-xl text-white">Everyone Belongs Here</h3>
               <p className="text-xs sm:text-sm text-[#E8E2D6]/80 leading-relaxed font-normal">
-                500 followers or 5,00,000 — every creator is welcome, valued, and supported equally on LinkX.
+                500 followers or 5,00,000 — every creator is welcome, valued, and supported equally on CloudLinks.
               </p>
               <div className="w-12 h-1 bg-[#C89B2A] rounded-full pt-0.5" />
             </div>
@@ -466,7 +466,7 @@ export default function AboutContent() {
               </div>
               <h3 className="font-display font-extrabold text-xl text-white">Proudly Indian</h3>
               <p className="text-xs sm:text-sm text-[#E8E2D6]/80 leading-relaxed font-normal">
-                Built for Indian creators, featuring Indian brands, paying out in Indian rupees. LinkX is India's own.
+                Built for Indian creators, featuring Indian brands, paying out in Indian rupees. CloudLinks is India's own.
               </p>
               <div className="w-12 h-1 bg-[#C89B2A] rounded-full pt-0.5" />
             </div>
@@ -481,7 +481,7 @@ export default function AboutContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-3">
             <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-[#1A3C34]">
-              The People Behind <span className="text-[#C89B2A]">LinkX</span>
+              The People Behind <span className="text-[#C89B2A]">CloudLinks</span>
             </h2>
             <div className="w-16 h-1 bg-[#C89B2A] rounded-full mx-auto" />
             <p className="text-sm sm:text-base text-[#6B6355] font-medium pt-1">
@@ -522,7 +522,7 @@ export default function AboutContent() {
                 <span className="text-xs font-bold text-[#C89B2A] uppercase tracking-wider block">Co-Founder & CTO</span>
               </div>
               <p className="text-xs text-[#6B6355] leading-relaxed font-medium">
-                Full-stack engineer. Built LinkX's real-time tracking engine from scratch. Coffee and code, in that order.
+                Full-stack engineer. Built CloudLinks' real-time tracking engine from scratch. Coffee and code, in that order.
               </p>
               <div className="flex items-center justify-center gap-3 pt-2 text-[#1A3C34]">
                 <a href="#linkedin" className="p-1.5 rounded-lg bg-[#F5F0E8] hover:bg-[#C89B2A] hover:text-[#1A3C34] transition-colors">
@@ -544,7 +544,7 @@ export default function AboutContent() {
                 <span className="text-xs font-bold text-[#C89B2A] uppercase tracking-wider block">Head of Growth</span>
               </div>
               <p className="text-xs text-[#6B6355] leading-relaxed font-medium">
-                Former YouTuber turned growth hacker. Grew LinkX from 0 to 10,000 creators in 6 months.
+                Former YouTuber turned growth hacker. Grew CloudLinks from 0 to 10,000 creators in 6 months.
               </p>
               <div className="flex items-center justify-center gap-3 pt-2 text-[#1A3C34]">
                 <a href="#linkedin" className="p-1.5 rounded-lg bg-[#F5F0E8] hover:bg-[#C89B2A] hover:text-[#1A3C34] transition-colors">
@@ -566,7 +566,7 @@ export default function AboutContent() {
                 <span className="text-xs font-bold text-[#C89B2A] uppercase tracking-wider block">Head of Brand Partnerships</span>
               </div>
               <p className="text-xs text-[#6B6355] leading-relaxed font-medium">
-                Brings top Indian brands to LinkX. Ex-Nykaa. Negotiates the best commissions for our creators.
+                Brings top Indian brands to CloudLinks. Ex-Nykaa. Negotiates the best commissions for our creators.
               </p>
               <div className="flex items-center justify-center gap-3 pt-2 text-[#1A3C34]">
                 <a href="#linkedin" className="p-1.5 rounded-lg bg-[#F5F0E8] hover:bg-[#C89B2A] hover:text-[#1A3C34] transition-colors">
@@ -612,7 +612,7 @@ export default function AboutContent() {
                   <span className="text-xs font-extrabold text-[#C89B2A] uppercase tracking-wider block">Jan 2024</span>
                   <h4 className="font-display font-extrabold text-base text-[#1A3C34]">The Idea</h4>
                   <p className="text-xs text-[#6B6355] leading-relaxed">
-                    Two creators get frustrated with affiliate marketing in India. LinkX is born on a napkin sketch.
+                    Two creators get frustrated with affiliate marketing in India. CloudLinks is born on a napkin sketch.
                   </p>
                 </div>
               </div>
@@ -626,7 +626,7 @@ export default function AboutContent() {
                   <span className="text-xs font-extrabold text-[#C89B2A] uppercase tracking-wider block">Jun 2024</span>
                   <h4 className="font-display font-extrabold text-base text-[#1A3C34]">Building Begins</h4>
                   <p className="text-xs text-[#6B6355] leading-relaxed">
-                    A small team of 4 starts building LinkX from scratch in a co-working space in Delhi.
+                    A small team of 4 starts building CloudLinks from scratch in a co-working space in Delhi.
                   </p>
                 </div>
               </div>
@@ -640,7 +640,7 @@ export default function AboutContent() {
                   <span className="text-xs font-extrabold text-[#C89B2A] uppercase tracking-wider block">Jan 2025</span>
                   <h4 className="font-display font-extrabold text-base text-[#1A3C34]">Official Launch</h4>
                   <p className="text-xs text-[#6B6355] leading-relaxed">
-                    LinkX officially launches with 50 brand campaigns and its first 100 creators. Payouts processed Day 1.
+                    CloudLinks officially launches with 50 brand campaigns and its first 100 creators. Payouts processed Day 1.
                   </p>
                 </div>
               </div>
@@ -654,7 +654,7 @@ export default function AboutContent() {
                   <span className="text-xs font-extrabold text-[#C89B2A] uppercase tracking-wider block">Mar 2025</span>
                   <h4 className="font-display font-extrabold text-base text-[#1A3C34]">1,000 Creators</h4>
                   <p className="text-xs text-[#6B6355] leading-relaxed">
-                    LinkX crosses 1,000 active creators. First ₹10 lakh paid out to Indian creators.
+                    CloudLinks crosses 1,000 active creators. First ₹10 lakh paid out to Indian creators.
                   </p>
                 </div>
               </div>
@@ -701,7 +701,7 @@ export default function AboutContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-10">
           <div className="text-center">
             <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-white">
-              LinkX in Numbers
+              CloudLinks in Numbers
             </h2>
             <div className="w-16 h-1 bg-white rounded-full mx-auto mt-2" />
           </div>
@@ -734,7 +734,7 @@ export default function AboutContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-3">
             <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-[#1A3C34]">
-              LinkX in <span className="text-[#C89B2A]">the News</span>
+              CloudLinks in <span className="text-[#C89B2A]">the News</span>
             </h2>
             <div className="w-16 h-1 bg-[#C89B2A] rounded-full mx-auto" />
             <p className="text-sm sm:text-base text-[#6B6355] font-medium pt-1">
@@ -748,7 +748,7 @@ export default function AboutContent() {
               <div className="space-y-3">
                 <span className="font-display font-black text-xl text-[#1A3C34] block">YourStory</span>
                 <p className="text-xs sm:text-sm italic text-[#6B6355] leading-relaxed">
-                  "LinkX is democratizing affiliate marketing for the next billion Indian internet users — one link at a time."
+                  "CloudLinks is democratizing affiliate marketing for the next billion Indian internet users — one link at a time."
                 </p>
               </div>
 
@@ -790,7 +790,7 @@ export default function AboutContent() {
               <div className="space-y-3">
                 <span className="font-display font-black text-xl text-[#1A3C34] block">Economic Times</span>
                 <p className="text-xs sm:text-sm italic text-[#6B6355] leading-relaxed">
-                  "With instant UPI payouts and 500+ Indian brands, LinkX is building the infrastructure for India's creator economy."
+                  "With instant UPI payouts and 500+ Indian brands, CloudLinks is building the infrastructure for India's creator economy."
                 </p>
               </div>
 
@@ -840,7 +840,7 @@ export default function AboutContent() {
                 </div>
               </div>
               <p className="text-xs sm:text-sm text-[#6B6355] italic leading-relaxed">
-                "LinkX changed my life. I was a homemaker with 5K followers. Now I earn ₹25,000/month from my phone. No investment. No risk."
+                "CloudLinks changed my life. I was a homemaker with 5K followers. Now I earn ₹25,000/month from my phone. No investment. No risk."
               </p>
               <div className="flex justify-end pt-2">
                 <span className="bg-[#C89B2A]/20 text-[#1A3C34] border border-[#C89B2A]/40 text-xs font-black px-3 py-1 rounded-full">
@@ -886,7 +886,7 @@ export default function AboutContent() {
                 </div>
               </div>
               <p className="text-xs sm:text-sm text-[#6B6355] italic leading-relaxed">
-                "As a student, I needed something simple. LinkX took 2 minutes to set up and I made my first ₹500 the same day."
+                "As a student, I needed something simple. CloudLinks took 2 minutes to set up and I made my first ₹500 the same day."
               </p>
               <div className="flex justify-end pt-2">
                 <span className="bg-[#C89B2A]/20 text-[#1A3C34] border border-[#C89B2A]/40 text-xs font-black px-3 py-1 rounded-full">
@@ -909,7 +909,7 @@ export default function AboutContent() {
                 </div>
               </div>
               <p className="text-xs sm:text-sm text-[#6B6355] italic leading-relaxed">
-                "My Telegram deals channel + LinkX = passive income machine. I schedule posts once a week and earn daily."
+                "My Telegram deals channel + CloudLinks = passive income machine. I schedule posts once a week and earn daily."
               </p>
               <div className="flex justify-end pt-2">
                 <span className="bg-[#C89B2A]/20 text-[#1A3C34] border border-[#C89B2A]/40 text-xs font-black px-3 py-1 rounded-full">
@@ -992,7 +992,7 @@ export default function AboutContent() {
               onClick={() => onOpenAuth('signup', 'creator')}
               className="w-full sm:w-auto px-10 py-5 rounded-2xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-black text-base transition-all shadow-2xl flex items-center justify-center gap-2 cursor-pointer transform hover:-translate-y-1"
             >
-              <span>Join LinkX Free</span>
+              <span>Join CloudLinks Free</span>
               <ArrowRight className="w-5 h-5" />
             </button>
             <Link

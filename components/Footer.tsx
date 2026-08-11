@@ -23,19 +23,12 @@ export const Footer: React.FC = () => {
           {/* Logo & Description (4 Cols) */}
           <div className="lg:col-span-4 space-y-5 pr-0 lg:pr-6">
             <Link href="/" onClick={scrollToTop} className="inline-flex items-center gap-3">
-              <div className="w-11 h-11 rounded-xl bg-[#1A3C34] flex items-center justify-center text-[#C89B2A] font-extrabold shadow-sm">
-                <span className="font-sora text-2xl">L</span>
-                <span className="font-sora text-2xl text-[#C89B2A] -ml-0.5">X</span>
-              </div>
-              <div>
-                <div className="flex items-center text-2xl font-black font-display tracking-tight text-[#1A3C34]">
-                  <span>Link</span>
-                  <span className="text-[#C89B2A]">X</span>
-                </div>
-                <span className="text-xs uppercase font-bold tracking-wider text-[#6B6355] block -mt-1">
-                  Earn by Sharing
-                </span>
-              </div>
+              <img
+                src="https://res.cloudinary.com/couponsbit/image/upload/v1786449391/logo_wtzdye.png"
+                alt="CloudLinks"
+                className="h-18 w-auto object-contain"
+              />
+          
             </Link>
 
             <p className="text-sm text-[#6B6355] leading-relaxed">
@@ -216,7 +209,7 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-4 text-xs text-[#6B6355] pt-2">
 
           <div>
-            © 2026 LinkX. All rights reserved.
+            © 2026 CloudLinks. All rights reserved.
           </div>
 
           <div className="flex items-center gap-1.5 font-medium text-xs">
@@ -262,7 +255,7 @@ export const Footer: React.FC = () => {
               {legalModalTitle}
             </h3>
             <p className="text-sm text-[#6B6355] leading-relaxed mb-5">
-              LinkX ensures 100% compliance with RBI merchant regulations and FTC/ASCI Indian affiliate disclosure norms. All creator earnings are protected and deposited directly to verified UPI / Bank accounts.
+              CloudLinks ensures 100% compliance with RBI merchant regulations and FTC/ASCI Indian affiliate disclosure norms. All creator earnings are protected and deposited directly to verified UPI / Bank accounts.
             </p>
             <button
               onClick={() => setLegalModalTitle(null)}

@@ -59,7 +59,7 @@ export default function ContactContent() {
     category: 'Fashion',
     budget: '₹50K–₹2L',
     website: '',
-    goal: 'Launch an affiliate campaign on LinkX',
+    goal: 'Launch an affiliate campaign on CloudLinks',
     message: '',
   });
   const [isBrandSubmitting, setIsBrandSubmitting] = useState(false);
@@ -119,13 +119,13 @@ export default function ContactContent() {
           <h1 className="text-4xl sm:text-6xl font-extrabold font-display leading-tight max-w-3xl mx-auto tracking-tight">
             Get in Touch <br />
             <span className="text-[#C89B2A] underline decoration-[#C89B2A]/40 underline-offset-8">
-              With LinkX
+              With CloudLinks
             </span>
           </h1>
 
           {/* Subtext */}
           <p className="text-base sm:text-lg text-[#E8E2D6]/90 max-w-xl mx-auto leading-relaxed font-normal">
-            Whether you're a creator with a question, a brand looking to partner, or just curious about LinkX — we're here and happy to help.
+            Whether you're a creator with a question, a brand looking to partner, or just curious about CloudLinks — we're here and happy to help.
           </p>
 
           {/* Breadcrumb */}
@@ -138,11 +138,11 @@ export default function ContactContent() {
           {/* Quick Contact Pills */}
           <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
             <a
-              href="mailto:support@linkx.in"
+              href="mailto:support@cloudlinks.in"
               className="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-[#C89B2A] hover:text-[#1A3C34] text-white border border-white/20 text-xs font-bold transition-all flex items-center gap-2 shadow-sm"
             >
               <Mail className="w-4 h-4 text-[#C89B2A] group-hover:text-[#1A3C34]" />
-              <span>support@linkx.in</span>
+              <span>support@cloudlinks.in</span>
             </a>
             <a
               href="tel:+919876543210"
@@ -192,19 +192,19 @@ export default function ContactContent() {
                   <h3 className="font-display font-extrabold text-xl text-[#1A3C34] pt-1">Email Support</h3>
                 </div>
                 <div className="pt-2 space-y-2">
-                  <a href="mailto:support@linkx.in" className="text-base font-extrabold text-[#C89B2A] hover:underline block">
-                    support@linkx.in
+                  <a href="mailto:support@cloudlinks.in" className="text-base font-extrabold text-[#C89B2A] hover:underline block">
+                    support@cloudlinks.in
                   </a>
                   <div className="text-xs text-[#6B6355] space-y-1 pt-2 border-t border-[#E8E2D6]/80">
-                    <div><span className="font-bold text-[#1A3C34]">Payouts:</span> payouts@linkx.in</div>
-                    <div><span className="font-bold text-[#1A3C34]">Brands:</span> brands@linkx.in</div>
-                    <div><span className="font-bold text-[#1A3C34]">Legal:</span> legal@linkx.in</div>
+                    <div><span className="font-bold text-[#1A3C34]">Payouts:</span> payouts@cloudlinks.in</div>
+                    <div><span className="font-bold text-[#1A3C34]">Brands:</span> brands@cloudlinks.in</div>
+                    <div><span className="font-bold text-[#1A3C34]">Legal:</span> legal@cloudlinks.in</div>
                   </div>
                 </div>
               </div>
 
               <a
-                href="mailto:support@linkx.in"
+                href="mailto:support@cloudlinks.in"
                 className="w-full py-3 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-colors flex items-center justify-center gap-2 shadow-sm"
               >
                 <span>Send Email</span>
@@ -434,7 +434,7 @@ export default function ContactContent() {
 
                     <div>
                       <label className="block text-xs font-bold uppercase tracking-wider text-[#1A3C34] mb-1">
-                        LinkX Username / Registered Email (Optional)
+                        CloudLinks Username / Registered Email (Optional)
                       </label>
                       <input
                         type="text"
@@ -519,7 +519,7 @@ export default function ContactContent() {
                     {/* Top Banner inside card */}
                     <div className="p-3 bg-[#C89B2A]/15 border border-[#C89B2A]/40 rounded-2xl text-center text-xs font-extrabold text-[#1A3C34] flex items-center justify-center gap-2">
                       <span>🤝</span>
-                      <span>Join 500+ brands already partnering with LinkX</span>
+                      <span>Join 500+ brands already partnering with CloudLinks</span>
                     </div>
 
                     <div className="space-y-1 border-b border-[#E8E2D6] pb-4">
@@ -654,7 +654,7 @@ export default function ContactContent() {
                         onChange={(e) => setBrandForm({ ...brandForm, goal: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl border border-[#E8E2D6] bg-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#C89B2A]"
                       >
-                        <option value="Launch an affiliate campaign on LinkX">Launch an affiliate campaign on LinkX</option>
+                        <option value="Launch an affiliate campaign on CloudLinks">Launch an affiliate campaign on CloudLinks</option>
                         <option value="Influencer marketing partnership">Influencer marketing partnership</option>
                         <option value="Both affiliate + influencer">Both affiliate + influencer</option>
                         <option value="Just exploring options">Just exploring options</option>
@@ -669,7 +669,7 @@ export default function ContactContent() {
                         rows={4}
                         value={brandForm.message}
                         onChange={(e) => setBrandForm({ ...brandForm, message: e.target.value })}
-                        placeholder="Tell us about your brand, target audience, and what you hope to achieve through the LinkX platform..."
+                        placeholder="Tell us about your brand, target audience, and what you hope to achieve through the CloudLinks platform..."
                         className="w-full px-4 py-3 rounded-xl border border-[#E8E2D6] bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#C89B2A]"
                       />
                     </div>
@@ -772,8 +772,8 @@ export default function ContactContent() {
                 Commission queries, payout issues, campaign links, and account settings.
               </p>
               <div className="pt-2 border-t border-[#E8E2D6] flex items-center justify-between text-xs">
-                <a href="mailto:support@linkx.in" className="font-extrabold text-[#C89B2A] hover:underline">
-                  support@linkx.in
+                <a href="mailto:support@cloudlinks.in" className="font-extrabold text-[#C89B2A] hover:underline">
+                  support@cloudlinks.in
                 </a>
                 <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-extrabold">
                   Within 24 hours
@@ -796,8 +796,8 @@ export default function ContactContent() {
                 Launch campaigns, custom creator activations, and advertiser onboarding.
               </p>
               <div className="pt-2 border-t border-[#E8E2D6] flex items-center justify-between text-xs">
-                <a href="mailto:brands@linkx.in" className="font-extrabold text-[#C89B2A] hover:underline">
-                  brands@linkx.in
+                <a href="mailto:brands@cloudlinks.in" className="font-extrabold text-[#C89B2A] hover:underline">
+                  brands@cloudlinks.in
                 </a>
                 <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-extrabold">
                   Within 1 business day
@@ -820,8 +820,8 @@ export default function ContactContent() {
                 Failed UPI transfers, bank verification issues, TDS deduction details.
               </p>
               <div className="pt-2 border-t border-[#E8E2D6] flex items-center justify-between text-xs">
-                <a href="mailto:payouts@linkx.in" className="font-extrabold text-[#C89B2A] hover:underline">
-                  payouts@linkx.in
+                <a href="mailto:payouts@cloudlinks.in" className="font-extrabold text-[#C89B2A] hover:underline">
+                  payouts@cloudlinks.in
                 </a>
                 <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-extrabold">
                   Within 12 hours
@@ -844,8 +844,8 @@ export default function ContactContent() {
                 Bugs, link generator errors, analytics discrepancy, platform issues.
               </p>
               <div className="pt-2 border-t border-[#E8E2D6] flex items-center justify-between text-xs">
-                <a href="mailto:tech@linkx.in" className="font-extrabold text-[#C89B2A] hover:underline">
-                  tech@linkx.in
+                <a href="mailto:tech@cloudlinks.in" className="font-extrabold text-[#C89B2A] hover:underline">
+                  tech@cloudlinks.in
                 </a>
                 <span className="px-2.5 py-0.5 rounded-full bg-[#1A3C34]/10 text-[#1A3C34] text-[10px] font-extrabold">
                   Within 48 hours
@@ -868,8 +868,8 @@ export default function ContactContent() {
                 Privacy policy requests, ASCI disclosure rules, terms of service compliance.
               </p>
               <div className="pt-2 border-t border-[#E8E2D6] flex items-center justify-between text-xs">
-                <a href="mailto:legal@linkx.in" className="font-extrabold text-[#C89B2A] hover:underline">
-                  legal@linkx.in
+                <a href="mailto:legal@cloudlinks.in" className="font-extrabold text-[#C89B2A] hover:underline">
+                  legal@cloudlinks.in
                 </a>
                 <span className="px-2.5 py-0.5 rounded-full bg-[#1A3C34]/10 text-[#1A3C34] text-[10px] font-extrabold">
                   Within 3 business days
@@ -892,8 +892,8 @@ export default function ContactContent() {
                 Press releases, media inquiries, founder interviews, and platform stats requests.
               </p>
               <div className="pt-2 border-t border-[#E8E2D6] flex items-center justify-between text-xs">
-                <a href="mailto:press@linkx.in" className="font-extrabold text-[#C89B2A] hover:underline">
-                  press@linkx.in
+                <a href="mailto:press@cloudlinks.in" className="font-extrabold text-[#C89B2A] hover:underline">
+                  press@cloudlinks.in
                 </a>
                 <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-extrabold">
                   Within 2 business days
@@ -926,7 +926,7 @@ export default function ContactContent() {
                     <MapPin className="w-6 h-6" />
                   </div>
                   <div className="space-y-1">
-                    <h3 className="font-display font-extrabold text-xl text-white">LinkX HQ</h3>
+                    <h3 className="font-display font-extrabold text-xl text-white">CloudLinks HQ</h3>
                     <p className="text-xs sm:text-sm text-[#E8E2D6]/80 leading-relaxed">
                       4th Floor, DLF Cyber City, Sector 24, Gurugram, Haryana 122002, India
                     </p>
@@ -944,7 +944,7 @@ export default function ContactContent() {
                   </div>
                   <div className="flex items-center gap-2 text-[#E8E2D6]/90">
                     <Mail className="w-4 h-4 text-[#C89B2A] flex-shrink-0" />
-                    <span>hello@linkx.in</span>
+                    <span>hello@cloudlinks.in</span>
                   </div>
                 </div>
               </div>
@@ -1053,7 +1053,7 @@ export default function ContactContent() {
                 >
                   <span className="flex items-center gap-2">
                     <HelpCircle className="w-4 h-4 text-[#C89B2A]" />
-                    <span>Is LinkX free to join?</span>
+                    <span>Is CloudLinks free to join?</span>
                   </span>
                   <ArrowRight className="w-4 h-4 text-[#C89B2A] group-hover:translate-x-1 transition-transform" />
                 </Link>
@@ -1177,8 +1177,8 @@ export default function ContactContent() {
           <div className="pt-4 text-xs text-[#E8E2D6]/80 flex flex-wrap items-center justify-center gap-4">
             <span>💬 Average response time: Under 24 hours</span>
             <span>•</span>
-            <a href="mailto:support@linkx.in" className="hover:text-[#C89B2A] transition-colors">
-              📧 support@linkx.in
+            <a href="mailto:support@cloudlinks.in" className="hover:text-[#C89B2A] transition-colors">
+              📧 support@cloudlinks.in
             </a>
           </div>
         </div>

@@ -46,19 +46,12 @@ export const Navbar: React.FC = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="flex items-center gap-3 group shrink-0"
           >
-            <div className="w-11 h-11 rounded-xl bg-[#1A3C34] flex items-center justify-center text-[#C89B2A] font-extrabold shadow-sm group-hover:scale-105 transition-transform">
-              <span className="font-sora text-2xl tracking-tight">L</span>
-              <span className="font-sora text-2xl text-[#C89B2A] -ml-0.5">X</span>
-            </div>
-            <div>
-              <div className="flex items-center text-2xl font-black font-display tracking-tight text-[#1A3C34]">
-                <span>Link</span>
-                <span className="text-[#C89B2A]">X</span>
-              </div>
-              <span className="text-xs uppercase font-bold tracking-wider text-[#6B6355] block -mt-1">
-                Earn by Sharing
-              </span>
-            </div>
+            <img
+              src="https://res.cloudinary.com/couponsbit/image/upload/v1786449391/logo_wtzdye.png"
+              alt="CloudLinks"
+              className="h-16 w-auto object-contain group-hover:scale-105 transition-transform"
+            />
+           
           </Link>
 
           {/* CENTER NAV LINKS (Home omitted on desktop; logo serves as home) */}

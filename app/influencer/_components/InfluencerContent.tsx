@@ -79,7 +79,7 @@ export default function InfluencerContent() {
   const handleGenerateLink = (e: React.FormEvent) => {
     e.preventDefault();
     const cleanHandle = demoHandle.replace('@', '').trim() || 'creator';
-    const link = `linkx.in/${demoBrand.toLowerCase().replace(/[^a-z0-9]/g, '')}/@${cleanHandle}`;
+    const link = `cloudlinks.in/${demoBrand.toLowerCase().replace(/[^a-z0-9]/g, '')}/@${cleanHandle}`;
     setGeneratedLink(link);
     setCopied(false);
   };
@@ -110,7 +110,7 @@ export default function InfluencerContent() {
   const faqs = [
     {
       q: 'Do I need a minimum number of followers to join?',
-      a: 'No minimum at all! Whether you have 500 or 5,00,000 followers — LinkX welcomes all creators.',
+      a: 'No minimum at all! Whether you have 500 or 5,00,000 followers — CloudLinks welcomes all creators.',
     },
     {
       q: 'Can I promote on multiple platforms at once?',
@@ -118,7 +118,7 @@ export default function InfluencerContent() {
     },
     {
       q: 'How do brands find my profile?',
-      a: 'Your LinkX profile is visible to brands searching for creators. The more campaigns you run, the higher your visibility.',
+      a: 'Your CloudLinks profile is visible to brands searching for creators. The more campaigns you run, the higher your visibility.',
     },
     {
       q: 'Is there a dedicated dashboard for influencers?',
@@ -188,7 +188,7 @@ export default function InfluencerContent() {
 
             {/* Subtext */}
             <p className="text-base sm:text-lg text-[#6B6355] font-medium max-w-xl leading-relaxed">
-              Turn every post, reel, video, and story into real earnings. Join 10,000+ Indian influencers already monetizing their content with LinkX.
+              Turn every post, reel, video, and story into real earnings. Join 10,000+ Indian influencers already monetizing their content with CloudLinks.
             </p>
 
             {/* Platform Badges Row */}
@@ -241,7 +241,7 @@ export default function InfluencerContent() {
                 <div className="inline-block h-8 w-8 rounded-full ring-2 ring-[#F5F0E8] bg-[#1A3C34] text-[#C89B2A] text-[10px] font-extrabold flex items-center justify-center">+10k</div>
               </div>
               <span className="text-xs font-extrabold text-[#1A3C34]">
-                10,000+ influencers earning with LinkX
+                10,000+ influencers earning with CloudLinks
               </span>
             </div>
 
@@ -513,7 +513,7 @@ export default function InfluencerContent() {
             </h2>
             <div className="w-16 h-1 bg-[#C89B2A] mx-auto rounded-full" />
             <p className="text-xs sm:text-sm text-[#F5F0E8]/80 font-medium">
-              Wherever your audience is — LinkX works there too
+              Wherever your audience is — CloudLinks works there too
             </p>
           </div>
 
@@ -558,7 +558,7 @@ export default function InfluencerContent() {
       <section id="how-it-works" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
         <div className="text-center max-w-2xl mx-auto space-y-2">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1A3C34]">
-            How Influencers Earn on LinkX
+            How Influencers Earn on CloudLinks
           </h2>
           <p className="text-sm text-[#6B6355] font-medium">
             Simple 4-step process — start earning in under 10 minutes
@@ -577,7 +577,7 @@ export default function InfluencerContent() {
             </div>
             <h3 className="font-extrabold text-base text-[#1A3C34]">Sign Up Free</h3>
             <p className="text-xs text-[#6B6355] leading-relaxed">
-              Create your free LinkX account. No approval, no fees, no waiting.
+              Create your free CloudLinks account. No approval, no fees, no waiting.
             </p>
           </div>
 
@@ -721,7 +721,7 @@ export default function InfluencerContent() {
                   How Much Can You Earn?
                 </h2>
                 <p className="text-xs sm:text-sm text-[#6B6355] font-semibold">
-                  Based on real LinkX creator data
+                  Based on real CloudLinks creator data
                 </p>
               </div>
 
@@ -992,7 +992,7 @@ export default function InfluencerContent() {
             Real Influencers. <span className="text-[#C89B2A]">Real Earnings.</span>
           </h2>
           <p className="text-sm text-[#6B6355] font-medium">
-            Thousands of Indian creators are already making money with LinkX
+            Thousands of Indian creators are already making money with CloudLinks
           </p>
         </div>
 
@@ -1007,7 +1007,7 @@ export default function InfluencerContent() {
                 ))}
               </div>
               <p className="text-xs sm:text-sm text-[#6B6355] leading-relaxed italic">
-                "I was skeptical at first, but LinkX changed everything. I made ₹45,000 in my second month just by adding links to my Instagram bio and stories."
+                "I was skeptical at first, but CloudLinks changed everything. I made ₹45,000 in my second month just by adding links to my Instagram bio and stories."
               </p>
             </div>
 
@@ -1042,7 +1042,7 @@ export default function InfluencerContent() {
                 ))}
               </div>
               <p className="text-xs sm:text-sm text-[#6B6355] leading-relaxed italic">
-                "As a tech YouTuber, promoting boAt and Samsung was natural. LinkX gave me the tools to turn every video into passive income."
+                "As a tech YouTuber, promoting boAt and Samsung was natural. CloudLinks gave me the tools to turn every video into passive income."
               </p>
             </div>
 
@@ -1116,7 +1116,7 @@ export default function InfluencerContent() {
             Everything You Need to Succeed
           </h2>
           <p className="text-sm text-[#6B6355] font-medium">
-            LinkX gives you professional tools — for free
+            CloudLinks gives you professional tools — for free
           </p>
         </div>
 
@@ -1257,7 +1257,7 @@ export default function InfluencerContent() {
             </h2>
 
             <p className="text-sm sm:text-base text-[#F5F0E8]/90 font-medium">
-              Join 10,000+ Indian influencers turning their content into consistent income with LinkX.
+              Join 10,000+ Indian influencers turning their content into consistent income with CloudLinks.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

@@ -106,7 +106,7 @@ const LinkGeneratorModal: React.FC<LinkGeneratorModalProps> = ({
     setTimeout(() => {
       const brandSlug = selectedBrand.toLowerCase().replace(/\s+/g, '');
       const uniqueCode = Math.random().toString(36).substring(2, 7);
-      setGeneratedLink(`https://linkx.in/c/${brandSlug}?creator=you&id=${uniqueCode}`);
+      setGeneratedLink(`https://cloudlinks.in/c/${brandSlug}?creator=you&id=${uniqueCode}`);
       setIsGenerating(false);
     }, 400);
   };
@@ -115,7 +115,7 @@ const LinkGeneratorModal: React.FC<LinkGeneratorModalProps> = ({
     if (!generatedLink) return;
     navigator.clipboard.writeText(generatedLink);
     setCopied(true);
-    onCopyToast('LinkX Affiliate URL copied to clipboard!');
+    onCopyToast('CloudLinks Affiliate URL copied to clipboard!');
     setTimeout(() => setCopied(false), 2000);
   };
 
@@ -191,7 +191,7 @@ const LinkGeneratorModal: React.FC<LinkGeneratorModalProps> = ({
                 </>
               ) : (
                 <>
-                  Generate LinkX Link
+                  Generate CloudLinks Link
                   <ArrowRight className="w-4 h-4" />
                 </>
               )}
@@ -272,9 +272,9 @@ const AuthModal: React.FC<AuthModalProps> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (mode === 'signup') {
-      onToast(`Welcome to LinkX! Account created successfully as ${role === 'creator' ? 'Creator' : 'Brand'}.`);
+      onToast(`Welcome to CloudLinks! Account created successfully as ${role === 'creator' ? 'Creator' : 'Brand'}.`);
     } else {
-      onToast(`Welcome back! Logged in to LinkX Creator Dashboard.`);
+      onToast(`Welcome back! Logged in to CloudLinks Creator Dashboard.`);
     }
     onClose();
   };

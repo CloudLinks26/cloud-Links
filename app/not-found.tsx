@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Link2Off, ArrowRight, Home, Compass } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Page Not Found | LinkX',
+  title: 'Page Not Found | CloudLinks',
   description: "The page you're looking for doesn't exist or may have moved.",
 };
 
@@ -40,7 +40,7 @@ export default function NotFound() {
 
         {/* Subtext */}
         <p className="text-sm sm:text-base text-[#6B6355] font-medium max-w-md mx-auto leading-relaxed">
-          Looks like this page got lost, moved, or never existed — but there are 500+ real earning opportunities waiting for you on LinkX.
+          Looks like this page got lost, moved, or never existed — but there are 500+ real earning opportunities waiting for you on CloudLinks.
         </p>
 
         {/* CTA Buttons */}
