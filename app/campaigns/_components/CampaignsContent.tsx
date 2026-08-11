@@ -60,30 +60,31 @@ export default function CampaignsContent() {
   // Top Picks Cards
   const topPicks = [
     {
-      id: 'haldiram',
+      id: 'haldiram-affiliate-program',
       name: 'Haldiram',
-      commission: '12%',
+      commission: '9%',
       label: 'Up to',
       logo: 'https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/3_lnmzlc.png',
     },
     {
       id: 'ghar-soaps-affiliate-program',
       name: 'Ghar Soaps',
-      commission: '10%',
+      commission: '15%',
       label: 'Up to',
       logo: 'https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/4_dy9x7w.png',
     },
     {
       id: 'swiss-beauty-affiliate-program',
       name: 'Swiss Beauty',
-      commission: '15%',
+      commission: '25%',
       label: 'Up to',
       logo: 'https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/1_hdkg1p.png',
     },
     {
-      id: 'asaya',
+      id: 'asaya-affiliate-program',
       name: 'Asaya',
-      commission: '8%',
+      commission: '35%',
+      oldUserCommission: '15%',
       label: 'Up to',
       logo: 'https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/2_kvfi70.png',
     },
@@ -92,7 +93,7 @@ export default function CampaignsContent() {
   // Table Campaigns (10 requested items + complete data)
   const allCampaigns = [
     {
-      id: 'haldiram',
+      id: 'haldiram-affiliate-program',
       name: 'Haldiram',
       category: 'Food & Snacks',
       type: 'CPS',
@@ -122,7 +123,7 @@ export default function CampaignsContent() {
       logo: 'https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/1_hdkg1p.png',
     },
     {
-      id: 'asaya',
+      id: 'asaya-affiliate-program',
       name: 'Asaya',
       category: 'Skincare',
       type: 'CPS',
@@ -355,77 +356,97 @@ export default function CampaignsContent() {
         {/* SECTION 3 — TOP PICKS FOR YOU (CARDS CAROUSEL)                      */}
         {/* =================================================================== */}
         <div className="space-y-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-1.5 h-7 bg-[#C89B2A] rounded-full" />
-              <h2 className="text-xl sm:text-2xl font-extrabold text-[#1A3C34]">
-                Top Picks for You
-              </h2>
-            </div>
+  <div className="flex items-center justify-between">
+    <div className="flex items-center gap-3">
+      <div className="w-1.5 h-7 bg-[#C89B2A] rounded-full" />
+      <h2 className="text-xl sm:text-2xl font-extrabold text-[#1A3C34]">
+        Top Picks for You
+      </h2>
+    </div>
 
-            {/* Nav Arrows */}
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => scrollCarousel('left')}
-                aria-label="Previous Top Picks"
-                className="w-9 h-9 rounded-full border border-[#1A3C34] text-[#1A3C34] hover:bg-[#1A3C34] hover:text-white flex items-center justify-center transition-colors shadow-2xs"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                onClick={() => scrollCarousel('right')}
-                aria-label="Next Top Picks"
-                className="w-9 h-9 rounded-full border border-[#1A3C34] text-[#1A3C34] hover:bg-[#1A3C34] hover:text-white flex items-center justify-center transition-colors shadow-2xs"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
+    {/* Nav Arrows */}
+    <div className="flex items-center gap-2">
+      <button
+        onClick={() => scrollCarousel('left')}
+        aria-label="Previous Top Picks"
+        className="w-9 h-9 rounded-full border border-[#1A3C34] text-[#1A3C34] hover:bg-[#1A3C34] hover:text-white flex items-center justify-center transition-colors shadow-2xs"
+      >
+        <ChevronLeft className="w-5 h-5" />
+      </button>
+      <button
+        onClick={() => scrollCarousel('right')}
+        aria-label="Next Top Picks"
+        className="w-9 h-9 rounded-full border border-[#1A3C34] text-[#1A3C34] hover:bg-[#1A3C34] hover:text-white flex items-center justify-center transition-colors shadow-2xs"
+      >
+        <ChevronRight className="w-5 h-5" />
+      </button>
+    </div>
+  </div>
+
+  {/* Cards Carousel Container */}
+  <div
+    ref={carouselRef}
+    className="flex items-center gap-6 overflow-x-auto no-scrollbar pb-4 pt-1 snap-x"
+  >
+    {topPicks.map((brand) => (
+      <div
+        key={brand.id}
+        className="min-w-[260px] sm:min-w-[280px] bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center justify-between snap-start group h-full"
+      >
+        <div className="flex flex-col items-center text-center space-y-4 w-full">
+          {/* Brand Logo */}
+          <div className="w-28 h-16 rounded-2xl bg-white border border-[#E8E2D6] p-2 flex items-center justify-center shadow-2xs overflow-hidden group-hover:scale-105 transition-transform">
+            <img
+              src={brand.logo}
+              alt={brand.name}
+              className="w-full h-full object-cover rounded-xl"
+            />
           </div>
 
-          {/* Cards Carousel Container */}
-          <div
-            ref={carouselRef}
-            className="flex items-center gap-6 overflow-x-auto no-scrollbar pb-4 pt-1 snap-x"
-          >
-            {topPicks.map((brand) => (
-              <div
-                key={brand.id}
-                className="min-w-[260px] sm:min-w-[280px] bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center space-y-4 snap-start group"
-              >
-                {/* Brand Logo */}
-                <div className="w-28 h-16 rounded-2xl bg-white border border-[#E8E2D6] p-2 flex items-center justify-center shadow-2xs overflow-hidden group-hover:scale-105 transition-transform">
-                  <img
-                    src={brand.logo}
-                    alt={brand.name}
-                    className="w-full h-full object-cover rounded-xl"
-                  />
-                </div>
-
-                {/* Brand Info */}
+          {/* Brand Info */}
+          <div className="w-full">
+            <h3 className="font-extrabold text-lg text-[#1A3C34]">
+              {brand.name}
+            </h3>
+            {brand.oldUserCommission ? (
+              <div className="mt-1 flex items-center justify-center gap-6">
                 <div>
-                  <h3 className="font-extrabold text-lg text-[#1A3C34]">
-                    {brand.name}
-                  </h3>
-                  <div className="mt-1">
-                    <span className="text-xs text-[#6B6355] block font-medium">Commission</span>
-                    <span className="text-2xl font-black text-[#C89B2A] block leading-tight">
-                      Upto {brand.commission}
-                    </span>
-                  </div>
+                  <span className="text-xs text-[#6B6355] block font-medium">New User</span>
+                  <span className="text-2xl font-black text-[#C89B2A] block leading-tight">
+                    {brand.commission}
+                  </span>
                 </div>
-
-                {/* Promote CTA Button */}
-                <Link
-                  href={`/campaigns/${brand.id}`}
-                  className="w-full py-2.5 px-4 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-colors shadow-2xs flex items-center justify-center gap-1.5"
-                >
-                  <span>Promote Now</span>
-                  <ChevronRight className="w-4 h-4" />
-                </Link>
+                <div className="h-6 w-[1px] bg-[#E8E2D6] mt-2" /> {/* Subtle Divider */}
+                <div>
+                  <span className="text-xs text-[#6B6355] block font-medium">Old User</span>
+                  <span className="text-2xl font-black text-[#C89B2A] block leading-tight">
+                    {brand.oldUserCommission}
+                  </span>
+                </div>
               </div>
-            ))}
+            ) : (
+              <div className="mt-1">
+                <span className="text-xs text-[#6B6355] block font-medium">Commission</span>
+                <span className="text-2xl font-black text-[#C89B2A] block leading-tight">
+                  {brand.commission}
+                </span>
+              </div>
+            )}
           </div>
         </div>
+
+        {/* Promote CTA Button */}
+        <Link
+          href={`/campaigns/${brand.id}`}
+          className="w-full mt-4 py-2.5 px-4 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-colors shadow-2xs flex items-center justify-center gap-1.5"
+        >
+          <span>Promote Now</span>
+          <ChevronRight className="w-4 h-4" />
+        </Link>
+      </div>
+    ))}
+  </div>
+</div>
 
         {/* =================================================================== */}
         {/* SECTION 4 — ALL CAMPAIGNS TABLE                                     */}

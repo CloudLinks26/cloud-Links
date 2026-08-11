@@ -151,30 +151,31 @@ export default function GharSoapsContent() {
 
    const topPicks = [
     {
-      id: 'haldiram',
+      id: 'haldiram-affiliate-program',
       name: 'Haldiram',
-      commission: '12%',
+      commission: '9%',
       label: 'Up to',
       logo: 'https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/3_lnmzlc.png',
     },
     {
       id: 'ghar-soaps-affiliate-program',
       name: 'Ghar Soaps',
-      commission: '10%',
+      commission: '15%',
       label: 'Up to',
       logo: 'https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/4_dy9x7w.png',
     },
     {
       id: 'swiss-beauty-affiliate-program',
       name: 'Swiss Beauty',
-      commission: '15%',
+      commission: '25%',
       label: 'Up to',
       logo: 'https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/1_hdkg1p.png',
     },
     {
-      id: 'asaya',
+      id: 'asaya-affiliate-program',
       name: 'Asaya',
-      commission: '8%',
+      commission: '35%',
+      oldUserCommission: '15%',
       label: 'Up to',
       logo: 'https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/2_kvfi70.png',
     },
@@ -598,12 +599,29 @@ export default function GharSoapsContent() {
                   <h3 className="font-extrabold text-lg text-[#1A3C34]">
                     {brand.name}
                   </h3>
-                  <div className="mt-1">
-                    <span className="text-xs text-[#6B6355] block font-medium">Commission</span>
-                    <span className="text-2xl font-black text-[#C89B2A] block leading-tight">
-                      Upto {brand.commission}
-                    </span>
-                  </div>
+                  {brand.oldUserCommission ? (
+                    <div className="mt-1 space-y-1.5">
+                      <div>
+                        <span className="text-xs text-[#6B6355] block font-medium">New User</span>
+                        <span className="text-2xl font-black text-[#C89B2A] block leading-tight">
+                          {brand.commission}
+                        </span>
+                      </div>
+                      <div>
+                        <span className="text-xs text-[#6B6355] block font-medium">Old User</span>
+                        <span className="text-2xl font-black text-[#C89B2A] block leading-tight">
+                          {brand.oldUserCommission}
+                        </span>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="mt-1">
+                      <span className="text-xs text-[#6B6355] block font-medium">Commission</span>
+                      <span className="text-2xl font-black text-[#C89B2A] block leading-tight">
+                        Upto {brand.commission}
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Promote CTA Button */}

@@ -14,6 +14,7 @@ import {
   Star,
   Plus,
   Minus,
+  Link2,
   ArrowRight,
   Instagram,
   Youtube,
@@ -148,8 +149,7 @@ export default function HowItWorksContent() {
 
           {/* Subtext */}
           <p className="text-base sm:text-xl text-[#6B6355] font-medium max-w-xl mx-auto leading-relaxed">
-            Start earning in 3 simple steps — <br className="hidden sm:inline" />
-            no experience needed
+            Get started in a few simple steps and turn your promotions into commissions.
           </p>
         </div>
       </section>
@@ -159,93 +159,176 @@ export default function HowItWorksContent() {
       {/* SECTION 2 — 3 STEPS (HOW IT WORKS)                                  */}
       {/* =================================================================== */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
-          
-          {/* Connector Arrow 1 -> 2 (Desktop) */}
-          <div className="hidden md:block absolute left-[30%] top-16 w-[12%] pointer-events-none z-20">
-            <svg width="100%" height="40" viewBox="0 0 100 40" fill="none">
-              <path
-                d="M0 20 Q 50 0, 100 20"
-                stroke="#C89B2A"
-                strokeWidth="2.5"
-                strokeDasharray="5 5"
-              />
-              <path d="M95 15 L100 20 L95 25" stroke="#C89B2A" strokeWidth="2.5" />
-            </svg>
-          </div>
+  <div className="text-center mb-12">
+    <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1A3C34] tracking-tight">
+      How It Works
+    </h2>
+    <p className="mt-3 text-base sm:text-lg text-[#6B6355] max-w-2xl mx-auto">
+      Get started in a few simple steps and turn your promotions into commissions.
+    </p>
+  </div>
 
-          {/* Connector Arrow 2 -> 3 (Desktop) */}
-          <div className="hidden md:block absolute left-[63%] top-16 w-[12%] pointer-events-none z-20">
-            <svg width="100%" height="40" viewBox="0 0 100 40" fill="none">
-              <path
-                d="M0 20 Q 50 0, 100 20"
-                stroke="#C89B2A"
-                strokeWidth="2.5"
-                strokeDasharray="5 5"
-              />
-              <path d="M95 15 L100 20 L95 25" stroke="#C89B2A" strokeWidth="2.5" />
-            </svg>
+  <div className="relative grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 sm:gap-6">
+    
+    {/* CARD 1 */}
+    <div className="flex flex-col items-center text-center group relative">
+      <span className="text-5xl font-black text-[#C89B2A] mb-2 leading-none font-display">
+        01
+      </span>
+      <div className="w-full h-full bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 shadow-sm hover:shadow-md transition-all flex flex-col items-center justify-between relative">
+        <div className="flex flex-col items-center space-y-4">
+          <div className="w-16 h-16 rounded-full bg-[#1A3C34] text-white flex items-center justify-center shadow-xs">
+            <UserPlus className="w-8 h-8 text-white" />
           </div>
-
-          {/* CARD 1 */}
-          <div className="flex flex-col items-center text-center group">
-            <span className="text-6xl font-black text-[#C89B2A] mb-2 leading-none font-display">
-              1
-            </span>
-            <div className="w-full bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-8 shadow-sm hover:shadow-md transition-all flex flex-col items-center space-y-4 relative">
-              <div className="w-16 h-16 rounded-full bg-[#1A3C34] text-white flex items-center justify-center shadow-xs">
-                <UserPlus className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-extrabold text-[#1A3C34]">
-                Sign Up Free
-              </h3>
-              <p className="text-xs sm:text-sm text-[#6B6355] leading-relaxed">
-                Create your free account in 2 minutes. No approval needed.
-              </p>
-              <div className="w-12 h-1 bg-[#C89B2A] rounded-full pt-0.5 mt-2" />
-            </div>
-          </div>
-
-          {/* CARD 2 */}
-          <div className="flex flex-col items-center text-center group">
-            <span className="text-6xl font-black text-[#C89B2A] mb-2 leading-none font-display">
-              2
-            </span>
-            <div className="w-full bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-8 shadow-sm hover:shadow-md transition-all flex flex-col items-center space-y-4 relative">
-              <div className="w-16 h-16 rounded-full bg-[#1A3C34] text-white flex items-center justify-center shadow-xs">
-                <Tag className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-extrabold text-[#1A3C34]">
-                Pick a Campaign
-              </h3>
-              <p className="text-xs sm:text-sm text-[#6B6355] leading-relaxed">
-                Browse 500+ brand campaigns. Choose what matches your audience.
-              </p>
-              <div className="w-12 h-1 bg-[#C89B2A] rounded-full pt-0.5 mt-2" />
-            </div>
-          </div>
-
-          {/* CARD 3 */}
-          <div className="flex flex-col items-center text-center group">
-            <span className="text-6xl font-black text-[#C89B2A] mb-2 leading-none font-display">
-              3
-            </span>
-            <div className="w-full bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-8 shadow-sm hover:shadow-md transition-all flex flex-col items-center space-y-4 relative">
-              <div className="w-16 h-16 rounded-full bg-[#1A3C34] text-white flex items-center justify-center shadow-xs">
-                <IndianRupee className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-extrabold text-[#1A3C34]">
-                Share & Earn
-              </h3>
-              <p className="text-xs sm:text-sm text-[#6B6355] leading-relaxed">
-                Get your unique link. Share anywhere. Earn commission on every sale.
-              </p>
-              <div className="w-12 h-1 bg-[#C89B2A] rounded-full pt-0.5 mt-2" />
-            </div>
-          </div>
-
+          <h3 className="text-xl font-extrabold text-[#1A3C34]">
+            Sign Up
+          </h3>
+          <p className="text-xs sm:text-sm text-[#6B6355] leading-relaxed">
+            Create your CloudsLink account and submit your details to get started.
+          </p>
         </div>
-      </section>
+        <div className="w-12 h-1 bg-[#C89B2A] rounded-full pt-0.5 mt-4" />
+      </div>
+
+      {/* Desktop Arrow 1 -> 2 */}
+      <div className="hidden lg:block absolute -right-[25%] top-16 w-[35%] pointer-events-none z-20">
+        <svg width="100%" height="30" viewBox="0 0 100 30" fill="none">
+          <path
+            d="M0 15 Q 50 0, 100 15"
+            stroke="#C89B2A"
+            strokeWidth="2.5"
+            strokeDasharray="4 4"
+          />
+          <path d="M93 10 L100 15 L93 20" stroke="#C89B2A" strokeWidth="2.5" />
+        </svg>
+      </div>
+    </div>
+
+    {/* CARD 2 */}
+    <div className="flex flex-col items-center text-center group relative">
+      <span className="text-5xl font-black text-[#C89B2A] mb-2 leading-none font-display">
+        02
+      </span>
+      <div className="w-full h-full bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 shadow-sm hover:shadow-md transition-all flex flex-col items-center justify-between relative">
+        <div className="flex flex-col items-center space-y-4">
+          <div className="w-16 h-16 rounded-full bg-[#1A3C34] text-white flex items-center justify-center shadow-xs">
+            <CheckCircle2 className="w-8 h-8 text-white" />
+          </div>
+          <h3 className="text-xl font-extrabold text-[#1A3C34]">
+            Get Approved
+          </h3>
+          <p className="text-xs sm:text-sm text-[#6B6355] leading-relaxed">
+            Your account will be reviewed and approved within 24 hours.
+          </p>
+        </div>
+        <div className="w-12 h-1 bg-[#C89B2A] rounded-full pt-0.5 mt-4" />
+      </div>
+
+      {/* Desktop Arrow 2 -> 3 */}
+      <div className="hidden lg:block absolute -right-[25%] top-16 w-[35%] pointer-events-none z-20">
+        <svg width="100%" height="30" viewBox="0 0 100 30" fill="none">
+          <path
+            d="M0 15 Q 50 0, 100 15"
+            stroke="#C89B2A"
+            strokeWidth="2.5"
+            strokeDasharray="4 4"
+          />
+          <path d="M93 10 L100 15 L93 20" stroke="#C89B2A" strokeWidth="2.5" />
+        </svg>
+      </div>
+    </div>
+
+    {/* CARD 3 */}
+    <div className="flex flex-col items-center text-center group relative">
+      <span className="text-5xl font-black text-[#C89B2A] mb-2 leading-none font-display">
+        03
+      </span>
+      <div className="w-full h-full bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 shadow-sm hover:shadow-md transition-all flex flex-col items-center justify-between relative">
+        <div className="flex flex-col items-center space-y-4">
+          <div className="w-16 h-16 rounded-full bg-[#1A3C34] text-white flex items-center justify-center shadow-xs">
+            <Tag className="w-8 h-8 text-white" />
+          </div>
+          <h3 className="text-xl font-extrabold text-[#1A3C34]">
+            Apply for Offers
+          </h3>
+          <p className="text-xs sm:text-sm text-[#6B6355] leading-relaxed">
+            Browse available affiliate offers and apply for the ones that match your audience and niche.
+          </p>
+        </div>
+        <div className="w-12 h-1 bg-[#C89B2A] rounded-full pt-0.5 mt-4" />
+      </div>
+
+      {/* Desktop Arrow 3 -> 4 */}
+      <div className="hidden lg:block absolute -right-[25%] top-16 w-[35%] pointer-events-none z-20">
+        <svg width="100%" height="30" viewBox="0 0 100 30" fill="none">
+          <path
+            d="M0 15 Q 50 0, 100 15"
+            stroke="#C89B2A"
+            strokeWidth="2.5"
+            strokeDasharray="4 4"
+          />
+          <path d="M93 10 L100 15 L93 20" stroke="#C89B2A" strokeWidth="2.5" />
+        </svg>
+      </div>
+    </div>
+
+    {/* CARD 4 */}
+    <div className="flex flex-col items-center text-center group relative">
+      <span className="text-5xl font-black text-[#C89B2A] mb-2 leading-none font-display">
+        04
+      </span>
+      <div className="w-full h-full bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 shadow-sm hover:shadow-md transition-all flex flex-col items-center justify-between relative">
+        <div className="flex flex-col items-center space-y-4">
+          <div className="w-16 h-16 rounded-full bg-[#1A3C34] text-white flex items-center justify-center shadow-xs">
+            <Link2 className="w-8 h-8 text-white" />
+          </div>
+          <h3 className="text-xl font-extrabold text-[#1A3C34]">
+            Get Your Tracking Link
+          </h3>
+          <p className="text-xs sm:text-sm text-[#6B6355] leading-relaxed">
+            Once your offer application is approved, generate your unique tracking link.
+          </p>
+        </div>
+        <div className="w-12 h-1 bg-[#C89B2A] rounded-full pt-0.5 mt-4" />
+      </div>
+
+      {/* Desktop Arrow 4 -> 5 */}
+      <div className="hidden lg:block absolute -right-[25%] top-16 w-[35%] pointer-events-none z-20">
+        <svg width="100%" height="30" viewBox="0 0 100 30" fill="none">
+          <path
+            d="M0 15 Q 50 0, 100 15"
+            stroke="#C89B2A"
+            strokeWidth="2.5"
+            strokeDasharray="4 4"
+          />
+          <path d="M93 10 L100 15 L93 20" stroke="#C89B2A" strokeWidth="2.5" />
+        </svg>
+      </div>
+    </div>
+
+    {/* CARD 5 */}
+    <div className="flex flex-col items-center text-center group relative">
+      <span className="text-5xl font-black text-[#C89B2A] mb-2 leading-none font-display">
+        05
+      </span>
+      <div className="w-full h-full bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 shadow-sm hover:shadow-md transition-all flex flex-col items-center justify-between relative">
+        <div className="flex flex-col items-center space-y-4">
+          <div className="w-16 h-16 rounded-full bg-[#1A3C34] text-white flex items-center justify-center shadow-xs">
+            <IndianRupee className="w-8 h-8 text-white" />
+          </div>
+          <h3 className="text-xl font-extrabold text-[#1A3C34]">
+            Promote & Earn
+          </h3>
+          <p className="text-xs sm:text-sm text-[#6B6355] leading-relaxed">
+            Share your tracking link, drive qualifying sales or actions, and earn commissions.
+          </p>
+        </div>
+        <div className="w-12 h-1 bg-[#C89B2A] rounded-full pt-0.5 mt-4" />
+      </div>
+    </div>
+
+  </div>
+</section>
 
 
       {/* =================================================================== */}
@@ -571,111 +654,7 @@ export default function HowItWorksContent() {
       </section>
 
 
-      {/* =================================================================== */}
-      {/* SECTION 8 — EARNINGS POTENTIAL CALCULATOR                           */}
-      {/* =================================================================== */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
-        <div className="text-center max-w-2xl mx-auto space-y-2">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1A3C34]">
-            What Could You Earn?
-          </h2>
-          <p className="text-sm text-[#6B6355] font-medium">
-            See how much creators like you are making every month
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-          
-          {/* Card 1 — Beginner */}
-          <div className="bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-8 shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-6">
-            <div className="space-y-4">
-              <span className="inline-block px-3 py-1 rounded-full bg-[#1A3C34]/10 text-[#1A3C34] text-xs font-extrabold">
-                🌱 Just Starting
-              </span>
-              <div>
-                <span className="text-xs text-[#6B6355] block font-semibold">Followers / Audience</span>
-                <span className="text-lg font-extrabold text-[#1A3C34]">1,000 – 10,000</span>
-              </div>
-              <div className="pt-2 border-t border-[#E8E2D6]">
-                <span className="text-xs text-[#6B6355] block font-semibold">Avg Monthly Earnings</span>
-                <span className="text-2xl sm:text-3xl font-black text-[#C89B2A]">₹2,000 – ₹10,000</span>
-              </div>
-              <p className="text-xs text-[#6B6355] pt-1">
-                Best for: Students, beginners sharing deal links with friends & social groups.
-              </p>
-            </div>
-
-            <button
-              onClick={() => handleAuthClick('signup')}
-              className="w-full py-3 px-4 rounded-xl border-2 border-[#C89B2A] text-[#1A3C34] font-extrabold text-xs hover:bg-[#C89B2A] transition-colors flex items-center justify-center gap-1.5"
-            >
-              <span>Start Earning</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
-
-          {/* Card 2 — Growing (HIGHLIGHTED) */}
-          <div className="bg-[#FDFAF4] rounded-2xl border-2 border-[#C89B2A] p-8 shadow-md transition-all flex flex-col justify-between space-y-6 relative md:-translate-y-2">
-            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#C89B2A] text-[#1A3C34] text-[11px] font-black uppercase tracking-wider shadow-2xs">
-              Most Popular
-            </div>
-
-            <div className="space-y-4 pt-2">
-              <span className="inline-block px-3 py-1 rounded-full bg-[#1A3C34] text-[#C89B2A] text-xs font-extrabold">
-                🚀 Growing Creator
-              </span>
-              <div>
-                <span className="text-xs text-[#6B6355] block font-semibold">Followers / Audience</span>
-                <span className="text-lg font-extrabold text-[#1A3C34]">10,000 – 1,00,000</span>
-              </div>
-              <div className="pt-2 border-t border-[#E8E2D6]">
-                <span className="text-xs text-[#6B6355] block font-semibold">Avg Monthly Earnings</span>
-                <span className="text-2xl sm:text-3xl font-black text-[#C89B2A]">₹10,000 – ₹50,000</span>
-              </div>
-              <p className="text-xs text-[#6B6355] pt-1">
-                Best for: Micro-influencers, active Telegram deal channels, niche bloggers.
-              </p>
-            </div>
-
-            <button
-              onClick={() => handleAuthClick('signup')}
-              className="w-full py-3 px-4 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-colors shadow-2xs flex items-center justify-center gap-1.5"
-            >
-              <span>Start Earning</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
-
-          {/* Card 3 — Pro */}
-          <div className="bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-8 shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-6">
-            <div className="space-y-4">
-              <span className="inline-block px-3 py-1 rounded-full bg-[#1A3C34]/10 text-[#1A3C34] text-xs font-extrabold">
-                ⭐ Pro Influencer
-              </span>
-              <div>
-                <span className="text-xs text-[#6B6355] block font-semibold">Followers / Audience</span>
-                <span className="text-lg font-extrabold text-[#1A3C34]">1,00,000+</span>
-              </div>
-              <div className="pt-2 border-t border-[#E8E2D6]">
-                <span className="text-xs text-[#6B6355] block font-semibold">Avg Monthly Earnings</span>
-                <span className="text-2xl sm:text-3xl font-black text-[#C89B2A]">₹50,000 – ₹2,00,000+</span>
-              </div>
-              <p className="text-xs text-[#6B6355] pt-1">
-                Best for: YouTubers, large Instagram pages, major content publishers.
-              </p>
-            </div>
-
-            <button
-              onClick={() => handleAuthClick('signup')}
-              className="w-full py-3 px-4 rounded-xl border-2 border-[#C89B2A] text-[#1A3C34] font-extrabold text-xs hover:bg-[#C89B2A] transition-colors flex items-center justify-center gap-1.5"
-            >
-              <span>Start Earning</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
-
-        </div>
-      </section>
+   
 
 
       {/* =================================================================== */}
