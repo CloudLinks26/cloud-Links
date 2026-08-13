@@ -24,12 +24,11 @@ export default function SwissBeautyContent() {
     commission: '25%',
     rating: 4.9,
     country: 'India 🇮🇳',
-    about: "Swiss Beauty is one of India's fastest-growing affordable cosmetics brands, offering trend-forward makeup — from long-wear foundations to bold lip colors and eyeshadow palettes — at prices that make experimenting fun. Hugely popular with young audiences and beauty creators, Swiss Beauty products are a staple in makeup tutorials and GRWM content across India.",
+    about: "Swiss Beauty brings trend-led makeup to everyday beauty routines, offering everything from foundations and lip colours to eyeshadow palettes and more. With affordable products made for experimenting with new looks, the brand has become a popular choice among beauty enthusiasts and content creators across India.",
     highlights: [
-      'Auto-approved — start promoting instantly',
       'Strong conversion rate — trending makeup drives quick purchases',
       'Mid-range average order value with high repeat buying',
-      '30-day cookie window'
+      'Reporting Time: 24–48 hours / offline'
     ]
   };
 
@@ -220,7 +219,8 @@ export default function SwissBeautyContent() {
                   About {brand.name}
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-black font-display text-[#1A3C34]">
-                  India's Trend-Forward Affordable Makeup Brand
+                  India's Go-To Affordable Makeup Brand
+
                 </h2>
               </div>
 
@@ -462,7 +462,7 @@ export default function SwissBeautyContent() {
           </h2>
 
           <p className="text-sm sm:text-base text-[#F5F0E8]/90 font-medium leading-relaxed max-w-xl mx-auto">
-            Join thousands of creators already making money promoting India's trending makeup brand.
+            Join creators across India who are earning by promoting one of the country’s favourite makeup brands. 
           </p>
 
           <button
@@ -473,9 +473,7 @@ export default function SwissBeautyContent() {
             <ArrowRight className="w-4 h-4" />
           </button>
 
-          <p className="text-xs text-[#F5F0E8]/70 font-semibold pt-2">
-            ⚡ Auto-approved | 💰 {brand.commission} commission | 🔒 Free to join
-          </p>
+       
         </div>
       </section>
 

@@ -24,12 +24,11 @@ export default function HaldiramContent() {
     commission: '9%',
     rating: 4.9,
     country: 'India 🇮🇳',
-    about: "Haldiram's is one of India's most trusted names in packaged snacks and sweets, with a legacy dating back to 1937. From iconic namkeen like Bhujia and Aloo Bhujia to traditional mithai, ready-to-eat meals, and festive gift hampers, Haldiram's brings authentic Indian flavors to households across the country and abroad.",
+    about: "With a legacy spanning decades, Haldiram’s has become a household name for authentic Indian snacks and sweets. From iconic Bhujia and Aloo Bhujia to traditional mithai, ready-to-eat meals, and festive hampers, Haldiram’s brings the taste of India to homes across the country and beyond.",
     highlights: [
-      'Auto-approved — start promoting instantly',
       'High conversion rate — snacks are fast, impulse-buy purchases',
       'Low average order value makes it an easy sell',
-      '30-day cookie window'
+      'Reporting Time: 24–48 hours / offline'
     ]
   };
 
@@ -458,11 +457,12 @@ export default function HaldiramContent() {
 
         <div className="max-w-3xl mx-auto relative z-10 space-y-6">
           <h2 className="text-3xl sm:text-5xl font-black font-display leading-tight text-white">
-            Ready to Start Earning with {brand.name}?
+            Ready to Earn with {brand.name}?
           </h2>
 
           <p className="text-sm sm:text-base text-[#F5F0E8]/90 font-medium leading-relaxed max-w-xl mx-auto">
-            Join thousands of creators already making money promoting India's most loved snacks brand.
+            Join CloudsLink and start promoting one of India's most loved food and snack brands while earning commissions on qualifying sales.
+
           </p>
 
           <button
@@ -473,9 +473,7 @@ export default function HaldiramContent() {
             <ArrowRight className="w-4 h-4" />
           </button>
 
-          <p className="text-xs text-[#F5F0E8]/70 font-semibold pt-2">
-            ⚡ Auto-approved | 💰 {brand.commission} commission | 🔒 Free to join
-          </p>
+          
         </div>
       </section>
 

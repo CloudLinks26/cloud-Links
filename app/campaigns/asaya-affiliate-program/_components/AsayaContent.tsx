@@ -25,12 +25,11 @@ export default function AsayaContent() {
     oldUserCommission: '15%',
     rating: 4.7,
     country: 'India 🇮🇳',
-    about: 'Asaya is a modern Indian skincare brand built around dermatologist-backed formulas and clean, effective ingredients. From daily essentials like serums and moisturizers to targeted treatments, Asaya focuses on visible results without harsh chemicals — designed for everyday Indian skin and climate.',
+    about: 'Asaya is a modern Indian skincare brand focused on effective, dermatologist-backed formulations made for everyday skincare needs. From serums and moisturizers to targeted treatments, Asaya combines carefully selected ingredients with a results-driven approach to skincare.',
     highlights: [
-      'Auto-approved — start promoting instantly',
       'Highest new-user commission on the platform',
       'Strong repeat-purchase rate keeps earnings recurring',
-      '30-day cookie window'
+      'Reporting Time: 24–48 hours / offline'
     ]
   };
 
@@ -232,7 +231,8 @@ export default function AsayaContent() {
                   About {brand.name}
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-black font-display text-[#1A3C34]">
-                  Dermatologist-Backed Skincare, Made For India
+                  Dermatologist-Backed Skincare, Made for Indian Skin
+
                 </h2>
               </div>
 
@@ -475,11 +475,12 @@ export default function AsayaContent() {
 
         <div className="max-w-3xl mx-auto relative z-10 space-y-6">
           <h2 className="text-3xl sm:text-5xl font-black font-display leading-tight text-white">
-            Ready to Start Earning with {brand.name}?
+       Ready to Start Earning with {brand.name}?
           </h2>
 
           <p className="text-sm sm:text-base text-[#F5F0E8]/90 font-medium leading-relaxed max-w-xl mx-auto">
-            Join thousands of creators already making money promoting India's dermatologist-backed skincare brand.
+            Join CloudsLink and promote Asaya’s dermatologist-backed skincare products while earning commissions on qualifying sales.
+
           </p>
 
           <button
@@ -490,9 +491,7 @@ export default function AsayaContent() {
             <ArrowRight className="w-4 h-4" />
           </button>
 
-          <p className="text-xs text-[#F5F0E8]/70 font-semibold pt-2">
-            ⚡ Auto-approved | 💰 New User {brand.commission} / Old User {brand.oldUserCommission} | 🔒 Free to join
-          </p>
+        
         </div>
       </section>
 

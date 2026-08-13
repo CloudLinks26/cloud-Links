@@ -279,6 +279,98 @@ const AuthModal: React.FC<AuthModalProps> = ({
     onClose();
   };
 
+  // Brand Partnership — simplified lead-capture form, no tabs/role toggle/login.
+  // Branches on initialRole (how the modal was opened), not the mutable role state,
+  // so the in-modal Creator/Brand toggle in the regular flow keeps working as before.
+  if (initialRole === 'brand') {
+    const handleBrandSubmit = (e: React.FormEvent) => {
+      e.preventDefault();
+      onToast(`Thanks! Our team will reach out to you shortly.`);
+      onClose();
+    };
+
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1A3C34]/60 backdrop-blur-sm">
+        <div className="relative w-full max-w-md bg-[#FDFAF4] rounded-2xl shadow-2xl border border-[#E8E2D6] overflow-hidden">
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 p-1 text-[#6B6355] hover:text-[#1A3C34] rounded-lg hover:bg-black/5 transition-colors"
+          >
+            <X className="w-5 h-5" />
+          </button>
+
+          <div className="p-6 pt-10">
+            <form onSubmit={handleBrandSubmit} className="space-y-3.5">
+              <div>
+                <label className="block text-xs font-semibold text-[#1A3C34] mb-1">
+                  Full Name <span className="text-[#C85A32]">*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g. Priya Sharma"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8E2D6] bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#C89B2A]"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-[#1A3C34] mb-1">
+                  Email Address <span className="text-[#C85A32]">*</span>
+                </label>
+                <input
+                  type="email"
+                  placeholder="priya@creator.in"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8E2D6] bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#C89B2A]"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-[#1A3C34] mb-1">
+                  WhatsApp Mobile Number (+91) <span className="text-[#C85A32]">*</span>
+                </label>
+                <input
+                  type="tel"
+                  placeholder="98765 43210"
+                  required
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8E2D6] bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#C89B2A]"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-[#1A3C34] mb-1">
+                  Brand Website / App URL <span className="text-[#C85A32]">*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="https://mybrand.in"
+                  required
+                  value={formData.socialHandle}
+                  onChange={(e) => setFormData({ ...formData, socialHandle: e.target.value })}
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8E2D6] bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#C89B2A]"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full py-3 px-6 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 mt-2"
+              >
+                Submit Details
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1A3C34]/60 backdrop-blur-sm">
       <div className="relative w-full max-w-md bg-[#FDFAF4] rounded-2xl shadow-2xl border border-[#E8E2D6] overflow-hidden">

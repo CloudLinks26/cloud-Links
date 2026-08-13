@@ -84,33 +84,33 @@ export const Navbar: React.FC = () => {
             >
               Payouts
             </Link>
-            <Link
+            {/* <Link
               href="/blog"
               className={`text-base font-semibold transition-colors ${pathname === '/resources' ? 'text-[#C89B2A]' : 'text-[#1A3C34] hover:text-[#C89B2A]'
                 }`}
             >
               Resources
-            </Link>
+            </Link> */}
           </nav>
 
           {/* RIGHT CTA BAR */}
           <div className="hidden lg:flex items-center gap-4">
-            {/* Login */}
-            <button
-              onClick={() => onOpenAuth('login')}
-              className="px-6 py-2.5 rounded-full border-2 border-[#1A3C34] text-[#1A3C34] hover:bg-[#1A3C34] hover:text-white text-sm font-bold transition-all cursor-pointer shadow-xs"
-            >
-              Login
-            </button>
+  {/* Login */}
+  <a
+    href="https://analytics.trackier.io/"
+    className="px-6 py-2.5 rounded-full border-2 border-[#1A3C34] text-[#1A3C34] hover:bg-[#1A3C34] hover:text-white text-sm font-bold transition-all cursor-pointer shadow-xs"
+  >
+    Login
+  </a>
 
-            {/* Join Now / Sign Up */}
-            <button
-              onClick={() => onOpenAuth('signup', 'creator')}
-              className="px-7 py-2.5 rounded-full bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-sm transition-all shadow-md hover:shadow-lg cursor-pointer"
-            >
-              Join Now
-            </button>
-          </div>
+  {/* Join Now / Sign Up */}
+  <a
+    href="https://analytics.trackier.io/register.html"
+    className="px-7 py-2.5 rounded-full bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-sm transition-all shadow-md hover:shadow-lg cursor-pointer"
+  >
+    Join Now
+  </a>
+</div>
 
           {/* MOBILE MENU TOGGLE */}
           <div className="flex items-center gap-2 lg:hidden">

@@ -100,7 +100,7 @@ export const Footer: React.FC = () => {
                 <li><Link href="/campaigns" onClick={scrollToTop} className="hover:text-[#C89B2A] transition-colors flex items-center gap-1.5"><ChevronRight className="w-4 h-4 text-[#C89B2A]" />Campaigns</Link></li>
                 <li><Link href="/how-it-works" onClick={scrollToTop} className="hover:text-[#C89B2A] transition-colors flex items-center gap-1.5"><ChevronRight className="w-4 h-4 text-[#C89B2A]" />How it Works</Link></li>
                 <li><Link href="/influencer" onClick={scrollToTop} className="hover:text-[#C89B2A] transition-colors flex items-center gap-1.5"><ChevronRight className="w-4 h-4 text-[#C89B2A]" />Influencers</Link></li>
-                <li><Link href="/top-brands" onClick={scrollToTop} className="hover:text-[#C89B2A] transition-colors flex items-center gap-1.5"><ChevronRight className="w-4 h-4 text-[#C89B2A]" />Top Brands</Link></li>
+                
               </ul>
             </div>
 
@@ -210,11 +210,7 @@ export const Footer: React.FC = () => {
             © 2026 CloudLinks. All rights reserved.
           </div>
 
-          <div className="flex items-center gap-1.5 font-medium text-sm">
-            <span>Made with</span>
-            <Heart className="w-4 h-4 text-red-600 fill-red-600 inline" />
-            <span>in India</span>
-          </div>
+          
 
           {/* Secure Payments & Badges */}
           <div className="flex flex-wrap items-center justify-center gap-3">

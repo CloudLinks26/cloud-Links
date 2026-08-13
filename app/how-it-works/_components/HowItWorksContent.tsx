@@ -70,32 +70,32 @@ export default function HowItWorksContent() {
     {
       name: 'Instagram',
       icon: Instagram,
-      desc: 'Share links in bio, stories & reels',
+      desc: 'Share through your bio, stories & reels.',
     },
     {
       name: 'YouTube',
       icon: Youtube,
-      desc: 'Add links in video descriptions',
+      desc: 'Add affiliate links to video descriptions.',
     },
     {
       name: 'WhatsApp',
       icon: MessageCircle,
-      desc: 'Share in groups and broadcasts',
+      desc: 'Share with groups and broadcasts.',
     },
     {
       name: 'Telegram',
       icon: Send,
-      desc: 'Post in channels and groups',
+      desc: 'Promote through channels and groups.',
     },
     {
       name: 'Blog / Website',
       icon: Globe,
-      desc: 'Embed links in your articles',
+      desc: 'Add links to your content and articles.',
     },
     {
       name: 'Facebook',
       icon: Users,
-      desc: 'Share in groups and pages',
+      desc: 'Share across groups and pages.',
     },
   ];
 
@@ -335,83 +335,122 @@ export default function HowItWorksContent() {
       {/* SECTION 3 — HOW YOU EARN (DARK SECTION)                             */}
       {/* =================================================================== */}
       <section className="my-16 bg-[#1A3C34] text-white py-16 px-4 sm:px-6 lg:px-8 shadow-xl">
-        <div className="max-w-7xl mx-auto space-y-12 text-center">
-          
-          <div className="space-y-3 max-w-xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
-              How You Earn
-            </h2>
-            <div className="w-16 h-1 bg-[#C89B2A] mx-auto rounded-full" />
-          </div>
+  <div className="max-w-7xl mx-auto space-y-12 text-center">
+    
+    <div className="space-y-3 max-w-xl mx-auto">
+      <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+        How You Earn
+      </h2>
+      <div className="w-16 h-1 bg-[#C89B2A] mx-auto rounded-full" />
+    </div>
 
-          {/* Flow Diagram */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-center">
-            
-            {/* Step 1 */}
-            <div className="bg-[#FDFAF4] text-[#1A3C34] rounded-2xl p-6 shadow-md flex items-center gap-4 text-left">
-              <div className="p-3 bg-[#1A3C34]/10 rounded-xl text-[#C89B2A]">
-                <LinkIcon className="w-6 h-6 text-[#C89B2A]" />
-              </div>
-              <div>
-                <span className="text-xs text-[#6B6355] font-extrabold block uppercase tracking-wider">Step 1</span>
-                <span className="font-extrabold text-base text-[#1A3C34]">You Share Link</span>
-              </div>
-            </div>
+    {/* Flow Diagram - Grid with stretch alignment */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-stretch">
+      
+      {/* Step 1 */}
+      <div className="bg-[#FDFAF4] text-[#1A3C34] rounded-2xl p-6 shadow-md flex items-center gap-4 text-left border-2 border-transparent h-full">
+        <div className="p-3 bg-[#1A3C34]/10 rounded-xl text-[#C89B2A] shrink-0">
+          <LinkIcon className="w-6 h-6 text-[#C89B2A]" />
+        </div>
+        <div>
+          <span className="text-xs text-[#6B6355] font-extrabold block uppercase tracking-wider">01 — Promote</span>
+          <span className="font-extrabold text-base text-[#1A3C34]">You share link</span>
+        </div>
+      </div>
 
-            {/* Step 2 */}
-            <div className="bg-[#FDFAF4] text-[#1A3C34] rounded-2xl p-6 shadow-md flex items-center gap-4 text-left">
-              <div className="p-3 bg-[#1A3C34]/10 rounded-xl text-[#C89B2A]">
-                <MousePointerClick className="w-6 h-6 text-[#C89B2A]" />
-              </div>
-              <div>
-                <span className="text-xs text-[#6B6355] font-extrabold block uppercase tracking-wider">Step 2</span>
-                <span className="font-extrabold text-base text-[#1A3C34]">Friend Clicks</span>
-              </div>
-            </div>
+      {/* Step 2 */}
+      <div className="bg-[#FDFAF4] text-[#1A3C34] rounded-2xl p-6 shadow-md flex items-center gap-4 text-left border-2 border-transparent h-full">
+        <div className="p-3 bg-[#1A3C34]/10 rounded-xl text-[#C89B2A] shrink-0">
+          <MousePointerClick className="w-6 h-6 text-[#C89B2A]" />
+        </div>
+        <div>
+          <span className="text-xs text-[#6B6355] font-extrabold block uppercase tracking-wider">02 — Attract Clicks</span>
+          <span className="font-extrabold text-base text-[#1A3C34]">Your audience visits through your link.</span>
+        </div>
+      </div>
 
-            {/* Step 3 */}
-            <div className="bg-[#FDFAF4] text-[#1A3C34] rounded-2xl p-6 shadow-md flex items-center gap-4 text-left">
-              <div className="p-3 bg-[#1A3C34]/10 rounded-xl text-[#C89B2A]">
-                <ShoppingCart className="w-6 h-6 text-[#C89B2A]" />
-              </div>
-              <div>
-                <span className="text-xs text-[#6B6355] font-extrabold block uppercase tracking-wider">Step 3</span>
-                <span className="font-extrabold text-base text-[#1A3C34]">Friend Buys</span>
-              </div>
-            </div>
+      {/* Step 3 */}
+      <div className="bg-[#FDFAF4] text-[#1A3C34] rounded-2xl p-6 shadow-md flex items-center gap-4 text-left border-2 border-transparent h-full">
+        <div className="p-3 bg-[#1A3C34]/10 rounded-xl text-[#C89B2A] shrink-0">
+          <ShoppingCart className="w-6 h-6 text-[#C89B2A]" />
+        </div>
+        <div>
+          <span className="text-xs text-[#6B6355] font-extrabold block uppercase tracking-wider">03 — Drive Conversions</span>
+          <span className="font-extrabold text-base text-[#1A3C34]">Turn clicks into conversions.</span>
+        </div>
+      </div>
 
-            {/* Step 4 */}
-            <div className="bg-[#FDFAF4] text-[#1A3C34] rounded-2xl p-6 shadow-md flex items-center gap-4 text-left border-2 border-[#C89B2A]">
-              <div className="p-3 bg-[#C89B2A]/20 rounded-xl text-[#C89B2A]">
-                <Coins className="w-6 h-6 text-[#C89B2A]" />
+      {/* Step 4 */}
+      <div className="bg-[#FDFAF4] text-[#1A3C34] rounded-2xl p-6 shadow-md flex items-center gap-4 text-left border-2 border-[#C89B2A] h-full">
+        <div className="p-3 bg-[#C89B2A]/20 rounded-xl text-[#C89B2A] shrink-0">
+          <Coins className="w-6 h-6 text-[#C89B2A]" />
+        </div>
+        <div>
+          <span className="text-xs text-[#6B6355] font-extrabold block uppercase tracking-wider">04 — Get Paid</span>
+          <span className="font-extrabold text-base text-[#1A3C34] block">Earn your commission on every eligible conversion.</span>
+        </div>
+      </div>
+
+    </div>
+
+    {/* Trust Badges */}
+    <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 pt-4 text-xs sm:text-sm font-bold text-[#F5F0E8]/90">
+      <div className="flex items-center gap-2">
+        <ShieldCheck className="w-4 h-4 text-[#C89B2A]" />
+        <span>Share</span>
+      </div>
+      <span>•</span>
+      <div className="flex items-center gap-2">
+        <Lock className="w-4 h-4 text-[#C89B2A]" />
+        <span>Convert</span>
+      </div>
+      <span>•</span>
+      <div className="flex items-center gap-2">
+        <Star className="w-4 h-4 text-[#C89B2A]" />
+        <span>Earn</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+ {/* =================================================================== */}
+      {/* SECTION 7 — PLATFORMS YOU CAN SHARE ON                              */}
+      {/* =================================================================== */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1A3C34]">
+            Share Wherever Your Audience Is
+
+          </h2>
+          <p className="text-sm text-[#6B6355] font-medium">
+            Promote your affiliate links across the platforms you already use.
+
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {platforms.map((p, idx) => {
+            const IconComponent = p.icon;
+            return (
+              <div
+                key={idx}
+                className="bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 shadow-xs hover:shadow-md hover:border-[#C89B2A] transition-all flex items-start gap-4 group"
+              >
+                <div className="p-3.5 rounded-xl bg-[#1A3C34] text-[#C89B2A] flex-shrink-0 group-hover:scale-105 transition-transform">
+                  <IconComponent className="w-6 h-6" />
+                </div>
+                <div className="space-y-1">
+                  <h3 className="font-extrabold text-base text-[#1A3C34]">
+                    {p.name}
+                  </h3>
+                  <p className="text-xs text-[#6B6355]">
+                    {p.desc}
+                  </p>
+                </div>
               </div>
-              <div>
-                <span className="text-xs text-[#6B6355] font-extrabold block uppercase tracking-wider">Step 4</span>
-                <span className="font-extrabold text-base text-[#1A3C34] block">You Earn</span>
-                <span className="text-xs font-black text-[#C89B2A] tracking-widest">₹ ₹ ₹</span>
-              </div>
-            </div>
-
-          </div>
-
-          {/* Trust Badges */}
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 pt-4 text-xs sm:text-sm font-bold text-[#F5F0E8]/90">
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-[#C89B2A]" />
-              <span>Real-time tracking</span>
-            </div>
-            <span>•</span>
-            <div className="flex items-center gap-2">
-              <Lock className="w-4 h-4 text-[#C89B2A]" />
-              <span>Secure payments</span>
-            </div>
-            <span>•</span>
-            <div className="flex items-center gap-2">
-              <Star className="w-4 h-4 text-[#C89B2A]" />
-              <span>High commissions</span>
-            </div>
-          </div>
-
+            );
+          })}
         </div>
       </section>
 
@@ -615,152 +654,7 @@ export default function HowItWorksContent() {
       </section>
 
 
-      {/* =================================================================== */}
-      {/* SECTION 7 — PLATFORMS YOU CAN SHARE ON                              */}
-      {/* =================================================================== */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
-        <div className="text-center max-w-2xl mx-auto space-y-2">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1A3C34]">
-            Share on Any Platform
-          </h2>
-          <p className="text-sm text-[#6B6355] font-medium">
-            CloudLinks works wherever your audience is — no restrictions.
-          </p>
-        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {platforms.map((p, idx) => {
-            const IconComponent = p.icon;
-            return (
-              <div
-                key={idx}
-                className="bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 shadow-xs hover:shadow-md hover:border-[#C89B2A] transition-all flex items-start gap-4 group"
-              >
-                <div className="p-3.5 rounded-xl bg-[#1A3C34] text-[#C89B2A] flex-shrink-0 group-hover:scale-105 transition-transform">
-                  <IconComponent className="w-6 h-6" />
-                </div>
-                <div className="space-y-1">
-                  <h3 className="font-extrabold text-base text-[#1A3C34]">
-                    {p.name}
-                  </h3>
-                  <p className="text-xs text-[#6B6355]">
-                    {p.desc}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-
-   
-
-
-      {/* =================================================================== */}
-      {/* SECTION 9 — CREATOR TESTIMONIALS                                    */}
-      {/* =================================================================== */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
-        <div className="text-center max-w-2xl mx-auto space-y-2">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1A3C34]">
-            Creators Who Are Already Earning
-          </h2>
-          <p className="text-sm text-[#6B6355] font-medium">
-            Real stories from real earners across India
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
-          {/* Testimonial 1 */}
-          <div className="bg-[#FDFAF4] rounded-2xl border-t-4 border-t-[#C89B2A] border-x border-b border-[#E8E2D6] p-7 shadow-xs space-y-4 flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="flex items-center gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-[#C89B2A] text-[#C89B2A]" />
-                ))}
-              </div>
-              <p className="text-xs sm:text-sm text-[#6B6355] leading-relaxed italic">
-                "I started with zero followers and made ₹8,000 in my first month. CloudLinks is genuinely the easiest way to earn online."
-              </p>
-            </div>
-
-            <div className="pt-4 border-t border-[#E8E2D6] flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#1A3C34] text-white font-extrabold flex items-center justify-center text-sm shadow-2xs">
-                  PS
-                </div>
-                <div>
-                  <h4 className="font-extrabold text-sm text-[#1A3C34]">Priya Sharma</h4>
-                  <span className="text-[11px] text-[#6B6355] font-medium block">Mumbai • Instagram Creator</span>
-                </div>
-              </div>
-              <span className="text-[11px] font-black bg-[#C89B2A]/20 text-[#1A3C34] px-2.5 py-1 rounded-full">
-                Earns ₹25,000/mo
-              </span>
-            </div>
-          </div>
-
-          {/* Testimonial 2 */}
-          <div className="bg-[#FDFAF4] rounded-2xl border-t-4 border-t-[#C89B2A] border-x border-b border-[#E8E2D6] p-7 shadow-xs space-y-4 flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="flex items-center gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-[#C89B2A] text-[#C89B2A]" />
-                ))}
-              </div>
-              <p className="text-xs sm:text-sm text-[#6B6355] leading-relaxed italic">
-                "As a student, this was a game changer. I promote brands I actually use and earn while studying."
-              </p>
-            </div>
-
-            <div className="pt-4 border-t border-[#E8E2D6] flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#1A3C34] text-white font-extrabold flex items-center justify-center text-sm shadow-2xs">
-                  RV
-                </div>
-                <div>
-                  <h4 className="font-extrabold text-sm text-[#1A3C34]">Rahul Verma</h4>
-                  <span className="text-[11px] text-[#6B6355] font-medium block">Delhi • YouTube Creator</span>
-                </div>
-              </div>
-              <span className="text-[11px] font-black bg-[#C89B2A]/20 text-[#1A3C34] px-2.5 py-1 rounded-full">
-                Earns ₹18,000/mo
-              </span>
-            </div>
-          </div>
-
-          {/* Testimonial 3 */}
-          <div className="bg-[#FDFAF4] rounded-2xl border-t-4 border-t-[#C89B2A] border-x border-b border-[#E8E2D6] p-7 shadow-xs space-y-4 flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="flex items-center gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-[#C89B2A] text-[#C89B2A]" />
-                ))}
-              </div>
-              <p className="text-xs sm:text-sm text-[#6B6355] leading-relaxed italic">
-                "My blog traffic converts really well with CloudLinks campaigns. Payments are always on time."
-              </p>
-            </div>
-
-            <div className="pt-4 border-t border-[#E8E2D6] flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#1A3C34] text-white font-extrabold flex items-center justify-center text-sm shadow-2xs">
-                  SK
-                </div>
-                <div>
-                  <h4 className="font-extrabold text-sm text-[#1A3C34]">Sneha Kapoor</h4>
-                  <span className="text-[11px] text-[#6B6355] font-medium block">Bangalore • Blogger</span>
-                </div>
-              </div>
-              <span className="text-[11px] font-black bg-[#C89B2A]/20 text-[#1A3C34] px-2.5 py-1 rounded-full">
-                Earns ₹45,000/mo
-              </span>
-            </div>
-          </div>
-
-        </div>
-      </section>
 
     </div>
   );

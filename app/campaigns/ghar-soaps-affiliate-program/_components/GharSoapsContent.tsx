@@ -66,7 +66,7 @@ export default function GharSoapsContent() {
     minimumPayout: '₹0',
     approvalType: 'Auto Approved',
     country: 'India 🇮🇳',
-    about: "Ghar Soaps is India's home-grown handmade soap and bath care brand, reviving traditional bathing rituals with natural, cold-pressed ingredients. Every bar is small-batch crafted without parabens, sulphates, or synthetic fragrances — bringing the warmth of homemade care to modern skincare routines across India.",
+    about: "Ghar Soaps brings the charm of traditional Indian bathing rituals to modern self-care with handmade soaps and bath essentials crafted with natural ingredients. Rooted in simple, mindful skincare, the brand offers everyday bath care inspired by age-old traditions.",
     website: 'https://gharsoaps.in',
     founded: '2019',
     headquarters: 'Jaipur, India',
@@ -93,10 +93,9 @@ export default function GharSoapsContent() {
       'Only promote to Indian audience'
     ],
     highlights: [
-      'Auto-approved — start promoting instantly',
       'Growing conversion rate of 3.6%',
       'Affordable average order value of ₹450',
-      '30-day cookie window'
+      'Reporting Time: 24–48 hours / offline'
     ]
   };
 
@@ -398,7 +397,7 @@ export default function GharSoapsContent() {
                   About {brand.name}
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-black font-display text-[#1A3C34]">
-                  India's Home-Grown Natural Soap &amp; Bath Care Brand
+                  India's Home-Grown Natural Soap & Bath Care Brand
                 </h2>
               </div>
 
@@ -668,7 +667,8 @@ export default function GharSoapsContent() {
           </h2>
 
           <p className="text-sm sm:text-base text-[#F5F0E8]/90 font-medium leading-relaxed max-w-xl mx-auto">
-            Join 640+ creators already making money promoting India's home-grown natural soap brand.
+            Join CloudsLink and start promoting Ghar Soaps while earning commissions on qualifying sales.
+
           </p>
 
           <button
@@ -679,9 +679,7 @@ export default function GharSoapsContent() {
             <ArrowRight className="w-4 h-4" />
           </button>
 
-          <p className="text-xs text-[#F5F0E8]/70 font-semibold pt-2">
-            ⚡ Auto-approved | 💰 15% commission | 🔒 Free to join
-          </p>
+       
         </div>
       </section>
 

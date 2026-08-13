@@ -596,59 +596,7 @@ export default function CampaignsContent() {
           </div>
         </div>
 
-        {/* =================================================================== */}
-        {/* SECTION 5 — COMMISSION CATEGORIES SHOWCASE                         */}
-        {/* =================================================================== */}
-        <div className="space-y-8 pt-6">
-          <div className="text-center max-w-2xl mx-auto space-y-2">
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#1A3C34]">
-              Browse by Category
-            </h2>
-            <p className="text-sm text-[#6B6355] font-medium">
-              500+ brands across every niche — find what fits your audience
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {showcaseCategories.map((item, idx) => {
-              const IconComp = item.icon;
-              return (
-                <div
-                  key={idx}
-                  onClick={() => {
-                    setSelectedCategory(item.title);
-                    window.scrollTo({ top: 400, behavior: 'smooth' });
-                  }}
-                  className="bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 shadow-xs hover:shadow-md hover:border-[#C89B2A] hover:-translate-y-1 transition-all cursor-pointer flex flex-col justify-between space-y-4 group"
-                >
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <div className="w-12 h-12 rounded-full bg-[#1A3C34] text-[#C89B2A] flex items-center justify-center shadow-xs">
-                        <IconComp className="w-6 h-6" />
-                      </div>
-                      <span className="text-[11px] font-extrabold bg-[#1A3C34]/10 text-[#1A3C34] px-2.5 py-0.5 rounded-full">
-                        {item.badge}
-                      </span>
-                    </div>
-
-                    <h3 className="font-extrabold text-lg text-[#1A3C34] group-hover:text-[#C89B2A] transition-colors">
-                      {item.title}
-                    </h3>
-
-                    <p className="text-xs text-[#6B6355] leading-relaxed">
-                      {item.brands}
-                    </p>
-                  </div>
-
-                  <div className="pt-2 border-t border-[#E8E2D6] flex items-center justify-between text-xs">
-                    <span className="text-[#6B6355] font-medium">Avg Commission:</span>
-                    <span className="font-extrabold text-[#C89B2A]">{item.avgCommission}</span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+     
 
         {/* =================================================================== */}
         {/* SECTION 6 — HOW COMMISSIONS WORK                                   */}
