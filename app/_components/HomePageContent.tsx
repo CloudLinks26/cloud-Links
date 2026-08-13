@@ -186,12 +186,12 @@ export default function HomePageContent() {
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
                 <button
-                  onClick={() => onOpenAuth('signup', 'creator')}
-                  className="px-7 py-4 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-base transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group"
-                >
-                  <span>Start Your Affiliate Journey</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
+  onClick={() => window.open('https://analytics.trackier.io/register.html', '_blank')}
+  className="px-7 py-4 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-base transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group"
+>
+  <span>Start Your Affiliate Journey</span>
+  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+</button>
 
                 <button
                   onClick={scrollToHowItWorks}

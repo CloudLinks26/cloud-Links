@@ -7,7 +7,7 @@ import { Search, Menu, X, Sparkles } from 'lucide-react';
 import { useGlobalContext } from './GlobalProvider';
 
 export const Navbar: React.FC = () => {
-  const { onOpenAuth, onOpenLinkGen, searchTerm, setSearchTerm } = useGlobalContext();
+  const { onOpenLinkGen, searchTerm, setSearchTerm } = useGlobalContext();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [localSearchQuery, setLocalSearchQuery] = useState(searchTerm);
@@ -181,45 +181,27 @@ export const Navbar: React.FC = () => {
             <Link
               href="/payouts"
               onClick={() => setMobileMenuOpen(false)}
-              className="p-3.5 text-left bg-white rounded-xl border border-[#E8E2D6] hover:border-[#C89B2A]"
-            >
-              Payouts
-            </Link>
-            <Link
-              href="/blog"
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-3.5 text-left bg-white rounded-xl border border-[#E8E2D6] hover:border-[#C89B2A]"
-            >
-              Resources
-            </Link>
-            <Link
-              href="/about-us"
-              onClick={() => setMobileMenuOpen(false)}
               className="p-3.5 text-left bg-white rounded-xl border border-[#E8E2D6] hover:border-[#C89B2A] col-span-2"
             >
-              About Us
+              Payouts
             </Link>
           </div>
 
           <div className="flex gap-3 pt-2">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenAuth('login');
-              }}
+            <a
+              href="https://analytics.trackier.io/"
+              onClick={() => setMobileMenuOpen(false)}
               className="flex-1 py-3 rounded-full border-2 border-[#1A3C34] text-[#1A3C34] text-sm font-bold text-center"
             >
               Login
-            </button>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenAuth('signup', 'creator');
-              }}
+            </a>
+            <a
+              href="https://analytics.trackier.io/register.html"
+              onClick={() => setMobileMenuOpen(false)}
               className="flex-1 py-3 rounded-full bg-[#C89B2A] text-[#1A3C34] text-sm font-bold text-center shadow-md"
             >
               Join Now
-            </button>
+            </a>
           </div>
         </div>
       )}
