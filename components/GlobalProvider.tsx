@@ -1,7 +1,13 @@
 'use client';
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { X, Copy, Sparkles, Link as LinkIcon, Check, ArrowRight, Share2, ShieldCheck, UserCheck, Building2, CheckCircle2 } from 'lucide-react';
+import React, { createContext, useContext, useState, useEffect, useRef, ReactNode } from 'react';
+import { X, Copy, Sparkles, Link as LinkIcon, Check, ArrowRight, Share2, ShieldCheck, UserCheck, Building2, CheckCircle2, Cookie } from 'lucide-react';
+
+declare global {
+  interface Window {
+    grecaptcha: any;
+  }
+}
 
 interface GlobalContextType {
   onOpenAuth: (mode: 'signup' | 'login', role?: 'creator' | 'brand') => void;
@@ -9,7 +15,16 @@ interface GlobalContextType {
   showToast: (msg: string) => void;
   searchTerm: string;
   setSearchTerm: (term: string) => void;
+  isCookieBannerVisible: boolean;
 }
+
+interface CookiePrefs {
+  necessary: true;
+  analytics: boolean;
+  marketing: boolean;
+}
+
+const COOKIE_CONSENT_KEY = 'cloudlinks_cookie_consent';
 
 const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
 
@@ -34,6 +49,38 @@ export function GlobalProvider({ children }: { children: ReactNode }) {
   const [toastMessage, setToastMessage] = useState('');
   const [isToastVisible, setIsToastVisible] = useState(false);
 
+  const [isCookieBannerVisible, setIsCookieBannerVisible] = useState(false);
+  const [isCookiePrefsOpen, setIsCookiePrefsOpen] = useState(false);
+  const [cookiePrefs, setCookiePrefs] = useState<{ analytics: boolean; marketing: boolean }>({
+    analytics: false,
+    marketing: false,
+  });
+
+  useEffect(() => {
+    const stored = localStorage.getItem(COOKIE_CONSENT_KEY);
+    if (!stored) {
+      setIsCookieBannerVisible(true);
+    }
+  }, []);
+
+  const persistCookieConsent = (prefs: CookiePrefs) => {
+    localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify({ ...prefs, updatedAt: Date.now() }));
+    setIsCookieBannerVisible(false);
+    setIsCookiePrefsOpen(false);
+  };
+
+  const handleAcceptAllCookies = () => {
+    persistCookieConsent({ necessary: true, analytics: true, marketing: true });
+  };
+
+  const handleNecessaryOnlyCookies = () => {
+    persistCookieConsent({ necessary: true, analytics: false, marketing: false });
+  };
+
+  const handleSaveCookiePrefs = () => {
+    persistCookieConsent({ necessary: true, analytics: cookiePrefs.analytics, marketing: cookiePrefs.marketing });
+  };
+
   const showToast = (msg: string) => {
     setToastMessage(msg);
     setIsToastVisible(true);
@@ -51,7 +98,7 @@ export function GlobalProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <GlobalContext.Provider value={{ onOpenAuth: handleOpenAuth, onOpenLinkGen: handleOpenLinkGen, showToast, searchTerm, setSearchTerm }}>
+    <GlobalContext.Provider value={{ onOpenAuth: handleOpenAuth, onOpenLinkGen: handleOpenLinkGen, showToast, searchTerm, setSearchTerm, isCookieBannerVisible }}>
       {children}
       <LinkGeneratorModal
         isOpen={isLinkGenOpen}
@@ -70,6 +117,17 @@ export function GlobalProvider({ children }: { children: ReactNode }) {
         message={toastMessage}
         isVisible={isToastVisible}
         onClose={() => setIsToastVisible(false)}
+      />
+      <CookieConsent
+        isVisible={isCookieBannerVisible}
+        isPrefsOpen={isCookiePrefsOpen}
+        prefs={cookiePrefs}
+        onSetPrefs={setCookiePrefs}
+        onAcceptAll={handleAcceptAllCookies}
+        onNecessaryOnly={handleNecessaryOnlyCookies}
+        onOpenPrefs={() => setIsCookiePrefsOpen(true)}
+        onClosePrefs={() => setIsCookiePrefsOpen(false)}
+        onSavePrefs={handleSaveCookiePrefs}
       />
     </GlobalContext.Provider>
   );
@@ -267,6 +325,41 @@ const AuthModal: React.FC<AuthModalProps> = ({
     password: '',
   });
 
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const [isVerifying, setIsVerifying] = useState(false);
+  const captchaContainerRef = useRef<HTMLDivElement>(null);
+  const captchaWidgetId = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (!isOpen) {
+      captchaWidgetId.current = null;
+      setCaptchaToken(null);
+      return;
+    }
+    if (initialRole !== 'brand') return;
+
+    let cancelled = false;
+    const renderCaptcha = () => {
+      if (cancelled || !captchaContainerRef.current) return;
+      if (typeof window === 'undefined' || !window.grecaptcha || !window.grecaptcha.render) {
+        setTimeout(renderCaptcha, 200);
+        return;
+      }
+      if (captchaWidgetId.current === null) {
+        captchaWidgetId.current = window.grecaptcha.render(captchaContainerRef.current, {
+          sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
+          callback: (token: string) => setCaptchaToken(token),
+          'expired-callback': () => setCaptchaToken(null),
+        });
+      }
+    };
+    renderCaptcha();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [isOpen, initialRole]);
+
   if (!isOpen) return null;
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -283,10 +376,38 @@ const AuthModal: React.FC<AuthModalProps> = ({
   // Branches on initialRole (how the modal was opened), not the mutable role state,
   // so the in-modal Creator/Brand toggle in the regular flow keeps working as before.
   if (initialRole === 'brand') {
-    const handleBrandSubmit = (e: React.FormEvent) => {
+    const handleBrandSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
-      onToast(`Thanks! Our team will reach out to you shortly.`);
-      onClose();
+
+      if (!captchaToken) {
+        onToast('Please complete the reCAPTCHA verification.');
+        return;
+      }
+
+      setIsVerifying(true);
+      try {
+        const res = await fetch('/api/verify-recaptcha', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ token: captchaToken }),
+        });
+        const data = await res.json();
+
+        if (data.success) {
+          onToast(`Thanks! Our team will reach out to you shortly.`);
+          onClose();
+        } else {
+          onToast('reCAPTCHA verification failed. Please try again.');
+          if (captchaWidgetId.current !== null) {
+            window.grecaptcha?.reset(captchaWidgetId.current);
+          }
+          setCaptchaToken(null);
+        }
+      } catch {
+        onToast('Something went wrong verifying reCAPTCHA. Please try again.');
+      } finally {
+        setIsVerifying(false);
+      }
     };
 
     return (
@@ -357,11 +478,14 @@ const AuthModal: React.FC<AuthModalProps> = ({
                 />
               </div>
 
+              <div ref={captchaContainerRef} className="flex justify-center pt-1" />
+
               <button
                 type="submit"
-                className="w-full py-3 px-6 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 mt-2"
+                disabled={!captchaToken || isVerifying}
+                className="w-full py-3 px-6 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] disabled:opacity-60 disabled:cursor-not-allowed text-[#1A3C34] font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 mt-2"
               >
-                Submit Details
+                {isVerifying ? 'Verifying...' : 'Submit Details'}
                 <ArrowRight className="w-4 h-4" />
               </button>
             </form>
@@ -558,5 +682,155 @@ const Toast: React.FC<ToastProps> = ({ message, isVisible, onClose }) => {
         <X className="w-4 h-4" />
       </button>
     </div>
+  );
+};
+
+interface CookieConsentProps {
+  isVisible: boolean;
+  isPrefsOpen: boolean;
+  prefs: { analytics: boolean; marketing: boolean };
+  onSetPrefs: (prefs: { analytics: boolean; marketing: boolean }) => void;
+  onAcceptAll: () => void;
+  onNecessaryOnly: () => void;
+  onOpenPrefs: () => void;
+  onClosePrefs: () => void;
+  onSavePrefs: () => void;
+}
+
+const ToggleSwitch: React.FC<{ checked: boolean; disabled?: boolean; onChange: () => void }> = ({
+  checked,
+  disabled,
+  onChange,
+}) => (
+  <button
+    type="button"
+    role="switch"
+    aria-checked={checked}
+    disabled={disabled}
+    onClick={onChange}
+    className={`relative w-10 h-6 rounded-full transition-colors shrink-0 ${
+      checked ? 'bg-[#C89B2A]' : 'bg-[#E8E2D6]'
+    } ${disabled ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer'}`}
+  >
+    <span
+      className={`absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow-sm transition-transform ${
+        checked ? 'translate-x-4' : 'translate-x-0'
+      }`}
+    />
+  </button>
+);
+
+const CookieConsent: React.FC<CookieConsentProps> = ({
+  isVisible,
+  isPrefsOpen,
+  prefs,
+  onSetPrefs,
+  onAcceptAll,
+  onNecessaryOnly,
+  onOpenPrefs,
+  onClosePrefs,
+  onSavePrefs,
+}) => {
+  if (!isVisible && !isPrefsOpen) return null;
+
+  return (
+    <>
+      {isVisible && !isPrefsOpen && (
+        <div className="fixed bottom-6 left-6 z-40 w-[calc(100%-3rem)] sm:w-96 bg-[#FDFAF4] border border-[#E8E2D6] rounded-2xl shadow-2xl p-5 space-y-4 animate-fade-in">
+          <div className="flex items-start gap-3">
+            <div className="w-9 h-9 rounded-full bg-[#C89B2A]/15 flex items-center justify-center shrink-0">
+              <Cookie className="w-5 h-5 text-[#C89B2A]" />
+            </div>
+            <div className="space-y-1.5">
+              <h3 className="font-display font-extrabold text-[#1A3C34] text-base">We Use Cookies</h3>
+              <p className="text-sm text-[#6B6355] leading-relaxed">
+                We use cookies to keep CloudLinks running smoothly and, with your permission, to understand how it&apos;s used. You can accept all cookies or choose what you&apos;re comfortable with.
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <button
+              onClick={onAcceptAll}
+              className="w-full py-2.5 px-5 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-bold text-sm shadow-md transition-all"
+            >
+              Accept All
+            </button>
+            <button
+              onClick={onNecessaryOnly}
+              className="w-full py-2.5 px-5 rounded-xl border-2 border-[#1A3C34] text-[#1A3C34] hover:bg-[#1A3C34] hover:text-white font-bold text-sm transition-all"
+            >
+              Necessary Only
+            </button>
+            <button
+              onClick={onOpenPrefs}
+              className="w-full text-center text-xs font-semibold text-[#6B6355] hover:text-[#C89B2A] transition-colors pt-1"
+            >
+              Manage Preferences
+            </button>
+          </div>
+        </div>
+      )}
+
+      {isPrefsOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1A3C34]/60 backdrop-blur-sm">
+          <div className="relative w-full max-w-md bg-[#FDFAF4] rounded-2xl shadow-2xl border border-[#E8E2D6] overflow-hidden">
+            <div className="flex items-center justify-between p-6 bg-[#1A3C34] text-white">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-lg bg-[#C89B2A] flex items-center justify-center">
+                  <Cookie className="w-4 h-4 text-[#1A3C34]" />
+                </div>
+                <h3 className="font-display font-bold text-lg text-white">Cookie Preferences</h3>
+              </div>
+              <button
+                onClick={onClosePrefs}
+                className="p-1 text-white/70 hover:text-white rounded-lg hover:bg-white/10 transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="p-6 space-y-5">
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-sm font-bold text-[#1A3C34]">Necessary</p>
+                  <p className="text-xs text-[#6B6355]">Required for the site to function. Always active.</p>
+                </div>
+                <ToggleSwitch checked={true} disabled onChange={() => {}} />
+              </div>
+
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-sm font-bold text-[#1A3C34]">Analytics</p>
+                  <p className="text-xs text-[#6B6355]">Helps us understand how visitors use CloudLinks.</p>
+                </div>
+                <ToggleSwitch
+                  checked={prefs.analytics}
+                  onChange={() => onSetPrefs({ ...prefs, analytics: !prefs.analytics })}
+                />
+              </div>
+
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-sm font-bold text-[#1A3C34]">Marketing</p>
+                  <p className="text-xs text-[#6B6355]">Used to show more relevant offers and campaigns.</p>
+                </div>
+                <ToggleSwitch
+                  checked={prefs.marketing}
+                  onChange={() => onSetPrefs({ ...prefs, marketing: !prefs.marketing })}
+                />
+              </div>
+
+              <button
+                onClick={onSavePrefs}
+                className="w-full py-3 px-6 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-bold text-sm shadow-md transition-all"
+              >
+                Save Preferences
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };

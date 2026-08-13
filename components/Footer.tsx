@@ -2,11 +2,11 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Tag, Users, Wallet, ShoppingBag, ShieldCheck, Heart, Instagram, Youtube, Linkedin, Twitter, Send, ArrowUp, ChevronRight } from 'lucide-react';
+import { Tag, Users, Wallet, ShoppingBag, ShieldCheck, Heart, Instagram, Youtube, Linkedin, Twitter, Send, ArrowUp, ChevronRight, Phone, Mail } from 'lucide-react';
 import { useGlobalContext } from './GlobalProvider';
 
 export const Footer: React.FC = () => {
-  const { onOpenAuth, onOpenLinkGen } = useGlobalContext();
+  const { onOpenAuth, onOpenLinkGen, isCookieBannerVisible } = useGlobalContext();
   const [legalModalTitle, setLegalModalTitle] = useState<string | null>(null);
 
   const scrollToTop = () => {
@@ -34,6 +34,18 @@ export const Footer: React.FC = () => {
             <p className="text-base text-[#6B6355] leading-relaxed max-w-md">
               India's premier creator monetization platform empowering creators, influencers, and publishers to earn high affiliate commissions from 500+ top brands.
             </p>
+
+            {/* Contact Info */}
+            <div className="space-y-2.5 pt-1">
+              <a href="tel:+917527963812" className="flex items-center gap-2.5 text-base font-medium text-[#6B6355] hover:text-[#C89B2A] transition-colors">
+                <Phone className="w-4 h-4 text-[#C89B2A] shrink-0" />
+                +91 7527 963 812
+              </a>
+              <a href="mailto:internal@analyticsclouds.com" className="flex items-center gap-2.5 text-base font-medium text-[#6B6355] hover:text-[#C89B2A] transition-colors">
+                <Mail className="w-4 h-4 text-[#C89B2A] shrink-0" />
+                internal@analyticsclouds.com
+              </a>
+            </div>
 
             {/* Social Icons (Slightly larger icons & buttons) */}
             <div className="flex items-center gap-3 pt-2">
@@ -232,14 +244,16 @@ export const Footer: React.FC = () => {
 
       </div>
 
-      {/* Back to top float button */}
-      <button
-        onClick={scrollToTop}
-        className="fixed bottom-6 left-6 z-30 w-11 h-11 rounded-full bg-[#1A3C34] text-[#C89B2A] border border-[#C89B2A]/40 shadow-xl flex items-center justify-center hover:scale-105 transition-transform cursor-pointer"
-        aria-label="Back to top"
-      >
-        <ArrowUp className="w-5 h-5" />
-      </button>
+      {/* Back to top float button (hidden while the cookie banner occupies this corner) */}
+      {!isCookieBannerVisible && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 left-6 z-30 w-11 h-11 rounded-full bg-[#1A3C34] text-[#C89B2A] border border-[#C89B2A]/40 shadow-xl flex items-center justify-center hover:scale-105 transition-transform cursor-pointer"
+          aria-label="Back to top"
+        >
+          <ArrowUp className="w-5 h-5" />
+        </button>
+      )}
 
       {/* Legal Info Modal */}
       {legalModalTitle && (

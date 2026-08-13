@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Inter, Plus_Jakarta_Sans, Sora } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
@@ -39,6 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${plusJakartaSans.variable} ${sora.variable}`}>
       <body className="min-h-screen bg-[#F5F0E8] text-[#1A3C34] flex flex-col font-sans selection:bg-[#C89B2A]/20">
+        <Script src="https://www.google.com/recaptcha/api.js" strategy="afterInteractive" />
         <GlobalProvider>
           <Navbar />
           <main className="flex-1">
