@@ -148,40 +148,40 @@ export const Navbar: React.FC = () => {
             <Search className="w-4 h-4 text-[#6B6355] absolute left-3.5 top-3.5" />
           </form>
 
-          <div className="grid grid-cols-2 gap-2.5 text-sm font-semibold text-[#1A3C34]">
+          <div className="flex flex-col divide-y divide-[#E8E2D6] text-base font-semibold text-[#1A3C34]">
             {/* Home included for Mobile UX */}
             <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
-              className="p-3.5 text-left bg-white rounded-xl border border-[#E8E2D6] hover:border-[#C89B2A]"
+              className={`py-3.5 transition-colors ${pathname === '/' ? 'text-[#C89B2A]' : 'hover:text-[#C89B2A]'}`}
             >
               Home
             </Link>
             <Link
               href="/campaigns"
               onClick={() => setMobileMenuOpen(false)}
-              className="p-3.5 text-left bg-white rounded-xl border border-[#E8E2D6] hover:border-[#C89B2A]"
+              className={`py-3.5 transition-colors ${pathname === '/campaigns' ? 'text-[#C89B2A]' : 'hover:text-[#C89B2A]'}`}
             >
               Campaigns
             </Link>
             <Link
               href="/how-it-works"
               onClick={() => setMobileMenuOpen(false)}
-              className="p-3.5 text-left bg-white rounded-xl border border-[#E8E2D6] hover:border-[#C89B2A]"
+              className={`py-3.5 transition-colors ${pathname === '/how-it-works' ? 'text-[#C89B2A]' : 'hover:text-[#C89B2A]'}`}
             >
               How It Works
             </Link>
             <Link
               href="/influencer"
               onClick={() => setMobileMenuOpen(false)}
-              className="p-3.5 text-left bg-white rounded-xl border border-[#E8E2D6] hover:border-[#C89B2A]"
+              className={`py-3.5 transition-colors ${pathname === '/influencer' ? 'text-[#C89B2A]' : 'hover:text-[#C89B2A]'}`}
             >
               Influencers
             </Link>
             <Link
               href="/payouts"
               onClick={() => setMobileMenuOpen(false)}
-              className="p-3.5 text-left bg-white rounded-xl border border-[#E8E2D6] hover:border-[#C89B2A] col-span-2"
+              className={`py-3.5 transition-colors ${pathname === '/payouts' ? 'text-[#C89B2A]' : 'hover:text-[#C89B2A]'}`}
             >
               Payouts
             </Link>

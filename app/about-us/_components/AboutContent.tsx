@@ -1,7 +1,6 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { useGlobalContext } from '@/components/GlobalProvider';
 import {
   Users,
   Tag,
@@ -20,20 +19,19 @@ import {
   Twitter,
   Github,
   Instagram,
-  Lightbulb,
+  Lightbulb,SearchCheck,
   Code2,
   Rocket,
   TrendingUp,
   Award,
   Star,
-  Quote,
+  Quote,Building2,Link2 , Share2, Wallet,
   CheckCircle,
   ExternalLink,
   Lock,
 } from 'lucide-react';
 
 export default function AboutContent() {
-  const { onOpenAuth } = useGlobalContext();
   // Stats counter animation on scroll
   const [hasScrolledToStats, setHasScrolledToStats] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
@@ -132,35 +130,30 @@ export default function AboutContent() {
           </div>
 
           {/* Giant Bold Headline */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold font-display leading-[1.1] max-w-4xl mx-auto tracking-tight">
-            We're on a Mission <br className="hidden sm:inline" />
-            to Make Every Indian <br className="hidden sm:inline" />
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold font-display leading-[1.1] max-w-6xl mx-auto tracking-tight">
+            Brand Recommendations Deserve <br className="hidden sm:inline" />
+       
             <span className="text-[#C89B2A] underline decoration-[#C89B2A]/40 underline-offset-8">
-              Creator's Content Pay.
+            Something in Return.
             </span>
           </h1>
 
           {/* Subtext */}
           <p className="text-base sm:text-xl text-[#E8E2D6]/90 max-w-2xl mx-auto leading-relaxed font-normal">
-            CloudLinks was built with one belief — that every Indian with an audience, big or small, deserves to earn from their content. We're making that a reality for 10,000+ creators across India.
+            CloudsLink is an affiliate marketing platform that makes it easier to share products, discover great offers and earn from the recommendations you make.
+
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <button
-              onClick={() => onOpenAuth('signup', 'creator')}
+            <a
+              href="https://analytics.trackier.io/register.html"
               className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-black text-sm transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-2 cursor-pointer transform hover:-translate-y-0.5"
             >
               <span>Join CloudLinks Free</span>
               <ArrowRight className="w-4 h-4" />
-            </button>
-            <button
-              onClick={scrollToStory}
-              className="w-full sm:w-auto px-8 py-4 rounded-xl border-2 border-white/30 text-white hover:bg-white/10 font-extrabold text-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <span>Our Story</span>
-              <ChevronDown className="w-4 h-4" />
-            </button>
+            </a>
+           
           </div>
 
           {/* Scroll Down Bouncing Indicator */}
@@ -170,7 +163,7 @@ export default function AboutContent() {
               className="p-2 text-[#C89B2A] hover:text-white transition-colors animate-bounce cursor-pointer"
               aria-label="Scroll to story"
             >
-              <ChevronDown className="w-6 h-6" />
+              
             </button>
           </div>
         </div>
@@ -255,23 +248,10 @@ export default function AboutContent() {
                     alt="CloudLinks Founders Working"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A3C34]/90 via-[#1A3C34]/30 to-transparent flex flex-col justify-end p-6 text-white">
-                    <span className="font-display font-black text-xl text-[#C89B2A]">CloudLinks HQ • New Delhi</span>
-                    <span className="text-xs text-[#E8E2D6]">Building Bharat's Creator Economy Engine</span>
-                  </div>
+                  
                 </div>
 
-                {/* Floating Gold Quote Bubble */}
-                <div className="mt-4 p-5 rounded-2xl bg-[#1A3C34] text-white border border-[#C89B2A]/40 shadow-lg space-y-2">
-                  <div className="flex items-center gap-2 text-[#C89B2A]">
-                    <Quote className="w-5 h-5 flex-shrink-0" />
-                    <span className="text-xs font-bold uppercase tracking-wider">Founders' Note</span>
-                  </div>
-                  <p className="text-xs sm:text-sm italic font-medium leading-relaxed text-[#E8E2D6]">
-                    "We asked ourselves — why is it so hard for Indian creators to earn from their content? So we built CloudLinks to fix that."
-                  </p>
-                  <div className="text-[11px] font-bold text-[#C89B2A] pt-1">— CloudLinks Founders</div>
-                </div>
+          
               </div>
             </div>
 
@@ -283,38 +263,27 @@ export default function AboutContent() {
                   <span>Our Story</span>
                 </div>
                 <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-[#1A3C34]">
-                  Born from a Simple <span className="text-[#C89B2A]">Frustration</span>
+                  What <span className="text-[#C89B2A]">We Do</span>
                 </h2>
                 <div className="w-20 h-1.5 bg-[#C89B2A] rounded-full" />
               </div>
 
               <div className="space-y-4 text-sm sm:text-base text-[#6B6355] leading-relaxed font-medium">
                 <p>
-                  In 2024, two Indian creators were frustrated. They had audiences, they had influence — but earning from it was complicated, unreliable, and full of friction. Payments were delayed, platforms were foreign, and Indian brands were hard to find in one place.
+                  We connect people with brands and offers they may genuinely find useful — while giving businesses a way to reach new customers.
+
                 </p>
                 <p>
-                  So they built CloudLinks. A platform designed specifically for Indian creators — with Indian brands, instant UPI payouts, a Hindi-friendly interface, and zero barriers to entry. No minimum followers. No approval wait. Just sign up and start earning.
+                  Choose a brand you want to recommend, get your unique link, share it wherever permitted and earn when your recommendation leads to a qualifying action.
+
                 </p>
                 <p>
-                  Today, CloudLinks is home to 10,000+ creators across India — students, homemakers, influencers, bloggers, and YouTubers — all earning real income by sharing links to brands they love.
+                  Simple to share. Simple to track. Simple to earn.
+
                 </p>
               </div>
 
-              {/* Milestone Pills */}
-              <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[#E8E2D6]">
-                <div className="px-4 py-2 rounded-xl bg-[#FDFAF4] border border-[#C89B2A] text-[#1A3C34] text-xs font-extrabold flex items-center gap-2 shadow-xs">
-                  <span>🗓️</span>
-                  <span>Founded: 2024</span>
-                </div>
-                <div className="px-4 py-2 rounded-xl bg-[#FDFAF4] border border-[#C89B2A] text-[#1A3C34] text-xs font-extrabold flex items-center gap-2 shadow-xs">
-                  <span>🏢</span>
-                  <span>HQ: New Delhi, India</span>
-                </div>
-                <div className="px-4 py-2 rounded-xl bg-[#FDFAF4] border border-[#C89B2A] text-[#1A3C34] text-xs font-extrabold flex items-center gap-2 shadow-xs">
-                  <span>🚀</span>
-                  <span>Launched: Jan 2025</span>
-                </div>
-              </div>
+             
             </div>
           </div>
         </div>
@@ -323,711 +292,236 @@ export default function AboutContent() {
       {/* -------------------------------------------------------------------------- */}
       {/* SECTION 4 — OUR MISSION & VISION                                          */}
       {/* -------------------------------------------------------------------------- */}
-      <section className="py-20 bg-[#EDE8DC] border-t border-[#E8E2D6] relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-[#1A3C34]">
-              What <span className="text-[#C89B2A]">Drives Us</span>
-            </h2>
-            <div className="w-16 h-1 bg-[#C89B2A] rounded-full mx-auto" />
-            <p className="text-sm sm:text-base text-[#6B6355] font-medium pt-1">
-              Building the foundational economic rail for India's digital creator workforce
-            </p>
+      <section className="py-20 sm:py-28 bg-[#EDE8DC] relative overflow-hidden border-t border-[#E8E2D6]">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20 relative z-10">
+    
+    {/* Header Section */}
+    <div className="text-center max-w-3xl mx-auto space-y-4">
+      <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#C89B2A]/15 text-[#8A6615] text-xs font-bold uppercase tracking-wider border border-[#C89B2A]/30">
+        <Sparkles className="w-3.5 h-3.5" />
+        CloudLinks Ecosystem
+      </span>
+      <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-[#1A3C34] tracking-tight">
+        What We Do
+      </h2>
+      <p className="text-base sm:text-lg text-[#6B6355] font-medium leading-relaxed">
+        We connect people with brands and offers they may genuinely find useful — while giving businesses a way to reach new customers.
+      </p>
+    </div>
+
+    {/* Workflow Process Flow */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+      
+      {/* Step 1 */}
+      <div className="bg-[#FDFAF4] rounded-3xl p-8 border border-[#E8E2D6] shadow-md hover:shadow-xl transition-all duration-300 relative group flex flex-col justify-between space-y-6">
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <div className="w-12 h-12 rounded-2xl bg-[#C89B2A]/15 border border-[#C89B2A]/30 text-[#C89B2A] flex items-center justify-center font-bold text-lg">
+              <Link2 className="w-6 h-6 text-[#C89B2A]" />
+            </div>
+            <span className="text-3xl font-black text-[#C89B2A]/30 font-display">01</span>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Mission Card */}
-            <div className="bg-[#FDFAF4] rounded-3xl p-8 sm:p-10 border border-[#E8E2D6] border-t-4 border-t-[#C89B2A] shadow-xl hover:-translate-y-1 transition-all duration-300 space-y-6 relative overflow-hidden group">
-              <div className="w-16 h-16 rounded-2xl bg-[#C89B2A]/15 text-[#C89B2A] border border-[#C89B2A]/30 flex items-center justify-center shadow-xs">
-                <Target className="w-8 h-8 text-[#C89B2A]" />
-              </div>
-
-              <div className="space-y-2">
-                <span className="text-xs font-black uppercase tracking-widest text-[#C89B2A]">
-                  OUR MISSION
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold font-display text-[#1A3C34]">
-                  Democratize Earning for Every Indian Creator
-                </h3>
-              </div>
-
-              <p className="text-sm sm:text-base text-[#6B6355] leading-relaxed font-normal">
-                We believe every Indian with a mobile phone and an audience deserves to earn. Our mission is to remove every barrier between a creator and their first rupee — no minimum followers, no fees, no complexity.
-              </p>
-
-              <div className="w-full border-b-2 border-dashed border-[#C89B2A]/40 pt-4" />
-            </div>
-
-            {/* Vision Card */}
-            <div className="bg-[#FDFAF4] rounded-3xl p-8 sm:p-10 border border-[#E8E2D6] border-t-4 border-t-[#1A3C34] shadow-xl hover:-translate-y-1 transition-all duration-300 space-y-6 relative overflow-hidden group">
-              <div className="w-16 h-16 rounded-2xl bg-[#1A3C34]/15 text-[#1A3C34] border border-[#1A3C34]/30 flex items-center justify-center shadow-xs">
-                <Eye className="w-8 h-8 text-[#1A3C34]" />
-              </div>
-
-              <div className="space-y-2">
-                <span className="text-xs font-black uppercase tracking-widest text-[#1A3C34]">
-                  OUR VISION
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold font-display text-[#1A3C34]">
-                  India's Most Trusted Creator Economy Platform
-                </h3>
-              </div>
-
-              <p className="text-sm sm:text-base text-[#6B6355] leading-relaxed font-normal">
-                We envision a future where every Indian creator — from a student in Patna to an influencer in Mumbai — earns consistently and confidently from their content. CloudLinks will be the platform that makes it happen.
-              </p>
-
-              <div className="w-full border-b-2 border-dashed border-[#1A3C34]/40 pt-4" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* -------------------------------------------------------------------------- */}
-      {/* SECTION 5 — OUR VALUES (UNIQUE VISUAL LAYOUT)                             */}
-      {/* -------------------------------------------------------------------------- */}
-      <section className="py-20 bg-[#1A3C34] text-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-white">
-              The Values We <span className="text-[#C89B2A]">Live By</span>
-            </h2>
-            <div className="w-16 h-1 bg-[#C89B2A] rounded-full mx-auto" />
-            <p className="text-sm sm:text-base text-[#E8E2D6]/80 font-medium pt-1">
-              These aren't just words on a wall — they guide every decision we make
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Value 1 */}
-            <div className="bg-[#234D42] rounded-2xl p-6 sm:p-8 space-y-4 border border-white/10 hover:border-t-4 hover:border-t-[#C89B2A] hover:-translate-y-1 transition-all duration-300 shadow-lg group">
-              <div className="w-12 h-12 rounded-xl bg-[#1A3C34] text-[#C89B2A] border border-[#C89B2A]/30 flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform">
-                <Eye className="w-6 h-6" />
-              </div>
-              <h3 className="font-display font-extrabold text-xl text-white">Radical Transparency</h3>
-              <p className="text-xs sm:text-sm text-[#E8E2D6]/80 leading-relaxed font-normal">
-                No hidden fees. No surprise deductions. No fine print. What you earn is exactly what you receive.
-              </p>
-              <div className="w-12 h-1 bg-[#C89B2A] rounded-full pt-0.5" />
-            </div>
-
-            {/* Value 2 */}
-            <div className="bg-[#234D42] rounded-2xl p-6 sm:p-8 space-y-4 border border-white/10 hover:border-t-4 hover:border-t-[#C89B2A] hover:-translate-y-1 transition-all duration-300 shadow-lg group">
-              <div className="w-12 h-12 rounded-xl bg-[#1A3C34] text-[#C89B2A] border border-[#C89B2A]/30 flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform">
-                <Heart className="w-6 h-6" />
-              </div>
-              <h3 className="font-display font-extrabold text-xl text-white">Creator First, Always</h3>
-              <p className="text-xs sm:text-sm text-[#E8E2D6]/80 leading-relaxed font-normal">
-                Every product decision starts with one question: does this make life easier for our creators?
-              </p>
-              <div className="w-12 h-1 bg-[#C89B2A] rounded-full pt-0.5" />
-            </div>
-
-            {/* Value 3 */}
-            <div className="bg-[#234D42] rounded-2xl p-6 sm:p-8 space-y-4 border border-white/10 hover:border-t-4 hover:border-t-[#C89B2A] hover:-translate-y-1 transition-all duration-300 shadow-lg group">
-              <div className="w-12 h-12 rounded-xl bg-[#1A3C34] text-[#C89B2A] border border-[#C89B2A]/30 flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform">
-                <Zap className="w-6 h-6" />
-              </div>
-              <h3 className="font-display font-extrabold text-xl text-white">Speed is Respect</h3>
-              <p className="text-xs sm:text-sm text-[#E8E2D6]/80 leading-relaxed font-normal">
-                Instant payouts. Instant link generation. Instant approvals. We respect your time.
-              </p>
-              <div className="w-12 h-1 bg-[#C89B2A] rounded-full pt-0.5" />
-            </div>
-
-            {/* Value 4 */}
-            <div className="bg-[#234D42] rounded-2xl p-6 sm:p-8 space-y-4 border border-white/10 hover:border-t-4 hover:border-t-[#C89B2A] hover:-translate-y-1 transition-all duration-300 shadow-lg group">
-              <div className="w-12 h-12 rounded-xl bg-[#1A3C34] text-[#C89B2A] border border-[#C89B2A]/30 flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform">
-                <Users className="w-6 h-6" />
-              </div>
-              <h3 className="font-display font-extrabold text-xl text-white">Everyone Belongs Here</h3>
-              <p className="text-xs sm:text-sm text-[#E8E2D6]/80 leading-relaxed font-normal">
-                500 followers or 5,00,000 — every creator is welcome, valued, and supported equally on CloudLinks.
-              </p>
-              <div className="w-12 h-1 bg-[#C89B2A] rounded-full pt-0.5" />
-            </div>
-
-            {/* Value 5 */}
-            <div className="bg-[#234D42] rounded-2xl p-6 sm:p-8 space-y-4 border border-white/10 hover:border-t-4 hover:border-t-[#C89B2A] hover:-translate-y-1 transition-all duration-300 shadow-lg group">
-              <div className="w-12 h-12 rounded-xl bg-[#1A3C34] text-[#C89B2A] border border-[#C89B2A]/30 flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform">
-                <ShieldCheck className="w-6 h-6" />
-              </div>
-              <h3 className="font-display font-extrabold text-xl text-white">Built on Trust</h3>
-              <p className="text-xs sm:text-sm text-[#E8E2D6]/80 leading-relaxed font-normal">
-                Trust is our currency. With creators, with brands, and with every rupee that flows through our platform.
-              </p>
-              <div className="w-12 h-1 bg-[#C89B2A] rounded-full pt-0.5" />
-            </div>
-
-            {/* Value 6 */}
-            <div className="bg-[#234D42] rounded-2xl p-6 sm:p-8 space-y-4 border border-white/10 hover:border-t-4 hover:border-t-[#C89B2A] hover:-translate-y-1 transition-all duration-300 shadow-lg group">
-              <div className="w-12 h-12 rounded-xl bg-[#1A3C34] text-[#C89B2A] border border-[#C89B2A]/30 flex items-center justify-center shadow-xs group-hover:scale-110 transition-transform">
-                <Flag className="w-6 h-6" />
-              </div>
-              <h3 className="font-display font-extrabold text-xl text-white">Proudly Indian</h3>
-              <p className="text-xs sm:text-sm text-[#E8E2D6]/80 leading-relaxed font-normal">
-                Built for Indian creators, featuring Indian brands, paying out in Indian rupees. CloudLinks is India's own.
-              </p>
-              <div className="w-12 h-1 bg-[#C89B2A] rounded-full pt-0.5" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* -------------------------------------------------------------------------- */}
-      {/* SECTION 6 — MEET THE TEAM                                                  */}
-      {/* -------------------------------------------------------------------------- */}
-      <section className="py-20 bg-[#F5F0E8] relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-[#1A3C34]">
-              The People Behind <span className="text-[#C89B2A]">CloudLinks</span>
-            </h2>
-            <div className="w-16 h-1 bg-[#C89B2A] rounded-full mx-auto" />
-            <p className="text-sm sm:text-base text-[#6B6355] font-medium pt-1">
-              A small but passionate team obsessed with creator success
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Card 1 */}
-            <div className="bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 text-center space-y-4 shadow-md hover:-translate-y-1 hover:border-b-4 hover:border-b-[#C89B2A] hover:shadow-xl transition-all duration-300 group">
-              <div className="w-20 h-20 rounded-full bg-[#1A3C34] text-white font-extrabold text-2xl flex items-center justify-center mx-auto shadow-md border-2 border-[#C89B2A]">
-                AK
-              </div>
-              <div className="space-y-1">
-                <h3 className="font-display font-extrabold text-lg text-[#1A3C34]">Arjun Kapoor</h3>
-                <span className="text-xs font-bold text-[#C89B2A] uppercase tracking-wider block">Co-Founder & CEO</span>
-              </div>
-              <p className="text-xs text-[#6B6355] leading-relaxed font-medium">
-                Ex-Flipkart. Obsessed with the Indian creator economy. Believes every Indian deserves to earn from their content.
-              </p>
-              <div className="flex items-center justify-center gap-3 pt-2 text-[#1A3C34]">
-                <a href="#linkedin" className="p-1.5 rounded-lg bg-[#F5F0E8] hover:bg-[#C89B2A] hover:text-[#1A3C34] transition-colors">
-                  <Linkedin className="w-4 h-4" />
-                </a>
-                <a href="#twitter" className="p-1.5 rounded-lg bg-[#F5F0E8] hover:bg-[#C89B2A] hover:text-[#1A3C34] transition-colors">
-                  <Twitter className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
-
-            {/* Card 2 */}
-            <div className="bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 text-center space-y-4 shadow-md hover:-translate-y-1 hover:border-b-4 hover:border-b-[#C89B2A] hover:shadow-xl transition-all duration-300 group">
-              <div className="w-20 h-20 rounded-full bg-[#C89B2A] text-[#1A3C34] font-extrabold text-2xl flex items-center justify-center mx-auto shadow-md border-2 border-[#1A3C34]">
-                RS
-              </div>
-              <div className="space-y-1">
-                <h3 className="font-display font-extrabold text-lg text-[#1A3C34]">Rohit Sharma</h3>
-                <span className="text-xs font-bold text-[#C89B2A] uppercase tracking-wider block">Co-Founder & CTO</span>
-              </div>
-              <p className="text-xs text-[#6B6355] leading-relaxed font-medium">
-                Full-stack engineer. Built CloudLinks' real-time tracking engine from scratch. Coffee and code, in that order.
-              </p>
-              <div className="flex items-center justify-center gap-3 pt-2 text-[#1A3C34]">
-                <a href="#linkedin" className="p-1.5 rounded-lg bg-[#F5F0E8] hover:bg-[#C89B2A] hover:text-[#1A3C34] transition-colors">
-                  <Linkedin className="w-4 h-4" />
-                </a>
-                <a href="#github" className="p-1.5 rounded-lg bg-[#F5F0E8] hover:bg-[#C89B2A] hover:text-[#1A3C34] transition-colors">
-                  <Github className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 text-center space-y-4 shadow-md hover:-translate-y-1 hover:border-b-4 hover:border-b-[#C89B2A] hover:shadow-xl transition-all duration-300 group">
-              <div className="w-20 h-20 rounded-full bg-[#1A3C34] text-white font-extrabold text-2xl flex items-center justify-center mx-auto shadow-md border-2 border-[#C89B2A]">
-                PS
-              </div>
-              <div className="space-y-1">
-                <h3 className="font-display font-extrabold text-lg text-[#1A3C34]">Priya Singh</h3>
-                <span className="text-xs font-bold text-[#C89B2A] uppercase tracking-wider block">Head of Growth</span>
-              </div>
-              <p className="text-xs text-[#6B6355] leading-relaxed font-medium">
-                Former YouTuber turned growth hacker. Grew CloudLinks from 0 to 10,000 creators in 6 months.
-              </p>
-              <div className="flex items-center justify-center gap-3 pt-2 text-[#1A3C34]">
-                <a href="#linkedin" className="p-1.5 rounded-lg bg-[#F5F0E8] hover:bg-[#C89B2A] hover:text-[#1A3C34] transition-colors">
-                  <Linkedin className="w-4 h-4" />
-                </a>
-                <a href="#instagram" className="p-1.5 rounded-lg bg-[#F5F0E8] hover:bg-[#C89B2A] hover:text-[#1A3C34] transition-colors">
-                  <Instagram className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
-
-            {/* Card 4 */}
-            <div className="bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 text-center space-y-4 shadow-md hover:-translate-y-1 hover:border-b-4 hover:border-b-[#C89B2A] hover:shadow-xl transition-all duration-300 group">
-              <div className="w-20 h-20 rounded-full bg-[#C89B2A] text-[#1A3C34] font-extrabold text-2xl flex items-center justify-center mx-auto shadow-md border-2 border-[#1A3C34]">
-                MG
-              </div>
-              <div className="space-y-1">
-                <h3 className="font-display font-extrabold text-lg text-[#1A3C34]">Meera Gupta</h3>
-                <span className="text-xs font-bold text-[#C89B2A] uppercase tracking-wider block">Head of Brand Partnerships</span>
-              </div>
-              <p className="text-xs text-[#6B6355] leading-relaxed font-medium">
-                Brings top Indian brands to CloudLinks. Ex-Nykaa. Negotiates the best commissions for our creators.
-              </p>
-              <div className="flex items-center justify-center gap-3 pt-2 text-[#1A3C34]">
-                <a href="#linkedin" className="p-1.5 rounded-lg bg-[#F5F0E8] hover:bg-[#C89B2A] hover:text-[#1A3C34] transition-colors">
-                  <Linkedin className="w-4 h-4" />
-                </a>
-                <a href="#twitter" className="p-1.5 rounded-lg bg-[#F5F0E8] hover:bg-[#C89B2A] hover:text-[#1A3C34] transition-colors">
-                  <Twitter className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* -------------------------------------------------------------------------- */}
-      {/* SECTION 7 — JOURNEY TIMELINE                                               */}
-      {/* -------------------------------------------------------------------------- */}
-      <section className="py-20 bg-[#EDE8DC] border-t border-[#E8E2D6] relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-[#1A3C34]">
-              Our <span className="text-[#C89B2A]">Journey</span>
-            </h2>
-            <div className="w-16 h-1 bg-[#C89B2A] rounded-full mx-auto" />
-            <p className="text-sm sm:text-base text-[#6B6355] font-medium pt-1">
-              From a frustration to a platform — here's how we got here
-            </p>
-          </div>
-
-          {/* Timeline Container */}
-          <div className="relative py-6">
-            {/* Horizontal Line for Desktop */}
-            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-dashed border-b-2 border-dashed border-[#C89B2A]/60 -translate-y-1/2 z-0" />
-
-            {/* Milestones Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 relative z-10">
-              {/* Milestone 1 */}
-              <div className="bg-[#FDFAF4] rounded-2xl p-5 border border-[#E8E2D6] shadow-md space-y-3 hover:scale-105 transition-transform flex flex-col justify-between">
-                <div className="space-y-2">
-                  <div className="w-10 h-10 rounded-full bg-[#C89B2A] text-[#1A3C34] flex items-center justify-center font-bold shadow-xs">
-                    <Lightbulb className="w-5 h-5" />
-                  </div>
-                  <span className="text-xs font-extrabold text-[#C89B2A] uppercase tracking-wider block">Jan 2024</span>
-                  <h4 className="font-display font-extrabold text-base text-[#1A3C34]">The Idea</h4>
-                  <p className="text-xs text-[#6B6355] leading-relaxed">
-                    Two creators get frustrated with affiliate marketing in India. CloudLinks is born on a napkin sketch.
-                  </p>
-                </div>
-              </div>
-
-              {/* Milestone 2 */}
-              <div className="bg-[#FDFAF4] rounded-2xl p-5 border border-[#E8E2D6] shadow-md space-y-3 hover:scale-105 transition-transform flex flex-col justify-between">
-                <div className="space-y-2">
-                  <div className="w-10 h-10 rounded-full bg-[#1A3C34] text-white flex items-center justify-center font-bold shadow-xs">
-                    <Code2 className="w-5 h-5 text-[#C89B2A]" />
-                  </div>
-                  <span className="text-xs font-extrabold text-[#C89B2A] uppercase tracking-wider block">Jun 2024</span>
-                  <h4 className="font-display font-extrabold text-base text-[#1A3C34]">Building Begins</h4>
-                  <p className="text-xs text-[#6B6355] leading-relaxed">
-                    A small team of 4 starts building CloudLinks from scratch in a co-working space in Delhi.
-                  </p>
-                </div>
-              </div>
-
-              {/* Milestone 3 */}
-              <div className="bg-[#FDFAF4] rounded-2xl p-5 border border-[#E8E2D6] shadow-md space-y-3 hover:scale-105 transition-transform flex flex-col justify-between">
-                <div className="space-y-2">
-                  <div className="w-10 h-10 rounded-full bg-[#C89B2A] text-[#1A3C34] flex items-center justify-center font-bold shadow-xs">
-                    <Rocket className="w-5 h-5" />
-                  </div>
-                  <span className="text-xs font-extrabold text-[#C89B2A] uppercase tracking-wider block">Jan 2025</span>
-                  <h4 className="font-display font-extrabold text-base text-[#1A3C34]">Official Launch</h4>
-                  <p className="text-xs text-[#6B6355] leading-relaxed">
-                    CloudLinks officially launches with 50 brand campaigns and its first 100 creators. Payouts processed Day 1.
-                  </p>
-                </div>
-              </div>
-
-              {/* Milestone 4 */}
-              <div className="bg-[#FDFAF4] rounded-2xl p-5 border border-[#E8E2D6] shadow-md space-y-3 hover:scale-105 transition-transform flex flex-col justify-between">
-                <div className="space-y-2">
-                  <div className="w-10 h-10 rounded-full bg-[#1A3C34] text-white flex items-center justify-center font-bold shadow-xs">
-                    <TrendingUp className="w-5 h-5 text-[#C89B2A]" />
-                  </div>
-                  <span className="text-xs font-extrabold text-[#C89B2A] uppercase tracking-wider block">Mar 2025</span>
-                  <h4 className="font-display font-extrabold text-base text-[#1A3C34]">1,000 Creators</h4>
-                  <p className="text-xs text-[#6B6355] leading-relaxed">
-                    CloudLinks crosses 1,000 active creators. First ₹10 lakh paid out to Indian creators.
-                  </p>
-                </div>
-              </div>
-
-              {/* Milestone 5 */}
-              <div className="bg-[#FDFAF4] rounded-2xl p-5 border border-[#E8E2D6] shadow-md space-y-3 hover:scale-105 transition-transform flex flex-col justify-between">
-                <div className="space-y-2">
-                  <div className="w-10 h-10 rounded-full bg-[#C89B2A] text-[#1A3C34] flex items-center justify-center font-bold shadow-xs">
-                    <Award className="w-5 h-5" />
-                  </div>
-                  <span className="text-xs font-extrabold text-[#C89B2A] uppercase tracking-wider block">Jun 2025</span>
-                  <h4 className="font-display font-extrabold text-base text-[#1A3C34]">500+ Brands</h4>
-                  <p className="text-xs text-[#6B6355] leading-relaxed">
-                    500 brand campaigns live. ₹1 Crore paid to creators. Named 'Fastest Growing Affiliate Platform'.
-                  </p>
-                </div>
-              </div>
-
-              {/* Milestone 6 */}
-              <div className="bg-[#FDFAF4] rounded-2xl p-5 border border-[#E8E2D6] shadow-md space-y-3 hover:scale-105 transition-transform flex flex-col justify-between">
-                <div className="space-y-2">
-                  <div className="w-10 h-10 rounded-full bg-[#1A3C34] text-white flex items-center justify-center font-bold shadow-xs">
-                    <Star className="w-5 h-5 text-[#C89B2A]" />
-                  </div>
-                  <span className="text-xs font-extrabold text-[#C89B2A] uppercase tracking-wider block">Jan 2026</span>
-                  <h4 className="font-display font-extrabold text-base text-[#1A3C34]">10,000 Creators</h4>
-                  <p className="text-xs text-[#6B6355] leading-relaxed">
-                    10,000+ active creators. ₹10 Crore+ paid out. Instant payouts launched. The journey continues...
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* -------------------------------------------------------------------------- */}
-      {/* SECTION 8 — BY THE NUMBERS (FULL WIDTH VISUAL)                             */}
-      {/* -------------------------------------------------------------------------- */}
-      <section className="py-16 bg-gradient-to-r from-[#C89B2A] to-[#A07820] text-white relative overflow-hidden shadow-xl">
-        {/* Pattern overlay */}
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#FFFFFF_1.5px,transparent_1.5px)] [background-size:20px_20px] pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-10">
-          <div className="text-center">
-            <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-white">
-              CloudLinks in Numbers
-            </h2>
-            <div className="w-16 h-1 bg-white rounded-full mx-auto mt-2" />
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-white/30">
-            <div className="p-4 space-y-1">
-              <div className="text-3xl sm:text-5xl font-extrabold font-display text-white">10,000+</div>
-              <div className="text-xs sm:text-sm font-bold text-[#FDFAF4]">Creators Earning Monthly</div>
-            </div>
-            <div className="p-4 space-y-1">
-              <div className="text-3xl sm:text-5xl font-extrabold font-display text-white">₹10Cr+</div>
-              <div className="text-xs sm:text-sm font-bold text-[#FDFAF4]">Total Paid to Creators</div>
-            </div>
-            <div className="p-4 space-y-1">
-              <div className="text-3xl sm:text-5xl font-extrabold font-display text-white">500+</div>
-              <div className="text-xs sm:text-sm font-bold text-[#FDFAF4]">Active Brand Campaigns</div>
-            </div>
-            <div className="p-4 space-y-1">
-              <div className="text-3xl sm:text-5xl font-extrabold font-display text-white">4.9/5</div>
-              <div className="text-xs sm:text-sm font-bold text-[#FDFAF4]">Creator Satisfaction Rating</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* -------------------------------------------------------------------------- */}
-      {/* SECTION 9 — PRESS & RECOGNITION                                            */}
-      {/* -------------------------------------------------------------------------- */}
-      <section className="py-20 bg-[#F5F0E8] relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-[#1A3C34]">
-              CloudLinks in <span className="text-[#C89B2A]">the News</span>
-            </h2>
-            <div className="w-16 h-1 bg-[#C89B2A] rounded-full mx-auto" />
-            <p className="text-sm sm:text-base text-[#6B6355] font-medium pt-1">
-              What people are saying about India's creator economy platform
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Card 1 */}
-            <div className="bg-[#FDFAF4] rounded-2xl p-6 border border-[#E8E2D6] border-l-4 border-l-[#1A3C34] shadow-md hover:shadow-xl transition-all space-y-4 flex flex-col justify-between">
-              <div className="space-y-3">
-                <span className="font-display font-black text-xl text-[#1A3C34] block">YourStory</span>
-                <p className="text-xs sm:text-sm italic text-[#6B6355] leading-relaxed">
-                  "CloudLinks is democratizing affiliate marketing for the next billion Indian internet users — one link at a time."
-                </p>
-              </div>
-
-              <div className="flex items-center justify-between pt-4 border-t border-[#E8E2D6] text-xs">
-                <span className="font-bold text-[#6B6355]">March 2025</span>
-                <a
-                  href="#read-article"
-                  className="font-extrabold text-[#C89B2A] hover:text-[#b08823] flex items-center gap-1"
-                >
-                  <span>Read Article</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
-              </div>
-            </div>
-
-            {/* Card 2 */}
-            <div className="bg-[#FDFAF4] rounded-2xl p-6 border border-[#E8E2D6] border-l-4 border-l-[#1A3C34] shadow-md hover:shadow-xl transition-all space-y-4 flex flex-col justify-between">
-              <div className="space-y-3">
-                <span className="font-display font-black text-xl text-[#1A3C34] block">Inc42</span>
-                <p className="text-xs sm:text-sm italic text-[#6B6355] leading-relaxed">
-                  "The startup making it possible for every Indian creator, regardless of follower count, to earn real income online."
-                </p>
-              </div>
-
-              <div className="flex items-center justify-between pt-4 border-t border-[#E8E2D6] text-xs">
-                <span className="font-bold text-[#6B6355]">May 2025</span>
-                <a
-                  href="#read-article"
-                  className="font-extrabold text-[#C89B2A] hover:text-[#b08823] flex items-center gap-1"
-                >
-                  <span>Read Article</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
-              </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="bg-[#FDFAF4] rounded-2xl p-6 border border-[#E8E2D6] border-l-4 border-l-[#1A3C34] shadow-md hover:shadow-xl transition-all space-y-4 flex flex-col justify-between">
-              <div className="space-y-3">
-                <span className="font-display font-black text-xl text-[#1A3C34] block">Economic Times</span>
-                <p className="text-xs sm:text-sm italic text-[#6B6355] leading-relaxed">
-                  "With instant UPI payouts and 500+ Indian brands, CloudLinks is building the infrastructure for India's creator economy."
-                </p>
-              </div>
-
-              <div className="flex items-center justify-between pt-4 border-t border-[#E8E2D6] text-xs">
-                <span className="font-bold text-[#6B6355]">July 2025</span>
-                <a
-                  href="#read-article"
-                  className="font-extrabold text-[#C89B2A] hover:text-[#b08823] flex items-center gap-1"
-                >
-                  <span>Read Article</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* -------------------------------------------------------------------------- */}
-      {/* SECTION 10 — CREATOR LOVE WALL                                            */}
-      {/* -------------------------------------------------------------------------- */}
-      <section className="py-20 bg-[#EDE8DC] border-t border-[#E8E2D6] relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-[#1A3C34]">
-              What Our <span className="text-[#C89B2A]">Creators Say</span>
-            </h2>
-            <div className="w-16 h-1 bg-[#C89B2A] rounded-full mx-auto" />
-            <p className="text-sm sm:text-base text-[#6B6355] font-medium pt-1">
-              10,000+ creators can't be wrong
-            </p>
-          </div>
-
-          {/* Masonry Grid via CSS Columns */}
-          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-            {/* Card 1 */}
-            <div className="break-inside-avoid bg-[#FDFAF4] rounded-2xl p-6 border border-[#E8E2D6] shadow-md hover:shadow-xl transition-all duration-300 space-y-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h4 className="font-display font-extrabold text-base text-[#1A3C34]">Priya Sharma</h4>
-                  <span className="text-xs text-[#6B6355]">Mumbai • Instagram</span>
-                </div>
-                <div className="flex text-[#C89B2A]">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-[#C89B2A]" />
-                  ))}
-                </div>
-              </div>
-              <p className="text-xs sm:text-sm text-[#6B6355] italic leading-relaxed">
-                "CloudLinks changed my life. I was a homemaker with 5K followers. Now I earn ₹25,000/month from my phone. No investment. No risk."
-              </p>
-              <div className="flex justify-end pt-2">
-                <span className="bg-[#C89B2A]/20 text-[#1A3C34] border border-[#C89B2A]/40 text-xs font-black px-3 py-1 rounded-full">
-                  ₹25,000/month
-                </span>
-              </div>
-            </div>
-
-            {/* Card 2 */}
-            <div className="break-inside-avoid bg-[#FDFAF4] rounded-2xl p-6 border border-[#E8E2D6] shadow-md hover:shadow-xl transition-all duration-300 space-y-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h4 className="font-display font-extrabold text-base text-[#1A3C34]">Rahul Verma</h4>
-                  <span className="text-xs text-[#6B6355]">Delhi • YouTube</span>
-                </div>
-                <div className="flex text-[#C89B2A]">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-[#C89B2A]" />
-                  ))}
-                </div>
-              </div>
-              <p className="text-xs sm:text-sm text-[#6B6355] italic leading-relaxed">
-                "Instant UPI payouts are real. I withdrew ₹8,000 at midnight and it was in my account in 10 seconds. Unbelievable."
-              </p>
-              <div className="flex justify-end pt-2">
-                <span className="bg-[#C89B2A]/20 text-[#1A3C34] border border-[#C89B2A]/40 text-xs font-black px-3 py-1 rounded-full">
-                  ₹45,000/month
-                </span>
-              </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="break-inside-avoid bg-[#FDFAF4] rounded-2xl p-6 border border-[#E8E2D6] shadow-md hover:shadow-xl transition-all duration-300 space-y-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h4 className="font-display font-extrabold text-base text-[#1A3C34]">Sneha Reddy</h4>
-                  <span className="text-xs text-[#6B6355]">Bangalore • Blog</span>
-                </div>
-                <div className="flex text-[#C89B2A]">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-[#C89B2A]" />
-                  ))}
-                </div>
-              </div>
-              <p className="text-xs sm:text-sm text-[#6B6355] italic leading-relaxed">
-                "As a student, I needed something simple. CloudLinks took 2 minutes to set up and I made my first ₹500 the same day."
-              </p>
-              <div className="flex justify-end pt-2">
-                <span className="bg-[#C89B2A]/20 text-[#1A3C34] border border-[#C89B2A]/40 text-xs font-black px-3 py-1 rounded-full">
-                  ₹12,000/month
-                </span>
-              </div>
-            </div>
-
-            {/* Card 4 */}
-            <div className="break-inside-avoid bg-[#FDFAF4] rounded-2xl p-6 border border-[#E8E2D6] shadow-md hover:shadow-xl transition-all duration-300 space-y-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h4 className="font-display font-extrabold text-base text-[#1A3C34]">Vikram Kumar</h4>
-                  <span className="text-xs text-[#6B6355]">Chennai • Telegram</span>
-                </div>
-                <div className="flex text-[#C89B2A]">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-[#C89B2A]" />
-                  ))}
-                </div>
-              </div>
-              <p className="text-xs sm:text-sm text-[#6B6355] italic leading-relaxed">
-                "My Telegram deals channel + CloudLinks = passive income machine. I schedule posts once a week and earn daily."
-              </p>
-              <div className="flex justify-end pt-2">
-                <span className="bg-[#C89B2A]/20 text-[#1A3C34] border border-[#C89B2A]/40 text-xs font-black px-3 py-1 rounded-full">
-                  ₹32,000/month
-                </span>
-              </div>
-            </div>
-
-            {/* Card 5 */}
-            <div className="break-inside-avoid bg-[#FDFAF4] rounded-2xl p-6 border border-[#E8E2D6] shadow-md hover:shadow-xl transition-all duration-300 space-y-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h4 className="font-display font-extrabold text-base text-[#1A3C34]">Anjali Deshmukh</h4>
-                  <span className="text-xs text-[#6B6355]">Pune • Instagram</span>
-                </div>
-                <div className="flex text-[#C89B2A]">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-[#C89B2A]" />
-                  ))}
-                </div>
-              </div>
-              <p className="text-xs sm:text-sm text-[#6B6355] italic leading-relaxed">
-                "No minimum withdrawal is the feature I love most. I can take out even ₹100. It feels like MY money because it IS my money."
-              </p>
-              <div className="flex justify-end pt-2">
-                <span className="bg-[#C89B2A]/20 text-[#1A3C34] border border-[#C89B2A]/40 text-xs font-black px-3 py-1 rounded-full">
-                  ₹18,000/month
-                </span>
-              </div>
-            </div>
-
-            {/* Card 6 */}
-            <div className="break-inside-avoid bg-[#FDFAF4] rounded-2xl p-6 border border-[#E8E2D6] shadow-md hover:shadow-xl transition-all duration-300 space-y-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h4 className="font-display font-extrabold text-base text-[#1A3C34]">Karan Patel</h4>
-                  <span className="text-xs text-[#6B6355]">Hyderabad • YouTube</span>
-                </div>
-                <div className="flex text-[#C89B2A]">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-[#C89B2A]" />
-                  ))}
-                </div>
-              </div>
-              <p className="text-xs sm:text-sm text-[#6B6355] italic leading-relaxed">
-                "500+ campaigns means I always find something relevant for my tech audience. boAt and Samsung reviews alone pay my rent."
-              </p>
-              <div className="flex justify-end pt-2">
-                <span className="bg-[#C89B2A]/20 text-[#1A3C34] border border-[#C89B2A]/40 text-xs font-black px-3 py-1 rounded-full">
-                  ₹60,000/month
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* -------------------------------------------------------------------------- */}
-      {/* SECTION 11 — JOIN THE MISSION CTA                                         */}
-      {/* -------------------------------------------------------------------------- */}
-      <section className="py-24 bg-[#1A3C34] text-white relative overflow-hidden">
-        {/* Floating background decorative icons */}
-        <div className="absolute top-10 left-10 text-[#C89B2A]/10 text-6xl pointer-events-none select-none">₹</div>
-        <div className="absolute bottom-12 right-12 text-[#C89B2A]/10 text-7xl pointer-events-none select-none">🚀</div>
-        <div className="absolute top-1/2 right-1/4 text-white/5 text-5xl pointer-events-none select-none">★</div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 relative z-10">
-          <h2 className="text-4xl sm:text-6xl font-extrabold font-display leading-tight max-w-3xl mx-auto">
-            Be Part of <br />
-            <span className="text-[#C89B2A]">India's Biggest</span> <br />
-            Creator Movement.
-          </h2>
-
-          <p className="text-sm sm:text-lg text-[#E8E2D6]/80 max-w-xl mx-auto font-medium">
-            10,000 creators are already earning. The question is — are you going to be next?
+          <h3 className="text-xl font-bold text-[#1A3C34] font-display">
+            Select Brand & Link
+          </h3>
+          <p className="text-sm text-[#6B6355] leading-relaxed">
+            Choose a brand you want to recommend, get your unique link,
           </p>
+        </div>
+        <div className="pt-4 border-t border-dashed border-[#E8E2D6]">
+          <span className="text-xs font-bold tracking-wider uppercase text-[#9D761D]">
+            Simple to share.
+          </span>
+        </div>
+      </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-            <button
-              onClick={() => onOpenAuth('signup', 'creator')}
-              className="w-full sm:w-auto px-10 py-5 rounded-2xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-black text-base transition-all shadow-2xl flex items-center justify-center gap-2 cursor-pointer transform hover:-translate-y-1"
-            >
-              <span>Join CloudLinks Free</span>
-              <ArrowRight className="w-5 h-5" />
-            </button>
-            <Link
-              href="/campaigns"
-              className="w-full sm:w-auto px-10 py-5 rounded-2xl border-2 border-white/30 text-white hover:bg-white/10 font-extrabold text-base transition-all text-center cursor-pointer block"
-            >
-              Browse Campaigns
-            </Link>
+      {/* Step 2 */}
+      <div className="bg-[#FDFAF4] rounded-3xl p-8 border border-[#E8E2D6] shadow-md hover:shadow-xl transition-all duration-300 relative group flex flex-col justify-between space-y-6">
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <div className="w-12 h-12 rounded-2xl bg-[#1A3C34]/15 border border-[#1A3C34]/30 text-[#1A3C34] flex items-center justify-center font-bold text-lg">
+              <Share2 className="w-6 h-6 text-[#1A3C34]" />
+            </div>
+            <span className="text-3xl font-black text-[#1A3C34]/20 font-display">02</span>
+          </div>
+          <h3 className="text-xl font-bold text-[#1A3C34] font-display">
+            Share Recommendation
+          </h3>
+          <p className="text-sm text-[#6B6355] leading-relaxed">
+            share it wherever permitted
+          </p>
+        </div>
+        <div className="pt-4 border-t border-dashed border-[#E8E2D6]">
+          <span className="text-xs font-bold tracking-wider uppercase text-[#1A3C34]">
+            Simple to track.
+          </span>
+        </div>
+      </div>
+
+      {/* Step 3 */}
+      <div className="bg-[#FDFAF4] rounded-3xl p-8 border border-[#E8E2D6] shadow-md hover:shadow-xl transition-all duration-300 relative group flex flex-col justify-between space-y-6">
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <div className="w-12 h-12 rounded-2xl bg-[#C89B2A]/15 border border-[#C89B2A]/30 text-[#C89B2A] flex items-center justify-center font-bold text-lg">
+              <Wallet className="w-6 h-6 text-[#C89B2A]" />
+            </div>
+            <span className="text-3xl font-black text-[#C89B2A]/30 font-display">03</span>
+          </div>
+          <h3 className="text-xl font-bold text-[#1A3C34] font-display">
+            Earn On Qualifying Actions
+          </h3>
+          <p className="text-sm text-[#6B6355] leading-relaxed">
+            and earn when your recommendation leads to a qualifying action.
+          </p>
+        </div>
+        <div className="pt-4 border-t border-dashed border-[#E8E2D6]">
+          <span className="text-xs font-bold tracking-wider uppercase text-[#9D761D]">
+            Simple to earn.
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+    {/* Dual Audience Section */}
+    <div className="space-y-8">
+      <div className="text-center space-y-2">
+        <h3 className="text-2xl sm:text-3xl font-extrabold font-display text-[#1A3C34]">
+          Built for People. Built for Brands.
+        </h3>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        
+        {/* For Individuals Card */}
+        <div className="bg-[#FDFAF4] rounded-3xl p-8 sm:p-10 border border-[#E8E2D6] shadow-lg flex flex-col justify-between space-y-6 relative overflow-hidden group">
+          <div className="space-y-4">
+            <div className="w-12 h-12 rounded-2xl bg-[#C89B2A]/15 border border-[#C89B2A]/30 text-[#9D761D] flex items-center justify-center">
+              <Users className="w-6 h-6" />
+            </div>
+            <h4 className="text-xl font-bold text-[#1A3C34]">
+              For Individuals
+            </h4>
+            <p className="text-base text-[#6B6355] leading-relaxed">
+              For individuals, CloudsLink provides access to products and offers worth sharing.
+            </p>
           </div>
 
-          {/* 4 Trust Badges */}
-          <div className="pt-8 border-t border-white/10 max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-bold text-[#E8E2D6]">
-            <div className="flex items-center justify-center gap-1.5">
-              <span>🌟</span>
-              <span>10,000+ Creators</span>
-            </div>
-            <div className="flex items-center justify-center gap-1.5">
-              <span>⚡</span>
-              <span>Instant Payouts</span>
-            </div>
-            <div className="flex items-center justify-center gap-1.5">
-              <span>🏷️</span>
-              <span>500+ Brands</span>
-            </div>
-            <div className="flex items-center justify-center gap-1.5">
-              <span>🔒</span>
-              <span>Free Forever</span>
-            </div>
-          </div>
-
-          <div className="pt-4 text-xs text-[#E8E2D6]/60 font-medium">
-            Made with ❤️ in India 🇮🇳
+          <div className="pt-4 border-t border-[#E8E2D6]/80 flex items-center gap-2 text-xs font-bold text-[#9D761D] tracking-wide">
+            <span>INDIVIDUAL CREATORS</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </div>
         </div>
-      </section>
+
+        {/* For Businesses Card */}
+        <div className="bg-[#1A3C34] text-white rounded-3xl p-8 sm:p-10 border border-[#1A3C34] shadow-xl flex flex-col justify-between space-y-6 relative overflow-hidden group">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-[#C89B2A]/10 rounded-full blur-2xl pointer-events-none" />
+
+          <div className="space-y-4 relative z-10">
+            <div className="w-12 h-12 rounded-2xl bg-[#FDFAF4]/10 border border-[#FDFAF4]/20 text-[#C89B2A] flex items-center justify-center">
+              <Building2 className="w-6 h-6" />
+            </div>
+            <h4 className="text-xl font-bold text-[#FDFAF4]">
+              For Businesses
+            </h4>
+            <p className="text-base text-[#EDE8DC]/80 leading-relaxed">
+              For businesses, it creates opportunities to reach relevant customers through people and platforms they already trust.
+            </p>
+          </div>
+
+          <div className="pt-4 border-t border-white/10 flex items-center gap-2 text-xs font-bold text-[#C89B2A] tracking-wide relative z-10">
+            <span>ENTERPRISE & BRANDS</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </div>
+        </div>
+
+      </div>
+
+      {/* Summary Footer Bar */}
+      <div className="bg-[#FDFAF4]/60 border border-[#E8E2D6] rounded-2xl p-4 text-center">
+        <p className="text-sm sm:text-base font-semibold text-[#1A3C34]">
+          It's a simple connection that works both ways.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section className="py-20 sm:py-28 bg-[#1A3C34] relative overflow-hidden border-t border-[#1A3C34]/20">
+  {/* Subtle Star Decoration from image_0.png */}
+  <div className="absolute top-1/2 -right-8 w-16 h-16 opacity-10 rotate-12 text-[#FDFAF4]">
+    <Star className="w-full h-full fill-current" />
+  </div>
+
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 relative z-10">
+    
+    {/* Section Header */}
+    <div className="text-center max-w-3xl mx-auto space-y-4">
+      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FDFAF4]/10 text-[#C89B2A] text-xs font-bold uppercase tracking-wider border border-[#FDFAF4]/20">
+        Our Approach
+      </span>
+      <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-[#FDFAF4] tracking-tight">
+        Earning Online <span className="text-[#C89B2A]">Simplified.</span>
+      </h2>
+      <p className="text-base sm:text-lg text-[#EDE8DC] font-medium leading-relaxed max-w-2xl mx-auto">
+        We believe earning online shouldn't have to feel complicated. That's why we're focused on keeping CloudsLink simple, transparent and easy to use from finding an offer to tracking your earnings.
+      </p>
+    </div>
+
+    {/* Key Principles Cards */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      
+      {/* Principle 1 */}
+      <div className="bg-[#FDFAF4]/5 border border-[#FDFAF4]/10 rounded-2xl p-6 space-y-3 group hover:bg-[#FDFAF4]/10 transition-colors">
+        <Sparkles className="w-10 h-10 text-[#C89B2A] mx-auto opacity-80 group-hover:opacity-100" />
+        <h3 className="text-lg font-bold text-[#FDFAF4] font-display">
+          Share what matters.
+        </h3>
+      </div>
+
+      {/* Principle 2 */}
+      <div className="bg-[#FDFAF4]/5 border border-[#FDFAF4]/10 rounded-2xl p-6 space-y-3 group hover:bg-[#FDFAF4]/10 transition-colors">
+        <SearchCheck className="w-10 h-10 text-[#C89B2A] mx-auto opacity-80 group-hover:opacity-100" />
+        <h3 className="text-lg font-bold text-[#FDFAF4] font-display">
+          Discover what fits.
+        </h3>
+      </div>
+
+      {/* Principle 3 */}
+      <div className="bg-[#FDFAF4]/5 border border-[#FDFAF4]/10 rounded-2xl p-6 space-y-3 group hover:bg-[#FDFAF4]/10 transition-colors">
+        <TrendingUp className="w-10 h-10 text-[#C89B2A] mx-auto opacity-80 group-hover:opacity-100" />
+        <h3 className="text-lg font-bold text-[#FDFAF4] font-display">
+          Earn along the way.
+        </h3>
+      </div>
+
+    </div>
+
+    {/* Call to Action Buttons (Inspired by image_0.png layout) */}
+    <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-center pt-8">
+      
+      {/* Primary CTA: Join (Solid gold) */}
+      <a href="#" className="inline-flex items-center gap-2 px-10 py-4 rounded-2xl bg-[#C89B2A] text-[#1A3C34] font-bold text-base hover:bg-[#C89B2A]/90 transition-all shadow-md group">
+        Join CloudsLink
+        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+      </a>
+
+      {/* Secondary CTA: Partner (Outline and subtle background) */}
+      <a href="#" className="inline-flex items-center gap-2 px-10 py-4 rounded-2xl bg-[#1A3C34] text-[#FDFAF4] font-bold text-base hover:bg-[#1A3C34]/80 transition-all border border-[#FDFAF4]/30 group">
+        Partner With Us
+        <Building2 className="w-5 h-5 opacity-80" />
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+      
+      
+
     </div>
   );
 };
