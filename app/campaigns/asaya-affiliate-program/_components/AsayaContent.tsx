@@ -200,12 +200,18 @@ export default function AsayaContent() {
               {/* CTA Button */}
               <div className="space-y-2">
                 <button
-                  onClick={scrollToJoinForm}
-                  className="w-full py-4 rounded-2xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-black text-sm transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-98"
-                >
-                  <span>Join This Program</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+  onClick={() =>
+    window.open(
+      "https://analytics.trackier.io/publisher/campaign/6047",
+      "_blank",
+      "noopener,noreferrer"
+    )
+  }
+  className="w-full py-4 rounded-2xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-black text-sm transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-98"
+>
+  <span>Join This Program</span>
+  <ArrowRight className="w-4 h-4" />
+</button>
               </div>
             </div>
 
@@ -349,13 +355,18 @@ export default function AsayaContent() {
 
               {/* CTA Button */}
               <button
-                onClick={scrollToJoinForm}
-                className="w-full py-3.5 rounded-2xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-black text-sm transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-98"
-              >
-                <span>Join This Program</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-
+  onClick={() =>
+    window.open(
+      "https://analytics.trackier.io/publisher/campaign/6047",
+      "_blank",
+      "noopener,noreferrer"
+    )
+  }
+  className="w-full py-3.5 rounded-2xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-black text-sm transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-98"
+>
+  <span>Join This Program</span>
+  <ArrowRight className="w-4 h-4" />
+</button>
             </div>
 
           </div>
@@ -483,13 +494,19 @@ export default function AsayaContent() {
 
           </p>
 
-          <button
-            onClick={scrollToJoinForm}
-            className="px-8 py-4 rounded-2xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-black text-sm transition-all shadow-xl inline-flex items-center gap-2 cursor-pointer active:scale-98"
-          >
-            <span>Join the Program Now</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
+         <button
+  onClick={() =>
+    window.open(
+      "https://analytics.trackier.io/publisher/campaign/6047",
+      "_blank",
+      "noopener,noreferrer"
+    )
+  }
+  className="px-8 py-4 rounded-2xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-black text-sm transition-all shadow-xl inline-flex items-center gap-2 cursor-pointer active:scale-98"
+>
+  <span>Join the Program Now</span>
+  <ArrowRight className="w-4 h-4" />
+</button>
 
         
         </div>

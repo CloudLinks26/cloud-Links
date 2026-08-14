@@ -15,7 +15,7 @@ import {
   Cookie,
   KeyRound,
   UserCheck,
-  Clock,
+  Clock,Wallet,
   RefreshCw
 } from 'lucide-react';
 
@@ -27,100 +27,208 @@ export default function PrivacyPolicyContent() {
   };
 
   const sections = [
-    {
-      id: 1,
-      icon: Database,
-      title: '1. Information We Collect',
-      bullets: [
-        'Name, email address, and phone number provided during account registration',
-        'Bank account details and UPI IDs strictly used for processing payout requests',
-        'Device information, IP address, browser type, and operating system',
-        'Cookies, session tokens, and analytical website usage data',
-        'Pages visited, affiliate links clicked, and campaign performance records',
-        'Real-time conversion metrics and earnings history generated through affiliate activity'
-      ]
-    },
-    {
-      id: 2,
-      icon: Eye,
-      title: '2. How We Use Your Information',
-      bullets: [
-        'To create, authenticate, and maintain your secure CloudLinks creator account',
-        'To process affiliate commissions and execute seamless payout transfers',
-        'To send real-time campaign updates, payout notifications, and platform alerts',
-        'To optimize platform performance, user experience, and link generator speed',
-        'To detect, investigate, and prevent fraudulent clicks or unauthorized access',
-        'To comply with Indian tax regulations, RBI guidelines, and legal requirements'
-      ]
-    },
-    {
-      id: 3,
-      icon: Share2,
-      title: '3. How We Share Your Information',
-      bullets: [
-        'We NEVER sell, rent, or trade your personal information to third parties',
-        'Shared with Brand Partners: Aggregate conversion data only — zero personal identity details disclosed',
-        'Shared with Payment Partners: Verified UPI/Bank details shared solely for processing automated payouts',
-        'Shared with Legal Authorities: Disclosed only when mandated by court orders or Indian law enforcement',
-        'All third-party infrastructure providers are bound by strict non-disclosure & data safety contracts'
-      ]
-    },
-    {
-      id: 4,
-      icon: Cookie,
-      title: '4. Cookies & Tracking Technologies',
-      bullets: [
-        'Accurately attribute affiliate link clicks, referrals, and completed brand purchases',
-        'Maintain active secure login sessions across browser tabs without frequent re-authentications',
-        'Analyze anonymized user behavior to refine dashboard tools and recommendation engines',
-        'You retain full control to modify or disable cookie settings inside your browser preferences',
-        'For detailed breakdown of all tracking technologies, refer to our complete Cookies Policy'
-      ]
-    },
-    {
-      id: 5,
-      icon: KeyRound,
-      title: '5. Data Security & Storage',
-      bullets: [
-        'All data transmitted between your browser and CloudLinks is encrypted using AES 256-bit SSL/TLS',
-        'Sensitive banking credentials and UPI IDs are stored in isolated, bank-grade encrypted vaults',
-        'We undergo scheduled vulnerability assessments, penetration testing, and security audits',
-        'Access to user personal data is restricted strictly to vetted security personnel'
-      ]
-    },
-    {
-      id: 6,
-      icon: UserCheck,
-      title: '6. Your Legal Rights',
-      bullets: [
-        'Right to Access: Request a full copy of all personal data held in your CloudLinks profile',
-        'Right to Rectification: Correct inaccurate or outdated personal details at any time',
-        'Right to Deletion: Request complete removal of your account and associated personal records',
-        'Right to Opt-Out: Unsubscribe from promotional updates via email or dashboard settings',
-        'To exercise any of these privacy rights, contact our Data Protection team at privacy@cloudlinks.in'
-      ]
-    },
-    {
-      id: 7,
-      icon: Clock,
-      title: '7. Data Retention Policy',
-      bullets: [
-        'Active Accounts: Personal data is retained for as long as your CloudLinks account remains active',
-        'Account Deletion: Upon receiving a deletion request, personal profile data is purged within 30 days',
-        'Financial Compliance: Transaction, commission, and payout records are retained for 7 years as required under Indian income tax law'
-      ]
-    },
-    {
-      id: 8,
-      icon: RefreshCw,
-      title: '8. Changes to This Privacy Policy',
-      bullets: [
-        'We reserve the right to update this Privacy Policy as platform features and regulations evolve',
-        'Any material changes will be communicated via email and a prominent dashboard banner',
-        'Continued usage of CloudLinks following policy updates constitutes full acceptance of revised terms'
-      ]
-    }
-  ];
+  {
+    id: 1,
+    icon: Database,
+    title: '1. Information We Collect',
+    bullets: [
+      'Depending on how you use CloudsLink, we may collect the following types of information:',
+      'Personal Information',
+      'When you create an account, apply for campaigns or contact us, we may collect information such as:',
+      'Name',
+      'Email address',
+      'Phone number',
+      'Account/login details',
+      'Payment or payout information',
+      'Business or professional information',
+      'Other information you voluntarily provide',
+      'Account & Campaign Information',
+      'When you use the CloudsLink platform, we may collect information related to:',
+      'Campaigns you apply for',
+      'Affiliate offers you participate in',
+      'Affiliate and tracking links',
+      'Clicks, conversions and qualifying actions',
+      'Commission and payout information',
+      'Account activity and preferences',
+      'Technical Information',
+      'When you visit our website or use our platform, certain information may be collected automatically, including:',
+      'IP address',
+      'Browser type and version',
+      'Device type',
+      'Operating system',
+      'Pages visited',
+      'Referring pages or sources',
+      'Date and time of visits',
+      'Website usage and interaction data',
+      'We may use cookies and similar technologies to collect some of this information.'
+    ]
+  },
+  {
+    id: 2,
+    icon: Eye,
+    title: '2. How We Use Your Information',
+    bullets: [
+      'We may use the information we collect to:',
+      'Create and manage your CloudsLink account.',
+      'Process applications for affiliate campaigns.',
+      'Generate and manage affiliate tracking links.',
+      'Track clicks, conversions and qualifying actions.',
+      'Calculate and process commissions and payouts.',
+      'Communicate with you about your account, campaigns and services.',
+      'Provide customer and technical support.',
+      'Improve our website, platform and services.',
+      'Monitor platform performance and security.',
+      'Detects and prevents fraud, abuse and unauthorised activity.',
+      'Comply with applicable legal and regulatory requirements.'
+    ]
+  },
+  {
+    id: 3,
+    icon: Share2,
+    title: '3. Affiliate Tracking',
+    bullets: [
+      'CloudsLink uses tracking technologies to measure activity generated through affiliate links.',
+      'When someone clicks an affiliate link, information such as the referring affiliate, campaign, click and subsequent qualifying action may be recorded so that the appropriate conversion and commission can be attributed.',
+      'This information is used to operate affiliate campaigns, calculate commissions, prevent fraudulent activity and provide performance reporting.'
+    ]
+  },
+  {
+    id: 4,
+    icon: Cookie,
+    title: '4. Cookies & Similar Technologies',
+    bullets: [
+      'CloudsLink may use cookies, pixels, tags and similar technologies to:',
+      'Keep the website functioning properly.',
+      'Remember preferences.',
+      'Understand how visitors use our website.',
+      'Measure campaign and website performance.',
+      'Support affiliate tracking and attribution.',
+      'Detect suspicious or fraudulent activity.',
+      'You can manage or disable cookies through your browser settings. Some website features may not function properly if certain cookies are disabled.'
+    ]
+  },
+  {
+    id: 5,
+    icon: Share2,
+    title: '5. How We Share Information',
+    bullets: [
+      'We may share relevant information with trusted third parties where necessary to operate CloudsLink and provide our services.',
+      'These may include:',
+      'Brands and advertisers participating in affiliate campaigns.',
+      'Payment processors and financial service providers.',
+      'Technology, hosting and analytics providers.',
+      'Tracking and fraud-prevention service providers.',
+      'Customer support and communication service providers.',
+      'Professional advisers and service providers.',
+      'Government authorities or law enforcement where required by law.',
+      'We only share information where reasonably necessary for the relevant purpose or where required or permitted by applicable law.',
+      'We do not sell your personal information simply for the purpose of selling it to third parties.'
+    ]
+  },
+  {
+    id: 6,
+    icon: Wallet,
+    title: '6. Payment & Payout Information',
+    bullets: [
+      'If you earn commissions through CloudsLink, we may need to collect information required to process your payouts.',
+      'Payment information may be shared with relevant payment providers or financial institutions for processing purposes.',
+      'We may also collect information necessary to comply with applicable tax, accounting and regulatory requirements.'
+    ]
+  },
+  {
+    id: 7,
+    icon: KeyRound,
+    title: '7. Data Security',
+    bullets: [
+      'We take reasonable technical and organisational measures to protect your information against unauthorised access, loss, misuse, alteration or disclosure.',
+      'However, no website, online platform or electronic transmission can be guaranteed to be completely secure. You are responsible for keeping your account credentials confidential and notifying us if you suspect unauthorised access to your account.'
+    ]
+  },
+  {
+    id: 8,
+    icon: Clock,
+    title: '8. Data Retention',
+    bullets: [
+      'We retain personal information for as long as reasonably necessary to provide our services, maintain business and financial records, resolve disputes, prevent fraud, comply with legal obligations and enforce our agreements.',
+      'When information is no longer required, we may securely delete, anonymise or otherwise dispose of it in accordance with applicable requirements.'
+    ]
+  },
+  {
+    id: 9,
+    icon: Share2,
+    title: '9. Third-Party Websites',
+    bullets: [
+      'CloudsLink may contain links to third-party websites, brands, advertisers and services.',
+      'These third-party websites operate under their own privacy policies and terms. CloudsLink is not responsible for the privacy practices or content of third-party websites.',
+      'We encourage you to review the privacy policy of any third-party website you visit through CloudsLink.'
+    ]
+  },
+  {
+    id: 10,
+    icon: UserCheck,
+    title: '10. Your Choices & Rights',
+    bullets: [
+      'Depending on applicable law, you may have rights regarding your personal information, including the right to:',
+      'Request access to information we hold about you.',
+      'Request correction of inaccurate information.',
+      'Request deletion of certain information.',
+      'Withdraw consent where processing is based on consent.',
+      'Request information about how your data is being used.',
+      'Raise a concern or complaint regarding our handling of your information.',
+      'Some requests may be subject to legal, contractual or other applicable limitations.',
+      'To exercise an applicable privacy right, contact us using the details provided below.'
+    ]
+  },
+  {
+    id: 11,
+    icon: UserCheck,
+    title: "11. Children's Privacy",
+    bullets: [
+      'CloudsLink is not intended for individuals who are not legally eligible to use the platform.',
+      'We do not knowingly collect personal information from children in violation of applicable law. If you believe that a child has provided personal information to us, please contact us so that we can take appropriate action.'
+    ]
+  },
+  {
+    id: 12,
+    icon: RefreshCw,
+    title: '12. Marketing Communications',
+    bullets: [
+      'We may occasionally send you information about campaigns, platform updates, services or other relevant communications.',
+      'Where required, you will have the option to opt out of promotional communications.',
+      'You may continue to receive essential communications relating to your account, transactions, security or use of the platform even after opting out of marketing messages.'
+    ]
+  },
+  {
+    id: 13,
+    icon: Share2,
+    title: '13. International Data Transfers',
+    bullets: [
+      'Depending on the service providers and technologies used by CloudsLink, your information may be processed or stored in locations outside your state or country.',
+      'Where required, we will take appropriate steps to ensure that such processing is carried out in accordance with applicable data protection requirements.'
+    ]
+  },
+  {
+    id: 14,
+    icon: RefreshCw,
+    title: '14. Changes to This Privacy Policy',
+    bullets: [
+      'We may update this Privacy Policy from time to time to reflect changes to our services, technology, business practices or applicable laws.',
+      'Any updated version will be published on this page along with a revised "Last Updated" date.',
+      'We encourage you to review this Privacy Policy periodically.'
+    ]
+  },
+  {
+    id: 15,
+    icon: UserCheck,
+    title: '15. Contact Us',
+    bullets: [
+      'If you have questions about this Privacy Policy or how your information is handled, please contact us:',
+      'CloudsLink',
+      'Email: internal@analyticsclouds.com',
+      'Website: www.cloudlinks.in'
+    ]
+  }
+];
 
   return (
     <div className="bg-[#F5F0E8] min-h-screen text-[#1A3C34] font-sans selection:bg-[#C89B2A]/20">
@@ -155,7 +263,8 @@ export default function PrivacyPolicyContent() {
 
           {/* Subtext */}
           <p className="text-sm sm:text-base text-[#F5F0E8]/80 font-medium max-w-2xl mx-auto leading-relaxed">
-            At CloudLinks, we respect your privacy and are committed to protecting the information you share with us while using our affiliate marketing platform.
+            At CloudsLink, we value your privacy and are committed to protecting the information you share with us. This Privacy Policy explains how we collect, use, store and protect your information when you visit or use the CloudsLink website, platform and related services.
+
           </p>
 
           {/* Breadcrumbs */}
@@ -170,33 +279,15 @@ export default function PrivacyPolicyContent() {
       </section>
 
 
-      {/* ========================================== */}
-      {/* PART B — LAST UPDATED BAR                  */}
-      {/* ========================================== */}
-      <section className="bg-[#FDFAF4] border-b border-[#E8E2D6] py-3.5 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-semibold text-[#6B6355]">
-          <div className="flex items-center gap-2">
-            <Calendar className="w-4 h-4 text-[#C89B2A]" />
-            <span>Last Updated: January 1, 2026</span>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-[#2D7A4F]" />
-            <span>This document is legally binding</span>
-          </div>
-        </div>
-      </section>
 
 
       {/* ========================================== */}
       {/* PART C — INTRO PARAGRAPH                   */}
       {/* ========================================== */}
       <section className="max-w-3xl mx-auto px-4 pt-10 pb-6 text-center text-sm sm:text-base text-[#1A3C34] font-medium leading-relaxed space-y-3">
-        <p>
-          This Privacy Policy describes how <span className="text-[#C89B2A] font-bold">CloudLinks</span> collects, uses, stores, and protects your <span className="text-[#C89B2A] font-bold">personal data</span> when you register, promote campaigns, and withdraw affiliate commissions on our platform.
-        </p>
+        
         <p className="text-xs sm:text-sm text-[#6B6355]">
-          We prioritize <span className="text-[#C89B2A] font-bold">data transparency</span> and adhere strictly to Indian IT Act regulations and international data protection best practices.
+          By using CloudsLink, you agree to the practices described in this Privacy Policy.
         </p>
       </section>
 
@@ -254,52 +345,7 @@ export default function PrivacyPolicyContent() {
       </section>
 
 
-      {/* ========================================== */}
-      {/* PART E — CONTACT SECTION                   */}
-      {/* ========================================== */}
-      <section className="max-w-3xl mx-auto px-4 pb-20">
-        <div className="bg-[#FDFAF4] rounded-3xl p-8 sm:p-10 border border-[#E8E2D6] shadow-sm text-center space-y-6">
-          <div className="flex justify-center items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-[#C89B2A]/15 text-[#C89B2A] flex items-center justify-center">
-              <Mail className="w-6 h-6" />
-            </div>
-            <div className="w-12 h-12 rounded-2xl bg-[#1A3C34]/10 text-[#1A3C34] flex items-center justify-center">
-              <Headphones className="w-6 h-6" />
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <h2 className="text-2xl sm:text-3xl font-black text-[#1A3C34]">
-              Have Privacy Questions?
-            </h2>
-            <p className="text-xs sm:text-sm text-[#6B6355] font-medium max-w-md mx-auto">
-              If you have any questions or data access requests regarding this policy, reach out to our team.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto text-left pt-2">
-            <div className="p-4 rounded-2xl bg-[#F5F0E8] border border-[#E8E2D6] space-y-1">
-              <span className="text-[10px] font-extrabold uppercase text-[#6B6355]">Privacy Officer</span>
-              <p className="text-xs font-black text-[#1A3C34]">privacy@cloudlinks.in</p>
-            </div>
-
-            <div className="p-4 rounded-2xl bg-[#F5F0E8] border border-[#E8E2D6] space-y-1">
-              <span className="text-[10px] font-extrabold uppercase text-[#6B6355]">Support Desk</span>
-              <p className="text-xs font-black text-[#1A3C34]">Help Center 24/7</p>
-            </div>
-          </div>
-
-          <div className="pt-2">
-            <Link
-              href="/about-us"
-              className="px-8 py-3.5 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-black text-xs transition-all shadow-md inline-flex items-center gap-2 group cursor-pointer"
-            >
-              <span>Contact Privacy Support</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      
 
     </div>
   );

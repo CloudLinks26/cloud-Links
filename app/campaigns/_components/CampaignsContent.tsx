@@ -222,31 +222,27 @@ export default function CampaignsContent() {
 
   // FAQs
   const faqs = [
-    {
-      question: 'How do I join a campaign?',
-      answer: 'Sign up for free on CloudLinks, navigate to the Campaigns directory, and click "Promote Now" next to any brand to generate your unique affiliate link immediately.',
-    },
-    {
-      question: 'When do I get paid?',
-      answer: 'Payouts are processed instantly or within 24–48 hours directly to your bank account or UPI ID (GPay, PhonePe, Paytm) once your confirmed balance reaches ₹250.',
-    },
-    {
-      question: 'What is CPS vs CPI vs CPL?',
-      answer: 'CPS (Cost Per Sale) pays you a percentage on completed purchases. CPI (Cost Per Install) pays a fixed amount for app downloads. CPL (Cost Per Lead) pays per verified sign-up or registration.',
-    },
-    {
-      question: 'Is there a minimum payout threshold?',
-      answer: 'Yes, our payout threshold is set at a low ₹250 so you can start withdrawing your confirmed earnings right away without waiting.',
-    },
-    {
-      question: 'Can I promote on Instagram, YouTube, or WhatsApp?',
-      answer: 'Absolutely! You can paste your CloudLinks affiliate links in Instagram bios, YouTube descriptions, Telegram deal channels, WhatsApp status, or personal blogs.',
-    },
-    {
-      question: 'Are there any joining fees?',
-      answer: 'No. CloudLinks is 100% free for all creators and influencers. There are no registration fees, monthly subscription charges, or hidden deductions.',
-    },
-  ];
+  {
+    question: 'How do I join a campaign?',
+    answer: "Sign up for free on CloudsLink, head to the Campaigns section, and choose any brand you'd like to promote. Click “Promote Now” to apply and get your unique affiliate link once approved.",
+  },
+  {
+    question: 'When do I get paid?',
+    answer: 'Once your shared link is approved and the conversion is validated, your payout will be processed instantly or within 24–48 hours directly to your bank account or UPI ID, including GPay, PhonePe or Paytm.',
+  },
+  {
+    question: 'Is there a minimum payout threshold?',
+    answer: 'Yes. The minimum payout threshold is ₹5,000, after which you can withdraw your confirmed earnings.',
+  },
+  {
+    question: 'Can I promote on Instagram, YouTube, or WhatsApp?',
+    answer: 'Absolutely! Share your CloudsLink affiliate links through Instagram bios, YouTube descriptions, Telegram channels, WhatsApp Status, personal blogs and other permitted platforms.',
+  },
+  {
+    question: 'Are there any joining fees?',
+    answer: 'No. Joining CloudsLink is completely free. There are no registration fees, subscription charges or hidden deductions.',
+  },
+];
 
   return (
     <div className="pt-28 pb-20 bg-[#F5F0E8] min-h-screen text-[#1A3C34] font-sans selection:bg-[#C89B2A]/20">
@@ -607,142 +603,81 @@ export default function CampaignsContent() {
               How Commissions Work
             </h2>
             <p className="text-sm text-[#6B6355] font-medium">
-              Transparent. Reliable. Always on time.
+              With CloudLinks, you earn a commission when someone makes a qualifying purchase through your unique affiliate link. The process is simple:
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* CPS Card */}
-            <div className="bg-[#FDFAF4] rounded-2xl border-t-4 border-t-[#1A3C34] border-x border-b border-[#E8E2D6] p-7 space-y-4 shadow-xs">
-              <div className="w-12 h-12 rounded-xl bg-[#1A3C34]/10 text-[#1A3C34] flex items-center justify-center">
-                <ShoppingCart className="w-6 h-6 text-[#1A3C34]" />
-              </div>
-              <h3 className="font-extrabold text-xl text-[#1A3C34]">
-                Cost Per Sale (CPS)
-              </h3>
-              <p className="text-xs sm:text-sm text-[#6B6355] leading-relaxed">
-                Earn a percentage every time someone buys through your link. Most popular commission type across all shopping campaigns.
-              </p>
-              <div className="p-3 bg-[#F5F0E8] rounded-xl border border-[#E8E2D6] text-xs font-medium text-[#1A3C34]">
-                <strong>Example:</strong> Myntra — Earn 12% on every fashion purchase
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+  {/* Step 1 */}
+  <div className="bg-[#FDFAF4] rounded-2xl border-t-4 border-t-[#1A3C34] border-x border-b border-[#E8E2D6] p-7 space-y-4 shadow-xs">
+    <div className="w-12 h-12 rounded-xl bg-[#1A3C34]/10 text-[#1A3C34] flex items-center justify-center font-extrabold text-lg">
+      1
+    </div>
+    <h3 className="font-extrabold text-xl text-[#1A3C34]">
+      Choose a Brand
+    </h3>
+    <p className="text-xs sm:text-sm text-[#6B6355] leading-relaxed">
+      Browse from hundreds of top partner brands across categories like fashion, tech, finance, and food.
+    </p>
+  </div>
 
-            {/* CPI Card */}
-            <div className="bg-[#FDFAF4] rounded-2xl border-t-4 border-t-[#1A3C34] border-x border-b border-[#E8E2D6] p-7 space-y-4 shadow-xs">
-              <div className="w-12 h-12 rounded-xl bg-[#1A3C34]/10 text-[#1A3C34] flex items-center justify-center">
-                <Download className="w-6 h-6 text-[#1A3C34]" />
-              </div>
-              <h3 className="font-extrabold text-xl text-[#1A3C34]">
-                Cost Per Install (CPI)
-              </h3>
-              <p className="text-xs sm:text-sm text-[#6B6355] leading-relaxed">
-                Earn a fixed amount every time someone installs an app through your referral link on Android or iOS devices.
-              </p>
-              <div className="p-3 bg-[#F5F0E8] rounded-xl border border-[#E8E2D6] text-xs font-medium text-[#1A3C34]">
-                <strong>Example:</strong> PharmEasy — Earn ₹120 per app install
-              </div>
-            </div>
+  {/* Step 2 */}
+  <div className="bg-[#FDFAF4] rounded-2xl border-t-4 border-t-[#1A3C34] border-x border-b border-[#E8E2D6] p-7 space-y-4 shadow-xs">
+    <div className="w-12 h-12 rounded-xl bg-[#1A3C34]/10 text-[#1A3C34] flex items-center justify-center font-extrabold text-lg">
+      2
+    </div>
+    <h3 className="font-extrabold text-xl text-[#1A3C34]">
+      Generate Your Link
+    </h3>
+    <p className="text-xs sm:text-sm text-[#6B6355] leading-relaxed">
+      Convert any product URL into your unique affiliate tracking link in just one click.
+    </p>
+  </div>
 
-            {/* CPL Card */}
-            <div className="bg-[#FDFAF4] rounded-2xl border-t-4 border-t-[#1A3C34] border-x border-b border-[#E8E2D6] p-7 space-y-4 shadow-xs">
-              <div className="w-12 h-12 rounded-xl bg-[#1A3C34]/10 text-[#1A3C34] flex items-center justify-center">
-                <UserPlus className="w-6 h-6 text-[#1A3C34]" />
-              </div>
-              <h3 className="font-extrabold text-xl text-[#1A3C34]">
-                Cost Per Lead (CPL)
-              </h3>
-              <p className="text-xs sm:text-sm text-[#6B6355] leading-relaxed">
-                Earn a fixed bounty when someone signs up, completes KYC, or fills a contact form through your promotional link.
-              </p>
-              <div className="p-3 bg-[#F5F0E8] rounded-xl border border-[#E8E2D6] text-xs font-medium text-[#1A3C34]">
-                <strong>Example:</strong> Groww — Earn ₹500 per verified signup
-              </div>
-            </div>
-          </div>
+  {/* Step 3 */}
+  <div className="bg-[#FDFAF4] rounded-2xl border-t-4 border-t-[#1A3C34] border-x border-b border-[#E8E2D6] p-7 space-y-4 shadow-xs">
+    <div className="w-12 h-12 rounded-xl bg-[#1A3C34]/10 text-[#1A3C34] flex items-center justify-center font-extrabold text-lg">
+      3
+    </div>
+    <h3 className="font-extrabold text-xl text-[#1A3C34]">
+      Share It
+    </h3>
+    <p className="text-xs sm:text-sm text-[#6B6355] leading-relaxed">
+      Post your link across your social media channels, WhatsApp groups, blogs, or YouTube videos.
+    </p>
+  </div>
+
+  {/* Step 4 */}
+  <div className="bg-[#FDFAF4] rounded-2xl border-t-4 border-t-[#1A3C34] border-x border-b border-[#E8E2D6] p-7 space-y-4 shadow-xs">
+    <div className="w-12 h-12 rounded-xl bg-[#1A3C34]/10 text-[#1A3C34] flex items-center justify-center font-extrabold text-lg">
+      4
+    </div>
+    <h3 className="font-extrabold text-xl text-[#1A3C34]">
+      Get a Sale
+    </h3>
+    <p className="text-xs sm:text-sm text-[#6B6355] leading-relaxed">
+      Your audience clicks your link and completes a valid purchase or sign-up with the brand.
+    </p>
+  </div>
+
+  {/* Step 5 */}
+  <div className="bg-[#FDFAF4] rounded-2xl border-t-4 border-t-[#1A3C34] border-x border-b border-[#E8E2D6] p-7 space-y-4 shadow-xs">
+    <div className="w-12 h-12 rounded-xl bg-[#1A3C34]/10 text-[#1A3C34] flex items-center justify-center font-extrabold text-lg">
+      5
+    </div>
+    <h3 className="font-extrabold text-xl text-[#1A3C34]">
+      Earn Commission
+    </h3>
+    <p className="text-xs sm:text-sm text-[#6B6355] leading-relaxed">
+      Track your earnings live on your dashboard and withdraw them directly to your bank or UPI.
+    </p>
+  </div>
+</div>
+
+          
         </div>
 
-        {/* =================================================================== */}
-        {/* SECTION 7 — WHY PROMOTE WITH LINKX                                  */}
-        {/* =================================================================== */}
-        <div className="bg-[#EDE8DC] rounded-3xl border border-[#E8E2D6] p-8 sm:p-12 shadow-xs">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-6 space-y-6">
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#1A3C34]">
-                Why Promote with CloudLinks?
-              </h2>
-
-              <ul className="space-y-4">
-                {[
-                  'Highest commission rates in India',
-                  'Real-time click and conversion tracking',
-                  'Instant payout via UPI, NEFT, Paytm',
-                  'Dedicated support for every creator',
-                ].map((point, idx) => (
-                  <li key={idx} className="flex items-center gap-3 text-sm sm:text-base font-extrabold text-[#1A3C34]">
-                    <div className="w-6 h-6 rounded-full bg-[#1A3C34] text-[#C89B2A] flex items-center justify-center flex-shrink-0">
-                      <CheckCircle2 className="w-4 h-4 text-[#C89B2A]" />
-                    </div>
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Right Side UI Mockup */}
-            <div className="lg:col-span-6 bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 shadow-md space-y-6">
-              <div className="flex items-center justify-between border-b border-[#E8E2D6] pb-3">
-                <span className="text-xs font-extrabold text-[#1A3C34] uppercase tracking-wider">
-                  Live Creator Performance
-                </span>
-                <span className="text-[10px] bg-[#1A3C34] text-[#C89B2A] font-extrabold px-2 py-0.5 rounded">
-                  Live Analytics
-                </span>
-              </div>
-
-              {/* Stats Grid */}
-              <div className="grid grid-cols-3 gap-3 text-center">
-                <div className="p-3 bg-[#F5F0E8] rounded-xl border border-[#E8E2D6]">
-                  <span className="text-[11px] text-[#6B6355] font-semibold block">Total Clicks</span>
-                  <span className="text-lg sm:text-xl font-black text-[#1A3C34]">12,540</span>
-                </div>
-                <div className="p-3 bg-[#F5F0E8] rounded-xl border border-[#E8E2D6]">
-                  <span className="text-[11px] text-[#6B6355] font-semibold block">Conversions</span>
-                  <span className="text-lg sm:text-xl font-black text-[#1A3C34]">980</span>
-                </div>
-                <div className="p-3 bg-[#F5F0E8] rounded-xl border border-[#E8E2D6]">
-                  <span className="text-[11px] text-[#6B6355] font-semibold block">Earnings</span>
-                  <span className="text-lg sm:text-xl font-black text-[#C89B2A]">₹85,420</span>
-                </div>
-              </div>
-
-              {/* Mini SVG Chart */}
-              <div className="space-y-2 pt-2">
-                <div className="flex items-center justify-between text-xs font-bold text-[#6B6355]">
-                  <span>Monthly Revenue Trend</span>
-                  <span className="text-[#1A3C34]">+34% growth</span>
-                </div>
-                <div className="h-28 w-full bg-[#1A3C34]/5 rounded-xl border border-[#E8E2D6] p-2 flex items-end">
-                  <svg className="w-full h-20 overflow-visible" viewBox="0 0 300 80">
-                    <path
-                      d="M 0 70 Q 50 50, 100 45 T 200 25 T 300 5"
-                      fill="none"
-                      stroke="#1A3C34"
-                      strokeWidth="3.5"
-                    />
-                    <path
-                      d="M 0 70 Q 50 50, 100 45 T 200 25 T 300 5 L 300 80 L 0 80 Z"
-                      fill="#C89B2A"
-                      fillOpacity="0.15"
-                    />
-                    <circle cx="300" cy="5" r="5" fill="#C89B2A" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      
 
         {/* =================================================================== */}
         {/* SECTION 8 — FAQ SECTION                                            */}
