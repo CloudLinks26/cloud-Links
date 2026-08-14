@@ -138,7 +138,7 @@ export const Footer: React.FC = () => {
               </h4>
               <ul className="space-y-3 text-[#6B6355] font-medium text-base">
                 <li><Link href="/about-us" onClick={scrollToTop} className="hover:text-[#C89B2A] transition-colors flex items-center gap-1.5"><ChevronRight className="w-4 h-4 text-[#C89B2A]" />About Us</Link></li>
-                <li><Link href="/blog" onClick={scrollToTop} className="hover:text-[#C89B2A] transition-colors flex items-center gap-1.5"><ChevronRight className="w-4 h-4 text-[#C89B2A]" />Blog</Link></li>
+                {/* <li><Link href="/blog" onClick={scrollToTop} className="hover:text-[#C89B2A] transition-colors flex items-center gap-1.5"><ChevronRight className="w-4 h-4 text-[#C89B2A]" />Blog</Link></li> */}
                 <li><Link href="/earning-tips" onClick={scrollToTop} className="hover:text-[#C89B2A] transition-colors flex items-center gap-1.5"><ChevronRight className="w-4 h-4 text-[#C89B2A]" />Tips to Earn More</Link></li>
                 <li><button onClick={() => onOpenAuth('signup', 'brand')} className="hover:text-[#C89B2A] transition-colors flex items-center gap-1.5 cursor-pointer text-left"><ChevronRight className="w-4 h-4 text-[#C89B2A]" />Brand Partnership</button></li>
               </ul>

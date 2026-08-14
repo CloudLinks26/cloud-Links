@@ -270,10 +270,10 @@ export default function FAQsContent() {
                 Our support team is active 24/7 on email & Telegram.
               </p>
               <a
-                href="mailto:support@cloudlinks.in"
+                href="mailto:internal@analyticsclouds.com"
                 className="inline-block w-full py-2 rounded-xl bg-[#C89B2A] text-[#1A3C34] font-black text-xs hover:bg-[#b08823] transition-colors"
               >
-                support@cloudlinks.in
+                internal@analyticsclouds.com
               </a>
             </div>
           </div>

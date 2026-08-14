@@ -458,13 +458,13 @@ export default function HomePageContent() {
                     </div>
 
                     {/* Action Button */}
-                    <button
-                      onClick={() => onOpenLinkGen(camp.name)}
+                    <Link
+                      href={`/campaigns/${camp.id}`}
                       className="w-full py-3 px-4 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-all shadow-xs flex items-center justify-center gap-2 group/btn cursor-pointer"
                     >
                       <span>Promote Now</span>
                       <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                    </button>
+                    </Link>
                   </div>
                 ))
               ) : (
@@ -494,7 +494,7 @@ export default function HomePageContent() {
               How It Works
             </h2>
             <p className="text-base text-[#6B6355]">
-              Start earning in 3 simple steps — no technical knowledge or complex approvals required.
+              Start earning in 3 simple steps - no technical knowledge or complex approvals required.
             </p>
           </div>
 
@@ -676,7 +676,7 @@ export default function HomePageContent() {
             </h2>
             <div className="w-20 h-1 bg-[#C89B2A] rounded-full mx-auto" />
             <p className="text-sm sm:text-base text-[#6B6355] font-medium pt-1">
-              CloudLinks works for everyone — whether you're a creator looking to earn or a brand looking to grow
+              CloudLinks works for everyone whether you're a creator looking to earn or a brand looking to grow
             </p>
           </div>
 
@@ -721,7 +721,7 @@ export default function HomePageContent() {
                     </li>
                     <li className="flex items-center gap-3 text-sm font-bold text-[#1A3C34]">
                       <div className="w-6 h-6 rounded-full bg-[#1A3C34] text-[#C89B2A] flex items-center justify-center text-xs font-black flex-shrink-0">⚡</div>
-                      <span>Instant payouts — no minimum</span>
+                      <span>Instant payouts - no minimum</span>
                     </li>
                     <li className="flex items-center gap-3 text-sm font-bold text-[#1A3C34]">
                       <div className="w-6 h-6 rounded-full bg-[#1A3C34] text-[#C89B2A] flex items-center justify-center text-xs font-black flex-shrink-0">📊</div>
@@ -731,13 +731,13 @@ export default function HomePageContent() {
                 </div>
 
                 <div className="flex items-center gap-3 pt-6 border-t border-[#E8E2D6] mt-6">
-                  <button
-                    onClick={() => onOpenAuth('signup', 'creator')}
+                  <a
+                    href="https://analytics.trackier.io/register.html"
                     className="bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-black text-xs py-3.5 px-5 rounded-xl transition-all shadow-md flex-1 text-center cursor-pointer flex items-center justify-center gap-1.5"
                   >
                     <span>Join Now</span>
                     <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </a>
                   <Link
                     href="/how-it-works"
                     className="bg-[#1A3C34] hover:bg-[#0F2823] text-white font-black text-xs py-3.5 px-5 rounded-xl transition-all flex-1 text-center cursor-pointer block"
@@ -845,7 +845,7 @@ export default function HomePageContent() {
             </h2>
             <div className="w-20 h-1 bg-[#C89B2A] rounded-full mx-auto" />
             <p className="text-sm sm:text-base text-[#6B6355] font-medium pt-1">
-              From fashion to finance — every major Indian brand in one place
+              From fashion to finance, every major Indian brand in one place
             </p>
           </div>
 

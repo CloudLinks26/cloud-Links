@@ -503,16 +503,12 @@ export default function AboutContent() {
     <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-center pt-8">
       
       {/* Primary CTA: Join (Solid gold) */}
-      <a href="#" className="inline-flex items-center gap-2 px-10 py-4 rounded-2xl bg-[#C89B2A] text-[#1A3C34] font-bold text-base hover:bg-[#C89B2A]/90 transition-all shadow-md group">
+      <a href="https://analytics.trackier.io/register.html" className="inline-flex items-center gap-2 px-10 py-4 rounded-2xl bg-[#C89B2A] text-[#1A3C34] font-bold text-base hover:bg-[#C89B2A]/90 transition-all shadow-md group">
         Join CloudsLink
         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
       </a>
 
-      {/* Secondary CTA: Partner (Outline and subtle background) */}
-      <a href="#" className="inline-flex items-center gap-2 px-10 py-4 rounded-2xl bg-[#1A3C34] text-[#FDFAF4] font-bold text-base hover:bg-[#1A3C34]/80 transition-all border border-[#FDFAF4]/30 group">
-        Partner With Us
-        <Building2 className="w-5 h-5 opacity-80" />
-      </a>
+      
 
     </div>
 

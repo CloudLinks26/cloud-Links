@@ -2,7 +2,7 @@ import { Campaign, Testimonial, BlogPost, StatItem } from '../types/index';
 
 export const CAMPAIGNS: Campaign[] = [
   {
-    id: 'haldiram',
+    id: 'haldiram-affiliate-program',
     name: 'Haldiram',
     category: 'Food & Snacks',
     commission: 'Up to 12%',
@@ -16,7 +16,7 @@ export const CAMPAIGNS: Campaign[] = [
     description: "India's iconic brand for authentic sweets, namkeens, ready-to-eat meals, and traditional snacks."
   },
   {
-    id: 'ghar-soaps',
+    id: 'ghar-soaps-affiliate-program',
     name: 'Ghar Soaps',
     category: 'Beauty & Care',
     commission: 'Up to 10%',
@@ -30,7 +30,7 @@ export const CAMPAIGNS: Campaign[] = [
     description: 'Natural, handcrafted skin and body care essentials blended with organic ingredients.'
   },
   {
-    id: 'swiss-beauty',
+    id: 'swiss-beauty-affiliate-program',
     name: 'Swiss Beauty',
     category: 'Cosmetics',
     commission: 'Up to 15%',
@@ -44,7 +44,7 @@ export const CAMPAIGNS: Campaign[] = [
     description: 'Trending makeup and high-performance cosmetics tailored for modern Indian beauty enthusiasts.'
   },
   {
-    id: 'asaya',
+    id: 'asaya-affiliate-program',
     name: 'Asaya',
     category: 'Skincare',
     commission: 'Up to 8%',

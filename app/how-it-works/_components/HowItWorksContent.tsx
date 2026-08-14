@@ -1,6 +1,5 @@
 'use client';
 import React, { useState } from 'react';
-import { useGlobalContext } from '@/components/GlobalProvider';
 import {
   UserPlus,
   Tag,
@@ -27,18 +26,11 @@ import {
 } from 'lucide-react';
 
 export default function HowItWorksContent() {
-  const { onOpenLinkGen, onOpenAuth } = useGlobalContext();
   // FAQ Accordion State
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
-  };
-
-  const handleAuthClick = (mode: 'signup' | 'login' = 'signup') => {
-    if (onOpenAuth) {
-      onOpenAuth(mode);
-    }
   };
 
   // FAQs List
@@ -346,52 +338,52 @@ export default function HowItWorksContent() {
 
     {/* Flow Diagram - Grid with stretch alignment */}
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-stretch">
-      
-      {/* Step 1 */}
-      <div className="bg-[#FDFAF4] text-[#1A3C34] rounded-2xl p-6 shadow-md flex items-center gap-4 text-left border-2 border-transparent h-full">
-        <div className="p-3 bg-[#1A3C34]/10 rounded-xl text-[#C89B2A] shrink-0">
-          <LinkIcon className="w-6 h-6 text-[#C89B2A]" />
-        </div>
-        <div>
-          <span className="text-xs text-[#6B6355] font-extrabold block uppercase tracking-wider">01 — Promote</span>
-          <span className="font-extrabold text-base text-[#1A3C34]">You share link</span>
-        </div>
-      </div>
-
-      {/* Step 2 */}
-      <div className="bg-[#FDFAF4] text-[#1A3C34] rounded-2xl p-6 shadow-md flex items-center gap-4 text-left border-2 border-transparent h-full">
-        <div className="p-3 bg-[#1A3C34]/10 rounded-xl text-[#C89B2A] shrink-0">
-          <MousePointerClick className="w-6 h-6 text-[#C89B2A]" />
-        </div>
-        <div>
-          <span className="text-xs text-[#6B6355] font-extrabold block uppercase tracking-wider">02 — Attract Clicks</span>
-          <span className="font-extrabold text-base text-[#1A3C34]">Your audience visits through your link.</span>
-        </div>
-      </div>
-
-      {/* Step 3 */}
-      <div className="bg-[#FDFAF4] text-[#1A3C34] rounded-2xl p-6 shadow-md flex items-center gap-4 text-left border-2 border-transparent h-full">
-        <div className="p-3 bg-[#1A3C34]/10 rounded-xl text-[#C89B2A] shrink-0">
-          <ShoppingCart className="w-6 h-6 text-[#C89B2A]" />
-        </div>
-        <div>
-          <span className="text-xs text-[#6B6355] font-extrabold block uppercase tracking-wider">03 — Drive Conversions</span>
-          <span className="font-extrabold text-base text-[#1A3C34]">Turn clicks into conversions.</span>
-        </div>
-      </div>
-
-      {/* Step 4 */}
-      <div className="bg-[#FDFAF4] text-[#1A3C34] rounded-2xl p-6 shadow-md flex items-center gap-4 text-left border-2 border-[#C89B2A] h-full">
-        <div className="p-3 bg-[#C89B2A]/20 rounded-xl text-[#C89B2A] shrink-0">
-          <Coins className="w-6 h-6 text-[#C89B2A]" />
-        </div>
-        <div>
-          <span className="text-xs text-[#6B6355] font-extrabold block uppercase tracking-wider">04 — Get Paid</span>
-          <span className="font-extrabold text-base text-[#1A3C34] block">Earn your commission on every eligible conversion.</span>
-        </div>
-      </div>
-
+  
+  {/* Step 1 */}
+  <div className="bg-[#FDFAF4] text-[#1A3C34] rounded-2xl p-6 shadow-md flex items-start gap-4 text-left border-2 border-transparent h-full">
+    <div className="p-3 bg-[#1A3C34]/10 rounded-xl text-[#C89B2A] shrink-0">
+      <LinkIcon className="w-6 h-6 text-[#C89B2A]" />
     </div>
+    <div className="space-y-1">
+      <span className="text-xs text-[#6B6355] font-extrabold block uppercase tracking-wider">01 — Promote</span>
+      <span className="font-extrabold text-base text-[#1A3C34] block leading-snug">You share link</span>
+    </div>
+  </div>
+
+  {/* Step 2 */}
+  <div className="bg-[#FDFAF4] text-[#1A3C34] rounded-2xl p-6 shadow-md flex items-start gap-4 text-left border-2 border-transparent h-full">
+    <div className="p-3 bg-[#1A3C34]/10 rounded-xl text-[#C89B2A] shrink-0">
+      <MousePointerClick className="w-6 h-6 text-[#C89B2A]" />
+    </div>
+    <div className="space-y-1">
+      <span className="text-xs text-[#6B6355] font-extrabold block uppercase tracking-wider">02 — Attract Clicks</span>
+      <span className="font-extrabold text-base text-[#1A3C34] block leading-snug">Your audience visits through your link.</span>
+    </div>
+  </div>
+
+  {/* Step 3 */}
+  <div className="bg-[#FDFAF4] text-[#1A3C34] rounded-2xl p-6 shadow-md flex items-start gap-4 text-left border-2 border-transparent h-full">
+    <div className="p-3 bg-[#1A3C34]/10 rounded-xl text-[#C89B2A] shrink-0">
+      <ShoppingCart className="w-6 h-6 text-[#C89B2A]" />
+    </div>
+    <div className="space-y-1">
+      <span className="text-xs text-[#6B6355] font-extrabold block uppercase tracking-wider">03 — Drive Conversions</span>
+      <span className="font-extrabold text-base text-[#1A3C34] block leading-snug">Turn clicks into conversions.</span>
+    </div>
+  </div>
+
+  {/* Step 4 */}
+  <div className="bg-[#FDFAF4] text-[#1A3C34] rounded-2xl p-6 shadow-md flex items-start gap-4 text-left border-2 border-[#C89B2A] h-full">
+    <div className="p-3 bg-[#C89B2A]/20 rounded-xl text-[#C89B2A] shrink-0">
+      <Coins className="w-6 h-6 text-[#C89B2A]" />
+    </div>
+    <div className="space-y-1">
+      <span className="text-xs text-[#6B6355] font-extrabold block uppercase tracking-wider">04 — Get Paid</span>
+      <span className="font-extrabold text-base text-[#1A3C34] block leading-snug">Earn your commission on every eligible conversion.</span>
+    </div>
+  </div>
+
+</div>
 
     {/* Trust Badges */}
     <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 pt-4 text-xs sm:text-sm font-bold text-[#F5F0E8]/90">
@@ -474,7 +466,7 @@ export default function HowItWorksContent() {
           <div className="bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] overflow-hidden shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
             <div className="h-48 bg-[#EDE8DC] overflow-hidden relative">
               <img
-                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=600"
+                src="https://res.cloudinary.com/couponsbit/image/upload/v1786704772/07b1b2b6-351b-44c8-8212-33b265ab5a72_1_cfn4hn.png"
                 alt="Students"
                 className="w-full h-full object-cover"
               />
@@ -491,12 +483,12 @@ export default function HowItWorksContent() {
                 </p>
               </div>
 
-              <button
-                onClick={() => handleAuthClick('signup')}
-                className="w-full py-3 px-4 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-colors shadow-2xs mt-4"
+              <a
+                href="https://analytics.trackier.io/register.html"
+                className="w-full py-3 px-4 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-colors shadow-2xs mt-4 flex items-center justify-center"
               >
                 Join Now
-              </button>
+              </a>
             </div>
           </div>
 
@@ -504,7 +496,7 @@ export default function HowItWorksContent() {
           <div className="bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] overflow-hidden shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
             <div className="h-48 bg-[#EDE8DC] overflow-hidden relative">
               <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600"
+                src="https://res.cloudinary.com/couponsbit/image/upload/v1786704773/d568d348-6d35-415a-84fe-936fa8d67834_aimjul.png"
                 alt="Homemakers"
                 className="w-full h-full object-cover"
               />
@@ -521,12 +513,12 @@ export default function HowItWorksContent() {
                 </p>
               </div>
 
-              <button
-                onClick={() => handleAuthClick('signup')}
-                className="w-full py-3 px-4 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-colors shadow-2xs mt-4"
+              <a
+                href="https://analytics.trackier.io/register.html"
+                className="w-full py-3 px-4 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-colors shadow-2xs mt-4 flex items-center justify-center"
               >
                 Join Now
-              </button>
+              </a>
             </div>
           </div>
 
@@ -534,7 +526,7 @@ export default function HowItWorksContent() {
           <div className="bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] overflow-hidden shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
             <div className="h-48 bg-[#EDE8DC] overflow-hidden relative">
               <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600"
+                src="https://res.cloudinary.com/couponsbit/image/upload/v1786704771/9939620b-412a-498e-a1b4-8fb5455df1f3_p8pwez.png"
                 alt="Influencers"
                 className="w-full h-full object-cover"
               />
@@ -551,12 +543,12 @@ export default function HowItWorksContent() {
                 </p>
               </div>
 
-              <button
-                onClick={() => handleAuthClick('signup')}
-                className="w-full py-3 px-4 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-colors shadow-2xs mt-4"
+              <a
+                href="https://analytics.trackier.io/register.html"
+                className="w-full py-3 px-4 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-colors shadow-2xs mt-4 flex items-center justify-center"
               >
                 Join Now
-              </button>
+              </a>
             </div>
           </div>
 
@@ -629,13 +621,13 @@ export default function HowItWorksContent() {
             </p>
 
             <div>
-              <button
-                onClick={() => handleAuthClick('signup')}
+              <a
+                href="https://analytics.trackier.io/register.html"
                 className="px-10 py-4 rounded-2xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-base transition-all shadow-lg inline-flex items-center gap-2"
               >
                 <span>Sign Up Free</span>
                 <ArrowRight className="w-5 h-5" />
-              </button>
+              </a>
             </div>
 
             <div className="flex items-center justify-center gap-4 text-xs font-bold text-[#F5F0E8]/80 pt-2">

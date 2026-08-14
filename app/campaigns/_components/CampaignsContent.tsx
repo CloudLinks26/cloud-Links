@@ -1,7 +1,6 @@
 'use client';
 import React, { useState, useRef } from 'react';
 import Link from 'next/link';
-import { useGlobalContext } from '@/components/GlobalProvider';
 import {
   Search,
   Star,
@@ -27,7 +26,6 @@ import {
 } from 'lucide-react';
 
 export default function CampaignsContent() {
-  const { onOpenLinkGen, onOpenAuth } = useGlobalContext();
   // Filters & State
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -744,13 +742,13 @@ export default function CampaignsContent() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-              <button
-                onClick={() => onOpenAuth ? onOpenAuth('signup') : onOpenLinkGen()}
+              <a
+                href="https://analytics.trackier.io/register.html"
                 className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-sm transition-all shadow-lg flex items-center justify-center gap-2"
               >
                 <span>Sign Up Free</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </a>
 
               <button
                 onClick={() => {
