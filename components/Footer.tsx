@@ -50,7 +50,7 @@ export const Footer: React.FC = () => {
             {/* Social Icons (Slightly larger icons & buttons) */}
             <div className="flex items-center gap-3 pt-2">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/cloud.links26/"
                 target="_blank"
                 rel="noreferrer"
                 className="w-11 h-11 rounded-xl bg-[#F5F0E8] border border-[#E8E2D6] flex items-center justify-center text-[#1A3C34] hover:bg-[#1A3C34] hover:text-[#C89B2A] transition-colors"
@@ -58,7 +58,7 @@ export const Footer: React.FC = () => {
               >
                 <Instagram className="w-5 h-5" />
               </a>
-              <a
+              {/* <a
                 href="https://youtube.com"
                 target="_blank"
                 rel="noreferrer"
@@ -93,7 +93,7 @@ export const Footer: React.FC = () => {
                 aria-label="Telegram"
               >
                 <Send className="w-5 h-5" />
-              </a>
+              </a> */}
             </div>
           </div>
 
