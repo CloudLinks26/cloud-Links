@@ -12,23 +12,24 @@ import {
   ArrowRight
 } from 'lucide-react';
 
-export default function SwissBeautyContent() {
-  // Swiss Beauty Brand Data
+export default function PerforaCareContent() {
+  // Perfora Care Brand Data
   const brand = {
-    name: 'Swiss Beauty',
-    slug: 'swiss-beauty-affiliate-program',
-    logo: 'https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/1_hdkg1p.png',
-    tagline: "Let's Create New Look",
-    category: 'Cosmetics',
+    name: 'Perfora Care',
+    slug: 'perfora-care-affiliate-program',
+    logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1786965785/4_z3qyzx.jpg',
+    tagline: 'Smarter Oral Care, Every Day',
+    category: 'Oral Care',
     type: 'CPS', // Cost Per Sale
-    commission: '25%',
-    rating: 4.9,
+    commission: '15%',
+    oldUserCommission: '12%',
+    rating: 4.7,
     country: 'India 🇮🇳',
-    about: "Swiss Beauty brings trend-led makeup to everyday beauty routines, offering everything from foundations and lip colours to eyeshadow palettes and more. With affordable products made for experimenting with new looks, the brand has become a popular choice among beauty enthusiasts and content creators across India.",
+    about: 'Perfora is a modern oral care brand offering dentist-approved toothpaste, water flossers, and daily hygiene essentials. Focused on effective, science-backed formulations, Perfora has become a go-to choice for health-conscious Indian households.',
     highlights: [
-      'Strong conversion rate — trending makeup drives quick purchases',
-      'Mid-range average order value with high repeat buying',
-      'Reporting Time: 24–48 hours / offline'
+      'Highest new-user commission on this campaign',
+      'Reporting Time: Daily / Offline',
+      'Fast-growing category with strong repeat purchases',
     ]
   };
 
@@ -235,14 +236,25 @@ export default function SwissBeautyContent() {
               </div>
             </div>
 
-            {/* Right Side Commission Highlight Card */}
+            {/* Right Side Commission Highlight Card — Two-Tier */}
             <div className="lg:w-[38%] bg-[#FDFAF4] rounded-3xl p-6 sm:p-8 text-[#1A3C34] shadow-2xl border border-[#E8E2D6] flex flex-col justify-between space-y-6">
-              <div className="text-center space-y-2">
+              <div className="text-center space-y-3">
                 <span className="text-xs font-black uppercase tracking-wider text-[#1A3C34] bg-[#C89B2A]/15 px-3 py-1 rounded-full inline-block border border-[#C89B2A]/30">
                   💰 Earn Commission
                 </span>
-                <div className="text-4xl sm:text-5xl font-black text-[#C89B2A] font-display">
-                  {brand.commission}
+                <div className="grid grid-cols-2 gap-3 pt-1">
+                  <div className="p-3 rounded-2xl bg-[#F5F0E8] border border-[#E8E2D6]">
+                    <div className="text-3xl font-black text-[#C89B2A] font-display">
+                      {brand.commission}
+                    </div>
+                    <p className="text-[11px] font-bold text-[#6B6355] uppercase tracking-wide">New User</p>
+                  </div>
+                  <div className="p-3 rounded-2xl bg-[#F5F0E8] border border-[#E8E2D6]">
+                    <div className="text-3xl font-black text-[#C89B2A] font-display">
+                      {brand.oldUserCommission}
+                    </div>
+                    <p className="text-[11px] font-bold text-[#6B6355] uppercase tracking-wide">Old User</p>
+                  </div>
                 </div>
                 <p className="text-xs font-bold text-[#6B6355]">
                   per successful sale generated through your link
@@ -251,19 +263,19 @@ export default function SwissBeautyContent() {
 
               {/* CTA Button */}
               <div className="space-y-2">
-               <button
-  onClick={() =>
-    window.open(
-      "https://analytics.trackier.io/publisher/campaign/4264",
-      "_blank",
-      "noopener,noreferrer"
-    )
-  }
-  className="w-full py-4 rounded-2xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-black text-sm transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-98"
->
-  <span>Join This Program</span>
-  <ArrowRight className="w-4 h-4" />
-</button>
+                <button
+                  onClick={() =>
+                    window.open(
+                      "https://analytics.trackier.io/publisher/campaign/2855",
+                      "_blank",
+                      "noopener,noreferrer"
+                    )
+                  }
+                  className="w-full py-4 rounded-2xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-black text-sm transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-98"
+                >
+                  <span>Join This Program</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
               </div>
             </div>
 
@@ -289,8 +301,7 @@ export default function SwissBeautyContent() {
                   About {brand.name}
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-black font-display text-[#1A3C34]">
-                  India's Go-To Affordable Makeup Brand
-
+                  Dentist-Approved Oral Care, Made Smarter
                 </h2>
               </div>
 
@@ -367,7 +378,7 @@ export default function SwissBeautyContent() {
               </div>
               <div>
                 <button className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#E8E2D6] bg-white text-sm font-semibold text-[#1A3C34] shadow-xs">
-                  5820
+                  2855
                 </button>
               </div>
             </div>
@@ -385,8 +396,13 @@ export default function SwissBeautyContent() {
                 <h3 className="text-xl font-black font-display text-[#1A3C34]">
                   Join {brand.name} Affiliate Program
                 </h3>
-                <div className="inline-block px-3 py-1 rounded-full bg-[#C89B2A]/15 text-[#C89B2A] text-xs font-black border border-[#C89B2A]/30">
-                  💰 Earn {brand.commission} Commission
+                <div className="flex items-center justify-center gap-2 flex-wrap">
+                  <div className="inline-block px-3 py-1 rounded-full bg-[#C89B2A]/15 text-[#C89B2A] text-xs font-black border border-[#C89B2A]/30">
+                    💰 New User: {brand.commission}
+                  </div>
+                  <div className="inline-block px-3 py-1 rounded-full bg-[#C89B2A]/15 text-[#C89B2A] text-xs font-black border border-[#C89B2A]/30">
+                    Old User: {brand.oldUserCommission}
+                  </div>
                 </div>
               </div>
 
@@ -402,19 +418,18 @@ export default function SwissBeautyContent() {
 
               {/* CTA Button */}
               <button
-  onClick={() =>
-    window.open(
-      "https://analytics.trackier.io/publisher/campaign/4264",
-      "_blank",
-      "noopener,noreferrer"
-    )
-  }
-  className="w-full py-3.5 rounded-2xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-black text-sm transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-98"
->
-  <span>Join This Program</span>
-  <ArrowRight className="w-4 h-4" />
-</button>
-
+                onClick={() =>
+                  window.open(
+                    "https://analytics.trackier.io/publisher/campaign/2855",
+                    "_blank",
+                    "noopener,noreferrer"
+                  )
+                }
+                className="w-full py-3.5 rounded-2xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-black text-sm transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-98"
+              >
+                <span>Join This Program</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
             </div>
 
           </div>
@@ -426,98 +441,98 @@ export default function SwissBeautyContent() {
       {/* TOP PICKS FOR YOU CAROUSEL                                          */}
       {/* =================================================================== */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-     <div className="space-y-6">
-  <div className="flex items-center justify-between">
-    <div className="flex items-center gap-3">
-      <div className="w-1.5 h-7 bg-[#C89B2A] rounded-full" />
-      <h2 className="text-xl sm:text-2xl font-extrabold text-[#1A3C34]">
-        Top Picks for You
-      </h2>
-    </div>
+        <div className="space-y-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-1.5 h-7 bg-[#C89B2A] rounded-full" />
+              <h2 className="text-xl sm:text-2xl font-extrabold text-[#1A3C34]">
+                Top Picks for You
+              </h2>
+            </div>
 
-    {/* Nav Arrows */}
-    <div className="flex items-center gap-2">
-      <button
-        onClick={() => scrollCarousel('left')}
-        aria-label="Previous Top Picks"
-        className="w-9 h-9 rounded-full border border-[#1A3C34] text-[#1A3C34] hover:bg-[#1A3C34] hover:text-white flex items-center justify-center transition-colors shadow-2xs"
-      >
-        <ChevronLeft className="w-5 h-5" />
-      </button>
-      <button
-        onClick={() => scrollCarousel('right')}
-        aria-label="Next Top Picks"
-        className="w-9 h-9 rounded-full border border-[#1A3C34] text-[#1A3C34] hover:bg-[#1A3C34] hover:text-white flex items-center justify-center transition-colors shadow-2xs"
-      >
-        <ChevronRight className="w-5 h-5" />
-      </button>
-    </div>
-  </div>
-
-  {/* Cards Carousel Container */}
-  <div
-    ref={carouselRef}
-    className="flex items-center gap-6 overflow-x-auto no-scrollbar pb-4 pt-1 snap-x"
-  >
-    {topPicks.map((brand) => (
-      <div
-        key={brand.id}
-        className="min-w-[260px] sm:min-w-[280px] bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center justify-between snap-start group h-full"
-      >
-        <div className="flex flex-col items-center text-center space-y-4 w-full">
-          {/* Brand Logo */}
-          <div className="w-28 h-16 rounded-2xl bg-white border border-[#E8E2D6] p-2 flex items-center justify-center shadow-2xs overflow-hidden group-hover:scale-105 transition-transform">
-            <img
-              src={brand.logo}
-              alt={brand.name}
-              className="w-full h-full object-cover rounded-xl"
-            />
+            {/* Nav Arrows */}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => scrollCarousel('left')}
+                aria-label="Previous Top Picks"
+                className="w-9 h-9 rounded-full border border-[#1A3C34] text-[#1A3C34] hover:bg-[#1A3C34] hover:text-white flex items-center justify-center transition-colors shadow-2xs"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={() => scrollCarousel('right')}
+                aria-label="Next Top Picks"
+                className="w-9 h-9 rounded-full border border-[#1A3C34] text-[#1A3C34] hover:bg-[#1A3C34] hover:text-white flex items-center justify-center transition-colors shadow-2xs"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
           </div>
 
-          {/* Brand Info */}
-          <div className="w-full">
-            <h3 className="font-extrabold text-lg text-[#1A3C34]">
-              {brand.name}
-            </h3>
-            {brand.oldUserCommission ? (
-              <div className="mt-1 flex items-center justify-center gap-6">
-                <div>
-                  <span className="text-xs text-[#6B6355] block font-medium">New User</span>
-                  <span className="text-2xl font-black text-[#C89B2A] block leading-tight">
-                    {brand.commission}
-                  </span>
+          {/* Cards Carousel Container */}
+          <div
+            ref={carouselRef}
+            className="flex items-center gap-6 overflow-x-auto no-scrollbar pb-4 pt-1 snap-x"
+          >
+            {topPicks.map((brand) => (
+              <div
+                key={brand.id}
+                className="min-w-[260px] sm:min-w-[280px] bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center justify-between snap-start group h-full"
+              >
+                <div className="flex flex-col items-center text-center space-y-4 w-full">
+                  {/* Brand Logo */}
+                  <div className="w-28 h-16 rounded-2xl bg-white border border-[#E8E2D6] p-2 flex items-center justify-center shadow-2xs overflow-hidden group-hover:scale-105 transition-transform">
+                    <img
+                      src={brand.logo}
+                      alt={brand.name}
+                      className="w-full h-full object-cover rounded-xl"
+                    />
+                  </div>
+
+                  {/* Brand Info */}
+                  <div className="w-full">
+                    <h3 className="font-extrabold text-lg text-[#1A3C34]">
+                      {brand.name}
+                    </h3>
+                    {brand.oldUserCommission ? (
+                      <div className="mt-1 flex items-center justify-center gap-6">
+                        <div>
+                          <span className="text-xs text-[#6B6355] block font-medium">New User</span>
+                          <span className="text-2xl font-black text-[#C89B2A] block leading-tight">
+                            {brand.commission}
+                          </span>
+                        </div>
+                        <div className="h-6 w-[1px] bg-[#E8E2D6] mt-2" /> {/* Subtle Divider */}
+                        <div>
+                          <span className="text-xs text-[#6B6355] block font-medium">Old User</span>
+                          <span className="text-2xl font-black text-[#C89B2A] block leading-tight">
+                            {brand.oldUserCommission}
+                          </span>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="mt-1">
+                        <span className="text-xs text-[#6B6355] block font-medium">Commission</span>
+                        <span className="text-2xl font-black text-[#C89B2A] block leading-tight">
+                          {brand.commission}
+                        </span>
+                      </div>
+                    )}
+                  </div>
                 </div>
-                <div className="h-6 w-[1px] bg-[#E8E2D6] mt-2" /> {/* Subtle Divider */}
-                <div>
-                  <span className="text-xs text-[#6B6355] block font-medium">Old User</span>
-                  <span className="text-2xl font-black text-[#C89B2A] block leading-tight">
-                    {brand.oldUserCommission}
-                  </span>
-                </div>
+
+                {/* Promote CTA Button */}
+                <Link
+                  href={`/campaigns/${brand.id}`}
+                  className="w-full mt-4 py-2.5 px-4 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-colors shadow-2xs flex items-center justify-center gap-1.5"
+                >
+                  <span>Promote Now</span>
+                  <ChevronRight className="w-4 h-4" />
+                </Link>
               </div>
-            ) : (
-              <div className="mt-1">
-                <span className="text-xs text-[#6B6355] block font-medium">Commission</span>
-                <span className="text-2xl font-black text-[#C89B2A] block leading-tight">
-                  {brand.commission}
-                </span>
-              </div>
-            )}
+            ))}
           </div>
         </div>
-
-        {/* Promote CTA Button */}
-        <Link
-          href={`/campaigns/${brand.id}`}
-          className="w-full mt-4 py-2.5 px-4 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-colors shadow-2xs flex items-center justify-center gap-1.5"
-        >
-          <span>Promote Now</span>
-          <ChevronRight className="w-4 h-4" />
-        </Link>
-      </div>
-    ))}
-  </div>
-</div>
       </section>
 
       {/* =================================================================== */}
@@ -534,28 +549,27 @@ export default function SwissBeautyContent() {
 
         <div className="max-w-3xl mx-auto relative z-10 space-y-6">
           <h2 className="text-3xl sm:text-5xl font-black font-display leading-tight text-white">
-            Ready to Start Earning with {brand.name}?
+            Ready to Earn with {brand.name}?
           </h2>
 
           <p className="text-sm sm:text-base text-[#F5F0E8]/90 font-medium leading-relaxed max-w-xl mx-auto">
-            Join creators across India who are earning by promoting one of the country’s favourite makeup brands. 
+            Join CloudsLink and promote Perfora Care's dentist-approved oral care essentials while earning commissions on qualifying sales.
           </p>
 
-         <button
-  onClick={() =>
-    window.open(
-      "https://analytics.trackier.io/publisher/campaign/4264",
-      "_blank",
-      "noopener,noreferrer"
-    )
-  }
-  className="px-8 py-4 rounded-2xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-black text-sm transition-all shadow-xl inline-flex items-center gap-2 cursor-pointer active:scale-98"
->
-  <span>Join the Program Now</span>
-  <ArrowRight className="w-4 h-4" />
-</button>
+          <button
+            onClick={() =>
+              window.open(
+                "https://analytics.trackier.io/publisher/campaign/2855",
+                "_blank",
+                "noopener,noreferrer"
+              )
+            }
+            className="px-8 py-4 rounded-2xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-black text-sm transition-all shadow-xl inline-flex items-center gap-2 cursor-pointer active:scale-98"
+          >
+            <span>Join the Program Now</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
 
-       
         </div>
       </section>
 

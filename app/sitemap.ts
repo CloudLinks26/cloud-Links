@@ -2,7 +2,21 @@ import type { MetadataRoute } from 'next';
 
 const BASE_URL = 'https://cloudlinks.in';
 
-const CAMPAIGN_SLUGS = ['haldiram-affiliate-program', 'ghar-soaps-affiliate-program', 'swiss-beauty-affiliate-program', 'asaya-affiliate-program'];
+const CAMPAIGN_SLUGS = [
+  'haldiram-affiliate-program',
+  'ghar-soaps-affiliate-program',
+  'swiss-beauty-affiliate-program',
+  'asaya-affiliate-program',
+  'hamerscop-affiliate-program',
+  'cotton-culture-affiliate-program',
+  'fraganote-affiliate-program',
+  'anydesk-affiliate-program',
+  'ajio-affiliate-program',
+  'perfora-care-affiliate-program',
+  'the-man-company-affiliate-program',
+  'firstcry-affiliate-program',
+  'sanskriti-homes-affiliate-program',
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

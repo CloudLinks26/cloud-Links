@@ -11,13 +11,28 @@ CloudLinks lets creators generate trackable affiliate links for popular Indian b
 - [How It Works](https://cloudlinks.in/how-it-works): Step-by-step explanation of the CloudLinks affiliate link and payout process.
 - [Influencer Program](https://cloudlinks.in/influencer): Details on the influencer partnership program and creator tiers.
 - [Payouts](https://cloudlinks.in/payouts): Payout methods, minimum thresholds, and withdrawal process.
-- [Top Brands](https://cloudlinks.in/top-brands): Directory of the highest-earning partner brands on CloudLinks.
 - [Categories](https://cloudlinks.in/categories): Browse affiliate campaigns by product category.
 - [Earning Tips](https://cloudlinks.in/earning-tips): Strategies and tips for creators to maximize their affiliate earnings.
 - [Blog](https://cloudlinks.in/blog): Articles and guides on affiliate marketing for Indian creators.
 - [About Us](https://cloudlinks.in/about-us): CloudLinks' mission, story, and team.
 - [Contact](https://cloudlinks.in/contact): Support and contact information.
 - [FAQs](https://cloudlinks.in/faqs): Frequently asked questions about the platform.
+
+## Brand Affiliate Programs
+
+- [Haldiram](https://cloudlinks.in/campaigns/haldiram-affiliate-program): Earn up to 9% commission promoting Haldiram's snacks and sweets.
+- [Ghar Soaps](https://cloudlinks.in/campaigns/ghar-soaps-affiliate-program): Earn up to 15% commission promoting Ghar Soaps' natural skin and body care.
+- [Swiss Beauty](https://cloudlinks.in/campaigns/swiss-beauty-affiliate-program): Earn up to 25% commission promoting Swiss Beauty cosmetics.
+- [Asaya](https://cloudlinks.in/campaigns/asaya-affiliate-program): Earn up to 35% commission promoting Asaya dermatologist-backed skincare.
+- [HamersCop](https://cloudlinks.in/campaigns/hamerscop-affiliate-program): Earn 12% commission promoting HamersCop lifestyle essentials.
+- [Cotton Culture](https://cloudlinks.in/campaigns/cotton-culture-affiliate-program): Earn 12% commission promoting Cotton Culture home textiles and bedding.
+- [Fraganote](https://cloudlinks.in/campaigns/fraganote-affiliate-program): Earn 8% commission promoting Fraganote fragrances.
+- [Anydesk](https://cloudlinks.in/campaigns/anydesk-affiliate-program): Earn 8% commission promoting Anydesk remote desktop software.
+- [AJIO](https://cloudlinks.in/campaigns/ajio-affiliate-program): Earn 5% commission promoting AJIO fashion and lifestyle products.
+- [Perfora Care](https://cloudlinks.in/campaigns/perfora-care-affiliate-program): Earn up to 15% commission promoting Perfora dentist-approved oral care.
+- [The Man Company](https://cloudlinks.in/campaigns/the-man-company-affiliate-program): Earn 17% commission promoting The Man Company grooming essentials.
+- [FirstCry](https://cloudlinks.in/campaigns/firstcry-affiliate-program): Earn a flat 45% commission promoting FirstCry baby and kids products.
+- [Sanskriti Homes](https://cloudlinks.in/campaigns/sanskriti-homes-affiliate-program): Earn 17% commission promoting Sanskriti Homes decor and furnishings.
 
 ## Legal
 
