@@ -41,7 +41,7 @@ import {
 } from 'lucide-react';
 
 export const EarningTipsContent: React.FC = () => {
-  const { onOpenAuth } = useGlobalContext();
+  const { onOpenAuth, showToast } = useGlobalContext();
   // State for Level filter tabs
   const [activeLevel, setActiveLevel] = useState<'All' | 'Beginner' | 'Intermediate' | 'Pro'>('All');
 
@@ -52,12 +52,25 @@ export const EarningTipsContent: React.FC = () => {
   // Modal / Detail state for featured tip
   const [showFeaturedModal, setShowFeaturedModal] = useState(false);
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim()) {
-      setSubscribed(true);
-      setEmail('');
-      setTimeout(() => setSubscribed(false), 4000);
+    if (!email.trim()) return;
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'Earning Tips' }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSubscribed(true);
+        setEmail('');
+        setTimeout(() => setSubscribed(false), 4000);
+      } else {
+        showToast('Something went wrong. Please try again.');
+      }
+    } catch {
+      showToast('Something went wrong. Please try again.');
     }
   };
 

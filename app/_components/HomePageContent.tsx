@@ -143,13 +143,27 @@ export default function HomePageContent() {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
-    setSubscribed(true);
-    onToast('Subscribed to CloudLinks Creator Weekly! Check your inbox soon.');
-    setEmail('');
-    setTimeout(() => setSubscribed(false), 5000);
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'Homepage' }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSubscribed(true);
+        onToast('Subscribed to CloudLinks Creator Weekly! Check your inbox soon.');
+        setEmail('');
+        setTimeout(() => setSubscribed(false), 5000);
+      } else {
+        onToast('Something went wrong. Please try again.');
+      }
+    } catch {
+      onToast('Something went wrong. Please try again.');
+    }
   };
 
   const scrollToHowItWorks = () => {
