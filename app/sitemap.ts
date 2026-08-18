@@ -10,12 +10,17 @@ const CAMPAIGN_SLUGS = [
   'hamerscop-affiliate-program',
   'cotton-culture-affiliate-program',
   'fraganote-affiliate-program',
-  'anydesk-affiliate-program',
+  'amydus-affiliate-program',
   'ajio-affiliate-program',
   'perfora-care-affiliate-program',
   'the-man-company-affiliate-program',
   'firstcry-affiliate-program',
   'sanskriti-homes-affiliate-program',
+  'levis-affiliate-program',
+  'zouk-affiliate-program',
+  'ajmal-perfume-affiliate-program',
+  'saadaa-affiliate-program',
+  'airtel-broadband-affiliate-program',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -433,11 +433,11 @@ export default function HomePageContent() {
                 filteredCampaigns.map((camp) => (
                   <div
                     key={camp.id}
-                    className="flex-shrink-0 w-[300px] sm:w-[320px] bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 shadow-warm-hover flex flex-col justify-between"
+                    className="min-w-[260px] sm:min-w-[280px] flex-shrink-0 bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center justify-between snap-start group h-full"
                   >
-                    <div className="flex flex-col items-center text-center">
-                      {/* Single Centered Image */}
-                      <div className="w-28 h-16 rounded-2xl bg-white border border-[#E8E2D6] p-1.5 flex items-center justify-center shadow-xs overflow-hidden mb-4">
+                    <div className="flex flex-col items-center text-center space-y-4 w-full">
+                      {/* Brand Logo */}
+                      <div className="w-28 h-16 rounded-2xl bg-white border border-[#E8E2D6] p-2 flex items-center justify-center shadow-2xs overflow-hidden group-hover:scale-105 transition-transform">
                         <img
                           src={camp.logo || camp.image}
                           alt={camp.name}
@@ -445,39 +445,45 @@ export default function HomePageContent() {
                         />
                       </div>
 
-                      {/* Name & Category */}
-                      <h3 className="font-display font-extrabold text-lg text-[#1A3C34] leading-tight mb-0.5">
-                        {camp.name}
-                      </h3>
-
-
-                      {/* Description */}
-                      <p className="text-xs text-[#6B6355] line-clamp-2 mb-5 leading-relaxed">
-                        {camp.description}
-                      </p>
-
-                      {/* Payout Block */}
-                      <div className="w-full p-3.5 bg-[#F5F0E8] rounded-xl border border-[#E8E2D6] mb-5 space-y-2 text-left">
-                        <div className="flex items-center justify-between text-xs">
-                          <span className="text-[#6B6355] font-medium">Commission:</span>
-                          <span className="font-extrabold font-sora text-[#C89B2A] text-sm">
-                            {camp.commission}
-                          </span>
-                        </div>
-                        <div className="flex items-center justify-between text-[11px] text-[#6B6355]">
-                          <span>Avg. Payout: <strong>{camp.avgPayout}</strong></span>
-                          <span>Cookie: <strong>{camp.cookieDuration}</strong></span>
-                        </div>
+                      {/* Brand Info */}
+                      <div className="w-full">
+                        <h3 className="font-extrabold text-lg text-[#1A3C34]">
+                          {camp.name}
+                        </h3>
+                        {camp.oldUserCommission ? (
+                          <div className="mt-1 flex items-center justify-center gap-6">
+                            <div>
+                              <span className="text-xs text-[#6B6355] block font-medium">New User</span>
+                              <span className="text-2xl font-black text-[#C89B2A] block leading-tight">
+                                {camp.commission}
+                              </span>
+                            </div>
+                            <div className="h-6 w-[1px] bg-[#E8E2D6] mt-2" />
+                            <div>
+                              <span className="text-xs text-[#6B6355] block font-medium">Old User</span>
+                              <span className="text-2xl font-black text-[#C89B2A] block leading-tight">
+                                {camp.oldUserCommission}
+                              </span>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="mt-1">
+                            <span className="text-xs text-[#6B6355] block font-medium">Commission</span>
+                            <span className="text-2xl font-black text-[#C89B2A] block leading-tight">
+                              {camp.commission}
+                            </span>
+                          </div>
+                        )}
                       </div>
                     </div>
 
-                    {/* Action Button */}
+                    {/* Promote CTA Button */}
                     <Link
                       href={`/campaigns/${camp.id}`}
-                      className="w-full py-3 px-4 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-all shadow-xs flex items-center justify-center gap-2 group/btn cursor-pointer"
+                      className="w-full mt-4 py-2.5 px-4 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-colors shadow-2xs flex items-center justify-center gap-1.5"
                     >
                       <span>Promote Now</span>
-                      <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                      <ChevronRight className="w-4 h-4" />
                     </Link>
                   </div>
                 ))

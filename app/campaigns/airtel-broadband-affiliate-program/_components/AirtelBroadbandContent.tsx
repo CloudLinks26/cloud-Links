@@ -12,23 +12,24 @@ import {
   ArrowRight
 } from 'lucide-react';
 
-export default function AnydeskContent() {
-  // Anydesk Brand Data
+export default function AirtelBroadbandContent() {
+  // Airtel Broadband Brand Data
   const brand = {
-    name: 'Anydesk',
-    slug: 'anydesk-affiliate-program',
-    logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1786965786/6_pp9txm.jpg',
-    tagline: 'Connect From Anywhere',
-    category: 'Software',
-    type: 'CPS', // Cost Per Sale
-    commission: '8%',
-    rating: 4.8,
+    name: 'Airtel Broadband',
+    slug: 'airtel-broadband-affiliate-program',
+    logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787058744/Airtel_Broadband_Logo_cznfvm.webp',
+    tagline: 'India\'s Fastest Growing Broadband Network',
+    category: 'Telecom & Internet Services',
+    type: 'CPL', // Cost Per Lead
+    typeLabel: 'Cost Per Lead',
+    commission: 'Flat ₹200',
+    rating: 4.5,
     country: 'India 🇮🇳',
-    about: 'Anydesk is a globally trusted remote desktop software used by individuals and businesses to securely access and control devices from anywhere. It\'s a widely recognized name in remote connectivity and IT support tools.',
+    about: 'Airtel Broadband is one of India\'s leading high-speed internet service providers, offering reliable fiber broadband plans for homes and businesses across the country.',
     highlights: [
-      '8% commission on every qualifying signup/sale',
-      'Reporting Time: 72 Hours / Offline',
-      'Global brand recognition drives strong conversion rates',
+      'Flat ₹200 payout per successful connection',
+      'Reporting Time: Daily / Offline',
+      'High-demand service with nationwide availability',
     ]
   };
 
@@ -94,11 +95,11 @@ export default function AnydeskContent() {
       logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1786965785/7_dv9gtm.jpg',
     },
     {
-      id: 'anydesk-affiliate-program',
-      name: 'Anydesk',
+      id: 'amydus-affiliate-program',
+      name: 'Amydus',
       commission: '8%',
       label: 'Up to',
-      logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1786965786/6_pp9txm.jpg',
+      logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787059008/AMYDUSK_LOGO_nniudr.webp',
     },
     {
       id: 'ajio-affiliate-program',
@@ -135,6 +136,41 @@ export default function AnydeskContent() {
       commission: '17%',
       label: 'Up to',
       logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1786965785/1_rmbba3.jpg',
+    },
+    {
+      id: 'levis-affiliate-program',
+      name: 'Levi\'s',
+      commission: '17%',
+      label: 'Up to',
+      logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787058469/levis_okilbg.webp',
+    },
+    {
+      id: 'zouk-affiliate-program',
+      name: 'ZOUK',
+      commission: '17%',
+      label: 'Up to',
+      logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787058335/Untitled_design_1_xkltpw.webp',
+    },
+    {
+      id: 'ajmal-perfume-affiliate-program',
+      name: 'Ajmal Perfume',
+      commission: '8%',
+      label: 'Up to',
+      logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787058732/AJMAL_PERFUME_1_sk2e1z.webp',
+    },
+    {
+      id: 'saadaa-affiliate-program',
+      name: 'Saadaa',
+      commission: '7%',
+      label: 'Up to',
+      logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787058738/saadaa_Logo_1_jfodwf.webp',
+    },
+    {
+      id: 'airtel-broadband-affiliate-program',
+      name: 'Airtel Broadband',
+      commission: '₹200',
+      label: 'Flat',
+      logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787058744/Airtel_Broadband_Logo_cznfvm.webp',
     },
   ];
 
@@ -214,7 +250,7 @@ export default function AnydeskContent() {
                   🏷️ {brand.category}
                 </span>
                 <span className="px-3.5 py-1 rounded-full border border-[#F5F0E8]/30 bg-white/5 text-white text-xs font-bold flex items-center gap-1.5">
-                  📊 {brand.type} — Cost Per Sale
+                  📊 {brand.type} — {brand.typeLabel}
                 </span>
                 <span className="px-3.5 py-1 rounded-full border border-[#F5F0E8]/30 bg-white/5 text-white text-xs font-bold flex items-center gap-1.5">
                   {brand.country}
@@ -245,7 +281,7 @@ export default function AnydeskContent() {
                   {brand.commission}
                 </div>
                 <p className="text-xs font-bold text-[#6B6355]">
-                  per successful sale generated through your link
+                  per successful broadband connection
                 </p>
               </div>
 
@@ -254,7 +290,7 @@ export default function AnydeskContent() {
                 <button
                   onClick={() =>
                     window.open(
-                      "https://analytics.trackier.io/publisher/campaign/4946",
+                      "https://analytics.trackier.io/publisher/campaign/4629",
                       "_blank",
                       "noopener,noreferrer"
                     )
@@ -289,7 +325,7 @@ export default function AnydeskContent() {
                   About {brand.name}
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-black font-display text-[#1A3C34]">
-                  Secure Remote Access, Trusted Worldwide
+                  Reliable High-Speed Broadband, Nationwide
                 </h2>
               </div>
 
@@ -366,7 +402,7 @@ export default function AnydeskContent() {
               </div>
               <div>
                 <button className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#E8E2D6] bg-white text-sm font-semibold text-[#1A3C34] shadow-xs">
-                  4946
+                  4629
                 </button>
               </div>
             </div>
@@ -385,7 +421,7 @@ export default function AnydeskContent() {
                   Join {brand.name} Affiliate Program
                 </h3>
                 <div className="inline-block px-3 py-1 rounded-full bg-[#C89B2A]/15 text-[#C89B2A] text-xs font-black border border-[#C89B2A]/30">
-                  💰 Earn {brand.commission} Commission
+                  💰 Earn ₹200 per Connection
                 </div>
               </div>
 
@@ -403,7 +439,7 @@ export default function AnydeskContent() {
               <button
                 onClick={() =>
                   window.open(
-                    "https://analytics.trackier.io/publisher/campaign/4946",
+                    "https://analytics.trackier.io/publisher/campaign/4629",
                     "_blank",
                     "noopener,noreferrer"
                   )
@@ -536,13 +572,13 @@ export default function AnydeskContent() {
           </h2>
 
           <p className="text-sm sm:text-base text-[#F5F0E8]/90 font-medium leading-relaxed max-w-xl mx-auto">
-            Join CloudsLink and start promoting Anydesk's trusted remote desktop software while earning commissions on qualifying signups.
+            Join CloudsLink and start promoting Airtel Broadband's high-speed internet plans while earning a flat payout per successful connection.
           </p>
 
           <button
             onClick={() =>
               window.open(
-                "https://analytics.trackier.io/publisher/campaign/4946",
+                "https://analytics.trackier.io/publisher/campaign/4629",
                 "_blank",
                 "noopener,noreferrer"
               )

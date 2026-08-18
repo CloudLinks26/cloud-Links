@@ -3,6 +3,7 @@ export interface Campaign {
   name: string;
   category: string;
   commission: string;
+  oldUserCommission?: string;
   avgPayout: string;
   cookieDuration: string;
   logo: string;

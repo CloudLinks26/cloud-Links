@@ -27,12 +27,17 @@ CloudLinks lets creators generate trackable affiliate links for popular Indian b
 - [HamersCop](https://cloudlinks.in/campaigns/hamerscop-affiliate-program): Earn 12% commission promoting HamersCop lifestyle essentials.
 - [Cotton Culture](https://cloudlinks.in/campaigns/cotton-culture-affiliate-program): Earn 12% commission promoting Cotton Culture home textiles and bedding.
 - [Fraganote](https://cloudlinks.in/campaigns/fraganote-affiliate-program): Earn 8% commission promoting Fraganote fragrances.
-- [Anydesk](https://cloudlinks.in/campaigns/anydesk-affiliate-program): Earn 8% commission promoting Anydesk remote desktop software.
+- [Amydus](https://cloudlinks.in/campaigns/amydus-affiliate-program): Earn 8% commission promoting Amydus remote desktop software.
 - [AJIO](https://cloudlinks.in/campaigns/ajio-affiliate-program): Earn 5% commission promoting AJIO fashion and lifestyle products.
 - [Perfora Care](https://cloudlinks.in/campaigns/perfora-care-affiliate-program): Earn up to 15% commission promoting Perfora dentist-approved oral care.
 - [The Man Company](https://cloudlinks.in/campaigns/the-man-company-affiliate-program): Earn 17% commission promoting The Man Company grooming essentials.
 - [FirstCry](https://cloudlinks.in/campaigns/firstcry-affiliate-program): Earn a flat 45% commission promoting FirstCry baby and kids products.
 - [Sanskriti Homes](https://cloudlinks.in/campaigns/sanskriti-homes-affiliate-program): Earn 17% commission promoting Sanskriti Homes decor and furnishings.
+- [Levi's](https://cloudlinks.in/campaigns/levis-affiliate-program): Earn 17% commission promoting Levi's denim and apparel.
+- [ZOUK](https://cloudlinks.in/campaigns/zouk-affiliate-program): Earn 17% commission promoting ZOUK vegan bags and accessories.
+- [Ajmal Perfume](https://cloudlinks.in/campaigns/ajmal-perfume-affiliate-program): Earn 8% commission promoting Ajmal Perfumes fragrances.
+- [Saadaa](https://cloudlinks.in/campaigns/saadaa-affiliate-program): Earn 7% commission promoting Saadaa ethnic lifestyle products.
+- [Airtel Broadband](https://cloudlinks.in/campaigns/airtel-broadband-affiliate-program): Earn a flat ₹200 payout per successful Airtel Broadband connection.
 
 ## Legal
 

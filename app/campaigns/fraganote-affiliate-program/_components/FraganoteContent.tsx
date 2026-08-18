@@ -94,11 +94,11 @@ export default function FraganoteContent() {
       logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1786965785/7_dv9gtm.jpg',
     },
     {
-      id: 'anydesk-affiliate-program',
-      name: 'Anydesk',
+      id: 'amydus-affiliate-program',
+      name: 'Amydus',
       commission: '8%',
       label: 'Up to',
-      logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1786965786/6_pp9txm.jpg',
+      logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787059008/AMYDUSK_LOGO_nniudr.webp',
     },
     {
       id: 'ajio-affiliate-program',
@@ -135,6 +135,41 @@ export default function FraganoteContent() {
       commission: '17%',
       label: 'Up to',
       logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1786965785/1_rmbba3.jpg',
+    },
+    {
+      id: 'levis-affiliate-program',
+      name: 'Levi\'s',
+      commission: '17%',
+      label: 'Up to',
+      logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787058469/levis_okilbg.webp',
+    },
+    {
+      id: 'zouk-affiliate-program',
+      name: 'ZOUK',
+      commission: '17%',
+      label: 'Up to',
+      logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787058335/Untitled_design_1_xkltpw.webp',
+    },
+    {
+      id: 'ajmal-perfume-affiliate-program',
+      name: 'Ajmal Perfume',
+      commission: '8%',
+      label: 'Up to',
+      logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787058732/AJMAL_PERFUME_1_sk2e1z.webp',
+    },
+    {
+      id: 'saadaa-affiliate-program',
+      name: 'Saadaa',
+      commission: '7%',
+      label: 'Up to',
+      logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787058738/saadaa_Logo_1_jfodwf.webp',
+    },
+    {
+      id: 'airtel-broadband-affiliate-program',
+      name: 'Airtel Broadband',
+      commission: '₹200',
+      label: 'Flat',
+      logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787058744/Airtel_Broadband_Logo_cznfvm.webp',
     },
   ];
 
