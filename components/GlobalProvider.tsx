@@ -1,13 +1,7 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, useRef, ReactNode } from 'react';
-import { X, Copy, Sparkles, Link as LinkIcon, Check, ArrowRight, Share2, ShieldCheck, UserCheck, Building2, CheckCircle2, Cookie } from 'lucide-react';
-
-declare global {
-  interface Window {
-    grecaptcha: any;
-  }
-}
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { X, Copy, Sparkles, Link as LinkIcon, Check, ArrowRight, Share2, ShieldCheck, UserCheck, Building2, CheckCircle2, Cookie, Mail } from 'lucide-react';
 
 interface GlobalContextType {
   onOpenAuth: (mode: 'signup' | 'login', role?: 'creator' | 'brand') => void;
@@ -325,41 +319,6 @@ const AuthModal: React.FC<AuthModalProps> = ({
     password: '',
   });
 
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
-  const [isVerifying, setIsVerifying] = useState(false);
-  const captchaContainerRef = useRef<HTMLDivElement>(null);
-  const captchaWidgetId = useRef<number | null>(null);
-
-  useEffect(() => {
-    if (!isOpen) {
-      captchaWidgetId.current = null;
-      setCaptchaToken(null);
-      return;
-    }
-    if (initialRole !== 'brand') return;
-
-    let cancelled = false;
-    const renderCaptcha = () => {
-      if (cancelled || !captchaContainerRef.current) return;
-      if (typeof window === 'undefined' || !window.grecaptcha || !window.grecaptcha.render) {
-        setTimeout(renderCaptcha, 200);
-        return;
-      }
-      if (captchaWidgetId.current === null) {
-        captchaWidgetId.current = window.grecaptcha.render(captchaContainerRef.current, {
-          sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
-          callback: (token: string) => setCaptchaToken(token),
-          'expired-callback': () => setCaptchaToken(null),
-        });
-      }
-    };
-    renderCaptcha();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [isOpen, initialRole]);
-
   if (!isOpen) return null;
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -372,44 +331,10 @@ const AuthModal: React.FC<AuthModalProps> = ({
     onClose();
   };
 
-  // Brand Partnership — simplified lead-capture form, no tabs/role toggle/login.
+  // Brand Partnership — simple contact message, no form.
   // Branches on initialRole (how the modal was opened), not the mutable role state,
   // so the in-modal Creator/Brand toggle in the regular flow keeps working as before.
   if (initialRole === 'brand') {
-    const handleBrandSubmit = async (e: React.FormEvent) => {
-      e.preventDefault();
-
-      if (!captchaToken) {
-        onToast('Please complete the reCAPTCHA verification.');
-        return;
-      }
-
-      setIsVerifying(true);
-      try {
-        const res = await fetch('/api/verify-recaptcha', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ token: captchaToken }),
-        });
-        const data = await res.json();
-
-        if (data.success) {
-          onToast(`Thanks! Our team will reach out to you shortly.`);
-          onClose();
-        } else {
-          onToast('reCAPTCHA verification failed. Please try again.');
-          if (captchaWidgetId.current !== null) {
-            window.grecaptcha?.reset(captchaWidgetId.current);
-          }
-          setCaptchaToken(null);
-        }
-      } catch {
-        onToast('Something went wrong verifying reCAPTCHA. Please try again.');
-      } finally {
-        setIsVerifying(false);
-      }
-    };
-
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1A3C34]/60 backdrop-blur-sm">
         <div className="relative w-full max-w-md bg-[#FDFAF4] rounded-2xl shadow-2xl border border-[#E8E2D6] overflow-hidden">
@@ -420,75 +345,26 @@ const AuthModal: React.FC<AuthModalProps> = ({
             <X className="w-5 h-5" />
           </button>
 
-          <div className="p-6 pt-10">
-            <form onSubmit={handleBrandSubmit} className="space-y-3.5">
-              <div>
-                <label className="block text-xs font-semibold text-[#1A3C34] mb-1">
-                  Full Name <span className="text-[#C85A32]">*</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="e.g. Priya Sharma"
-                  required
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8E2D6] bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#C89B2A]"
-                />
-              </div>
+          <div className="p-8 pt-10 text-center space-y-5">
+            <div className="w-14 h-14 rounded-2xl bg-[#C89B2A]/15 flex items-center justify-center mx-auto">
+              <Mail className="w-7 h-7 text-[#C89B2A]" />
+            </div>
 
-              <div>
-                <label className="block text-xs font-semibold text-[#1A3C34] mb-1">
-                  Email Address <span className="text-[#C85A32]">*</span>
-                </label>
-                <input
-                  type="email"
-                  placeholder="priya@creator.in"
-                  required
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8E2D6] bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#C89B2A]"
-                />
-              </div>
+            <div className="space-y-2">
+              <h3 className="text-xl font-black font-display text-[#1A3C34]">
+                Let's Talk Partnerships
+              </h3>
+              <p className="text-sm text-[#6B6355] leading-relaxed">
+                We'd love to explore a partnership with your brand. Drop us an email with a few details and our team will get back to you shortly.
+              </p>
+            </div>
 
-              <div>
-                <label className="block text-xs font-semibold text-[#1A3C34] mb-1">
-                  WhatsApp Mobile Number (+91) <span className="text-[#C85A32]">*</span>
-                </label>
-                <input
-                  type="tel"
-                  placeholder="98765 43210"
-                  required
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8E2D6] bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#C89B2A]"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-[#1A3C34] mb-1">
-                  Brand Website / App URL <span className="text-[#C85A32]">*</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="https://mybrand.in"
-                  required
-                  value={formData.socialHandle}
-                  onChange={(e) => setFormData({ ...formData, socialHandle: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8E2D6] bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#C89B2A]"
-                />
-              </div>
-
-              <div ref={captchaContainerRef} className="flex justify-center pt-1" />
-
-              <button
-                type="submit"
-                disabled={!captchaToken || isVerifying}
-                className="w-full py-3 px-6 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] disabled:opacity-60 disabled:cursor-not-allowed text-[#1A3C34] font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 mt-2"
-              >
-                {isVerifying ? 'Verifying...' : 'Submit Details'}
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </form>
+            <a
+              href="mailto:internal@analyticsclouds.com"
+              className="block w-full py-3 px-6 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-bold text-sm shadow-md transition-all"
+            >
+              internal@analyticsclouds.com
+            </a>
           </div>
         </div>
       </div>
