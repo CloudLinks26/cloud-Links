@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import CampaignsContent from './_components/CampaignsContent';
 
 export const metadata: Metadata = {
-  title: 'Campaigns | CloudLinks',
-  description: 'Browse 500+ top Indian brands and start earning high commissions with CloudLinks.',
+  title: 'Affiliate Campaigns & Brand Deals for Creators | CloudLinks',
+  description: 'Explore affiliate campaigns from top brands on CloudLinks. Choose campaigns, generate affiliate links, promote products, and earn commissions from sales.',
 };
 
 export default function Page() {

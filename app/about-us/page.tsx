@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import AboutContent from './_components/AboutContent';
 
 export const metadata: Metadata = {
-  title: 'About Us | CloudLinks',
-  description: 'Learn more about CloudLinks, India\'s fastest growing affiliate network.',
+  title: 'About CloudLinks: Affiliate Marketing Platform for Creators',
+  description: 'Learn about CloudLinks, an affiliate marketing platform helping creators, influencers, and publishers connect with brands and earn commissions online.',
 };
 
 export default function Page() {

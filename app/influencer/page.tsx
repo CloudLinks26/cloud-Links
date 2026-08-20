@@ -5,8 +5,9 @@ import type { Metadata } from 'next';
 import ComingSoonContent from './_components/ComingSoonContent';
 
 export const metadata: Metadata = {
-  title: 'Influencer Program Coming Soon | CloudLinks',
-  description: "CloudLinks' dedicated influencer program is launching soon. Check back shortly.",
+  title: 'CloudLinks Influencer Program | Coming Soon',
+  description:
+    'The CloudLinks Influencer Program is coming soon. Discover upcoming opportunities for creators to partner with brands, promote campaigns, and earn through affiliate marketing.',
 };
 
 export default function Page() {
