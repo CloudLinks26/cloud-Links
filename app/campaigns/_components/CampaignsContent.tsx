@@ -2,7 +2,6 @@
 import React, { useState, useRef } from 'react';
 import Link from 'next/link';
 import {
-  Search,
   Star,
   ChevronRight,
   ChevronLeft,
@@ -21,17 +20,26 @@ import {
   Download,
   UserPlus,
   CheckCircle2,
-  ArrowRight,
-  Filter
+  ArrowRight
 } from 'lucide-react';
 
 export default function CampaignsContent() {
   // Filters & State
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [sortBy, setSortBy] = useState<'commission' | 'rating' | 'popular'>('commission');
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+
+  // Category multi-select dropdown (broad buckets, applied only on "Apply Filters")
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [draftCategories, setDraftCategories] = useState<string[]>([]);
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+  const [categorySearch, setCategorySearch] = useState('');
+
+  // Country multi-select dropdown
+  const [selectedCountries, setSelectedCountries] = useState<string[]>([]);
+  const [draftCountries, setDraftCountries] = useState<string[]>([]);
+  const [isCountryOpen, setIsCountryOpen] = useState(false);
 
   // Top picks carousel ref
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -43,17 +51,66 @@ export default function CampaignsContent() {
     }
   };
 
-  // Categories list
-  const categories = [
-    'All',
-    'Fashion',
-    'Beauty',
-    'Electronics',
-    'Travel',
-    'Food',
-    'Finance',
-    'Health'
-  ];
+  // Broad category buckets (consolidated from the specific per-brand category strings)
+  const CATEGORY_BUCKETS = ['Fashion', 'Beauty', 'Food', 'Home & Living', 'Baby & Kids', 'Software', 'Telecom', 'Lifestyle'];
+
+  const getCategoryBucket = (category: string): string => {
+    if (['Fashion', 'Fashion (Denim & Apparel)', 'Vegan Fashion Accessories'].includes(category)) return 'Fashion';
+    if (['Beauty & Care', 'Cosmetics', 'Skincare', 'Fragrances', 'Oral Care', "Men's Grooming"].includes(category)) return 'Beauty';
+    if (category === 'Food & Snacks') return 'Food';
+    if (['Home & Furnishing', 'Home Decor', 'Ethnic Lifestyle & Home'].includes(category)) return 'Home & Living';
+    if (category === 'Baby & Kids') return 'Baby & Kids';
+    if (category === 'Software') return 'Software';
+    if (category === 'Telecom & Internet Services') return 'Telecom';
+    if (category === 'Lifestyle & Accessories') return 'Lifestyle';
+    return category;
+  };
+
+  const COUNTRIES = ['India', 'US'];
+
+  const openCategoryDropdown = () => {
+    setDraftCategories(selectedCategories);
+    setIsCategoryOpen(true);
+    setIsCountryOpen(false);
+  };
+
+  const openCountryDropdown = () => {
+    setDraftCountries(selectedCountries);
+    setIsCountryOpen(true);
+    setIsCategoryOpen(false);
+  };
+
+  const toggleDraftCategory = (bucket: string) => {
+    setDraftCategories((prev) => (prev.includes(bucket) ? prev.filter((b) => b !== bucket) : [...prev, bucket]));
+  };
+
+  const toggleDraftCountry = (country: string) => {
+    setDraftCountries((prev) => (prev.includes(country) ? prev.filter((c) => c !== country) : [...prev, country]));
+  };
+
+  const applyCategoryFilter = () => {
+    setSelectedCategories(draftCategories);
+    setCurrentPage(1);
+    setIsCategoryOpen(false);
+  };
+
+  const clearCategoryFilter = () => {
+    setDraftCategories([]);
+    setSelectedCategories([]);
+    setCurrentPage(1);
+  };
+
+  const applyCountryFilter = () => {
+    setSelectedCountries(draftCountries);
+    setCurrentPage(1);
+    setIsCountryOpen(false);
+  };
+
+  const clearCountryFilter = () => {
+    setDraftCountries([]);
+    setSelectedCountries([]);
+    setCurrentPage(1);
+  };
 
   // Top Picks Cards
   const topPicks = [
@@ -194,6 +251,7 @@ export default function CampaignsContent() {
       name: 'Haldiram',
       category: 'Food & Snacks',
       type: 'CPS',
+      country: 'India',
       commission: 'Up to 12% / Sale',
       numericCommission: 12,
       rating: 4.9,
@@ -204,6 +262,7 @@ export default function CampaignsContent() {
       name: 'Ghar Soaps',
       category: 'Beauty & Care',
       type: 'CPS',
+      country: 'India',
       commission: 'Up to 10% / Sale',
       numericCommission: 10,
       rating: 4.8,
@@ -214,6 +273,7 @@ export default function CampaignsContent() {
       name: 'Swiss Beauty',
       category: 'Cosmetics',
       type: 'CPS',
+      country: 'India',
       commission: 'Up to 15% / Sale',
       numericCommission: 15,
       rating: 4.9,
@@ -224,6 +284,7 @@ export default function CampaignsContent() {
       name: 'Asaya',
       category: 'Skincare',
       type: 'CPS',
+      country: 'India',
       commission: 'Up to 8% / Sale',
       numericCommission: 8,
       rating: 4.7,
@@ -234,6 +295,7 @@ export default function CampaignsContent() {
       name: 'HamersCop',
       category: 'Lifestyle & Accessories',
       type: 'CPS',
+      country: 'India',
       commission: 'Up to 12% / Sale',
       numericCommission: 12,
       rating: 4.6,
@@ -244,6 +306,7 @@ export default function CampaignsContent() {
       name: 'Cotton Culture',
       category: 'Home & Furnishing',
       type: 'CPS',
+      country: 'India',
       commission: 'Up to 12% / Sale',
       numericCommission: 12,
       rating: 4.7,
@@ -254,6 +317,7 @@ export default function CampaignsContent() {
       name: 'Fraganote',
       category: 'Fragrances',
       type: 'CPS',
+      country: 'India',
       commission: 'Up to 8% / Sale',
       numericCommission: 8,
       rating: 4.6,
@@ -264,6 +328,7 @@ export default function CampaignsContent() {
       name: 'Amydus',
       category: 'Software',
       type: 'CPS',
+      country: 'India',
       commission: 'Up to 8% / Sale',
       numericCommission: 8,
       rating: 4.8,
@@ -274,6 +339,7 @@ export default function CampaignsContent() {
       name: 'AJIO',
       category: 'Fashion',
       type: 'CPS',
+      country: 'India',
       commission: 'Up to 5% / Sale',
       numericCommission: 5,
       rating: 4.7,
@@ -284,6 +350,7 @@ export default function CampaignsContent() {
       name: 'Perfora Care',
       category: 'Oral Care',
       type: 'CPS',
+      country: 'India',
       commission: 'Up to 15% / Sale',
       numericCommission: 15,
       rating: 4.7,
@@ -294,6 +361,7 @@ export default function CampaignsContent() {
       name: 'The Man Company',
       category: "Men's Grooming",
       type: 'CPS',
+      country: 'India',
       commission: 'Up to 17% / Sale',
       numericCommission: 17,
       rating: 4.7,
@@ -304,6 +372,7 @@ export default function CampaignsContent() {
       name: 'FirstCry',
       category: 'Baby & Kids',
       type: 'CPS',
+      country: 'India',
       commission: 'Flat 45% / Sale',
       numericCommission: 45,
       rating: 4.8,
@@ -314,6 +383,7 @@ export default function CampaignsContent() {
       name: 'Sanskriti Homes',
       category: 'Home Decor',
       type: 'CPS',
+      country: 'India',
       commission: 'Up to 17% / Sale',
       numericCommission: 17,
       rating: 4.6,
@@ -324,6 +394,7 @@ export default function CampaignsContent() {
       name: "Levi's",
       category: 'Fashion (Denim & Apparel)',
       type: 'CPS',
+      country: 'India',
       commission: 'Up to 17% / Sale',
       numericCommission: 17,
       rating: 4.8,
@@ -334,6 +405,7 @@ export default function CampaignsContent() {
       name: 'ZOUK',
       category: 'Vegan Fashion Accessories',
       type: 'CPS',
+      country: 'India',
       commission: 'Up to 17% / Sale',
       numericCommission: 17,
       rating: 4.7,
@@ -344,6 +416,7 @@ export default function CampaignsContent() {
       name: 'Ajmal Perfume',
       category: 'Fragrances',
       type: 'CPS',
+      country: 'India',
       commission: 'Up to 8% / Sale',
       numericCommission: 8,
       rating: 4.7,
@@ -354,6 +427,7 @@ export default function CampaignsContent() {
       name: 'Saadaa',
       category: 'Ethnic Lifestyle & Home',
       type: 'CPS',
+      country: 'India',
       commission: 'Up to 7% / Sale',
       numericCommission: 7,
       rating: 4.5,
@@ -364,6 +438,7 @@ export default function CampaignsContent() {
       name: 'Airtel Broadband',
       category: 'Telecom & Internet Services',
       type: 'CPL',
+      country: 'India',
       commission: '₹200 Flat / Connection',
       numericCommission: 4,
       rating: 4.5,
@@ -374,17 +449,17 @@ export default function CampaignsContent() {
   // Filtering & Sorting Logic
   const filteredCampaigns = allCampaigns.filter((item) => {
     const matchesCategory =
-      selectedCategory === 'All' ||
-      item.category.toLowerCase().includes(selectedCategory.toLowerCase()) ||
-      (selectedCategory === 'Beauty' && item.category.includes('Beauty')) ||
-      (selectedCategory === 'Health' && item.category.includes('Health'));
+      selectedCategories.length === 0 || selectedCategories.includes(getCategoryBucket(item.category));
+
+    const matchesCountry =
+      selectedCountries.length === 0 || selectedCountries.includes(item.country);
 
     const matchesSearch =
       item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       item.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
       item.type.toLowerCase().includes(searchQuery.toLowerCase());
 
-    return matchesCategory && matchesSearch;
+    return matchesCategory && matchesCountry && matchesSearch;
   });
 
   const sortedCampaigns = [...filteredCampaigns].sort((a, b) => {
@@ -517,71 +592,128 @@ export default function CampaignsContent() {
         </div>
 
         {/* =================================================================== */}
-        {/* SECTION 2 — FILTERS + SEARCH BAR                                   */}
+        {/* SECTION 2 — SEARCH + CATEGORY/COUNTRY FILTERS + SORT               */}
         {/* =================================================================== */}
-        <div className="space-y-4 max-w-5xl mx-auto">
-          {/* Category Filter Pills & Sort Dropdown */}
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            {/* Scrollable Pills */}
-            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar w-full md:w-auto pb-2 md:pb-0">
-              <span className="text-xs font-bold text-[#6B6355] flex items-center gap-1 mr-1 flex-shrink-0">
-                <Filter className="w-3.5 h-3.5 text-[#1A3C34]" />
-                Filter:
-              </span>
-              {categories.map((cat) => {
-                const isActive = selectedCategory === cat;
-                return (
-                  <button
-                    key={cat}
-                    onClick={() => {
-                      setSelectedCategory(cat);
-                      setCurrentPage(1);
-                    }}
-                    className={`px-4 py-2 rounded-full text-xs font-extrabold whitespace-nowrap transition-all shadow-2xs ${isActive
-                      ? 'bg-[#C89B2A] text-[#1A3C34] font-bold shadow-xs scale-102'
-                      : 'bg-transparent border border-[#1A3C34] text-[#1A3C34] hover:bg-[#1A3C34] hover:text-white'
-                      }`}
-                  >
-                    {cat}
-                  </button>
-                );
-              })}
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row items-stretch gap-3">
+            {/* Search Bar */}
+            <div className="relative flex-1 shadow-md rounded-xl overflow-hidden bg-[#FDFAF4] border border-[#E8E2D6] focus-within:ring-2 focus-within:ring-[#C89B2A]">
+              <input
+                type="text"
+                placeholder="Search for brands, categories or campaign type..."
+                value={searchQuery}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  setCurrentPage(1);
+                }}
+                className="w-full pl-5 pr-4 py-3.5 bg-transparent text-[#1A3C34] placeholder:text-[#6B6355] text-sm font-medium focus:outline-none"
+              />
+            </div>
+
+            {/* Category Multi-Select Dropdown */}
+            <div className="relative md:w-56">
+              <button
+                onClick={() => (isCategoryOpen ? setIsCategoryOpen(false) : openCategoryDropdown())}
+                className="w-full flex items-center justify-between gap-2 px-4 py-3.5 rounded-xl bg-[#FDFAF4] border border-[#E8E2D6] text-sm font-semibold text-[#1A3C34] shadow-2xs"
+              >
+                <span className="truncate">
+                  {selectedCategories.length > 0 ? `${selectedCategories.length} Categor${selectedCategories.length > 1 ? 'ies' : 'y'} Selected` : 'Select Category'}
+                </span>
+                <ChevronDown className="w-4 h-4 text-[#6B6355] flex-shrink-0" />
+              </button>
+
+              {isCategoryOpen && (
+                <>
+                  <div className="fixed inset-0 z-30" onClick={() => setIsCategoryOpen(false)} />
+                  <div className="absolute z-40 mt-2 w-72 right-0 md:right-auto bg-white rounded-2xl border border-[#E8E2D6] shadow-xl p-4 space-y-3">
+                    <input
+                      type="text"
+                      placeholder="Search Category"
+                      value={categorySearch}
+                      onChange={(e) => setCategorySearch(e.target.value)}
+                      className="w-full px-3 py-2 rounded-lg border border-[#E8E2D6] text-sm focus:outline-none focus:ring-2 focus:ring-[#C89B2A]"
+                    />
+                    <div className="max-h-56 overflow-y-auto space-y-2.5 pr-1">
+                      {CATEGORY_BUCKETS.filter((b) => b.toLowerCase().includes(categorySearch.toLowerCase())).map((bucket) => (
+                        <label key={bucket} className="flex items-center gap-2.5 text-sm text-[#1A3C34] font-medium cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={draftCategories.includes(bucket)}
+                            onChange={() => toggleDraftCategory(bucket)}
+                            className="w-4 h-4 accent-[#C89B2A] rounded"
+                          />
+                          {bucket}
+                        </label>
+                      ))}
+                    </div>
+                    <div className="flex items-center gap-2 pt-2 border-t border-[#E8E2D6]">
+                      <button onClick={clearCategoryFilter} className="flex-1 py-2 rounded-lg border border-[#1A3C34] text-[#1A3C34] text-xs font-bold hover:bg-[#1A3C34] hover:text-white transition-colors">
+                        Clear
+                      </button>
+                      <button onClick={applyCategoryFilter} className="flex-1 py-2 rounded-lg bg-[#1A3C34] text-white text-xs font-bold hover:bg-[#122b25] transition-colors">
+                        Apply Filters
+                      </button>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
+
+            {/* Country Multi-Select Dropdown */}
+            <div className="relative md:w-48">
+              <button
+                onClick={() => (isCountryOpen ? setIsCountryOpen(false) : openCountryDropdown())}
+                className="w-full flex items-center justify-between gap-2 px-4 py-3.5 rounded-xl bg-[#FDFAF4] border border-[#E8E2D6] text-sm font-semibold text-[#1A3C34] shadow-2xs"
+              >
+                <span className="truncate">
+                  {selectedCountries.length > 0 ? selectedCountries.join(', ') : 'All Countries'}
+                </span>
+                <ChevronDown className="w-4 h-4 text-[#6B6355] flex-shrink-0" />
+              </button>
+
+              {isCountryOpen && (
+                <>
+                  <div className="fixed inset-0 z-30" onClick={() => setIsCountryOpen(false)} />
+                  <div className="absolute z-40 mt-2 w-56 right-0 bg-white rounded-2xl border border-[#E8E2D6] shadow-xl p-4 space-y-3">
+                    <div className="space-y-2.5">
+                      {COUNTRIES.map((country) => (
+                        <label key={country} className="flex items-center gap-2.5 text-sm text-[#1A3C34] font-medium cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={draftCountries.includes(country)}
+                            onChange={() => toggleDraftCountry(country)}
+                            className="w-4 h-4 accent-[#C89B2A] rounded"
+                          />
+                          {country}
+                        </label>
+                      ))}
+                    </div>
+                    <div className="flex items-center gap-2 pt-2 border-t border-[#E8E2D6]">
+                      <button onClick={clearCountryFilter} className="flex-1 py-2 rounded-lg border border-[#1A3C34] text-[#1A3C34] text-xs font-bold hover:bg-[#1A3C34] hover:text-white transition-colors">
+                        Clear
+                      </button>
+                      <button onClick={applyCountryFilter} className="flex-1 py-2 rounded-lg bg-[#1A3C34] text-white text-xs font-bold hover:bg-[#122b25] transition-colors">
+                        Apply Filters
+                      </button>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
 
             {/* Sort Dropdown */}
-            <div className="relative flex-shrink-0 w-full md:w-auto flex justify-end">
+            <div className="relative md:w-auto flex-shrink-0">
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
-                className="appearance-none bg-[#FDFAF4] border border-[#1A3C34] text-[#1A3C34] font-bold text-xs py-2.5 pl-4 pr-9 rounded-xl cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#C89B2A] shadow-2xs"
+                className="appearance-none w-full bg-[#FDFAF4] border border-[#E8E2D6] text-[#1A3C34] font-bold text-xs py-3.5 pl-4 pr-9 rounded-xl cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#C89B2A] shadow-2xs"
               >
                 <option value="commission">Sort By: Highest Commission ▾</option>
                 <option value="rating">Sort By: Highest Rating ▾</option>
                 <option value="popular">Sort By: Brand Name (A-Z) ▾</option>
               </select>
-              <ChevronDown className="w-4 h-4 text-[#1A3C34] absolute right-3 top-3 pointer-events-none" />
+              <ChevronDown className="w-4 h-4 text-[#1A3C34] absolute right-3 top-4 pointer-events-none" />
             </div>
-          </div>
-
-          {/* Search Bar */}
-          <div className="relative w-full shadow-md rounded-2xl overflow-hidden bg-[#FDFAF4] border border-[#E8E2D6] focus-within:ring-2 focus-within:ring-[#C89B2A]">
-            <input
-              type="text"
-              placeholder="Search brands or categories... (e.g. Myntra, boAt, Electronics)"
-              value={searchQuery}
-              onChange={(e) => {
-                setSearchQuery(e.target.value);
-                setCurrentPage(1);
-              }}
-              className="w-full pl-5 pr-14 py-4 bg-transparent text-[#1A3C34] placeholder:text-[#6B6355] text-sm font-medium focus:outline-none"
-            />
-            <button
-              onClick={() => { }}
-              aria-label="Search"
-              className="absolute right-2 top-2 bottom-2 px-4 bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] rounded-xl flex items-center justify-center transition-colors shadow-2xs"
-            >
-              <Search className="w-4 h-4 font-bold" />
-            </button>
           </div>
         </div>
 
