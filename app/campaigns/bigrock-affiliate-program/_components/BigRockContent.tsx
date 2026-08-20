@@ -12,23 +12,24 @@ import {
   ArrowRight
 } from 'lucide-react';
 
-export default function FirstCryContent() {
-  // FirstCry Brand Data
+export default function BigRockContent() {
+  // BigRock Brand Data
   const brand = {
-    name: 'FirstCry',
-    slug: 'firstcry-affiliate-program',
-    logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1786965785/2_wm8mdp.jpg',
-    tagline: 'Everything for Your Little One',
-    category: 'Baby & Kids',
+    name: 'BigRock',
+    slug: 'bigrock-affiliate-program',
+    logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787220973/BigRock_Logo_y3cgnk.webp',
+    tagline: 'Domains & Hosting, Made Simple',
+    category: 'Software',
     type: 'CPS', // Cost Per Sale
-    commission: 'Flat 45 Off',
-    rating: 4.8,
+    typeLabel: 'Cost Per Sale',
+    commission: '6% - 40%',
+    rating: 4.5,
     country: 'India 🇮🇳',
-    about: 'FirstCry is India\'s largest online destination for baby and kids\' products, offering everything from clothing and toys to diapers and nursery essentials. It\'s a household name trusted by millions of Indian parents.',
+    about: "BigRock is one of India's leading domain registration and web hosting providers, offering domains, hosting, and website-building tools for individuals and businesses.",
     highlights: [
-      'Flat 45% commission on every qualifying sale',
+      '6%-40% commission on every qualifying sale',
       'Reporting Time: Daily / Offline',
-      'India\'s most trusted baby & kids retail brand',
+      'Trusted Indian brand for domains & hosting'
     ]
   };
 
@@ -249,7 +250,7 @@ export default function FirstCryContent() {
                   🏷️ {brand.category}
                 </span>
                 <span className="px-3.5 py-1 rounded-full border border-[#F5F0E8]/30 bg-white/5 text-white text-xs font-bold flex items-center gap-1.5">
-                  📊 {brand.type} — Cost Per Sale
+                  📊 {brand.type} — {brand.typeLabel}
                 </span>
                 <span className="px-3.5 py-1 rounded-full border border-[#F5F0E8]/30 bg-white/5 text-white text-xs font-bold flex items-center gap-1.5">
                   {brand.country}
@@ -289,7 +290,7 @@ export default function FirstCryContent() {
                 <button
                   onClick={() =>
                     window.open(
-                      "https://analytics.trackier.io/publisher/campaign/3166",
+                      "https://analytics.trackier.io/publisher/campaign/4735",
                       "_blank",
                       "noopener,noreferrer"
                     )
@@ -324,7 +325,7 @@ export default function FirstCryContent() {
                   About {brand.name}
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-black font-display text-[#1A3C34]">
-                  India's Largest Destination for Baby & Kids Products
+                  India's Trusted Domain & Hosting Provider
                 </h2>
               </div>
 
@@ -401,7 +402,7 @@ export default function FirstCryContent() {
               </div>
               <div>
                 <button className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#E8E2D6] bg-white text-sm font-semibold text-[#1A3C34] shadow-xs">
-                  3166
+                  4735
                 </button>
               </div>
             </div>
@@ -420,7 +421,7 @@ export default function FirstCryContent() {
                   Join {brand.name} Affiliate Program
                 </h3>
                 <div className="inline-block px-3 py-1 rounded-full bg-[#C89B2A]/15 text-[#C89B2A] text-xs font-black border border-[#C89B2A]/30">
-                  💰 Earn {brand.commission} Commission
+                  💰 Earn 6% - 40% Commission
                 </div>
               </div>
 
@@ -438,7 +439,7 @@ export default function FirstCryContent() {
               <button
                 onClick={() =>
                   window.open(
-                    "https://analytics.trackier.io/publisher/campaign/3166",
+                    "https://analytics.trackier.io/publisher/campaign/4735",
                     "_blank",
                     "noopener,noreferrer"
                   )
@@ -571,13 +572,13 @@ export default function FirstCryContent() {
           </h2>
 
           <p className="text-sm sm:text-base text-[#F5F0E8]/90 font-medium leading-relaxed max-w-xl mx-auto">
-            Join CloudsLink and start promoting FirstCry, India's most trusted baby and kids brand, while earning a flat commission on qualifying sales.
+            Join CloudsLink and start promoting BigRock's domains and hosting plans while earning commissions on qualifying sales.
           </p>
 
           <button
             onClick={() =>
               window.open(
-                "https://analytics.trackier.io/publisher/campaign/3166",
+                "https://analytics.trackier.io/publisher/campaign/4735",
                 "_blank",
                 "noopener,noreferrer"
               )

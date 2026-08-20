@@ -52,7 +52,7 @@ export default function CampaignsContent() {
   };
 
   // Broad category buckets (consolidated from the specific per-brand category strings)
-  const CATEGORY_BUCKETS = ['Fashion', 'Beauty', 'Food', 'Home & Living', 'Baby & Kids', 'Software', 'Telecom', 'Lifestyle'];
+  const CATEGORY_BUCKETS = ['Fashion', 'Beauty', 'Food', 'Home & Living', 'Baby & Kids', 'Software', 'Telecom', 'Lifestyle', 'Travel & Experiences', 'Education'];
 
   const getCategoryBucket = (category: string): string => {
     if (['Fashion', 'Fashion (Denim & Apparel)', 'Vegan Fashion Accessories'].includes(category)) return 'Fashion';
@@ -242,6 +242,42 @@ export default function CampaignsContent() {
       label: 'Flat',
       logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787058744/Airtel_Broadband_Logo_cznfvm.webp',
     },
+    {
+      id: 'kk-days-affiliate-program',
+      name: 'KK Days',
+      commission: '1% - 4%',
+      label: 'Up to',
+      logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787220973/KK_Days_hxtji8.webp',
+    },
+    {
+      id: 'sintra-ai-affiliate-program',
+      name: 'Sintra.AI',
+      commission: '20%',
+      oldUserCommission: '12%',
+      label: 'Up to',
+      logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787220973/Sintra_Ai_Logo_gyb93y.webp',
+    },
+    {
+      id: 'pelago-affiliate-program',
+      name: 'Pelago',
+      commission: '4% - 12%',
+      label: 'Up to',
+      logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787220973/pelago_Logo_oixniw.webp',
+    },
+    {
+      id: 'bright-champs-affiliate-program',
+      name: 'Bright Champs',
+      commission: '14%',
+      label: 'Up to',
+      logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787220973/Bright_champs_Logo_1_nlu7q7.webp',
+    },
+    {
+      id: 'bigrock-affiliate-program',
+      name: 'BigRock',
+      commission: '6% - 40%',
+      label: 'Up to',
+      logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787220973/BigRock_Logo_y3cgnk.webp',
+    },
   ];
 
   // Table Campaigns (10 requested items + complete data)
@@ -373,7 +409,7 @@ export default function CampaignsContent() {
       category: 'Baby & Kids',
       type: 'CPS',
       country: 'India',
-      commission: 'Flat 45% / Sale',
+      commission: 'Flat 45 / Sale',
       numericCommission: 45,
       rating: 4.8,
       logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1786965785/2_wm8mdp.jpg',
@@ -443,6 +479,61 @@ export default function CampaignsContent() {
       numericCommission: 4,
       rating: 4.5,
       logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787058744/Airtel_Broadband_Logo_cznfvm.webp',
+    },
+    {
+      id: 'kk-days-affiliate-program',
+      name: 'KK Days',
+      category: 'Travel & Experiences',
+      type: 'CPS',
+      country: 'India',
+      commission: '1% - 4% / Sale',
+      numericCommission: 4,
+      rating: 4.6,
+      logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787220973/KK_Days_hxtji8.webp',
+    },
+    {
+      id: 'sintra-ai-affiliate-program',
+      name: 'Sintra.AI',
+      category: 'Software',
+      type: 'CPS',
+      country: 'India',
+      commission: 'Up to 20% / Sale',
+      numericCommission: 20,
+      rating: 4.6,
+      logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787220973/Sintra_Ai_Logo_gyb93y.webp',
+    },
+    {
+      id: 'pelago-affiliate-program',
+      name: 'Pelago',
+      category: 'Travel & Experiences',
+      type: 'CPS',
+      country: 'India',
+      commission: '4% - 12% / Sale',
+      numericCommission: 12,
+      rating: 4.7,
+      logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787220973/pelago_Logo_oixniw.webp',
+    },
+    {
+      id: 'bright-champs-affiliate-program',
+      name: 'Bright Champs',
+      category: 'Education',
+      type: 'CPS',
+      country: 'India',
+      commission: 'Up to 14% / Sale',
+      numericCommission: 14,
+      rating: 4.6,
+      logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787220973/Bright_champs_Logo_1_nlu7q7.webp',
+    },
+    {
+      id: 'bigrock-affiliate-program',
+      name: 'BigRock',
+      category: 'Software',
+      type: 'CPS',
+      country: 'India',
+      commission: '6% - 40% / Sale',
+      numericCommission: 40,
+      rating: 4.5,
+      logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787220973/BigRock_Logo_y3cgnk.webp',
     },
   ];
 

@@ -12,23 +12,24 @@ import {
   ArrowRight
 } from 'lucide-react';
 
-export default function FirstCryContent() {
-  // FirstCry Brand Data
+export default function SintraAIContent() {
+  // Sintra.AI Brand Data
   const brand = {
-    name: 'FirstCry',
-    slug: 'firstcry-affiliate-program',
-    logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1786965785/2_wm8mdp.jpg',
-    tagline: 'Everything for Your Little One',
-    category: 'Baby & Kids',
+    name: 'Sintra.AI',
+    slug: 'sintra-ai-affiliate-program',
+    logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787220973/Sintra_Ai_Logo_gyb93y.webp',
+    tagline: 'Your AI-Powered Marketing Team',
+    category: 'Software',
     type: 'CPS', // Cost Per Sale
-    commission: 'Flat 45 Off',
-    rating: 4.8,
+    commission: '20%',
+    oldUserCommission: '12%',
+    rating: 4.6,
     country: 'India 🇮🇳',
-    about: 'FirstCry is India\'s largest online destination for baby and kids\' products, offering everything from clothing and toys to diapers and nursery essentials. It\'s a household name trusted by millions of Indian parents.',
+    about: 'Sintra AI provides AI-powered virtual employees that automate marketing, content, and business operations tasks, helping growing businesses save time and scale faster.',
     highlights: [
-      'Flat 45% commission on every qualifying sale',
+      '20% commission on new subscriptions',
       'Reporting Time: Daily / Offline',
-      'India\'s most trusted baby & kids retail brand',
+      'Fast-growing AI SaaS category'
     ]
   };
 
@@ -270,14 +271,25 @@ export default function FirstCryContent() {
               </div>
             </div>
 
-            {/* Right Side Commission Highlight Card */}
+            {/* Right Side Commission Highlight Card — Two-Tier */}
             <div className="lg:w-[38%] bg-[#FDFAF4] rounded-3xl p-6 sm:p-8 text-[#1A3C34] shadow-2xl border border-[#E8E2D6] flex flex-col justify-between space-y-6">
-              <div className="text-center space-y-2">
+              <div className="text-center space-y-3">
                 <span className="text-xs font-black uppercase tracking-wider text-[#1A3C34] bg-[#C89B2A]/15 px-3 py-1 rounded-full inline-block border border-[#C89B2A]/30">
                   💰 Earn Commission
                 </span>
-                <div className="text-4xl sm:text-5xl font-black text-[#C89B2A] font-display">
-                  {brand.commission}
+                <div className="grid grid-cols-2 gap-3 pt-1">
+                  <div className="p-3 rounded-2xl bg-[#F5F0E8] border border-[#E8E2D6]">
+                    <div className="text-3xl font-black text-[#C89B2A] font-display">
+                      {brand.commission}
+                    </div>
+                    <p className="text-[11px] font-bold text-[#6B6355] uppercase tracking-wide">New User</p>
+                  </div>
+                  <div className="p-3 rounded-2xl bg-[#F5F0E8] border border-[#E8E2D6]">
+                    <div className="text-3xl font-black text-[#C89B2A] font-display">
+                      {brand.oldUserCommission}
+                    </div>
+                    <p className="text-[11px] font-bold text-[#6B6355] uppercase tracking-wide">Old User</p>
+                  </div>
                 </div>
                 <p className="text-xs font-bold text-[#6B6355]">
                   per successful sale generated through your link
@@ -289,7 +301,7 @@ export default function FirstCryContent() {
                 <button
                   onClick={() =>
                     window.open(
-                      "https://analytics.trackier.io/publisher/campaign/3166",
+                      "https://analytics.trackier.io/publisher/campaign/4767",
                       "_blank",
                       "noopener,noreferrer"
                     )
@@ -324,7 +336,7 @@ export default function FirstCryContent() {
                   About {brand.name}
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-black font-display text-[#1A3C34]">
-                  India's Largest Destination for Baby & Kids Products
+                  AI-Powered Virtual Employees for Your Business
                 </h2>
               </div>
 
@@ -401,7 +413,7 @@ export default function FirstCryContent() {
               </div>
               <div>
                 <button className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#E8E2D6] bg-white text-sm font-semibold text-[#1A3C34] shadow-xs">
-                  3166
+                  4767
                 </button>
               </div>
             </div>
@@ -419,8 +431,13 @@ export default function FirstCryContent() {
                 <h3 className="text-xl font-black font-display text-[#1A3C34]">
                   Join {brand.name} Affiliate Program
                 </h3>
-                <div className="inline-block px-3 py-1 rounded-full bg-[#C89B2A]/15 text-[#C89B2A] text-xs font-black border border-[#C89B2A]/30">
-                  💰 Earn {brand.commission} Commission
+                <div className="flex items-center justify-center gap-2 flex-wrap">
+                  <div className="inline-block px-3 py-1 rounded-full bg-[#C89B2A]/15 text-[#C89B2A] text-xs font-black border border-[#C89B2A]/30">
+                    💰 New User: {brand.commission}
+                  </div>
+                  <div className="inline-block px-3 py-1 rounded-full bg-[#C89B2A]/15 text-[#C89B2A] text-xs font-black border border-[#C89B2A]/30">
+                    Old User: {brand.oldUserCommission}
+                  </div>
                 </div>
               </div>
 
@@ -438,7 +455,7 @@ export default function FirstCryContent() {
               <button
                 onClick={() =>
                   window.open(
-                    "https://analytics.trackier.io/publisher/campaign/3166",
+                    "https://analytics.trackier.io/publisher/campaign/4767",
                     "_blank",
                     "noopener,noreferrer"
                   )
@@ -571,13 +588,13 @@ export default function FirstCryContent() {
           </h2>
 
           <p className="text-sm sm:text-base text-[#F5F0E8]/90 font-medium leading-relaxed max-w-xl mx-auto">
-            Join CloudsLink and start promoting FirstCry, India's most trusted baby and kids brand, while earning a flat commission on qualifying sales.
+            Join CloudsLink and start promoting Sintra.AI's AI-powered marketing automation platform while earning commissions on qualifying subscriptions.
           </p>
 
           <button
             onClick={() =>
               window.open(
-                "https://analytics.trackier.io/publisher/campaign/3166",
+                "https://analytics.trackier.io/publisher/campaign/4767",
                 "_blank",
                 "noopener,noreferrer"
               )
