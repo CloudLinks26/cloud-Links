@@ -39,6 +39,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${plusJakartaSans.variable} ${sora.variable}`}>
+      <head>
+        {/* Impact.com uses a non-standard `value` attribute (not `content`) for this tag */}
+        <meta
+          name="impact-site-verification"
+          {...({ value: 'dceb03c6-618b-4a5b-a4c9-f32e3434a50c' } as any)}
+        />
+      </head>
       <body className="min-h-screen bg-[#F5F0E8] text-[#1A3C34] flex flex-col font-sans selection:bg-[#C89B2A]/20">
         <Script src="https://www.google.com/recaptcha/api.js" strategy="afterInteractive" />
         <GlobalProvider>
