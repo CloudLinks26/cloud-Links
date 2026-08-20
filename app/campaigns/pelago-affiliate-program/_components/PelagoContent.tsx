@@ -27,10 +27,11 @@ export default function PelagoContent() {
     country: 'India 🇮🇳',
     about: "Pelago, by Singapore Airlines, offers curated tours, activities, and travel experiences across top global destinations, making it easy for travelers to discover and book memorable experiences.",
     highlights: [
-      '4%-12% commission on every qualifying booking',
-      'Reporting Time: Daily / Offline',
-      "Backed by Singapore Airlines' trusted travel network"
-    ]
+  'Up to 15% payout on eligible bookings',
+  '5% payout on most qualifying travel categories',
+  'Reporting Time: Daily / Offline',
+  "Backed by Singapore Airlines' trusted travel network"
+]
   };
 
   // Toast message state

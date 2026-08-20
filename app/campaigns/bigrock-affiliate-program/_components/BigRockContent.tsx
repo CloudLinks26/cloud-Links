@@ -27,9 +27,9 @@ export default function BigRockContent() {
     country: 'India 🇮🇳',
     about: "BigRock is one of India's leading domain registration and web hosting providers, offering domains, hosting, and website-building tools for individuals and businesses.",
     highlights: [
-      '6%-40% commission on every qualifying sale',
-      'Reporting Time: Daily / Offline',
-      'Trusted Indian brand for domains & hosting'
+      'List for Item Category is Web Hosting & Servers 50% of item sale amount',
+      'List for Item Category is Business & Enterprise Email 25% of item sale amount',
+      'List for Item Category is Domain_Registration 8% of item sale amount'
     ]
   };
 

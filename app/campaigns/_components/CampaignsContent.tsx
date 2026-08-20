@@ -563,6 +563,14 @@ export default function CampaignsContent() {
     }
   });
 
+  // Pagination
+  const ITEMS_PER_PAGE = 10;
+  const totalPages = Math.max(1, Math.ceil(sortedCampaigns.length / ITEMS_PER_PAGE));
+  const paginatedCampaigns = sortedCampaigns.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+
   // Showcase Categories Grid Data
   const showcaseCategories = [
     {
@@ -796,7 +804,10 @@ export default function CampaignsContent() {
             <div className="relative md:w-auto flex-shrink-0">
               <select
                 value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as any)}
+                onChange={(e) => {
+                  setSortBy(e.target.value as any);
+                  setCurrentPage(1);
+                }}
                 className="appearance-none w-full bg-[#FDFAF4] border border-[#E8E2D6] text-[#1A3C34] font-bold text-xs py-3.5 pl-4 pr-9 rounded-xl cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#C89B2A] shadow-2xs"
               >
                 <option value="commission">Sort By: Highest Commission ▾</option>
@@ -931,8 +942,8 @@ export default function CampaignsContent() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[#E8E2D6] text-sm font-medium">
-                  {sortedCampaigns.length > 0 ? (
-                    sortedCampaigns.map((item, index) => {
+                  {paginatedCampaigns.length > 0 ? (
+                    paginatedCampaigns.map((item, index) => {
                       const isEven = index % 2 === 0;
                       return (
                         <tr
@@ -1017,7 +1028,7 @@ export default function CampaignsContent() {
               </button>
 
               <div className="flex items-center gap-1.5">
-                {[1, 2, 3, 4, 5].map((pageNum) => (
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
                   <button
                     key={pageNum}
                     onClick={() => setCurrentPage(pageNum)}
@@ -1029,21 +1040,11 @@ export default function CampaignsContent() {
                     {pageNum}
                   </button>
                 ))}
-                <span className="px-1 text-[#6B6355]">...</span>
-                <button
-                  onClick={() => setCurrentPage(20)}
-                  className={`w-8 h-8 rounded-lg flex items-center justify-center font-extrabold transition-all ${currentPage === 20
-                    ? 'bg-[#C89B2A] text-[#1A3C34] shadow-2xs'
-                    : 'hover:bg-[#1A3C34]/10 text-[#1A3C34]'
-                    }`}
-                >
-                  20
-                </button>
               </div>
 
               <button
-                disabled={currentPage === 20}
-                onClick={() => setCurrentPage((p) => Math.min(20, p + 1))}
+                disabled={currentPage === totalPages}
+                onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
                 className="px-4 py-2 rounded-xl border border-[#1A3C34] text-[#1A3C34] hover:bg-[#1A3C34] hover:text-white disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:text-[#1A3C34] transition-colors"
               >
                 Next

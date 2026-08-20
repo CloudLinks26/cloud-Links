@@ -27,10 +27,11 @@ export default function KKDaysContent() {
     country: 'India 🇮🇳',
     about: 'KKday is a travel activities and experiences booking platform offering tours, attraction tickets, and local experiences across Asia and beyond, helping travelers discover and book unique things to do at their destination.',
     highlights: [
-      '1%-4% commission on every qualifying booking',
-      'Reporting Time: Daily / Offline',
-      'Wide range of tours, activities & experiences to promote'
-    ]
+  '2% payout on the order sale amount for eligible bookings',
+  'Up to 5% payout on qualifying orders based on applicable conditions',
+  'Reporting Time: Daily / Offline',
+  'Wide range of tours, activities & experiences to promote'
+]
   };
 
   // Toast message state
