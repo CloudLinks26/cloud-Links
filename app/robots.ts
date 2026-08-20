@@ -36,7 +36,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: '/api/',
+        disallow: ['/api/', '/categories', '/blog', '/cookies-policy', '/refund-policy'],
       },
       ...AI_CRAWLERS.map((userAgent) => ({
         userAgent,
