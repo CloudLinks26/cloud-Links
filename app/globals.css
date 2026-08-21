@@ -72,3 +72,61 @@
   transform: translateY(-4px);
   box-shadow: 0 16px 36px -6px rgba(26, 60, 52, 0.12), 0 8px 16px -4px rgba(200, 155, 42, 0.08);
 }
+
+/* Google Translate widget — theme the collapsed trigger pill.
+   The expanded language list is Google's own cross-origin iframe and
+   cannot be restyled from here. */
+.cl-translate .goog-te-gadget {
+  font-family: inherit !important;
+  font-size: 0 !important;
+  line-height: 1 !important;
+}
+
+.cl-translate .goog-te-gadget-simple {
+  background-color: #1A3C34 !important;
+  border: none !important;
+  border-radius: 9999px !important;
+  padding: 6px 14px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  cursor: pointer !important;
+}
+
+.cl-translate .goog-te-gadget-icon {
+  display: none !important;
+}
+
+.cl-translate .goog-te-gadget-simple .goog-te-menu-value {
+  color: #FDFAF4 !important;
+}
+
+.cl-translate .goog-te-gadget-simple .goog-te-menu-value span {
+  color: #FDFAF4 !important;
+  font-family: inherit !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+}
+
+.cl-translate .goog-te-gadget > span > a {
+  display: none !important;
+}
+
+/* Suppress the "This page has been translated" top banner Google injects
+   site-wide once a language is chosen. */
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+.goog-tooltip,
+.goog-tooltip:hover {
+  display: none !important;
+}
+
+.goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
+}

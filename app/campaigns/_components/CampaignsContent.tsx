@@ -632,27 +632,35 @@ export default function CampaignsContent() {
   ];
 
   // FAQs
-  const faqs = [
+ const faqs = [
+  
   {
     question: 'How do I join a campaign?',
     answer: "Sign up for free on CloudsLink, head to the Campaigns section, and choose any brand you'd like to promote. Click “Promote Now” to apply and get your unique affiliate link once approved.",
   },
   {
-    question: 'When do I get paid?',
-    answer: 'Once your shared link is approved and the conversion is validated, your payout will be processed instantly or within 24–48 hours directly to your bank account or UPI ID, including GPay, PhonePe or Paytm.',
-  },
-  {
-    question: 'Is there a minimum payout threshold?',
-    answer: 'Yes. The minimum payout threshold is ₹5,000, after which you can withdraw your confirmed earnings.',
-  },
-  {
-    question: 'Can I promote on Instagram, YouTube, or WhatsApp?',
-    answer: 'Absolutely! Share your CloudsLink affiliate links through Instagram bios, YouTube descriptions, Telegram channels, WhatsApp Status, personal blogs and other permitted platforms.',
+    question: 'Do I Need Approval for Every Campaign?',
+    answer: 'Yes. You need to apply for each campaign you want to participate in. Once you submit your application, campaign approval is generally provided within 24 hours.',
   },
   {
     question: 'Are there any joining fees?',
-    answer: 'No. Joining CloudsLink is completely free. There are no registration fees, subscription charges or hidden deductions.',
+    answer: 'No. Joining CloudsLink is completely free. There are no registration fees, subscription charges, or hidden deductions.',
   },
+  {
+    question: 'Can I promote on Instagram, YouTube, or WhatsApp?',
+    answer: 'Absolutely! Share your CloudsLink affiliate links through Instagram bios, YouTube descriptions, Telegram channels, WhatsApp Status, personal blogs, and other permitted platforms.',
+  },
+  {
+    question: 'When do I get paid?',
+    answer: 'Once your conversion is validated and your available balance meets the minimum threshold, your payout request will be processed directly to your registered bank account via NEFT/IMPS.',
+  },
+  {
+    question: 'Is there a minimum payout threshold?',
+    answer: 'Yes. The minimum payout threshold is ₹5,000. Once reached, you can request a direct withdrawal to your bank account.',
+  },
+  
+  
+  
 ];
 
   return (

@@ -15,8 +15,8 @@ import {
   Search,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
   Sparkles,
-  Filter,
   Link as LinkIcon,
   Share2,
   Calculator,
@@ -50,18 +50,98 @@ export default function HomePageContent() {
   const { onOpenAuth, onOpenLinkGen, searchTerm: externalSearchTerm, showToast: onToast } = useGlobalContext();
   // TopCampaigns state
   const [searchTerm, setSearchTerm] = useState(externalSearchTerm);
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [sortBy, setSortBy] = useState<'commission' | 'rating' | 'popular'>('commission');
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const categories = ['All', 'Fashion', 'Electronics', 'Travel', 'Beauty', 'General'];
+  // Category multi-select dropdown (broad buckets, applied only on "Apply Filters")
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [draftCategories, setDraftCategories] = useState<string[]>([]);
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+  const [categorySearch, setCategorySearch] = useState('');
+
+  // Country multi-select dropdown
+  const [selectedCountries, setSelectedCountries] = useState<string[]>([]);
+  const [draftCountries, setDraftCountries] = useState<string[]>([]);
+  const [isCountryOpen, setIsCountryOpen] = useState(false);
+
+  const CATEGORY_BUCKETS = ['Fashion', 'Beauty', 'Food', 'Home & Living', 'Baby & Kids', 'Software', 'Telecom', 'Lifestyle'];
+
+  const getCategoryBucket = (category: string): string => {
+    if (['Fashion', 'Fashion (Denim & Apparel)', 'Vegan Fashion Accessories'].includes(category)) return 'Fashion';
+    if (['Beauty & Care', 'Cosmetics', 'Skincare', 'Fragrances', 'Oral Care', "Men's Grooming"].includes(category)) return 'Beauty';
+    if (category === 'Food & Snacks') return 'Food';
+    if (['Home & Furnishing', 'Home Decor', 'Ethnic Lifestyle & Home'].includes(category)) return 'Home & Living';
+    if (category === 'Baby & Kids') return 'Baby & Kids';
+    if (category === 'Software') return 'Software';
+    if (['Telecom & Internet Services', 'General'].includes(category)) return 'Telecom';
+    if (category === 'Lifestyle & Accessories') return 'Lifestyle';
+    return category;
+  };
+
+  const COUNTRIES = ['India', 'US'];
+
+  const openCategoryDropdown = () => {
+    setDraftCategories(selectedCategories);
+    setIsCategoryOpen(true);
+    setIsCountryOpen(false);
+  };
+
+  const openCountryDropdown = () => {
+    setDraftCountries(selectedCountries);
+    setIsCountryOpen(true);
+    setIsCategoryOpen(false);
+  };
+
+  const toggleDraftCategory = (bucket: string) => {
+    setDraftCategories((prev) => (prev.includes(bucket) ? prev.filter((b) => b !== bucket) : [...prev, bucket]));
+  };
+
+  const toggleDraftCountry = (country: string) => {
+    setDraftCountries((prev) => (prev.includes(country) ? prev.filter((c) => c !== country) : [...prev, country]));
+  };
+
+  const applyCategoryFilter = () => {
+    setSelectedCategories(draftCategories);
+    setIsCategoryOpen(false);
+  };
+
+  const clearCategoryFilter = () => {
+    setDraftCategories([]);
+    setSelectedCategories([]);
+  };
+
+  const applyCountryFilter = () => {
+    setSelectedCountries(draftCountries);
+    setIsCountryOpen(false);
+  };
+
+  const clearCountryFilter = () => {
+    setDraftCountries([]);
+    setSelectedCountries([]);
+  };
+
+  const getNumericCommission = (commission: string): number => parseFloat(commission.replace(/[^\d.]/g, '')) || 0;
 
   const filteredCampaigns = CAMPAIGNS.filter((camp) => {
     const matchesSearch =
       camp.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       camp.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
       camp.description.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCat = selectedCategory === 'All' || camp.category === selectedCategory;
-    return matchesSearch && matchesCat;
+    const matchesCategory =
+      selectedCategories.length === 0 || selectedCategories.includes(getCategoryBucket(camp.category));
+    const matchesCountry =
+      selectedCountries.length === 0 || selectedCountries.includes(camp.country || 'India');
+    return matchesSearch && matchesCategory && matchesCountry;
+  });
+
+  const sortedCampaigns = [...filteredCampaigns].sort((a, b) => {
+    if (sortBy === 'commission') {
+      return getNumericCommission(b.commission) - getNumericCommission(a.commission);
+    } else if (sortBy === 'rating') {
+      return b.rating - a.rating;
+    } else {
+      return a.name.localeCompare(b.name);
+    }
   });
 
   const scroll = (direction: 'left' | 'right') => {
@@ -224,12 +304,7 @@ export default function HomePageContent() {
                   <span>Find the right brands, create trackable affiliate links, and turn your audience into measurable results.
 </span>
                 </div>
-                <button
-                  onClick={() => onOpenLinkGen()}
-                  className="px-3 py-1.5 rounded-lg bg-[#1A3C34] hover:bg-[#122b25] text-[#C89B2A] font-bold text-xs whitespace-nowrap transition-colors"
-                >
-                  Try Tool ⚡
-                </button>
+                
               </div>
             </div>
 
@@ -357,7 +432,8 @@ export default function HomePageContent() {
             <button
               onClick={() => {
                 setSearchTerm('');
-                setSelectedCategory('All');
+                setSelectedCategories([]);
+                setSelectedCountries([]);
               }}
               className="text-sm font-bold text-[#C89B2A] hover:text-[#b08823] flex items-center gap-1.5 transition-colors self-start md:self-auto"
             >
@@ -366,45 +442,121 @@ export default function HomePageContent() {
             </button>
           </div>
 
-          <div className="space-y-4">
-            <div className="flex flex-col sm:flex-row items-center gap-3">
-              <div className="relative flex-1 w-full">
-                <input
-                  type="text"
-                  placeholder="Search for brands (e.g. Myntra, boAt, MakeMyTrip), categories or products..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-[#FDFAF4] border border-[#E8E2D6] text-[#1A3C34] placeholder:text-[#6B6355] text-sm focus:outline-none focus:ring-2 focus:ring-[#C89B2A] shadow-xs"
-                />
-                <Search className="w-5 h-5 text-[#6B6355] absolute left-4 top-3.5" />
-              </div>
-
-              <button
-                onClick={() => { }}
-                className="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-bold text-sm transition-all shadow-sm flex items-center justify-center gap-2"
-              >
-                <Search className="w-4 h-4" />
-                <span>Search</span>
-              </button>
+          <div className="flex flex-col md:flex-row items-stretch gap-3">
+            {/* Search Bar */}
+            <div className="relative flex-1 shadow-md rounded-xl overflow-hidden bg-[#FDFAF4] border border-[#E8E2D6] focus-within:ring-2 focus-within:ring-[#C89B2A]">
+              <input
+                type="text"
+                placeholder="Search for brands, categories or campaign type..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-5 pr-4 py-3.5 bg-transparent text-[#1A3C34] placeholder:text-[#6B6355] text-sm font-medium focus:outline-none"
+              />
             </div>
 
-            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2 pt-1">
-              <span className="text-xs font-semibold text-[#6B6355] flex items-center gap-1 mr-2 flex-shrink-0">
-                <Filter className="w-3.5 h-3.5 text-[#1A3C34]" />
-                Filter:
-              </span>
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${selectedCategory === cat
-                    ? 'bg-[#1A3C34] text-white shadow-sm'
-                    : 'bg-[#FDFAF4] text-[#6B6355] hover:text-[#1A3C34] border border-[#E8E2D6]'
-                    }`}
-                >
-                  {cat}
-                </button>
-              ))}
+            {/* Category Multi-Select Dropdown */}
+            <div className="relative md:w-56">
+              <button
+                onClick={() => (isCategoryOpen ? setIsCategoryOpen(false) : openCategoryDropdown())}
+                className="w-full flex items-center justify-between gap-2 px-4 py-3.5 rounded-xl bg-[#FDFAF4] border border-[#E8E2D6] text-sm font-semibold text-[#1A3C34] shadow-2xs"
+              >
+                <span className="truncate">
+                  {selectedCategories.length > 0 ? `${selectedCategories.length} Categor${selectedCategories.length > 1 ? 'ies' : 'y'} Selected` : 'Select Category'}
+                </span>
+                <ChevronDown className="w-4 h-4 text-[#6B6355] flex-shrink-0" />
+              </button>
+
+              {isCategoryOpen && (
+                <>
+                  <div className="fixed inset-0 z-30" onClick={() => setIsCategoryOpen(false)} />
+                  <div className="absolute z-40 mt-2 w-72 right-0 md:right-auto bg-white rounded-2xl border border-[#E8E2D6] shadow-xl p-4 space-y-3">
+                    <input
+                      type="text"
+                      placeholder="Search Category"
+                      value={categorySearch}
+                      onChange={(e) => setCategorySearch(e.target.value)}
+                      className="w-full px-3 py-2 rounded-lg border border-[#E8E2D6] text-sm focus:outline-none focus:ring-2 focus:ring-[#C89B2A]"
+                    />
+                    <div className="max-h-56 overflow-y-auto space-y-2.5 pr-1">
+                      {CATEGORY_BUCKETS.filter((b) => b.toLowerCase().includes(categorySearch.toLowerCase())).map((bucket) => (
+                        <label key={bucket} className="flex items-center gap-2.5 text-sm text-[#1A3C34] font-medium cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={draftCategories.includes(bucket)}
+                            onChange={() => toggleDraftCategory(bucket)}
+                            className="w-4 h-4 accent-[#C89B2A] rounded"
+                          />
+                          {bucket}
+                        </label>
+                      ))}
+                    </div>
+                    <div className="flex items-center gap-2 pt-2 border-t border-[#E8E2D6]">
+                      <button onClick={clearCategoryFilter} className="flex-1 py-2 rounded-lg border border-[#1A3C34] text-[#1A3C34] text-xs font-bold hover:bg-[#1A3C34] hover:text-white transition-colors">
+                        Clear
+                      </button>
+                      <button onClick={applyCategoryFilter} className="flex-1 py-2 rounded-lg bg-[#1A3C34] text-white text-xs font-bold hover:bg-[#122b25] transition-colors">
+                        Apply Filters
+                      </button>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
+
+            {/* Country Multi-Select Dropdown */}
+            <div className="relative md:w-48">
+              <button
+                onClick={() => (isCountryOpen ? setIsCountryOpen(false) : openCountryDropdown())}
+                className="w-full flex items-center justify-between gap-2 px-4 py-3.5 rounded-xl bg-[#FDFAF4] border border-[#E8E2D6] text-sm font-semibold text-[#1A3C34] shadow-2xs"
+              >
+                <span className="truncate">
+                  {selectedCountries.length > 0 ? selectedCountries.join(', ') : 'All Countries'}
+                </span>
+                <ChevronDown className="w-4 h-4 text-[#6B6355] flex-shrink-0" />
+              </button>
+
+              {isCountryOpen && (
+                <>
+                  <div className="fixed inset-0 z-30" onClick={() => setIsCountryOpen(false)} />
+                  <div className="absolute z-40 mt-2 w-56 right-0 bg-white rounded-2xl border border-[#E8E2D6] shadow-xl p-4 space-y-3">
+                    <div className="space-y-2.5">
+                      {COUNTRIES.map((country) => (
+                        <label key={country} className="flex items-center gap-2.5 text-sm text-[#1A3C34] font-medium cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={draftCountries.includes(country)}
+                            onChange={() => toggleDraftCountry(country)}
+                            className="w-4 h-4 accent-[#C89B2A] rounded"
+                          />
+                          {country}
+                        </label>
+                      ))}
+                    </div>
+                    <div className="flex items-center gap-2 pt-2 border-t border-[#E8E2D6]">
+                      <button onClick={clearCountryFilter} className="flex-1 py-2 rounded-lg border border-[#1A3C34] text-[#1A3C34] text-xs font-bold hover:bg-[#1A3C34] hover:text-white transition-colors">
+                        Clear
+                      </button>
+                      <button onClick={applyCountryFilter} className="flex-1 py-2 rounded-lg bg-[#1A3C34] text-white text-xs font-bold hover:bg-[#122b25] transition-colors">
+                        Apply Filters
+                      </button>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
+
+            {/* Sort Dropdown */}
+            <div className="relative md:w-auto flex-shrink-0">
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value as 'commission' | 'rating' | 'popular')}
+                className="appearance-none w-full bg-[#FDFAF4] border border-[#E8E2D6] text-[#1A3C34] font-bold text-xs py-3.5 pl-4 pr-9 rounded-xl cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#C89B2A] shadow-2xs"
+              >
+                <option value="commission">Sort By: Highest Commission ▾</option>
+                <option value="rating">Sort By: Highest Rating ▾</option>
+                <option value="popular">Sort By: Brand Name (A-Z) ▾</option>
+              </select>
+              <ChevronDown className="w-4 h-4 text-[#1A3C34] absolute right-3 top-4 pointer-events-none" />
             </div>
           </div>
 
@@ -429,8 +581,8 @@ export default function HomePageContent() {
               ref={scrollContainerRef}
               className="flex items-stretch gap-6 overflow-x-auto no-scrollbar scroll-smooth py-2 px-1"
             >
-              {filteredCampaigns.length > 0 ? (
-                filteredCampaigns.map((camp) => (
+              {sortedCampaigns.length > 0 ? (
+                sortedCampaigns.map((camp) => (
                   <div
                     key={camp.id}
                     className="min-w-[260px] sm:min-w-[280px] flex-shrink-0 bg-[#FDFAF4] rounded-2xl border border-[#E8E2D6] p-6 shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center justify-between snap-start group h-full"
@@ -545,33 +697,7 @@ export default function HomePageContent() {
                       {step.description}
                     </p>
                   </div>
-
-                  <div className="pt-2 w-full">
-                    {idx === 0 && (
-                      <a
-                        href="#campaigns"
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1A3C34] hover:text-[#C89B2A] transition-colors"
-                      >
-                        Browse Top Brands ↓
-                      </a>
-                    )}
-                    {idx === 1 && (
-                      <button
-                        onClick={() => onOpenLinkGen()}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1A3C34] hover:text-[#C89B2A] transition-colors"
-                      >
-                        Try Link Generator ⚡
-                      </button>
-                    )}
-                    {idx === 2 && (
-                      <button
-                        onClick={() => onOpenAuth('signup', 'creator')}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1A3C34] hover:text-[#C89B2A] transition-colors"
-                      >
-                        Get Instant UPI Payout →
-                      </button>
-                    )}
-                  </div>
+            
                 </div>
               );
             })}
@@ -671,13 +797,7 @@ export default function HomePageContent() {
                     </span>
                   </div>
 
-                  <button
-                    onClick={() => onOpenAuth('signup', 'creator')}
-                    className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-all shadow-md flex items-center justify-center gap-2 whitespace-nowrap"
-                  >
-                    Start Earning This Now
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
+                  
                 </div>
               </div>
             </div>

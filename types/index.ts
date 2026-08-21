@@ -9,6 +9,7 @@ export interface Campaign {
   logo: string;
   image: string;
   rating: number;
+  country?: string;
   featured?: boolean;
   popular?: boolean;
   description: string;

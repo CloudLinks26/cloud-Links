@@ -1,9 +1,17 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Tag, Users, Wallet, ShoppingBag, ShieldCheck, Heart, Instagram, Youtube, Linkedin, Twitter, Send, ArrowUp, ChevronRight, Phone, Mail } from 'lucide-react';
+import Script from 'next/script';
+import { Tag, Users, Wallet, ShoppingBag, ShieldCheck, Heart, Instagram, Youtube, Linkedin, Twitter, Send, ArrowUp, ChevronRight, Phone, Mail, Globe } from 'lucide-react';
 import { useGlobalContext } from './GlobalProvider';
+
+declare global {
+  interface Window {
+    google: any;
+    googleTranslateElementInit: () => void;
+  }
+}
 
 export const Footer: React.FC = () => {
   const { onOpenAuth, onOpenLinkGen, isCookieBannerVisible } = useGlobalContext();
@@ -13,8 +21,26 @@ export const Footer: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  useEffect(() => {
+    window.googleTranslateElementInit = () => {
+      new window.google.translate.TranslateElement(
+        {
+          pageLanguage: 'en',
+          includedLanguages: 'en,hi,bn,ta,te,mr,gu,kn,ml,pa',
+          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false,
+        },
+        'google_translate_element'
+      );
+    };
+  }, []);
+
   return (
     <footer className="bg-[#FDFAF4] border-t border-[#E8E2D6] pt-16 pb-12 text-[#1A3C34] relative">
+      <Script
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+        strategy="afterInteractive"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
 
         {/* TOP ROW: Logo & Tagline + 3 Balanced Link Columns */}
@@ -224,19 +250,27 @@ export const Footer: React.FC = () => {
 
           
 
-          {/* Secure Payments & Badges */}
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <span className="flex items-center gap-1.5 text-sm font-semibold text-[#1A3C34]">
-              <ShieldCheck className="w-5 h-5 text-[#C89B2A]" />
-              Secure Payments — 100% Safe & Secure
-            </span>
+          {/* Secure Payments & Badges + Language Switcher */}
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <span className="flex items-center gap-1.5 text-sm font-semibold text-[#1A3C34]">
+                <ShieldCheck className="w-5 h-5 text-[#C89B2A]" />
+                Secure Payments — 100% Safe & Secure
+              </span>
 
-            <div className="flex items-center gap-1.5">
-              {['UPI', 'Paytm', 'VISA', 'Mastercard', 'RuPay'].map((badge) => (
-                <span key={badge} className="px-3 py-1 bg-white border border-[#E8E2D6] rounded text-xs font-extrabold text-[#1A3C34]">
-                  {badge}
-                </span>
-              ))}
+              <div className="flex items-center gap-1.5">
+                {['UPI', 'Paytm', 'VISA', 'Mastercard', 'RuPay'].map((badge) => (
+                  <span key={badge} className="px-3 py-1 bg-white border border-[#E8E2D6] rounded text-xs font-extrabold text-[#1A3C34]">
+                    {badge}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Google Translate Language Switcher */}
+            <div className="flex items-center gap-2">
+              <Globe className="w-4 h-4 text-[#C89B2A]" />
+              <div id="google_translate_element" className="cl-translate" />
             </div>
           </div>
 

@@ -22,7 +22,9 @@ import {
   Globe,
   Users,
   CheckCircle2,
-  Sparkles
+  Sparkles,
+  Rocket,
+  X
 } from 'lucide-react';
 
 export default function HowItWorksContent() {
@@ -32,6 +34,9 @@ export default function HowItWorksContent() {
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
   };
+
+  // Influencers "Coming Soon" popup
+  const [showInfluencerComingSoon, setShowInfluencerComingSoon] = useState(false);
 
   // FAQs List
   const faqs = [
@@ -543,12 +548,12 @@ export default function HowItWorksContent() {
                 </p>
               </div>
 
-              <a
-                href="https://analytics.trackier.io/register.html"
-                className="w-full py-3 px-4 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-colors shadow-2xs mt-4 flex items-center justify-center"
+              <button
+                onClick={() => setShowInfluencerComingSoon(true)}
+                className="w-full py-3 px-4 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-extrabold text-xs transition-colors shadow-2xs mt-4 flex items-center justify-center cursor-pointer"
               >
                 Join Now
-              </a>
+              </button>
             </div>
           </div>
 
@@ -645,8 +650,41 @@ export default function HowItWorksContent() {
         </div>
       </section>
 
+      {/* Influencers "Coming Soon" Popup */}
+      {showInfluencerComingSoon && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1A3C34]/60 backdrop-blur-sm">
+          <div className="relative w-full max-w-sm bg-[#FDFAF4] rounded-2xl shadow-2xl border border-[#E8E2D6] overflow-hidden">
+            <button
+              onClick={() => setShowInfluencerComingSoon(false)}
+              className="absolute top-4 right-4 p-1 text-[#6B6355] hover:text-[#1A3C34] rounded-lg hover:bg-black/5 transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
 
+            <div className="p-8 pt-10 text-center space-y-4">
+              <div className="w-14 h-14 rounded-2xl bg-[#C89B2A]/15 flex items-center justify-center mx-auto">
+                <Rocket className="w-7 h-7 text-[#C89B2A]" />
+              </div>
 
+              <div className="space-y-2">
+                <h3 className="text-xl font-black font-display text-[#1A3C34]">
+                  Coming Soon
+                </h3>
+                <p className="text-sm text-[#6B6355] leading-relaxed">
+                  The dedicated Influencer Program is launching soon. Check back shortly!
+                </p>
+              </div>
+
+              <button
+                onClick={() => setShowInfluencerComingSoon(false)}
+                className="w-full py-3 px-6 rounded-xl bg-[#C89B2A] hover:bg-[#b08823] text-[#1A3C34] font-bold text-sm shadow-md transition-all"
+              >
+                Got It
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );

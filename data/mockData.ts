@@ -11,6 +11,7 @@ export const CAMPAIGNS: Campaign[] = [
     logo: 'https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/3_lnmzlc.png',
     image: 'https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&q=80&w=600',
     rating: 4.9,
+    country: 'India',
     featured: true,
     popular: true,
     description: "India's iconic brand for authentic sweets, namkeens, ready-to-eat meals, and traditional snacks."
@@ -25,6 +26,7 @@ export const CAMPAIGNS: Campaign[] = [
     logo: 'https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/4_dy9x7w.png',
     image: 'https://images.unsplash.com/photo-1607006344380-b6775a0824a7?auto=format&fit=crop&q=80&w=600',
     rating: 4.8,
+    country: 'India',
     featured: true,
     popular: true,
     description: 'Natural, handcrafted skin and body care essentials blended with organic ingredients.'
@@ -39,6 +41,7 @@ export const CAMPAIGNS: Campaign[] = [
     logo: 'https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/1_hdkg1p.png',
     image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=600',
     rating: 4.9,
+    country: 'India',
     featured: true,
     popular: true,
     description: 'Trending makeup and high-performance cosmetics tailored for modern Indian beauty enthusiasts.'
@@ -54,6 +57,7 @@ export const CAMPAIGNS: Campaign[] = [
     logo: 'https://res.cloudinary.com/dqjlffxja/image/upload/v1786188928/2_kvfi70.png',
     image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=600',
     rating: 4.7,
+    country: 'India',
     featured: true,
     popular: true,
     description: 'Dermatologically formulated, melanin-first skincare created specifically for Indian skin types.'
@@ -68,6 +72,7 @@ export const CAMPAIGNS: Campaign[] = [
     logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1786965785/9_bntydx.jpg',
     image: 'https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&q=80&w=600',
     rating: 4.6,
+    country: 'India',
     featured: true,
     popular: true,
     description: 'A curated range of everyday lifestyle products designed for modern, on-the-go living.'
@@ -82,6 +87,7 @@ export const CAMPAIGNS: Campaign[] = [
     logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1786965785/8_h525df.jpg',
     image: 'https://images.unsplash.com/photo-1607006344380-b6775a0824a7?auto=format&fit=crop&q=80&w=600',
     rating: 4.7,
+    country: 'India',
     featured: true,
     popular: true,
     description: 'Premium cotton bedsheets, comforters, and furnishing essentials for the modern Indian home.'
@@ -96,6 +102,7 @@ export const CAMPAIGNS: Campaign[] = [
     logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1786965785/7_dv9gtm.jpg',
     image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=600',
     rating: 4.6,
+    country: 'India',
     featured: true,
     popular: true,
     description: 'Affordable luxury perfumes and fragrances crafted for everyday wear.'
@@ -110,6 +117,7 @@ export const CAMPAIGNS: Campaign[] = [
     logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787059008/AMYDUSK_LOGO_nniudr.webp',
     image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=600',
     rating: 4.8,
+    country: 'India',
     featured: true,
     popular: true,
     description: 'Globally trusted remote desktop software for secure access from anywhere.'
@@ -124,6 +132,7 @@ export const CAMPAIGNS: Campaign[] = [
     logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1786965786/5_khkkoh.jpg',
     image: 'https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&q=80&w=600',
     rating: 4.7,
+    country: 'India',
     featured: true,
     popular: true,
     description: "One of India's leading fashion and lifestyle e-commerce platforms, backed by Reliance Retail."
@@ -138,6 +147,7 @@ export const CAMPAIGNS: Campaign[] = [
     logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1786965785/4_z3qyzx.jpg',
     image: 'https://images.unsplash.com/photo-1607006344380-b6775a0824a7?auto=format&fit=crop&q=80&w=600',
     rating: 4.7,
+    country: 'India',
     featured: true,
     popular: true,
     description: 'Dentist-approved toothpaste, water flossers, and daily oral hygiene essentials.'
@@ -152,6 +162,7 @@ export const CAMPAIGNS: Campaign[] = [
     logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1786965786/3_qruuhh.jpg',
     image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=600',
     rating: 4.7,
+    country: 'India',
     featured: true,
     popular: true,
     description: 'Premium men\'s grooming essentials crafted with natural ingredients.'
@@ -166,6 +177,7 @@ export const CAMPAIGNS: Campaign[] = [
     logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1786965785/2_wm8mdp.jpg',
     image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=600',
     rating: 4.8,
+    country: 'India',
     featured: true,
     popular: true,
     description: "India's largest online destination for baby and kids' products."
@@ -180,6 +192,7 @@ export const CAMPAIGNS: Campaign[] = [
     logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1786965785/1_rmbba3.jpg',
     image: 'https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&q=80&w=600',
     rating: 4.6,
+    country: 'India',
     featured: true,
     popular: true,
     description: 'Thoughtfully designed home decor blending traditional Indian craftsmanship with contemporary style.'
@@ -194,6 +207,7 @@ export const CAMPAIGNS: Campaign[] = [
     logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787058469/levis_okilbg.webp',
     image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=600',
     rating: 4.8,
+    country: 'India',
     featured: true,
     popular: true,
     description: "One of the world's most iconic denim and apparel brands, known for its classic jeans and casual wear."
@@ -208,6 +222,7 @@ export const CAMPAIGNS: Campaign[] = [
     logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787058335/Untitled_design_1_xkltpw.webp',
     image: 'https://images.unsplash.com/photo-1607006344380-b6775a0824a7?auto=format&fit=crop&q=80&w=600',
     rating: 4.7,
+    country: 'India',
     featured: true,
     popular: true,
     description: 'An Indian vegan lifestyle brand known for handcrafted bags, wallets, and cruelty-free accessories.'
@@ -222,6 +237,7 @@ export const CAMPAIGNS: Campaign[] = [
     logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787058732/AJMAL_PERFUME_1_sk2e1z.webp',
     image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=600',
     rating: 4.7,
+    country: 'India',
     featured: true,
     popular: true,
     description: 'A globally renowned name in luxury fragrances, offering attars, perfumes, and oud-based scents.'
@@ -236,6 +252,7 @@ export const CAMPAIGNS: Campaign[] = [
     logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787058738/saadaa_Logo_1_jfodwf.webp',
     image: 'https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&q=80&w=600',
     rating: 4.5,
+    country: 'India',
     featured: true,
     popular: true,
     description: 'A curated collection of ethnic wear and home essentials inspired by Indian craftsmanship.'
@@ -250,6 +267,7 @@ export const CAMPAIGNS: Campaign[] = [
     logo: 'https://res.cloudinary.com/couponsbit/image/upload/v1787058744/Airtel_Broadband_Logo_cznfvm.webp',
     image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=600',
     rating: 4.5,
+    country: 'India',
     featured: true,
     popular: true,
     description: "One of India's leading high-speed internet service providers, offering reliable fiber broadband plans."
